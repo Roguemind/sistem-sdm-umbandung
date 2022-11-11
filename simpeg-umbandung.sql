@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 07:53 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Waktu pembuatan: 11 Nov 2022 pada 08.44
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Struktur dari tabel `account`
 --
 
 CREATE TABLE `account` (
@@ -35,16 +35,17 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `account`
+-- Dumping data untuk tabel `account`
 --
 
 INSERT INTO `account` (`no_pegawai`, `username`, `password`, `role`) VALUES
-('192738712831', 'tendik2', '1231231', 'tendik');
+('123', 'teguh12', '123', 'tendik'),
+('1234', 'ema12', '1234', 'dosen');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dosen`
+-- Struktur dari tabel `dosen`
 --
 
 CREATE TABLE `dosen` (
@@ -55,10 +56,17 @@ CREATE TABLE `dosen` (
   `id_jabatan` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `dosen`
+--
+
+INSERT INTO `dosen` (`no_pegawai`, `jad`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
+('1234', '-', '1235', '001', '123');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan`
+-- Struktur dari tabel `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -67,10 +75,18 @@ CREATE TABLE `jabatan` (
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `jabatan`
+--
+
+INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama`) VALUES
+('123', '101', 'tendik'),
+('1234', '001', 'dosen');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -92,17 +108,17 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pegawai`
+-- Dumping data untuk tabel `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`) VALUES
-('1235', 'ema', 'kp kopo', 'ema@gmail.com', '2022-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '0002'),
-('1245643016', 'Teguh', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '0001');
+('123', 'Teguh', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '0001'),
+('1235', 'ema', 'kp kopo', 'ema@gmail.com', '2022-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '0002');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pejabat`
+-- Struktur dari tabel `pejabat`
 --
 
 CREATE TABLE `pejabat` (
@@ -113,10 +129,18 @@ CREATE TABLE `pejabat` (
   `tahun_menjabat` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `pejabat`
+--
+
+INSERT INTO `pejabat` (`id_pejabat`, `id_jabatan`, `id_pegawai`, `sk`, `tahun_menjabat`) VALUES
+('123', '123', '1235', '01', '2018'),
+('1234', '1234', '1235', '02', '2017');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tendik`
+-- Struktur dari tabel `tendik`
 --
 
 CREATE TABLE `tendik` (
@@ -127,10 +151,17 @@ CREATE TABLE `tendik` (
   `id_jabatan` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tendik`
+--
+
+INSERT INTO `tendik` (`no_pegawai`, `status`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
+('123', '-', '123', '101', '123');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test-login`
+-- Struktur dari tabel `test-login`
 --
 
 CREATE TABLE `test-login` (
@@ -141,7 +172,7 @@ CREATE TABLE `test-login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `test-login`
+-- Dumping data untuk tabel `test-login`
 --
 
 INSERT INTO `test-login` (`username`, `password`, `role`, `email`) VALUES
@@ -150,7 +181,7 @@ INSERT INTO `test-login` (`username`, `password`, `role`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit`
+-- Struktur dari tabel `unit`
 --
 
 CREATE TABLE `unit` (
@@ -159,7 +190,7 @@ CREATE TABLE `unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `unit`
+-- Dumping data untuk tabel `unit`
 --
 
 INSERT INTO `unit` (`id_unit`, `nama`) VALUES
@@ -172,14 +203,14 @@ INSERT INTO `unit` (`id_unit`, `nama`) VALUES
 --
 
 --
--- Indexes for table `account`
+-- Indeks untuk tabel `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`no_pegawai`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `dosen`
+-- Indeks untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`no_pegawai`),
@@ -188,20 +219,20 @@ ALTER TABLE `dosen`
   ADD KEY `fk_id_unit_dosen` (`id_unit`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`),
   ADD KEY `fk_id_unit_jabatan` (`id_unit`);
 
 --
--- Indexes for table `pegawai`
+-- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indexes for table `pejabat`
+-- Indeks untuk tabel `pejabat`
 --
 ALTER TABLE `pejabat`
   ADD PRIMARY KEY (`id_pejabat`),
@@ -209,7 +240,7 @@ ALTER TABLE `pejabat`
   ADD KEY `fk_id_pegawai_pejabat` (`id_pegawai`);
 
 --
--- Indexes for table `tendik`
+-- Indeks untuk tabel `tendik`
 --
 ALTER TABLE `tendik`
   ADD PRIMARY KEY (`no_pegawai`),
@@ -218,23 +249,23 @@ ALTER TABLE `tendik`
   ADD KEY `fk_id_unit` (`id_unit`);
 
 --
--- Indexes for table `test-login`
+-- Indeks untuk tabel `test-login`
 --
 ALTER TABLE `test-login`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `unit`
+-- Indeks untuk tabel `unit`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `dosen`
+-- Ketidakleluasaan untuk tabel `dosen`
 --
 ALTER TABLE `dosen`
   ADD CONSTRAINT `fk_id_jabatan_dosen` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`),
@@ -242,20 +273,20 @@ ALTER TABLE `dosen`
   ADD CONSTRAINT `fk_id_unit_dosen` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
 
 --
--- Constraints for table `jabatan`
+-- Ketidakleluasaan untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD CONSTRAINT `fk_id_unit_jabatan` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
 
 --
--- Constraints for table `pejabat`
+-- Ketidakleluasaan untuk tabel `pejabat`
 --
 ALTER TABLE `pejabat`
   ADD CONSTRAINT `fk_id_jabatan_pejabat` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`),
   ADD CONSTRAINT `fk_id_pegawai_pejabat` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
--- Constraints for table `tendik`
+-- Ketidakleluasaan untuk tabel `tendik`
 --
 ALTER TABLE `tendik`
   ADD CONSTRAINT `fk_id_jabatan` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`),
