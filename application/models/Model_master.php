@@ -1,11 +1,12 @@
 <?php
-    class Model_tendik extends CI_Model{
-        public function getData($id_pegawai){
-            $query = $this->db->query(
-            "SELECT peg.nama, ten.no_pegawai FROM tendik AS ten 
-            LEFT JOIN pegawai AS peg
-            ON ten.id_pegawai = peg.id_pegawai
-            WHERE ten.id_pegawai = ".$id_pegawai);  
-            return $query -> row_array();
+    class Model_master extends CI_Model{
+        public function aksesDB($role, $account_uid){
+            $this->db->select('*');
+            $this->db->from('account');
+            $this->db->join($role, $role.'.no_pegawai = account.no_pegawai');
+            $this->db->join('pegawai', 'pegawai.id_pegawai = '.$role.'.id_pegawai');
+            $this->db->where('account.no_pegawai = '.$account_uid);
+            $query = $this->db->get(); 
+            return $query;
         }
     }

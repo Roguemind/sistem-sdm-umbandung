@@ -1,6 +1,6 @@
 <?php
     class Model_tendik extends CI_Model{
-        public function getAkun($id_pegawai){
+        public function getAccTendik($id_pegawai){
             $query = $this->db->query(
             "SELECT peg.nama, ten.no_pegawai FROM tendik AS ten 
             LEFT JOIN pegawai AS peg

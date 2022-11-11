@@ -54,7 +54,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block"><?= $akun['nama']?></span>
+                            <span class="fw-semibold d-block"><?= $akun['nama'];?></span>
                             <small class="text-muted"><?= $akun['no_pegawai']?></small>
                           </div>
                         </div>

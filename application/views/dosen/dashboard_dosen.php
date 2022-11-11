@@ -48,7 +48,7 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5>Selamat Siang <?= $this->session->userdata('username')?>!</h5>
+                                <h5>Selamat Siang <?= $akun['nama']?>!</h5>
                                 <p class="mb-4">Ayo cek beberapa tugas dan dokumen
                                   penting milikmu, ada kabar bagus!</p>
                                   
