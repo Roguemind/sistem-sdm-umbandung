@@ -19,18 +19,3 @@ class model_login extends CI_Model{
     }
 }
 ?>
-
-Teguh -> Dosen
-Role = dosen
-tabel = Dosen
-
-SELECT * FROM account 
-JOIN dosen 
-ON dosen.no_pegawai = account.no_pegawai 
-JOIN pegawai 
-ON pegawai.id_pegawai = dosen.id_pegawai 
-WHERE account.no_pegawai = 200102102
-
-aksesDB($this->session->userdata('role'),$this->session->userdata('no_pegawai'))->row_array();
-join('database_tujuan','database_tujuan.kolom = tabel')
-dosen.no_pegawai 

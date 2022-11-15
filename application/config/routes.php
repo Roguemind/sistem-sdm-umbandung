@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/dashboard';
 $route['tendik'] = 'tendik/dashboard';
 $route['dosen'] = 'dosen/dashboard';
+$route['pimpinan'] = 'pimpinan/dashboard';
