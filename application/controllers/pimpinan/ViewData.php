@@ -17,11 +17,11 @@ class ViewData extends CI_Controller {
     
     public function datadosen() {
         $data['datadosen'] = $this->Model_pimpinan->getDataDosen();
-        $this->load->view('pimpinan/view_pimpinan',$data);
+        $this->load->view('pimpinan/view_dosen',$data);
     }
     
     public function datatendik() {
         $data['datatendik'] = $this->Model_pimpinan->getDataTendik();
-        $this->load->view('pimpinan/view_pimpinan',$data);
+        $this->load->view('pimpinan/view_tendik',$data);
     }
 }
