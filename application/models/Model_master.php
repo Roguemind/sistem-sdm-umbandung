@@ -9,4 +9,11 @@
             $query = $this->db->get(); 
             return $query;
         }
+
+        public function getUnit(){
+            $this->db->select('*');
+            $this->db->from('unit');
+            $query = $this->db->get(); 
+            return $query -> result_array();
+        }
     }

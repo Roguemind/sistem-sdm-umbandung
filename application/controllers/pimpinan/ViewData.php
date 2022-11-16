@@ -14,7 +14,6 @@ class ViewData extends CI_Controller {
         $this->load->view('pimpinan/view_pimpinan',$data);
     }
 
-    
     public function datadosen() {
         $data['datadosen'] = $this->Model_pimpinan->getDataDosen();
         $this->load->view('pimpinan/view_dosen',$data);
@@ -22,6 +21,7 @@ class ViewData extends CI_Controller {
     
     public function datatendik() {
         $data['datatendik'] = $this->Model_pimpinan->getDataTendik();
+        $data['units'] = $this->Model_master->getUnit();
         $this->load->view('pimpinan/view_tendik',$data);
     }
 }

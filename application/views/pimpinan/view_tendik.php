@@ -1,4 +1,17 @@
-<table border=1>
+<head>
+   <?php $this->load->view('_patrials/head');?>
+   <?php $this->load->view('_patrials/script');?>
+</head>
+<body>
+
+<label>Pilih Jenis Kelamin</label>
+   <select class="form-control" id="select-unit">
+      <option>-- Pilih --</option>
+      <?php foreach ($units as $unit) { ?>
+      <option value = <?= $unit['nama'] ?>><?= $unit['nama'] ?></option>
+      <?php } ?>
+   </select>
+<table border=1 id="tabel-tendik">
    <thead>
       <tr>
          <th>No</th>
@@ -24,3 +37,22 @@
       ?>
    </tbody>
 </table>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#tabel-tendik').DataTable();
+	    function filterData () {
+		    $('#tabel-tendik').DataTable().search(
+		        $('.unitkerja').val()
+		    	).draw();
+		}
+		$('.unitkerja').on('change', function () {
+	        filterData();
+	    });
+	});
+   $('#tabel_tendik').dataTable( {
+      "search": {
+         "search": $('. ') 
+      }
+   } );
+</script>
