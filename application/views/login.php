@@ -75,15 +75,15 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-              <img src="<?= base_url();?>/assets/img/illustrations/logo.png" height="100" 
+              <img src="<?= base_url(); ?>/assets/img/illustrations/logo.png" height="100" 
                 alt="View Badge User" data-app-dark-img="illustrations/logo.png" 
                 data-app-light-img="illustrations/logo.png">
               </div>
               <!-- /Logo -->
               <h4 class="mb-2">Selamat Datang! 👋</h4>
               <p class="mb-4">Masukan Data Diri Anda Di Bawah Ini</p>
-
-              <?= form_open('login/auth_user')?>
+              <?= $this->session->flashdata('pesan'); ?>
+              <?= form_open('login/auth_user') ?>
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input
@@ -139,13 +139,13 @@
     <script src="<?= base_url() ?>assets/vendor/js/bootstrap.js"></script>
     <script src="<?= base_url() ?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="<?= base_url();?>assets/vendor/js/menu.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="<?= base_url();?>assets/js/main.js"></script>
+    <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
     <!-- Page JS -->
 
