@@ -1,6 +1,6 @@
 <head>
-   <?php $this->load->view('_patrials/head');?>
-   <?php $this->load->view('_patrials/script');?>
+   <?php $this->load->view('_partials/head');?>
+   <?php $this->load->view('_partials/script');?>
 </head>
 <body>
 
@@ -8,7 +8,7 @@
    <select class="form-control" id="select-unit">
       <option>-- Pilih --</option>
       <?php foreach ($units as $unit) { ?>
-      <option value = <?= $unit['nama'] ?>><?= $unit['nama'] ?></option>
+      <option value = <?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama'] ?></option>
       <?php } ?>
    </select>
 <table border=1 id="tabel-tendik">
