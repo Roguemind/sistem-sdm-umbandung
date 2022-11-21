@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<label>Pilih Jenis Kelamin</label>
+<label>Pilih Unit Kerja</label>
    <select class="form-control" id="select-unit">
       <option>-- Pilih --</option>
       <?php foreach ($units as $unit) { ?>

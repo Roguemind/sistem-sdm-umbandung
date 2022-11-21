@@ -1,15 +1,23 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
-    function __construct() {
+class Dashboard extends CI_Controller
+{
+    function __construct()
+    {
         parent::__construct();
         $this->load->model('Model_dosen');
         $this->load->model('Model_master');
     }
 
-    public function index() {
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'),$this->session->userdata('no_pegawai'))->row_array();
+    public function index()
+    {
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'))->row_array();
+        $this->load->view('_partials2/head', $data);
+        $this->load->view('dosen/header_dosen', $data);
+        $this->load->view('dosen/sidebar_dosen', $data);
         $this->load->view('dosen/dashboard_dosen', $data);
+        $this->load->view('_partials2/footer');
+        $this->load->view('_partials2/script');
     }
 }

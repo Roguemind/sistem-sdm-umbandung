@@ -11,7 +11,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('login');
+        $this->load->view('login2');
     }
 
     public function auth_user()
@@ -24,7 +24,7 @@ class Login extends CI_Controller
             $this->session->set_userdata($sesi);
             redirect($sesi['role']);
         } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"> Password Salah !! </div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger text-center" role="alert"> Password Salah !! </div>');
             redirect('login');
         }
     }
