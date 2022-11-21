@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php $this->load->view('_partials2/head'); ?>
+  <?php $this->load->view('_partials/head'); ?>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                 <div class="card-body">
 
                   <div class="app-brand justify-content-center d-flex py-3">
-                    <img src="<?= base_url(); ?>/assets2/img/logo.png" height="100" alt="View Badge User" data-app-dark-img="logo.png" data-app-light-img="logo.png">
+                    <img src="<?= base_url(); ?>/assets/img/logo.png" height="100" alt="View Badge User" data-app-dark-img="logo.png" data-app-light-img="logo.png">
                   </div>
 
                   <div class="pt-4 pb-2">
@@ -74,7 +74,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <?php $this->load->view('_partials2/script'); ?>
+  <?php $this->load->view('_partials/script'); ?>
 
 </body>
 

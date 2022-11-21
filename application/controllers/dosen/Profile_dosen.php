@@ -14,11 +14,11 @@ class Profile_dosen extends CI_Controller
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'))->row_array();
         $data['jabatan'] = $this->Model_master->getJabatan();
-        $this->load->view('_partials2/head', $data);
+        $this->load->view('_partials/head', $data);
         $this->load->view('dosen/header_dosen', $data);
         $this->load->view('dosen/sidebar_dosen', $data);
         $this->load->view('dosen/profile_dosen', $data);
-        $this->load->view('_partials2/footer');
-        $this->load->view('_partials2/script');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
     }
 }
