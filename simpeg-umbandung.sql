@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 09:47 AM
+-- Generation Time: Nov 21, 2022 at 05:17 AM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,6 +41,19 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`no_pegawai`, `username`, `password`, `role`) VALUES
 ('123', 'teguh12', '123', 'tendik'),
 ('1234', 'ema12', '1234', 'dosen');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `arsip_tendik`
+--
+
+CREATE TABLE `arsip_tendik` (
+  `no_sk` varchar(50) NOT NULL,
+  `judul` text NOT NULL,
+  `id_unit` varchar(15) NOT NULL,
+  `tipe_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -92,7 +105,8 @@ CREATE TABLE `jabatan` (
 
 INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama`) VALUES
 ('123', '101', 'tendik'),
-('1234', '001', 'dosen');
+('1234', '001', 'dosen'),
+('SP21', 'SP2021', 'Staff Bagian');
 
 -- --------------------------------------------------------
 
@@ -128,7 +142,7 @@ CREATE TABLE `pegawai` (
   `tahun_lulus` int(4) DEFAULT NULL,
   `almamater` varchar(50) DEFAULT NULL,
   `no_sk_pegawai` varchar(50) DEFAULT NULL,
-  `tmt_pegawai` varchar(30) DEFAULT NULL
+  `tmt_pegawai` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -136,8 +150,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`) VALUES
-('123', 'Teguh', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '0001'),
-('1235', 'ema', 'kp kopo', 'ema@gmail.com', '2022-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '0002');
+('01001', 'Faisal', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-10', 'Bekasi', 'L', 'Islam', 'S2', '081315358588', 'Lajang', 2012, 'Universitas Indonesia', '001', '2020-11-03'),
+('123', 'Teguh', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '2022-11-19'),
+('1235', 'ema', 'kp kopo', 'ema@gmail.com', '2001-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03');
 
 -- --------------------------------------------------------
 
@@ -194,27 +209,8 @@ CREATE TABLE `tendik` (
 --
 
 INSERT INTO `tendik` (`no_pegawai`, `status`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
-('123', '-', '123', '101', '123');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `test-login`
---
-
-CREATE TABLE `test-login` (
-  `username` varchar(32) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` varchar(1) NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `test-login`
---
-
-INSERT INTO `test-login` (`username`, `password`, `role`, `email`) VALUES
-('test', '123', '1', 'test@gmail.com');
+('123', '-', '123', '101', '123'),
+('2001020', 'Y', '01001', 'SP2021', 'SP21');
 
 -- --------------------------------------------------------
 
@@ -224,17 +220,18 @@ INSERT INTO `test-login` (`username`, `password`, `role`, `email`) VALUES
 
 CREATE TABLE `unit` (
   `id_unit` varchar(15) NOT NULL,
-  `nama` varchar(50) NOT NULL
+  `nama_unit` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unit`
 --
 
-INSERT INTO `unit` (`id_unit`, `nama`) VALUES
+INSERT INTO `unit` (`id_unit`, `nama_unit`) VALUES
 ('001', 'Saintek'),
 ('002', 'Soshum'),
-('101', 'Sistem Informasi');
+('101', 'Sistem Informasi'),
+('SP2021', 'Sarana dan Prasarana');
 
 --
 -- Indexes for dumped tables
@@ -306,12 +303,6 @@ ALTER TABLE `tendik`
   ADD UNIQUE KEY `id_pegawai` (`id_pegawai`),
   ADD KEY `fk_id_jabatan` (`id_jabatan`),
   ADD KEY `fk_id_unit` (`id_unit`);
-
---
--- Indexes for table `test-login`
---
-ALTER TABLE `test-login`
-  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `unit`

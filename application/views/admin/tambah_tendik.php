@@ -72,9 +72,9 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control form-control-user" id="unit-kerja" name="unit-kerja" placeholder="Unit Kerja">
-                                    <option>-- Pilih --</option>
+                                    <option selected disabled>-- Pilih --</option>
                                     <?php foreach ($units as $unit) { ?>
-                                    <option value = <?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama'] ?></option>
+                                    <option value = <?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama_unit'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
