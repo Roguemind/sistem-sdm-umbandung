@@ -20,4 +20,10 @@ class Dashboard extends CI_Controller
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
     }
+
+    public function melihatSk()
+    {
+        $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
+        $this->load->view('dosen/melihat_sk', $data);
+    }
 }

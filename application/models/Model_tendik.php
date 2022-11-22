@@ -11,4 +11,12 @@ class Model_tendik extends CI_Model
         );
         return $query->row_array();
     }
+    public function getArsip_tendik($role)
+    {
+        $this->db->select('*');
+        $this->db->from('arsip_tendik');
+        $this->db->join($role, $role . '.id_unit = arsip_tendik.id_unit');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

@@ -13,11 +13,11 @@ class Profile_tendik extends CI_Controller
     public function index()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'))->row_array();
-        $this->load->view('_partials2/head', $data);
+        $this->load->view('_partials/head', $data);
         $this->load->view('tendik/header_tendik', $data);
         $this->load->view('tendik/sidebar_tendik', $data);
         $this->load->view('tendik/profile_tendik', $data);
-        $this->load->view('_partials2/footer');
-        $this->load->view('_partials2/script');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
     }
 }

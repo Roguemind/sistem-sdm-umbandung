@@ -42,9 +42,19 @@ class Dashboard extends CI_Controller
 
     public function tambahTendik()
     {
-        $data['units'] = $this->Model_admin->getUnit();
-        $data['jabatans'] = $this->Model_admin->getJabatan();
-        $this->load->view('admin/tambah_tendik', $data);
+        $this->load->view('admin/tambah_tendik');
+    }
+
+    public function fakultas()
+    {
+        $dataUnit['listf'] = $this->Model_admin->getUnit();
+        $this->load->view('admin/fakultas', $dataUnit);
+    }
+
+    public function tambahSk()
+    {
+        $data['lista'] = $this->Model_master->getUnit();
+        $this->load->view('admin/tambah_sk', $data);
     }
 
     public function aksiTambahPegawai()
@@ -128,53 +138,31 @@ class Dashboard extends CI_Controller
 
     public function aksiTambahTendik()
     {
-        $no_pegawai = $this->input->POST('no_pegawai');
-        $id_pegawai = $this->input->POST('id_pegawai');
-        $nama = $this->input->POST('nama');
-        $alamat = $this->input->POST('alamat');
-        $email = $this->input->POST('email');
-        $tanggal_lahir = $this->input->POST('tanggal_lahir');
-        $tempat_lahir = $this->input->POST('tempat_lahir');
-        $jenis_kelamin = $this->input->POST('jenis_kelamin');
-        $agama = $this->input->POST('agama');
-        $pendidikan = $this->input->POST('pendidikan');
-        $kontak = $this->input->POST('kontak');
-        $status_pernikahan = $this->input->POST('status_pernikahan');
-        $tahun_lulus = $this->input->POST('tahun_lulus');
-        $almamater = $this->input->POST('almamater');
-        $unit = $this->input->POST('unit-kerja');
-        $jabatan = $this->input->POST('jabatan');
-        $no_sk_pegawai = $this->input->POST('no_sk_pegawai');
-        $tmt_pegawai = $this->input->POST('tmt_pegawai');
+        $id_jabatan = $this->input->POST('id_jabatan');
+        $nama_jabatan = $this->input->POST('nama_jabatan');
 
-        $dataPegawai = array(
-            'id_pegawai' => $id_pegawai,
-            'nama' => $nama,
-            'alamat' => $alamat,
-            'email' => $email,
-            'tanggal_lahir' => $tanggal_lahir,
-            'tempat-lahir' => $tempat_lahir,
-            'jenis_kelamin' => $jenis_kelamin,
-            'agama' => $agama,
-            'pendidikan' => $pendidikan,
-            'kontak' => $kontak,
-            'status_pernikahan' => $status_pernikahan,
-            'tahun_lulus' => $tahun_lulus,
-            'almamater' => $almamater,
-            'no_sk_pegawai' => $no_sk_pegawai,
-            'tmt_pegawai' => $tmt_pegawai,
+        $dataJabatan = array(
+            'id_jabatan' => $id_jabatan,
+            'nama_jabatan' => $nama_jabatan
         );
-
-        $dataTendik = array(
-            'no_pegawai' => $no_pegawai,
-            'id_pegawai' => $id_pegawai,
-            'id_unit' => $unit,
-            'id_jabatan' => $jabatan,
-        );
-
-        $this->Model_admin->simpanDataPegawai($dataPegawai);
-        $this->Model_admin->simpanDataTendik($dataTendik);
+        $this->Model_admin->simpanDataJabatan($dataJabatan);
         redirect('admin/dashboard');
     }
-    
+
+    public function aksiSk()
+    {
+        $no_sk = $this->input->POST('no_sk');
+        $judul = $this->input->POST('judul');
+        $id_unit = $this->input->POST('unit-    kerja');
+        $tipe_surat = $this->input->POST('tipe_surat');
+
+        $dataSk = array(
+            'no_sk' => $no_sk,
+            'judul' => $judul,
+            'id_unit' => $id_unit,
+            'tipe_surat' => $tipe_surat
+        );
+        $this->Model_admin->tambahSk($dataSk);
+        redirect('admin/dashboard');
+    }
 }
