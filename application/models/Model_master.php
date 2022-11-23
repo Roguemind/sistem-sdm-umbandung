@@ -9,21 +9,35 @@ class Model_master extends CI_Model
         $this->db->join('pegawai', 'pegawai.id_pegawai = ' . $role . '.id_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
-        return $query;
+        return $query->row_array();
     }
 
-    public function getUnit()
+    public function getUnit($role, $account_uid)
     {
         $this->db->select('*');
-        $this->db->from('unit');
+        $this->db->from('account');
+        $this->db->join($role, $role . '.no_pegawai = account.no_pegawai');
+        $this->db->join('unit', 'unit.id_unit = ' . $role . '.id_unit');
+        $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->row_array();
     }
-    public function getJabatan()
+
+    public function getJabatan($role, $account_uid)
     {
         $this->db->select('*');
-        $this->db->from('jabatan');
+        $this->db->from('account');
+        $this->db->join($role, $role . '.no_pegawai = account.no_pegawai');
+        $this->db->join('jabatan', 'jabatan.id_jabatan = ' . $role . '.id_jabatan');
+        $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->row_array();
+    }
+
+    public function setProfile($id, $data)
+    {
+        $this->db->where('id_pegawai', $id);
+        $query = $this->db->get('pegawai',$data);
+        return $query->row_array();
     }
 }

@@ -153,7 +153,7 @@ class Dashboard extends CI_Controller
     {
         $no_sk = $this->input->POST('no_sk');
         $judul = $this->input->POST('judul');
-        $id_unit = $this->input->POST('unit-    kerja');
+        $id_unit = $this->input->POST('unit-kerja');
         $tipe_surat = $this->input->POST('tipe_surat');
 
         $dataSk = array(
