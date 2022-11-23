@@ -19,4 +19,9 @@ class Model_dosen extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function simpancuti($datacuti)
+    {
+        return $this->db->insert('pengajuan', $datacuti);
+    }
 }

@@ -11,6 +11,7 @@ class Model_tendik extends CI_Model
         );
         return $query->row_array();
     }
+
     public function getArsip_tendik($role)
     {
         $this->db->select('*');
@@ -18,5 +19,10 @@ class Model_tendik extends CI_Model
         $this->db->join($role, $role . '.id_unit = arsip_tendik.id_unit');
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    public function simpancuti($datacuti)
+    {
+        return $this->db->insert('pengajuan', $datacuti);
     }
 }

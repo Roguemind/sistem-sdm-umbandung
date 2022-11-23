@@ -42,9 +42,9 @@ class Dashboard extends CI_Controller
 
     public function tambahTendik()
     {
-        $data['units']= $this->Model_admin->getUnit();
-        $data['jabatans']= $this->Model_admin->getJabatan();
-        $this->load->view('admin/tambah_tendik',$data);
+        $data['units'] = $this->Model_admin->getUnit();
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $this->load->view('admin/tambah_tendik', $data);
     }
 
     public function fakultas()
@@ -55,7 +55,7 @@ class Dashboard extends CI_Controller
 
     public function tambahSk()
     {
-        $data['lista'] = $this->Model_master->getUnit();
+        $data['lista'] = $this->Model_admin->getUnit();
         $this->load->view('admin/tambah_sk', $data);
     }
 

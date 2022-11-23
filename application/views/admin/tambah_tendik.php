@@ -74,7 +74,7 @@
                                 <select class="form-control form-control-user" id="unit-kerja" name="unit-kerja" placeholder="Unit Kerja">
                                     <option selected disabled>-- Pilih Unit--</option>
                                     <?php foreach ($units as $unit) { ?>
-                                    <option value = <?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama_unit'] ?></option>
+                                        <option value=<?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama_unit'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -82,7 +82,7 @@
                                 <select class="form-control form-control-user" id="jabatan" name="jabatan" placeholder="Jabatan">
                                     <option selected disabled>-- Pilih Jabatan --</option>
                                     <?php foreach ($jabatans as $jabatan) { ?>
-                                    <option value = <?=$jabatan['id_jabatan'] ?>><?= $jabatan['id_jabatan'] ?> - <?= $jabatan['nama_jabatan'] ?></option>
+                                        <option value=<?= $jabatan['id_jabatan'] ?>><?= $jabatan['id_jabatan'] ?> - <?= $jabatan['nama'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>

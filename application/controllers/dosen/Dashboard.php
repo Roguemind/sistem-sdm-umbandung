@@ -26,4 +26,26 @@ class Dashboard extends CI_Controller
         $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
         $this->load->view('dosen/melihat_sk', $data);
     }
+    public function cuti()
+    {
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $this->load->view('tendik/pengajuan_cuti', $data);
+    }
+
+    public function aksicuti()
+    {
+        $id_pegawai = $this->input->POST('id_pegawai');
+        $nama = $this->input->POST('nama_cuti');
+        $jangka_waktu = $this->input->POST('jangka_waktu');
+
+        $datacuti = array(
+            'id_pegawai' => $id_pegawai,
+            'jangka_waktu' => $jangka_waktu,
+            'nama_cuti' => $nama,
+
+        );
+
+        $this->Model_dosen->simpancuti($datacuti);
+        redirect('dosen/dashboard');
+    }
 }
