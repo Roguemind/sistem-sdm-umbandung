@@ -48,9 +48,7 @@ class Profile_dosen extends CI_Controller
             'kontak' => $kontak,
             'email' => $email,
         );
-
-        $this->db->where('id_pegawai', $nidn);
-        $this->db->update('pegawai',$dataPegawai);
+        $this->db->update('pegawai',$dataPegawai, ['id_pegawai' => $nidn]);
         redirect('dosen/profile_dosen');
     }
 }
