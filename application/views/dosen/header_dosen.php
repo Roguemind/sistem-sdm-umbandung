@@ -2,8 +2,8 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-            <img src="<?= base_url(); ?>assets2/img/LogoUMB.png" alt="">
+        <a href="<?= base_url('dosen/dashboard'); ?>" class="logo d-flex align-items-center">
+            <img src= "<?= base_url(); ?>assets/img/LogoUMB.png" alt="">
         </a>
     </div>
     <div>
@@ -112,7 +112,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="<?= base_url(); ?>assets2/img/messages-1.jpg" alt="" class="rounded-circle">
+                            <img src="<?= base_url(); ?>assets/img/messages-1.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>Maria Hudson</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -126,7 +126,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="<?= base_url(); ?>assets2/img/messages-2.jpg" alt="" class="rounded-circle">
+                            <img src="<?= base_url(); ?>assets/img/messages-2.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>Anna Nelson</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -140,7 +140,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="<?= base_url(); ?>assets2/img/messages-3.jpg" alt="" class="rounded-circle">
+                            <img src="<?= base_url(); ?>assets/img/messages-3.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>David Muldon</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -163,7 +163,7 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="<?= base_url(); ?>assets2/img/profile-img1.png" alt="Profile" class="rounded-circle">
+                    <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2"><?= $akun['nama']; ?></span>
                 </a><!-- End Profile Iamge Icon -->
 

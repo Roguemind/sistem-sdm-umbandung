@@ -3,15 +3,7 @@
    <?php $this->load->view('_partials/script');?>
 </head>
 <body>
-
-<label>Pilih Unit Kerja</label>
-   <select class="form-control" id="select-unit">
-      <option>-- Pilih --</option>
-      <?php foreach ($units as $unit) { ?>
-      <option value = <?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama'] ?></option>
-      <?php } ?>
-   </select>
-<table border=1 id="tabel-tendik">
+<table class="table table-striped" id="tabel_tendik">
    <thead>
       <tr>
          <th>No</th>
@@ -40,9 +32,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-	    $('#tabel-tendik').DataTable();
+	    $('#tabel_tendik').DataTable();
 	    function filterData () {
-		    $('#tabel-tendik').DataTable().search(
+		    $('#tabel_tendik').DataTable().search(
 		        $('.unitkerja').val()
 		    	).draw();
 		}

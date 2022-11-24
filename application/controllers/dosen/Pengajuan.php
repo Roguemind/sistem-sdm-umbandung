@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Pengajuan extends CI_Controller
 {
     function __construct()
     {
@@ -13,34 +13,24 @@ class Dashboard extends CI_Controller
     public function index()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
         $this->load->view('_partials/head', $data);
         $this->load->view('dosen/header_dosen', $data);
         $this->load->view('dosen/sidebar_dosen', $data);
-        $this->load->view('dosen/dashboard_dosen', $data);
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
+        $this->load->view('dosen/melihat_sk', $data);
     }
 
-    public function cuti()
+    public function melihatSk()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
-        $this->load->view('tendik/pengajuan_cuti', $data);
-    }
-
-    public function aksicuti()
-    {
-        $id_pegawai = $this->input->POST('id_pegawai');
-        $nama = $this->input->POST('nama_cuti');
-        $jangka_waktu = $this->input->POST('jangka_waktu');
-
-        $datacuti = array(
-            'id_pegawai' => $id_pegawai,
-            'jangka_waktu' => $jangka_waktu,
-            'nama_cuti' => $nama,
-
-        );
-
-        $this->Model_dosen->simpancuti($datacuti);
-        redirect('dosen/dashboard');
+        $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
+        $this->load->view('_partials/head', $data);
+        $this->load->view('dosen/header_dosen', $data);
+        $this->load->view('dosen/sidebar_dosen', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('dosen/melihat_sk', $data);
     }
 }

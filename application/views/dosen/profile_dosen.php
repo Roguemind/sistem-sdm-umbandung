@@ -130,7 +130,7 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form method="POST" action="<?= base_url('dosen/profile_dosen/aksieditprofile'); ?>">
+                                    <form method="POST" action="<?= base_url('dosen/profile_dosen/aksiEditProfile'); ?>">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
@@ -145,14 +145,14 @@
                                         <div class="row mb-3">
                                             <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nama" type="text" class="form-control" id="nama" value=<?= $akun['nama']?> readonly>
+                                                <input name="nama" type="text" class="form-control" id="nama" value=<?= $akun['nama']?> disabled>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="nik" class="col-md-4 col-lg-3 col-form-label">NIDN</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="nidn" value=<?= $akun['id_pegawai']?> readonly>
+                                                <input name="nidn" type="text" class="form-control" id="nidn" value=<?= $akun['id_pegawai']?> disabled>
                                             </div>
                                         </div>
 
@@ -180,7 +180,7 @@
                                         <div class="row mb-3">
                                             <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="jk" type="text" class="form-control" id="jk" value=<?= $akun['jenis_kelamin']?> readonly>
+                                                <input name="jk" type="text" class="form-control" id="jk" value=<?= $akun['jenis_kelamin']?> disabled>
                                             </div>
                                         </div>
 
@@ -194,14 +194,14 @@
                                         <div class="row mb-3">
                                             <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Dosen Prodi</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="prodi" type="text" class="form-control" id="prodi" value=<?= $akun['id_unit']?> readonly>
+                                                <input name="prodi" type="text" class="form-control" id="prodi" value=<?= $akun['id_unit']?> disabled>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="jabatan" type="text" class="form-control" id="jabatan" value=<?= $akun['id_jabatan']?> readonly>
+                                                <input name="jabatan" type="text" class="form-control" id="jabatan" value=<?= $akun['id_jabatan']?> disabled>
                                             </div>
                                         </div>
 
@@ -319,7 +319,6 @@
 
                             </div>
                         </div>
-
                     </div>
                 </div>
         </section>
