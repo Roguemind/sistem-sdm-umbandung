@@ -16,12 +16,7 @@ class Profile_dosen extends CI_Controller
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
         $data['jabatan'] = $this->Model_master->getJabatan($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
         $data['unit'] = $this->Model_master->getUnit($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
-        $this->load->view('_partials/head', $data);
-        $this->load->view('dosen/header_dosen', $data);
-        $this->load->view('dosen/sidebar_dosen', $data);
         $this->load->view('dosen/profile_dosen', $data);
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/script');
     }
 
     public function aksiEditProfile()

@@ -1,332 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php $this->load->view('_partials/head'); ?>
+</head>
+
 <body>
-    <main id="main" class="main">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
 
-        <div class="pagetitle">
-            <h1>Profile</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Users</li>
-                    <li class="breadcrumb-item active">Profile</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
+        <!-- Header -->
+        <?php $this->load->view('_partials/header_dosen'); ?>
+        <!-- /Header -->
 
-        <!-- #main -->
-        <section class="section profile">
-            <div class="row">
-                <div class="col-xl-4">
+        <!-- Sidebar -->
+        <?php $this->load->view('_partials/sidebar_dosen'); ?>
+        <!-- /Sidebar -->
 
-                    <div class="card">
-                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+        <!-- Page Wrapper -->
+        <div class="page-wrapper">
 
-                            <img src= <?=$akun['foto_peg']?> alt="Profile" class="rounded-circle">
-                            <h2><?= $akun['nama']; ?></h2>
-                            <h3>Kepala Bagian Prodi</h3>
+            <!-- Page Content -->
+            <div class="content container-fluid">
 
-                            <div class="social-links mt-2">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Profil</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="<?= base_url('dosen'); ?>">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Profil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="profile-view">
+                                    <div class="profile-img-wrap">
+                                        <div class="profile-img">
+                                            <a href="#"><img alt="" src="assets/img/profiles/avatar-03.jpg"></a>
+                                        </div>
+                                    </div>
+                                    <div class="profile-basic">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="profile-info-left">
+                                                    <h3 class="user-name m-t-0 mb-0"><?= $akun['nama']; ?></h3>
+                                                    <h6 class="text-muted"><?= $unit['nama_unit']; ?></h6>
+                                                    <small class="text-muted"><?= $jabatan['nama_jabatan']; ?></small>
+                                                    <div class="staff-id">NIDN : <?= $akun['no_pegawai'];?></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <div class="title">No. HP:</div>
+                                                        <div class="text"><a href=""><?= $akun['kontak']; ?></a></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Email:</div>
+                                                        <div class="text"><a href=""><?= $akun['email']; ?></a></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Tanggal Lahir:</div>
+                                                        <div class="text"><?= $akun['tanggal_lahir']; ?></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Alamat:</div>
+                                                        <div class="text"><?= $akun['alamat']; ?></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="title">Jenis Kelamin:</div>
+                                                        <div class="text"><?= $akun['jenis_kelamin']; ?></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pro-edit"><a data-target="#profile_info" data-toggle="modal" class="edit-icon" href="#"><i class="fa fa-pencil"></i></a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-xl-8">
+                <div class="tab-content">
 
-                    <div class="card">
-                        <div class="card-body pt-3">
-                            <!-- Bordered Tabs -->
-                            <ul class="nav nav-tabs nav-tabs-bordered">
-
-                                <li class="nav-item">
-                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Profile</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rekam-pendidikan">Rekam Pendidikan</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dokumen-kerja">Dokumen Kerja</button>
-                                </li>
-
-                            </ul>
-                            <div class="tab-content pt-2">
-
-                                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-
-                                    <h5 class="card-title">Informasi Pribadi</h5>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nama'] ?></div>
+                    <!-- Profile Info Tab -->
+                    <div id="emp_profile" class="pro-overview tab-pane fade show active">
+                        <div class="row">
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Informasi Pribadi <a href="#" class="edit-icon" data-toggle="modal" data-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Nama Lengkap</div>
+                                                <div class="text"><?= $akun['nama']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">NIK</div>
+                                                <div class="text"><?= $akun['id_pegawai']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">NIDN</div>
+                                                <div class="text"><?= $akun['no_pegawai']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Tanggal Lahir</div>
+                                                <div class="text"><?= $akun['tempat-lahir']; ?>, <?= $akun['tanggal_lahir']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Kewarganegaraan</div>
+                                                <div class="text">Indonesia</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Jenis Kelamin</div>
+                                                <div class="text"><?= $akun['jenis_kelamin']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Agama</div>
+                                                <div class="text"><?= $akun['agama']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Alamat</div>
+                                                <div class="text"><?= $akun['alamat']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Dosen Prodi</div>
+                                                <div class="text"><?= $unit['nama_unit']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Jabatan Struktural</div>
+                                                <div class="text"><?= $jabatan['nama_jabatan']; ?></div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Jabatan Fungsional</div>
+                                                <div class="text">-</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Pangkat/Golongan</div>
+                                                <div class="text">-</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Status Pernikahan</div>
+                                                <div class="text">Menikah</div>
+                                            </li>
+                                        </ul>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">NIK</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nik']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Tempat Lahir</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Tanggal Lahir</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tanggal_lahir']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Agama</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['agama']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Dosen Prodi</div>
-                                        <div class="col-lg-9 col-md-8"><?= $unit['nama_unit']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Jabatan</div>
-                                        <div class="col-lg-9 col-md-8"><?= $jabatan['nama_jabatan']; ?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Alamat</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['alamat']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Phone</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['kontak']?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['email']?></div>
-                                    </div>
-
                                 </div>
+                            </div>
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Dokumen Kerja <a href="#" class="edit-icon" data-toggle="modal" data-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
+                                        <h5 class="section-title">Primary</h5>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Name</div>
+                                                <div class="text">John Doe</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Relationship</div>
+                                                <div class="text">Father</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Phone </div>
+                                                <div class="text">9876543210, 9876543210</div>
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <h5 class="section-title">Secondary</h5>
+                                        <ul class="personal-info">
+                                            <li>
+                                                <div class="title">Name</div>
+                                                <div class="text">Karen Wills</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Relationship</div>
+                                                <div class="text">Brother</div>
+                                            </li>
+                                            <li>
+                                                <div class="title">Phone </div>
+                                                <div class="text">9876543210, 9876543210</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Rekam Pendidikan <a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
+                                        <div class="experience-box">
+                                            <ul class="experience-list">
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name">International College of Arts and Science (UG)</a>
+                                                            <div>Bsc Computer Science</div>
+                                                            <span class="time">2000 - 2003</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name">International College of Arts and Science (PG)</a>
+                                                            <div>Msc Computer Science</div>
+                                                            <span class="time">2000 - 2003</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex">
+                                <div class="card profile-box flex-fill">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Pengalaman <a href="#" class="edit-icon" data-toggle="modal" data-target="#experience_info"><i class="fa fa-pencil"></i></a></h3>
+                                        <div class="experience-box">
+                                            <ul class="experience-list">
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name">Web Designer at Zen Corporation</a>
+                                                            <span class="time">Jan 2013 - Present (5 years 2 months)</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name">Web Designer at Ron-tech</a>
+                                                            <span class="time">Jan 2013 - Present (5 years 2 months)</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name">Web Designer at Dalt Technology</a>
+                                                            <span class="time">Jan 2013 - Present (5 years 2 months)</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Profile Info Tab -->
 
-                                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                    <!-- Projects Tab -->
+                    <div class="tab-pane fade" id="emp_projects">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown profile-action">
+                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a data-target="#edit_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                        <h4 class="project-title"><a href="project-view.html">Office Management</a></h4>
+                                        <small class="block text-ellipsis m-b-15">
+                                            <span class="text-xs">1</span> <span class="text-muted">open tasks, </span>
+                                            <span class="text-xs">9</span> <span class="text-muted">tasks completed</span>
+                                        </small>
+                                        <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industry. When an unknown printer took a galley of type and
+                                            scrambled it...
+                                        </p>
+                                        <div class="pro-deadline m-b-15">
+                                            <div class="sub-title">
+                                                Deadline:
+                                            </div>
+                                            <div class="text-muted">
+                                                17 Apr 2019
+                                            </div>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Project Leader :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Team :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="all-users">+15</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                        <div class="progress progress-xs mb-0">
+                                            <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <!-- Profile Edit Form -->
-                                    <form method="POST" action="<?= base_url('dosen/profile_dosen/aksiEditProfile'); ?>">
-                                        <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <img src= <?= $akun['foto_peg']?> alt="Profile" name="foto_peg">
-                                                <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                            <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown profile-action">
+                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a data-target="#edit_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                        <h4 class="project-title"><a href="project-view.html">Project Management</a></h4>
+                                        <small class="block text-ellipsis m-b-15">
+                                            <span class="text-xs">2</span> <span class="text-muted">open tasks, </span>
+                                            <span class="text-xs">5</span> <span class="text-muted">tasks completed</span>
+                                        </small>
+                                        <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industry. When an unknown printer took a galley of type and
+                                            scrambled it...
+                                        </p>
+                                        <div class="pro-deadline m-b-15">
+                                            <div class="sub-title">
+                                                Deadline:
+                                            </div>
+                                            <div class="text-muted">
+                                                17 Apr 2019
+                                            </div>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Project Leader :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Team :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="all-users">+15</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                        <div class="progress progress-xs mb-0">
+                                            <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown profile-action">
+                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a data-target="#edit_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                        <h4 class="project-title"><a href="project-view.html">Video Calling App</a></h4>
+                                        <small class="block text-ellipsis m-b-15">
+                                            <span class="text-xs">3</span> <span class="text-muted">open tasks, </span>
+                                            <span class="text-xs">3</span> <span class="text-muted">tasks completed</span>
+                                        </small>
+                                        <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industry. When an unknown printer took a galley of type and
+                                            scrambled it...
+                                        </p>
+                                        <div class="pro-deadline m-b-15">
+                                            <div class="sub-title">
+                                                Deadline:
+                                            </div>
+                                            <div class="text-muted">
+                                                17 Apr 2019
+                                            </div>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Project Leader :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Team :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="all-users">+15</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                        <div class="progress progress-xs mb-0">
+                                            <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown profile-action">
+                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a data-target="#edit_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                        <h4 class="project-title"><a href="project-view.html">Hospital Administration</a></h4>
+                                        <small class="block text-ellipsis m-b-15">
+                                            <span class="text-xs">12</span> <span class="text-muted">open tasks, </span>
+                                            <span class="text-xs">4</span> <span class="text-muted">tasks completed</span>
+                                        </small>
+                                        <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industry. When an unknown printer took a galley of type and
+                                            scrambled it...
+                                        </p>
+                                        <div class="pro-deadline m-b-15">
+                                            <div class="sub-title">
+                                                Deadline:
+                                            </div>
+                                            <div class="text-muted">
+                                                17 Apr 2019
+                                            </div>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Project Leader :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="project-members m-b-15">
+                                            <div>Team :</div>
+                                            <ul class="team-members">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Richard Miles"><img alt="" src="assets/img/profiles/avatar-09.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" title="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-05.jpg"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="all-users">+15</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                        <div class="progress progress-xs mb-0">
+                                            <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Projects Tab -->
+
+                    <!-- Bank Statutory Tab -->
+                    <div class="tab-pane fade" id="bank_statutory">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"> Basic Salary Information</h3>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Salary basis <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select salary basis type</option>
+                                                    <option>Hourly</option>
+                                                    <option>Daily</option>
+                                                    <option>Weekly</option>
+                                                    <option>Monthly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Salary amount <small class="text-muted">per month</small></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Type your salary amount" value="0.00">
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nama" type="text" class="form-control" id="nama" value=<?= $akun['nama']?> disabled>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Payment type</label>
+                                                <select class="select">
+                                                    <option>Select payment type</option>
+                                                    <option>Bank transfer</option>
+                                                    <option>Check</option>
+                                                    <option>Cash</option>
+                                                </select>
                                             </div>
                                         </div>
-
-                                        <div class="row mb-3">
-                                            <label for="nik" class="col-md-4 col-lg-3 col-form-label">NIDN</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="nidn" value=<?= $akun['id_pegawai']?> disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="nik" value=<?= $akun['nik']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="tempat_lahir" class="col-md-4 col-lg-3 col-form-label">Tempat Lahir</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value=<?= $akun['tempat-lahir']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="tanggal_lahir" class="col-md-4 col-lg-3 col-form-label">Tanggal Lahir</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="tanggal_lahir" type="date" class="form-control" id="tanggal_lahir" value=<?= $akun['tanggal_lahir']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="jk" type="text" class="form-control" id="jk" value=<?= $akun['jenis_kelamin']?> disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="agama" class="col-md-4 col-lg-3 col-form-label">Agama</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="agama" type="text" class="form-control" id="agama" value=<?= $akun['agama']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Dosen Prodi</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="prodi" type="text" class="form-control" id="prodi" value=<?= $akun['id_unit']?> disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="jabatan" type="text" class="form-control" id="jabatan" value=<?= $akun['id_jabatan']?> disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="pangkat" class="col-md-4 col-lg-3 col-form-label">Pangkat</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="pangkat" type="text" class="form-control" id="pangkat" value="3C" disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="alamat" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="alamat" type="text" class="form-control" id="alamat" value=<?= $akun['alamat']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="phone" type="text" class="form-control" id="phone" value=<?= $akun['kontak']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="email" value=<?= $akun['email']?>>
-                                            </div>
-                                        </div>
-
-                                        <div class="text-center">
-                                            <input type="submit" class="btn btn-primary" value="Save Changes"></input>
-                                        </div>
-                                    </form>
-                                    <!-- End Profile Edit Form -->
-
-                                </div>
-
-                                <div class="tab-pane fade pt-3" id="rekam-pendidikan">
-
-                                    <!-- rekam pendidikan -->
+                                    </div>
+                                    <hr>
+                                    <h3 class="card-title"> PF Information</h3>
                                     <div class="row">
-                                        <div class="col-md-6 d-flex mb-4">
-                                            <div class="card profile-box flex-fill">
-                                                <div class="card-body">
-                                                    <h3 class="card-title">Education Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
-                                                    <div class="experience-box">
-                                                        <ul class="experience-list">
-                                                            <li>
-                                                                <div class="experience-user">
-                                                                    <div class="before-circle"></div>
-                                                                </div>
-                                                                <div class="experience-content">
-                                                                    <div class="timeline-content">
-                                                                        <a href="#/" class="name">International College of Arts and Science (UG)</a>
-                                                                        <div>Bsc Computer Science</div>
-                                                                        <span class="time">2000 - 2003</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="experience-user">
-                                                                    <div class="before-circle"></div>
-                                                                </div>
-                                                                <div class="experience-content">
-                                                                    <div class="timeline-content">
-                                                                        <a href="#/" class="name">International College of Arts and Science (PG)</a>
-                                                                        <div>Msc Computer Science</div>
-                                                                        <span class="time">2000 - 2003</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">PF contribution</label>
+                                                <select class="select">
+                                                    <option>Select PF contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">PF No. <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select PF contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Employee PF rate</label>
+                                                <select class="select">
+                                                    <option>Select PF contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select additional rate</option>
+                                                    <option>0%</option>
+                                                    <option>1%</option>
+                                                    <option>2%</option>
+                                                    <option>3%</option>
+                                                    <option>4%</option>
+                                                    <option>5%</option>
+                                                    <option>6%</option>
+                                                    <option>7%</option>
+                                                    <option>8%</option>
+                                                    <option>9%</option>
+                                                    <option>10%</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Total rate</label>
+                                                <input type="text" class="form-control" placeholder="N/A" value="11%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Employee PF rate</label>
+                                                <select class="select">
+                                                    <option>Select PF contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select additional rate</option>
+                                                    <option>0%</option>
+                                                    <option>1%</option>
+                                                    <option>2%</option>
+                                                    <option>3%</option>
+                                                    <option>4%</option>
+                                                    <option>5%</option>
+                                                    <option>6%</option>
+                                                    <option>7%</option>
+                                                    <option>8%</option>
+                                                    <option>9%</option>
+                                                    <option>10%</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Total rate</label>
+                                                <input type="text" class="form-control" placeholder="N/A" value="11%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <h3 class="card-title"> ESI Information</h3>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">ESI contribution</label>
+                                                <select class="select">
+                                                    <option>Select ESI contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">ESI No. <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select ESI contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Employee ESI rate</label>
+                                                <select class="select">
+                                                    <option>Select ESI contribution</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
+                                                <select class="select">
+                                                    <option>Select additional rate</option>
+                                                    <option>0%</option>
+                                                    <option>1%</option>
+                                                    <option>2%</option>
+                                                    <option>3%</option>
+                                                    <option>4%</option>
+                                                    <option>5%</option>
+                                                    <option>6%</option>
+                                                    <option>7%</option>
+                                                    <option>8%</option>
+                                                    <option>9%</option>
+                                                    <option>10%</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Total rate</label>
+                                                <input type="text" class="form-control" placeholder="N/A" value="11%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="submit-section">
+                                        <button class="btn btn-primary submit-btn" type="submit">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Bank Statutory Tab -->
+
+                </div>
+            </div>
+            <!-- /Page Content -->
+
+            <!-- Profile Modal -->
+            <div id="profile_info" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Profile Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="profile-img-wrap edit-img">
+                                            <img class="inline-block" src="assets/img/profiles/avatar-02.jpg" alt="user">
+                                            <div class="fileupload btn">
+                                                <span class="btn-text">edit</span>
+                                                <input class="upload" type="file">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" class="form-control" value="John">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" class="form-control" value="Doe">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Birth Date</label>
+                                                    <div class="cal-icon">
+                                                        <input class="form-control datetimepicker" type="text" value="05/06/1985">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- End settings Form -->
-
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <select class="select form-control">
+                                                        <option value="male selected">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <div class="tab-pane fade pt-3" id="profile-change-password">
-                                        <!-- Change Password Form -->
-                                        <form>
-
-                                            <div class="row mb-3">
-                                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="password" type="password" class="form-control" id="currentPassword">
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="newpassword" type="password" class="form-control" id="newPassword">
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                                                </div>
-                                            </div>
-
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Change Password</button>
-                                            </div>
-                                        </form><!-- End Change Password Form -->
-
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Address</label>
+                                            <input type="text" class="form-control" value="4487 Snowbird Lane">
+                                        </div>
                                     </div>
-
-                                </div><!-- End Bordered Tabs -->
-
-                            </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <input type="text" class="form-control" value="New York">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <input type="text" class="form-control" value="United States">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Pin Code</label>
+                                            <input type="text" class="form-control" value="10523">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Phone Number</label>
+                                            <input type="text" class="form-control" value="631-889-3206">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Department <span class="text-danger">*</span></label>
+                                            <select class="select">
+                                                <option>Select Department</option>
+                                                <option>Web Development</option>
+                                                <option>IT Management</option>
+                                                <option>Marketing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Designation <span class="text-danger">*</span></label>
+                                            <select class="select">
+                                                <option>Select Designation</option>
+                                                <option>Web Designer</option>
+                                                <option>Web Developer</option>
+                                                <option>Android Developer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Reports To <span class="text-danger">*</span></label>
+                                            <select class="select">
+                                                <option>-</option>
+                                                <option>Wilmer Deluna</option>
+                                                <option>Lesley Grauer</option>
+                                                <option>Jeffery Lalor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-        </section>
+            </div>
+            <!-- /Profile Modal -->
 
-    </main><!-- End #main -->
-    <!-- End Footer -->
+            <!-- Personal Info Modal -->
+            <div id="personal_info_modal" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Personal Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Passport No</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Passport Expiry Date</label>
+                                            <div class="cal-icon">
+                                                <input class="form-control datetimepicker" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tel</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nationality <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Religion</label>
+                                            <div class="cal-icon">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Marital status <span class="text-danger">*</span></label>
+                                            <select class="select form-control">
+                                                <option>-</option>
+                                                <option>Single</option>
+                                                <option>Married</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Employment of spouse</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>No. of children </label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Personal Info Modal -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+            <!-- Family Info Modal -->
+            <div id="family_info_modal" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Family Informations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-scroll">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Family Member <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Name <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Relationship <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Date of birth <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Phone <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Education Informations <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Name <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Relationship <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Date of birth <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Phone <span class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="add-more">
+                                                <a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Family Info Modal -->
+
+            <!-- Emergency Contact Modal -->
+            <div id="emergency_contact_modal" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Personal Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Primary Contact</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Relationship <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone 2</label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Primary Contact</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Relationship <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone 2</label>
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Emergency Contact Modal -->
+
+            <!-- Education Modal -->
+            <div id="education_info" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Education Informations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-scroll">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Education Informations <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Oxford University" class="form-control floating">
+                                                        <label class="focus-label">Institution</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Computer Science" class="form-control floating">
+                                                        <label class="focus-label">Subject</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <div class="cal-icon">
+                                                            <input type="text" value="01/06/2002" class="form-control floating datetimepicker">
+                                                        </div>
+                                                        <label class="focus-label">Starting Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <div class="cal-icon">
+                                                            <input type="text" value="31/05/2006" class="form-control floating datetimepicker">
+                                                        </div>
+                                                        <label class="focus-label">Complete Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="BE Computer Science" class="form-control floating">
+                                                        <label class="focus-label">Degree</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Grade A" class="form-control floating">
+                                                        <label class="focus-label">Grade</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Education Informations <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Oxford University" class="form-control floating">
+                                                        <label class="focus-label">Institution</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Computer Science" class="form-control floating">
+                                                        <label class="focus-label">Subject</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <div class="cal-icon">
+                                                            <input type="text" value="01/06/2002" class="form-control floating datetimepicker">
+                                                        </div>
+                                                        <label class="focus-label">Starting Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <div class="cal-icon">
+                                                            <input type="text" value="31/05/2006" class="form-control floating datetimepicker">
+                                                        </div>
+                                                        <label class="focus-label">Complete Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="BE Computer Science" class="form-control floating">
+                                                        <label class="focus-label">Degree</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus focused">
+                                                        <input type="text" value="Grade A" class="form-control floating">
+                                                        <label class="focus-label">Grade</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="add-more">
+                                                <a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Education Modal -->
+
+            <!-- Experience Modal -->
+            <div id="experience_info" class="modal custom-modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Experience Informations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-scroll">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Experience Informations <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="Digital Devlopment Inc">
+                                                        <label class="focus-label">Company Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="United States">
+                                                        <label class="focus-label">Location</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="Web Developer">
+                                                        <label class="focus-label">Job Position</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <div class="cal-icon">
+                                                            <input type="text" class="form-control floating datetimepicker" value="01/07/2007">
+                                                        </div>
+                                                        <label class="focus-label">Period From</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <div class="cal-icon">
+                                                            <input type="text" class="form-control floating datetimepicker" value="08/06/2018">
+                                                        </div>
+                                                        <label class="focus-label">Period To</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Experience Informations <a href="javascript:void(0);" class="delete-icon"><i class="fa fa-trash-o"></i></a></h3>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="Digital Devlopment Inc">
+                                                        <label class="focus-label">Company Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="United States">
+                                                        <label class="focus-label">Location</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <input type="text" class="form-control floating" value="Web Developer">
+                                                        <label class="focus-label">Job Position</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <div class="cal-icon">
+                                                            <input type="text" class="form-control floating datetimepicker" value="01/07/2007">
+                                                        </div>
+                                                        <label class="focus-label">Period From</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <div class="cal-icon">
+                                                            <input type="text" class="form-control floating datetimepicker" value="08/06/2018">
+                                                        </div>
+                                                        <label class="focus-label">Period To</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="add-more">
+                                                <a href="javascript:void(0);"><i class="fa fa-plus-circle"></i> Add More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button class="btn btn-primary submit-btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Experience Modal -->
+
+        </div>
+        <!-- /Page Wrapper -->
+
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <?php $this->load->view('_partials/script'); ?>
+
 </body>
 
 </html>

@@ -1,13 +1,10 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
-
     <div class="d-flex align-items-center justify-content-between">
+        <i class="bx bx-menu-alt-left toggle-sidebar-btn"></i>
         <a href="<?= base_url('dosen/dashboard'); ?>" class="logo d-flex align-items-center">
             <img src= "<?= base_url(); ?>assets/img/LogoUMB.png" alt="">
         </a>
-    </div>
-    <div>
-        <i class="bx bx-menu-alt-left toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">
