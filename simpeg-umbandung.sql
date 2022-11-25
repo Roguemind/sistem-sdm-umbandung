@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2022 at 05:17 AM
+-- Generation Time: Nov 25, 2022 at 05:10 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -40,7 +40,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`no_pegawai`, `username`, `password`, `role`) VALUES
 ('123', 'teguh12', '123', 'tendik'),
-('1234', 'ema12', '1234', 'dosen');
+('1234', 'ema12', '1234', 'dosen'),
+('2001020', 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -54,6 +55,16 @@ CREATE TABLE `arsip_tendik` (
   `id_unit` varchar(15) NOT NULL,
   `tipe_surat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `arsip_tendik`
+--
+
+INSERT INTO `arsip_tendik` (`no_sk`, `judul`, `id_unit`, `tipe_surat`) VALUES
+('293182381', 'Surat PHK', 'SP2021', '0'),
+('293182381', 'Surat PHK', '001', '0'),
+('231231231', 'Surat Aduhai', '101', '1'),
+('231231231', 'Surat Aduhai', '001', '1');
 
 -- --------------------------------------------------------
 
@@ -96,14 +107,14 @@ INSERT INTO `dosen` (`no_pegawai`, `jad`, `id_pegawai`, `id_unit`, `id_jabatan`)
 CREATE TABLE `jabatan` (
   `id_jabatan` varchar(10) NOT NULL,
   `id_unit` varchar(15) NOT NULL,
-  `nama` varchar(50) NOT NULL
+  `nama_jabatan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jabatan`
 --
 
-INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama`) VALUES
+INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama_jabatan`) VALUES
 ('123', '101', 'tendik'),
 ('1234', '001', 'dosen'),
 ('SP21', 'SP2021', 'Staff Bagian');
@@ -130,6 +141,7 @@ CREATE TABLE `lembur` (
 CREATE TABLE `pegawai` (
   `id_pegawai` varchar(16) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `nik` varchar(16) NOT NULL,
   `alamat` text DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
@@ -142,17 +154,19 @@ CREATE TABLE `pegawai` (
   `tahun_lulus` int(4) DEFAULT NULL,
   `almamater` varchar(50) DEFAULT NULL,
   `no_sk_pegawai` varchar(50) DEFAULT NULL,
-  `tmt_pegawai` date DEFAULT NULL
+  `tmt_pegawai` date DEFAULT NULL,
+  `foto_peg` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `nama`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`) VALUES
-('01001', 'Faisal', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-10', 'Bekasi', 'L', 'Islam', 'S2', '081315358588', 'Lajang', 2012, 'Universitas Indonesia', '001', '2020-11-03'),
-('123', 'Teguh', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '2022-11-19'),
-('1235', 'ema', 'kp kopo', 'ema@gmail.com', '2001-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03');
+INSERT INTO `pegawai` (`id_pegawai`, `nama`, `nik`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`, `foto_peg`) VALUES
+('01001', 'Faisal', '', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-10', 'Bekasi', 'L', 'Islam', 'S2', '081315358588', 'Lajang', 2012, 'Universitas Indonesia', '001', '2020-11-03', ''),
+('123', 'Teguh', '', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '2022-11-19', ''),
+('1235', 'ema', '3201254487965456', 'kp kopo', 'ema@gmail.com', '2001-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03', 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'),
+('4578928', 'Rehan', '', 'Ohio', 'rehan@gmail.com', '2022-11-23', 'Jakarta', '', 'Islam', 'D4', '085155689887', 'Lajang', 2018, 'Universitas Padjajaran', '-', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -210,7 +224,8 @@ CREATE TABLE `tendik` (
 
 INSERT INTO `tendik` (`no_pegawai`, `status`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
 ('123', '-', '123', '101', '123'),
-('2001020', 'Y', '01001', 'SP2021', 'SP21');
+('2001020', 'Y', '01001', 'SP2021', 'SP21'),
+('4946541', '', '4578928', '001', 'SP21');
 
 -- --------------------------------------------------------
 
