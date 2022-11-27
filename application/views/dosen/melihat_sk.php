@@ -3,7 +3,7 @@
    <?php $this->load->view('_partials/script');?>
 </head>
 <body>
-    <main id="main" class="main">
+    <main id="main" class="main" >
         <div class="pagetitle">
             <h1>Arsip Berkas</h1>
             <nav>

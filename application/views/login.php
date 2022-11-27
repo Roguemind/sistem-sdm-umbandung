@@ -2,61 +2,79 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view('_partials/head'); ?>
+  <?php $this->load->view('_partials/head'); ?>
 </head>
 
-<body class="account-page">
+<body>
 
-    <!-- Main Wrapper -->
-    <div class="main-wrapper">
-        <div class="account-content">
-            <div class="container">
-                <div class="account-box">
-                    <div class="account-wrapper">
+  <main>
+    <div class="container-xxl">
 
-                        <!-- Account Logo -->
-                        <div class="account-logo">
-                            <a href="index.html"><img src="assets/img/logo.png" alt="Dreamguy's Technologies"></a>
-                        </div>
-                        <!-- /Account Logo -->
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                        <h5 class="card-title text-left pb-0 fs-4">Selamat Datang! 👋</h5>
-                        <p class="text-left medium">Masukan Data Diri Anda Di Bawah Ini</p>
+              <!-- End Logo -->
 
-                        <!-- Account Form -->
-                        <?= form_open('login/auth_user') ?>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input id="username" name="username"class="form-control" type="text">
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Password</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="text-muted" href="forgot-password.html">
-                                            Forgot password?
-                                        </a>
-                                    </div>
-                                </div>
-                                <input id="password" name="password" class="form-control" type="password">
-                            </div>
-                            <div class="form-group text-center">
-                                <input class="btn btn-primary account-btn" type="submit" value="Login">
-                            </div>
-                        </form>
-                        <!-- /Account Form -->
+              <div class="card mb-3">
 
+                <div class="card-body">
+
+                  <div class="app-brand justify-content-center d-flex py-3">
+                    <img src="<?= base_url(); ?>/assets/img/logo.png" height="100" alt="View Badge User" data-app-dark-img="logo.png" data-app-light-img="logo.png">
+                  </div>
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-left pb-0 fs-4">Selamat Datang! 👋</h5>
+                    <p class="text-left small">Masukan Data Diri Anda Di Bawah Ini</p>
+                  </div>
+                  <?= form_open('login/auth_user') ?>
+                  <div class="row g-3 needs-validation" novalidate>
+                    <?= $this->session->flashdata('pesan'); ?>
+                    <div class="col-12">
+                      <label for="username" class="form-label">Username</label>
+                      <div class="input-group has-validation">
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your email or username" autofocus required>
+                        <div class="invalid-feedback">Please enter your username.</div>
+                      </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Main Wrapper -->
 
-    <!-- jQuery -->
-    <?php $this->load->view('_partials/script'); ?>
+                    <div class="col-12">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="password" placeholder="..........." autofocus required>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Ingat Saya</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <?php $this->load->view('_partials/script'); ?>
 
 </body>
 

@@ -11,8 +11,8 @@
                 <span></span>
             </span>
         </a>
-        <a href="<?= base_url(); ?>/dashboard_dosen" class="logo">
-            <img src="assets/img/logo.png" width="40" height="40" alt="">
+        <a href="<?= base_url('dosen'); ?>" class="logo">
+            <img src="<?= base_url();?>assets/img/logo.png" width="40" height="40" alt="">
         </a>
     </div>
     <!-- /Logo -->
@@ -133,7 +133,7 @@
                 <span><?= $akun['nama'];?></span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="<?= base_url('dosen');?>">My Profile</a>
+                <a class="dropdown-item" href="<?= base_url();?>dosen/profile_dosen">My Profile</a>
                 <a class="dropdown-item" href="settings.html">Settings</a>
                 <a class="dropdown-item" href="login.html">Logout</a>
             </div>
