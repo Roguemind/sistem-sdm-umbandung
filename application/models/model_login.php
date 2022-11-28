@@ -9,7 +9,7 @@ class model_login extends CI_Model
     public function cekPassword($username, $password)
     {
         return $this->db->get_where('account', array('username' => $username, 'password' => $password));
-    }
+    }   
 
     public function aksesDB($role, $account_uid)
     {

@@ -4,13 +4,13 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url('tendik/dashboard'); ?>">
+            <a class="nav-link " href="<?= base_url();?>admin/dashboard">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
-        <a href="<?= base_url('tendik/profile_tendik'); ?>" class="nav-link collapsed">
+        <a href="<?= base_url();?>admin/profile'" class="nav-link collapsed">
             <i class="bi bi-person"></i>
             <span>Profile</span>
         </a>
