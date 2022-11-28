@@ -43,7 +43,7 @@ class Model_master extends CI_Model
 
     public function updateProfile($data, $uid){
         $this->db->set($data);
-        $this->db->where($uid);
+        $this->db->where('id_pegawai',$uid);
         return $this->db->update('pegawai');
     }
 }

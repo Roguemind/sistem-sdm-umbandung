@@ -25,7 +25,7 @@ class Profile_dosen extends CI_Controller
 
     public function aksiEditProfile()
     {
-        $nidn = $this->input->POST('nidn');
+        $nidn = $this->input->POST('id_pegawai');
         $nik = $this->input->POST('nik');
         $tmpt_lahir = $this->input->POST('tempat_lahir');
         $tgl_lahir = $this->input->POST('tanggal_lahir');

@@ -145,28 +145,29 @@
                                         <div class="row mb-3">
                                             <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nama" type="text" class="form-control form-control-user" id="nama" value=<?= $akun['nama']?> disabled>
+                                                <input name="nama" type="text" class="form-control form-control-user" id="nama" value=<?= $akun['nama']?> readonly>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="nik" class="col-md-4 col-lg-3 col-form-label">NIDN</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control form-control-user" id="nidn" value=<?= $akun['id_pegawai']?> disabled>
+                                                <input name="id_pegawai" type="text" class="form-control form-control-user" id="id_pegawai" value=<?= $akun['id_pegawai']?> readonly>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control form-control-user" id="nik" value=<?= $akun['nik']?>>
+                                                <input name="nik" type="text" class="form-control form-control-user" id="nik" value=<?= $akun['nik']?>>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="tempat_lahir" class="col-md-4 col-lg-3 col-form-label">Tempat Lahir</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="tempat_lahir" type="text" class="form-control form-control-user" id="tempat_lahir" value=<?= @$akun['tempat-lahir']?>>
+                                                <input name="tempat_lahir" type="text" class="form-control form-control-user" id="tempat_lahir" value=<?= $akun['tempat-lahir']?>>
+                                                <?= form_error('tempat-lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
@@ -174,13 +175,14 @@
                                             <label for="tanggal_lahir" class="col-md-4 col-lg-3 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="tanggal_lahir" type="date" class="form-control form-control-user" id="tanggal_lahir" value=<?= $akun['tanggal_lahir']?>>
+                                                <?= form_error('tanggal_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="jk" type="text" class="form-control form-control-user" id="jk" value=<?= $akun['jenis_kelamin']?> disabled>
+                                                <input name="jk" type="text" class="form-control form-control-user" id="jk" value=<?= $akun['jenis_kelamin']?> readonly>
                                             </div>
                                         </div>
 
@@ -188,27 +190,29 @@
                                             <label for="agama" class="col-md-4 col-lg-3 col-form-label">Agama</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="agama" type="text" class="form-control form-control-user" id="agama" value=<?= $akun['agama']?>>
+                                                <?= form_error('agama', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Dosen Prodi</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="prodi" type="text" class="form-control form-control-user" id="prodi" value=<?= $akun['id_unit']?> disabled>
+                                                <input name="prodi" type="text" class="form-control form-control-user" id="prodi" value=<?= $akun['id_unit']?> readonly>
+                                                <?= form_error('prodi', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="jabatan" type="text" class="form-control form-control-user" id="jabatan" value=<?= $akun['id_jabatan']?> disabled>
+                                                <input name="jabatan" type="text" class="form-control form-control-user" id="jabatan" value=<?= $akun['id_jabatan']?> readonly>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="pangkat" class="col-md-4 col-lg-3 col-form-label">Pangkat</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="pangkat" type="text" class="form-control form-control-user" id="pangkat" value="3C" disabled>
+                                                <input name="pangkat" type="text" class="form-control form-control-user" id="pangkat" value="3C" readonly>
                                             </div>
                                         </div>
 
@@ -216,6 +220,7 @@
                                             <label for="alamat" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="alamat" type="text" class="form-control form-control-user" id="alamat" value=<?= $akun['alamat']?>>
+                                                <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
@@ -223,6 +228,7 @@
                                             <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="phone" type="text" class="form-control form-control-user" id="phone" value=<?= $akun['kontak']?>>
+                                                <?= form_error('phone', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
@@ -230,6 +236,7 @@
                                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="email" type="email" class="form-control form-control-user" id="email" value=<?= $akun['email']?>>
+                                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
 
