@@ -89,16 +89,10 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahSk">
                 <i class="bx bx-folder-open"></i>
-                <span>SK</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
-                <i class="bx bx-folder-open"></i>
                 <span>Berkas</span>
             </a>
         </li>
+
         <!-- End Blank Page Nav -->
 
 </aside><!-- End Sidebar-->

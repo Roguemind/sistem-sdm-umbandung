@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller
 
     public function melihatSk()
     {
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
         $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
         $this->load->view('_partials/head', $data);
         $this->load->view('dosen/header', $data);
