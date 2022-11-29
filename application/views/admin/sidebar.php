@@ -74,12 +74,12 @@
             </a>
             <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="<?= base_url(); ?>admin/tambah/tambahdosen">
                         <i class="bi bi-circle"></i><span>Dosen</span>
                     </a>
                 </li>
                 <li>
-                    <a href="charts-apexcharts.html">
+                    <a href="<?= base_url() ?>admin/tambah/tambahtendik">
                         <i class="bi bi-circle"></i><span>Tendik</span>
                     </a>
                 </li>
@@ -87,23 +87,16 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahSk">
+                <i class="bx bx-folder-open"></i>
+                <span>SK</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="pages-blank.html">
                 <i class="bx bx-folder-open"></i>
                 <span>Berkas</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url(); ?>admin/tambah/tambahdosen">
-                <i class="bx bx-folder-open"></i>
-                <span>Tambah Dosen</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahtendik">
-                <i class="bx bx-folder-open"></i>
-                <span>Tambah Tendik</span>
             </a>
         </li>
         <!-- End Blank Page Nav -->

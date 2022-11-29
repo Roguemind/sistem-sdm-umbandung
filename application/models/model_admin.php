@@ -34,4 +34,8 @@ class Model_admin extends CI_Model
     {
         return $this->db->insert('arsip_tendik', $dataSk);
     }
+    public function getArsipTendik()
+    {
+        return $this->db->get('arsip_tendik')->result_array();
+    }
 }

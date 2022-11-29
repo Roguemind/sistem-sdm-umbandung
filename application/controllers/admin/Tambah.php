@@ -56,7 +56,13 @@ class Tambah extends CI_Controller
 
     public function tambahSk()
     {
+        $data['listsk'] = $this->Model_admin->getArsipTendik();
         $data['lista'] = $this->Model_admin->getUnit();
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_sk', $data);
     }
 
