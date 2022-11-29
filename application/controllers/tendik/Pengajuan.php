@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Pengajuan extends CI_Controller
 {
     function __construct()
     {
@@ -13,19 +13,27 @@ class Dashboard extends CI_Controller
     public function pengajuanCuti()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $data['jangka_waktu'] = $this->Model_tendik->getPengajuan();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('tendik/header', $data);
+        $this->load->view('tendik/sidebar', $data);
         $this->load->view('tendik/pengajuan_cuti', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
     }
 
     public function aksicuti()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
         $nama = $this->input->POST('nama_cuti');
-        $jangka_waktu = $this->input->POST('jangka_waktu');
+        $tanggal_awal = $this->input->POST('tanggal_awal');
+        $tanggal_masuk = $this->input->POST('tanggal_masuk');
 
         $datacuti = array(
             'id_pegawai' => $id_pegawai,
-            'jangka_waktu' => $jangka_waktu,
+            'tanggal_awal' => $tanggal_awal,
             'nama_cuti' => $nama,
+            'tanggal_masuk' => $tanggal_masuk
 
         );
 
