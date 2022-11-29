@@ -11,7 +11,11 @@ class Login extends CI_Controller
 
     public function index()
     {
-        redirect('login');
+        if(!$this->session->userdata('logged_in')){
+            $this->load->view('login');
+        }else{
+            redirect($this->session->userdata('role'));
+        }
     }
 
     public function auth_user()
@@ -20,8 +24,12 @@ class Login extends CI_Controller
             $this->input->post('username'),
             $this->input->post('password')
         )->num_rows() > 0) {
-            $sesi = $this->model_login->cekPassword($this->input->post('username'), $this->input->post('password'))->row_array();
-            array_push($sesi, ['logged_in' => TRUE]);
+            $temp = $this->model_login->cekPassword($this->input->post('username'), $this->input->post('password'))->row_array();
+            $sesi = array(
+                'session_id' => $temp['no_pegawai'],
+                'logged_in' => TRUE,
+                'role' => $temp['role'],
+            );
             $this->session->set_userdata($sesi);
             redirect($sesi['role']);
         } else {

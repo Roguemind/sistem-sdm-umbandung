@@ -217,24 +217,7 @@
                             <div class="col-sm-12">
                                 <select class="form-select" aria-label="Default select example">
                                     <option selected></option>
-                                    <option value="1">Teknik Informatika</option>
-                                    <option value="2">Teknik Elektro</option>
-                                    <option value="3">Teknik Industri</option>
-                                    <option value="3">Teknologi Pangan Halal</option>
-                                    <option value="3">Farmasi</option>
-                                    <option value="3">Bioteknologi</option>
-                                    <option value="3">Agribisnis</option>
-                                    <option value="3">Psikologi</option>
-                                    <option value="3">Ilmu Komunikasi</option>
-                                    <option value="3">Kriya Tekstil dan Fashion</option>
-                                    <option value="3">Administrasi Publik</option>
-                                    <option value="3">PAI</option>
-                                    <option value="3">PIAUD</option>
-                                    <option value="3">Hukum Keluarga Islam</option>
-                                    <option value="3">Ekonomi Syariah</option>
-                                    <option value="3">Komunikasi Penyiaran Islam</option>
-                                    <option value="3">Akuntansi</option>
-                                    <option value="3">Manajemen</option>
+                    
                                 </select>
                             </div>
                         </div>
