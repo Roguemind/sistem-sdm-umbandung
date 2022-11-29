@@ -11,7 +11,11 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('login');
+        if (!$this->session->logged_in){
+            $this->load->view('login');
+        }else{
+            redirect($sesi['role']);
+        }
     }
 
     public function auth_user()
@@ -27,5 +31,10 @@ class Login extends CI_Controller
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger text-center" role="alert"> Password Salah !! </div>');
             redirect('login');
         }
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('login');
     }
 }

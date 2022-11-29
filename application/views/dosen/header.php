@@ -2,7 +2,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
         <i class="bx bx-menu-alt-left toggle-sidebar-btn"></i>
-        <a href="<?= base_url('dosen/dashboard'); ?>" class="logo d-flex align-items-center">
+        <a href="<?= base_url('dosen'); ?>" class="logo d-flex align-items-center">
             <img src= "<?= base_url(); ?>assets/img/LogoUMB.png" alt="">
         </a>
     </div><!-- End Logo -->
@@ -204,7 +204,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center" href="<?= base_url();?>login/logout">
                             <i class="bx bx-log-out"></i>
                             <span>Log Out</span>
                         </a>
