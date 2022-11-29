@@ -94,14 +94,14 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url(); ?>tambah_dosen">
+            <a class="nav-link collapsed" href="<?= base_url(); ?>admin/tambah/tambahdosen">
                 <i class="bx bx-folder-open"></i>
                 <span>Tambah Dosen</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
+            <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahtendik">
                 <i class="bx bx-folder-open"></i>
                 <span>Tambah Tendik</span>
             </a>

@@ -26,13 +26,25 @@ class Tambah extends CI_Controller
 
     public function tambahDosen()
     {
-        $this->load->view('admin/tambah_dosen');
+        $data['units'] = $this->Model_admin->getUnit();
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/tambah_dosen', $data);
     }
 
     public function tambahTendik()
     {
         $data['units'] = $this->Model_admin->getUnit();
         $data['jabatans'] = $this->Model_admin->getJabatan();
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_tendik', $data);
     }
 
