@@ -1,39 +1,71 @@
-<div class="container">
-
-    <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-                <div class="col-lg">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Pengajuan Cuti</h1>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Pengajuan Cuti</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Pengajuan Cuti</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+    <!-- Basic with Icons -->
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Pengajuan Cuti</h5>
+            </div>
+            <div class="card-body">
+                <form class="user" method="POST" action="<?= base_url('tendik/pengajuan/aksicuti'); ?>">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Nama Cuti</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                                <input type="text" class="form-control" id="nama_cuti" name="nama_cuti" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="<?= set_value('nama_cuti') ?>" />
+                            </div>
                         </div>
-                        <form class="user" method="POST" action="<?= base_url('tendik/dashboard/aksicuti'); ?>">
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="nama_cuti" name="nama_cuti" placeholder="Nama Cuti" value="<?= set_value('nama_cuti') ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="id_pegawai" name="id_pegawai" value="<?= $akun['id_pegawai'] ?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control form-control-user" id="jangka_waktu" name="jangka_waktu">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                        Ajukan
-                    </button>
-                    </form>
-                    <hr>
-                    <div class="text-center">
-                        <a class="small" href="<?= base_url('tendik/dashboard') ?>">Kembali</a>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">ID Pegawai</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                                <input type="text" id="id_pegawai" name="id_pegawai" class="form-control" aria-describedby="basic-icon-default-company2" value="<?= $akun['id_pegawai'] ?>" readonly />
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Tanggal Awal Libur</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                                <input type="date" id="tanggal_awal" name="tanggal_awal" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Tanggal Masuk</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Total Hari</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                                <input type="text" class="form-control" id="" name="" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="" />
+                            </div>
+                            <div class="row   ">
+                                <div class="col d-md-flex justify-content-md-end mt-3 sm-10 ">
+                                    <button type="submit" class="btn btn-primary ">Kirim</button>
+                                </div>
+                            </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
-
-</div>
+</main><!-- End #main -->

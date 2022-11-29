@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengajuan extends CI_Controller
+class Fungsi extends CI_Controller
 {
     function __construct()
     {
@@ -25,6 +25,11 @@ class Pengajuan extends CI_Controller
     public function cuti()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $this->load->view('_partials/head');
+        $this->load->view('dosen/header', $data);
+        $this->load->view('dosen/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('tendik/pengajuan_cuti', $data);
     }
 

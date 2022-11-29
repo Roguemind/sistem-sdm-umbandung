@@ -25,4 +25,8 @@ class Model_tendik extends CI_Model
     {
         return $this->db->insert('pengajuan', $datacuti);
     }
+    public function getPengajuan()
+    {
+        return $this->db->get('pengajuan')->result_array();
+    }
 }

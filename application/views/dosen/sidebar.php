@@ -4,13 +4,13 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="<?=base_url('dosen/dashboard'); ?>">
+            <a class="nav-link " href="<?= base_url('dosen/dashboard'); ?>">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
-        <a href="<?= base_url();?>dosen/profile" class="nav-link collapsed">
+        <a href="<?= base_url(); ?>dosen/profile" class="nav-link collapsed">
             <i class="bi bi-person"></i>
             <span>Profile</span>
         </a>
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="charts-apexcharts.html">
+                    <a href="<?= base_url('dosen/fungsi/cuti'); ?>">
                         <i class="bi bi-circle"></i><span>Cuti</span>
                     </a>
                 </li>
@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="charts-echarts.html">
+                    <a href="">
                         <i class="bi bi-circle"></i><span>Lembur</span>
                     </a>
                 </li>
@@ -74,7 +74,7 @@
         <!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url('dosen/pengajuan/melihatSk');?>">
+            <a class="nav-link collapsed" href="<?= base_url('dosen/pengajuan/melihatSk'); ?>">
                 <i class="bx bx-folder-open"></i>
                 <span>Berkas</span>
             </a>
