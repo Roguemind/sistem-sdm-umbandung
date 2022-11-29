@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php 
+if(!$this->session->set_userdata('$sesi')){
+  echo "Silahkan Login";
+} else{
+  
+}
+?>
+
 <!-- #main -->
 <main id="main" class="main">
 

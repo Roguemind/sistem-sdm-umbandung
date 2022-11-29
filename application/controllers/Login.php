@@ -11,11 +11,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->logged_in){
-            $this->load->view('login');
-        }else{
-            redirect($sesi['role']);
-        }
+        redirect('login');
     }
 
     public function auth_user()
@@ -25,6 +21,7 @@ class Login extends CI_Controller
             $this->input->post('password')
         )->num_rows() > 0) {
             $sesi = $this->model_login->cekPassword($this->input->post('username'), $this->input->post('password'))->row_array();
+            array_push($sesi, ['logged_in' => TRUE]);
             $this->session->set_userdata($sesi);
             redirect($sesi['role']);
         } else {
