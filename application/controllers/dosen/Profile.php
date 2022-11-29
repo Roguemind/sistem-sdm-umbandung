@@ -13,9 +13,9 @@ class Profile extends CI_Controller
 
     public function index()
     {
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
-        $data['jabatan'] = $this->Model_master->getJabatan($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
-        $data['unit'] = $this->Model_master->getUnit($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $data['jabatan'] = $this->Model_master->getJabatan($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $data['unit'] = $this->Model_master->getUnit($this->session->userdata('role'), $this->session->userdata('session_id'));
         $this->load->view('dosen/header',$data);
         $this->load->view('dosen/sidebar');
         $this->load->view('_partials/head'); 

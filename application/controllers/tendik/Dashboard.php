@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('no_pegawai'));
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
         $this->load->view('_partials/head', $data);
         $this->load->view('tendik/header', $data);
         $this->load->view('tendik/sidebar', $data);

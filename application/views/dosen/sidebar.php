@@ -1,24 +1,13 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
-
     <ul class="sidebar-nav" id="sidebar-nav">
-
         <li class="nav-item">
-<<<<<<< Updated upstream
-            <a class="nav-link " href="<?= base_url('dosen/dashboard'); ?>">
-=======
             <a class="nav-link " href="<?=base_url(); ?>dosen">
->>>>>>> Stashed changes
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
-
-<<<<<<< Updated upstream
         <a href="<?= base_url(); ?>dosen/profile" class="nav-link collapsed">
-=======
-        <a href="<?= base_url();?>dosen/profile/<?=$akun['nik'];?>" class="nav-link collapsed">
->>>>>>> Stashed changes
             <i class="bi bi-person"></i>
             <span>Profile</span>
         </a>
