@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="charts-apexcharts.html">
+                    <a href="<?= base_url(); ?>admin/fungsi/melihatCuti">
                         <i class="bi bi-circle"></i><span>Cuti</span>
                     </a>
                 </li>

@@ -38,4 +38,8 @@ class Model_admin extends CI_Model
     {
         return $this->db->get('arsip_tendik')->result_array();
     }
+    public function getPengajuan()
+    {
+        return $this->db->get('pengajuan')->result_array();
+    }
 }
