@@ -27,7 +27,7 @@ class Fungsi extends CI_Controller
 
     public function melihatCuti()
     {
-        $data['listpengajuan'] = $this->Model_admin->getPengajuan();
+        $data['listpengajuan'] = $this->Model_admin->getPengajuanbyId($this->session->userdata('pegawai'));
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);

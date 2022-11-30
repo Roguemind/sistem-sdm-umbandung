@@ -42,4 +42,13 @@ class Model_admin extends CI_Model
     {
         return $this->db->get('pengajuan')->result_array();
     }
+
+    public function getPengajuanbyId()
+    {
+        $this->db->select('*');
+        $this->db->from('pengajuan');
+        $this->db->join('pegawai', 'pengajuan' . '.id_pegawai = pegawai.id_pegawai');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

@@ -23,6 +23,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID Pegawai</th>
+                                    <th scope="col">Nama Pegawai</th>
                                     <th scope="col">Nama Cuti</th>
                                     <th scope="col">Tanggal Awal Cuti</th>
                                     <th scope="col">Tanggal Masuk</th>
@@ -35,6 +36,9 @@
                                     <tr>
                                         <td>
                                             <div><?= $list['id_pegawai'] ?></div>
+                                        </td>
+                                        <td>
+                                            <div><?= $list['nama'] ?></div>
                                         </td>
                                         <td>
                                             <div><?= $list['nama_cuti'] ?></div>
