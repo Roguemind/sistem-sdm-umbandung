@@ -78,8 +78,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="charts-apexcharts.html">
-                                <i class="bi bi-circle"></i><span>JAD</span>
+                            <a href="<?= base_url(); ?>tendik/fungsi/tambahlembur">
+                                <i class="bi bi-circle"></i><span>Lembur</span>
                             </a>
                         </li>
                         <li>

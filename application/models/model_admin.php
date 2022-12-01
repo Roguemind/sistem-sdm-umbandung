@@ -42,4 +42,38 @@ class Model_admin extends CI_Model
     {
         return $this->db->get('pengajuan')->result_array();
     }
+
+    public function getPengajuanbyId()
+    {
+        $this->db->select('*');
+        $this->db->from('pengajuan');
+        $this->db->join('pegawai', 'pengajuan' . '.id_pegawai = pegawai.id_pegawai');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function simpanDataprodi($dataprodi)
+    {
+        return $this->db->insert('prodi', $dataprodi);
+    }
+    public function simpanDatajad($datajad)
+    {
+        return $this->db->insert('jad', $datajad);
+    }
+    public function getjad()
+    {
+        return $this->db->get('jad')->result_array();
+    }
+    public function tambahlembur($datalembur)
+    {
+        return $this->db->insert('lembur', $datalembur);
+    }
+    public function simpanDatafakultas($datafakultas)
+    {
+        return $this->db->insert('fakultas', $datafakultas);
+    }
+    public function getlembur()
+    {
+        return $this->db->get('lembur')->result_array();
+    }
 }

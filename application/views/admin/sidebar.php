@@ -51,7 +51,7 @@
             </a>
             <ul id="Pengajuan" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="<?= base_url(); ?>admin/tambah/tampiljad">
                         <i class="bi bi-circle"></i><span>JAD</span>
                     </a>
                 </li>
@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="charts-echarts.html">
+                    <a href="<?= base_url(); ?>admin/fungsi/melihatlembur">
                         <i class="bi bi-circle"></i><span>Lembur</span>
                     </a>
                 </li>

@@ -36,5 +36,4 @@ class Model_dosen extends CI_Model
     {
         return $this->db->insert('pengajuan', $datacuti);
     }
-    
 }

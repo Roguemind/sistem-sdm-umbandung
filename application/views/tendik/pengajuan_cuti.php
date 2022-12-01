@@ -43,7 +43,7 @@
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                <input type="date" id="tanggal_awal" name="tanggal_awal" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
+                                <input type="date" id="tanggal_awal" name="tanggal_awal" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" value="" />
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" />
+                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" value="" />
                             </div>
                         </div>
                     </div>
@@ -68,6 +68,7 @@
                                     <button type="submit" class="btn btn-primary ">Kirim</button>
                                 </div>
                             </div>
+                        </div>
                 </form>
             </div>
         </div>

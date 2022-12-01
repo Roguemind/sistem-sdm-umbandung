@@ -1,11 +1,11 @@
 <main id="main" class="main" style="margin-top: 0px;">
 
     <div class="pagetitle">
-        <h1>Cuti</h1>
+        <h1>Lembur</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Cuti</li>
+                <li class="breadcrumb-item active">Lembur</li>
             </ol>
         </nav>
     </div>
@@ -16,48 +16,34 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Pengajuan Cuti</h5>
+                        <h5 class="card-title">Data Pengajuan Lembur</h5>
 
                         <!-- Table with hoverable rows -->
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID Pegawai</th>
-                                    <th scope="col">Nama Pegawai</th>
-                                    <th scope="col">Nama Cuti</th>
-                                    <th scope="col">Tanggal Awal Cuti</th>
-                                    <th scope="col">Tanggal Masuk</th>
-                                    <th scope="col">Total Hari</th>
+                                    <th scope="col">ID Lembur</th>
+                                    <th scope="col">No pegawai</th>
+                                    <th scope="col">Jenis pk </th>
+                                    <th scope="col">Tanggal lembur</th>
                                     <th scope="col">Persetujuan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listpengajuan as $list) : ?>
+                                <?php foreach ($listlembur as $list) : ?>
                                     <tr>
                                         <td>
-                                            <div><?= $list['id_pegawai'] ?></div>
+                                            <div><?= $list['id_lembur'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama'] ?></div>
+                                            <div><?= $list['no_pegawai'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama_cuti'] ?></div>
+                                            <div><?= $list['jenis_pk'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['tanggal_awal'] ?></div>
-                                        </td>
-                                        <td>
-                                            <div><?= $list['tanggal_masuk'] ?></div>
-                                        </td>
-                                        <td>
-                                            <div><?php $tgla = $list['tanggal_awal'];
-                                                    $tglb = $list['tanggal_masuk'];
-                                                    $tgl1 = new DateTime($tgla);
-                                                    $tgl2 = new DateTime($tglb);
-                                                    $selisih = $tgl2->diff($tgl1);
-                                                    echo $selisih->d;
-                                                    echo " Hari"; ?></div>
+                                            <div><?= $list['tanggal_lembur'] ?></div>
                                         </td>
                                         <td>
                                             <div><i class="bi bi-question-diamond"></i></div>
