@@ -27,6 +27,7 @@
                                     <th scope="col">Nama Cuti</th>
                                     <th scope="col">Tanggal Awal Cuti</th>
                                     <th scope="col">Tanggal Masuk</th>
+                                    <th scope="col">Total Hari</th>
                                     <th scope="col">Persetujuan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -48,6 +49,15 @@
                                         </td>
                                         <td>
                                             <div><?= $list['tanggal_masuk'] ?></div>
+                                        </td>
+                                        <td>
+                                            <div><?php $tgla = $list['tanggal_awal'];
+                                                    $tglb = $list['tanggal_masuk'];
+                                                    $tgl1 = new DateTime($tgla);
+                                                    $tgl2 = new DateTime($tglb);
+                                                    $selisih = $tgl2->diff($tgl1);
+                                                    echo $selisih->d;
+                                                    echo " Hari"; ?></div>
                                         </td>
                                         <td>
                                             <div><i class="bi bi-question-diamond"></i></div>
