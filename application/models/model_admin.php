@@ -62,10 +62,7 @@ class Model_admin extends CI_Model
     }
     public function getjad()
     {
-        $this->db->select('*');
-        $this->db->from('jad');
-        $query = $this->db->get();
-        return $query->result_array();
+        return $this->db->get('jad')->result_array();
     }
     public function tambahlembur($datalembur)
     {

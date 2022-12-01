@@ -2,7 +2,7 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link " href="<?=base_url(); ?>dosen">
+            <a class="nav-link " href="<?= base_url(); ?>dosen">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -47,7 +47,7 @@
             </a>
             <ul id="charts-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="<?= base_url(); ?>dosen/fungsi/tambahjad">
                         <i class="bi bi-circle"></i><span>JAD</span>
                     </a>
                 </li>
@@ -59,11 +59,6 @@
                 <li>
                     <a href="charts-echarts.html">
                         <i class="bi bi-circle"></i><span>BPJS</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Lembur</span>
                     </a>
                 </li>
             </ul>

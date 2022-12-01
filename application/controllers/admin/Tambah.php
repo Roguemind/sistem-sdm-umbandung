@@ -68,29 +68,49 @@ class Tambah extends CI_Controller
 
     public function tambahprodi()
     {
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_prodi');
     }
     public function tambahjad()
     {
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_jad');
     }
     public function tampiljad()
     {
-        $data['list'] = $this->Model_admin->getjad();
+        $data['listjad'] = $this->Model_admin->getjad();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/tampil_jad', $data);
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
-        $this->load->view('admin/tampil_jad', $data);
     }
     public function tambahlembur()
 
     {
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_lembur');
     }
     public function tambahfakultas()
     {
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('admin/tambah_fakultas');
     }
 

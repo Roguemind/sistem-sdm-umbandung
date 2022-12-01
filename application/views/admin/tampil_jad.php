@@ -28,13 +28,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($list as $lista) : ?>
+                                <?php foreach ($listjad as $list) : ?>
                                     <tr>
                                         <td>
-                                            <div><?= $lista['id_jad'] ?></div>
+                                            <div><?= $list['id_jad'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $lista['nama'] ?></div>
+                                            <div><?= $list['nama'] ?></div>
                                         </td>
                                         <td>
                                             <div><i class="bi bi-question-diamond"></i></div>
@@ -177,4 +177,3 @@
         </div>
     </div>
 </main><!-- End #main -->
-
