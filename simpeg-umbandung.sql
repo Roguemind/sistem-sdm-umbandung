@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2022 at 05:10 AM
+-- Generation Time: Dec 01, 2022 at 01:15 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -46,6 +46,19 @@ INSERT INTO `account` (`no_pegawai`, `username`, `password`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `arsip_dosen`
+--
+
+CREATE TABLE `arsip_dosen` (
+  `no_sk` varchar(50) NOT NULL,
+  `judul` text NOT NULL,
+  `id_unit` varchar(15) NOT NULL,
+  `tipe_surat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `arsip_tendik`
 --
 
@@ -64,18 +77,13 @@ INSERT INTO `arsip_tendik` (`no_sk`, `judul`, `id_unit`, `tipe_surat`) VALUES
 ('293182381', 'Surat PHK', 'SP2021', '0'),
 ('293182381', 'Surat PHK', '001', '0'),
 ('231231231', 'Surat Aduhai', '101', '1'),
+('231231231', 'Surat Aduhai', '001', '1'),
+('912738912371', 'Surat Kenaikan', '101', '2'),
+('912738912371', 'Surat Kenaikan', '001', '2'),
+('293182381', 'Surat PHK', 'SP2021', '0'),
+('293182381', 'Surat PHK', '001', '0'),
+('231231231', 'Surat Aduhai', '101', '1'),
 ('231231231', 'Surat Aduhai', '001', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cuti`
---
-
-CREATE TABLE `cuti` (
-  `id_cuti` int(11) NOT NULL,
-  `jenis_cuti` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -87,7 +95,7 @@ CREATE TABLE `dosen` (
   `no_pegawai` varchar(10) NOT NULL,
   `jad` varchar(5) DEFAULT NULL,
   `id_pegawai` varchar(16) DEFAULT NULL,
-  `id_unit` varchar(15) DEFAULT NULL,
+  `id_prodi` varchar(3) NOT NULL,
   `id_jabatan` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -95,8 +103,29 @@ CREATE TABLE `dosen` (
 -- Dumping data for table `dosen`
 --
 
-INSERT INTO `dosen` (`no_pegawai`, `jad`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
-('1234', '-', '1235', '001', '123');
+INSERT INTO `dosen` (`no_pegawai`, `jad`, `id_pegawai`, `id_prodi`, `id_jabatan`) VALUES
+('1234', '-', '1235', '2', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fakultas`
+--
+
+CREATE TABLE `fakultas` (
+  `id_fakultas` varchar(30) NOT NULL,
+  `nama_fakultas` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fakultas`
+--
+
+INSERT INTO `fakultas` (`id_fakultas`, `nama_fakultas`) VALUES
+('1', 'Fakultas Sains dan Teknologi'),
+('2', 'Fakultas Sosial dan Humaniora'),
+('3', 'Fakultas Ekonomi dan Bisnis'),
+('4', 'Fakultas Agama Islam');
 
 -- --------------------------------------------------------
 
@@ -122,6 +151,29 @@ INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama_jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jad`
+--
+
+CREATE TABLE `jad` (
+  `id_jad` int(11) NOT NULL,
+  `nama` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jad`
+--
+
+INSERT INTO `jad` (`id_jad`, `nama`) VALUES
+(1, 't'),
+(88, 'turu'),
+(111, 'siss22'),
+(1111, '22'),
+(8488, 'qq'),
+(11111, '11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lembur`
 --
 
@@ -131,6 +183,15 @@ CREATE TABLE `lembur` (
   `jenis_pk` varchar(20) NOT NULL,
   `tanggal_lembur` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lembur`
+--
+
+INSERT INTO `lembur` (`id_lembur`, `no_pegawai`, `jenis_pk`, `tanggal_lembur`) VALUES
+(1, '123', 'ta', '2022-11-28'),
+(11, '123', 'rapat', '2022-11-29'),
+(11111, '123', 'gabur', '2022-11-29');
 
 -- --------------------------------------------------------
 
@@ -165,7 +226,7 @@ CREATE TABLE `pegawai` (
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `nik`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`, `foto_peg`) VALUES
 ('01001', 'Faisal', '', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-10', 'Bekasi', 'L', 'Islam', 'S2', '081315358588', 'Lajang', 2012, 'Universitas Indonesia', '001', '2020-11-03', ''),
 ('123', 'Teguh', '', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '2022-11-19', ''),
-('1235', 'ema', '3201254487965456', 'kp kopo', 'ema@gmail.com', '2001-11-01', 'bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03', 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'),
+('1235', 'ema', '3201254487965456', 'Kampung Cidahon', 'ema@gmail.com', '2001-11-01', 'Bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03', ''),
 ('4578928', 'Rehan', '', 'Ohio', 'rehan@gmail.com', '2022-11-23', 'Jakarta', '', 'Islam', 'D4', '085155689887', 'Lajang', 2018, 'Universitas Padjajaran', '-', '0000-00-00', '');
 
 -- --------------------------------------------------------
@@ -198,11 +259,72 @@ INSERT INTO `pejabat` (`id_pejabat`, `id_jabatan`, `id_pegawai`, `sk`, `tahun_me
 
 CREATE TABLE `pengajuan` (
   `id_pengajuan` int(11) NOT NULL,
-  `jangka_waktu` date NOT NULL,
+  `jensi_cuti` varchar(20) NOT NULL,
+  `tgl_pengajuan` date NOT NULL,
+  `tgl_masuk` date NOT NULL,
+  `jangka_waktu` int(11) NOT NULL,
   `id_pegawai` varchar(16) NOT NULL,
-  `id_cuti` int(11) NOT NULL,
   `persetujuan` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prodi`
+--
+
+CREATE TABLE `prodi` (
+  `id_prodi` varchar(30) NOT NULL,
+  `nama_prodi` varchar(32) NOT NULL,
+  `id_fakultas` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prodi`
+--
+
+INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `id_fakultas`) VALUES
+('10', 'Psikologi', '2'),
+('11', 'Kriya Tekstil dan Fashion', '2'),
+('12', 'Akuntansi', '3'),
+('13', 'Manajemen', '3'),
+('14', 'Pendidikan Agama Islam', '4'),
+('15', 'Pendidikan Islam Anak Usia Dini', '4'),
+('16', 'Hukum Keluarga Islam', '4'),
+('17', 'Ekonomi Syariah', '4'),
+('18', 'Komunikasi Penyiaran Islam', '4'),
+('2', 'Teknik Informatika', '1'),
+('3', 'Teknik Industri', '1'),
+('4', 'Teknologi Pangan', '1'),
+('5', 'Bioteknologi', '1'),
+('6', 'Farmasi', '1'),
+('7', 'Agribisnis', '1'),
+('8', 'Administrasi Publik', '2'),
+('9', 'Ilmu Komunikasi', '2'),
+('﻿1', 'Teknik Elektro', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rekam_pendidikan`
+--
+
+CREATE TABLE `rekam_pendidikan` (
+  `id` int(11) NOT NULL,
+  `id_pegawai` varchar(16) NOT NULL,
+  `nama_universitas` varchar(50) NOT NULL,
+  `jenjang` varchar(30) NOT NULL,
+  `jurusan` varchar(40) NOT NULL,
+  `tahun_lulus` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rekam_pendidikan`
+--
+
+INSERT INTO `rekam_pendidikan` (`id`, `id_pegawai`, `nama_universitas`, `jenjang`, `jurusan`, `tahun_lulus`) VALUES
+(1, '1235', 'Universitas Muhammadiyah Bandung', 'S1', 'Teknik Informatika', '2024'),
+(2, '1235', 'Universitas Padjajaran', 'S2', 'Teknik Elektrok', '2026');
 
 -- --------------------------------------------------------
 
@@ -260,19 +382,19 @@ ALTER TABLE `account`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `cuti`
---
-ALTER TABLE `cuti`
-  ADD PRIMARY KEY (`id_cuti`);
-
---
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`no_pegawai`),
   ADD UNIQUE KEY `id_pegawai` (`id_pegawai`),
   ADD KEY `fk_id_jabatan_dosen` (`id_jabatan`),
-  ADD KEY `fk_id_unit_dosen` (`id_unit`);
+  ADD KEY `fk_id_prodi_dosen` (`id_prodi`);
+
+--
+-- Indexes for table `fakultas`
+--
+ALTER TABLE `fakultas`
+  ADD PRIMARY KEY (`id_fakultas`);
 
 --
 -- Indexes for table `jabatan`
@@ -280,6 +402,12 @@ ALTER TABLE `dosen`
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`),
   ADD KEY `fk_id_unit_jabatan` (`id_unit`);
+
+--
+-- Indexes for table `jad`
+--
+ALTER TABLE `jad`
+  ADD PRIMARY KEY (`id_jad`);
 
 --
 -- Indexes for table `lembur`
@@ -307,8 +435,21 @@ ALTER TABLE `pejabat`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`),
-  ADD KEY `fk_id_cuti` (`id_cuti`),
   ADD KEY `fk_id_pegawai` (`id_pegawai`);
+
+--
+-- Indexes for table `prodi`
+--
+ALTER TABLE `prodi`
+  ADD PRIMARY KEY (`id_prodi`),
+  ADD KEY `fk_id_fakultas` (`id_fakultas`);
+
+--
+-- Indexes for table `rekam_pendidikan`
+--
+ALTER TABLE `rekam_pendidikan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_pegawai_pendidikan` (`id_pegawai`);
 
 --
 -- Indexes for table `tendik`
@@ -330,16 +471,16 @@ ALTER TABLE `unit`
 --
 
 --
--- AUTO_INCREMENT for table `cuti`
---
-ALTER TABLE `cuti`
-  MODIFY `id_cuti` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
   MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rekam_pendidikan`
+--
+ALTER TABLE `rekam_pendidikan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -351,7 +492,7 @@ ALTER TABLE `pengajuan`
 ALTER TABLE `dosen`
   ADD CONSTRAINT `fk_id_jabatan_dosen` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`),
   ADD CONSTRAINT `fk_id_peg_dosen` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
-  ADD CONSTRAINT `fk_id_unit_dosen` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
+  ADD CONSTRAINT `fk_id_prodi_dosen` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`);
 
 --
 -- Constraints for table `jabatan`
@@ -376,8 +517,19 @@ ALTER TABLE `pejabat`
 -- Constraints for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  ADD CONSTRAINT `fk_id_cuti` FOREIGN KEY (`id_cuti`) REFERENCES `cuti` (`id_cuti`),
   ADD CONSTRAINT `fk_id_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
+
+--
+-- Constraints for table `prodi`
+--
+ALTER TABLE `prodi`
+  ADD CONSTRAINT `fk_id_fakultas_prodi` FOREIGN KEY (`id_fakultas`) REFERENCES `fakultas` (`id_fakultas`);
+
+--
+-- Constraints for table `rekam_pendidikan`
+--
+ALTER TABLE `rekam_pendidikan`
+  ADD CONSTRAINT `fk_id_pegawai_pendidikan` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
 -- Constraints for table `tendik`

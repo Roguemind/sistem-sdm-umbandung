@@ -9,17 +9,12 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Tambah jad</h1>
                         </div>
-                        <form class="user" method="POST" action="<?= base_url('dosen/dashboard/aksiTambahjad'); ?>">
+                        <form class="user" method="POST" action="<?= base_url('dosen/fungsi/aksiPengajuanJAD'); ?>">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="id_jad" name="id_jad" placeholder="ID JAD" value="<?= set_value('id_jad') ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama jad" value="<?= set_value('nama') ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                <input type="hidden" class="form-control form-control-user" id="id_pegawai" name="id_pegawai" value="<?= $akun['id_pegawai']; ?>"
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Tambah
+                                Ajukan
                             </button>
                         </form>
                         <hr>

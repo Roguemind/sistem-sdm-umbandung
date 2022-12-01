@@ -56,19 +56,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Total Hari</label>
-                        <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                                <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="" name="" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="0" readonly/>
-                            </div>
-                            <div class="row   ">
-                                <div class="col d-md-flex justify-content-md-end mt-3 sm-10 ">
-                                    <button type="submit" class="btn btn-primary ">Kirim</button>
+                    <div class="row col-sm-12">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Kirim</button>
                                 </div>
                             </div>
-                        </div>
                 </form>
             </div>
         </div>
