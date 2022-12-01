@@ -66,6 +66,34 @@ class Tambah extends CI_Controller
         $this->load->view('admin/tambah_sk', $data);
     }
 
+    public function tambahprodi()
+    {
+        $this->load->view('admin/tambah_prodi');
+    }
+    public function tambahjad()
+    {
+        $this->load->view('admin/tambah_jad');
+    }
+    public function tampiljad()
+    {
+        $data['list'] = $this->Model_admin->getjad();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/tampil_jad', $data);
+    }
+    public function tambahlembur()
+
+    {
+        $this->load->view('admin/tambah_lembur');
+    }
+    public function tambahfakultas()
+    {
+        $this->load->view('admin/tambah_fakultas');
+    }
+
     public function aksiTambahPegawai()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
@@ -212,5 +240,60 @@ class Tambah extends CI_Controller
         );
         $this->Model_admin->tambahSk($dataSk);
         redirect('admin/dashboard');
+    }
+
+    public function aksiTambahprodi()
+    {
+        $id_prodi = $this->input->POST('id_prodi');
+        $id_fakultas = $this->input->POST('id_fakultas');
+        $nama_prodi = $this->input->POST('nama_prodi');
+
+        $dataprodi = array(
+            'id_prodi' => $id_prodi,
+            'id_fakultas' => $id_fakultas,
+            'nama_prodi' => $nama_prodi
+        );
+        $this->Model_admin->simpanDataprodi($dataprodi);
+        redirect('admin/tambah');
+    }
+    public function aksitambahjad()
+    {
+        $id_jad = $this->input->POST('id_jad');
+        $nama = $this->input->POST('nama');
+
+        $datajad = array(
+            'id_jad' => $id_jad,
+            'nama' => $nama
+        );
+        $this->Model_admin->simpanDatajad($datajad);
+        redirect('admin/tambah');
+    }
+    public function aksilembur()
+    {
+        $id_lembur = $this->input->POST('id_lembur');
+        $no_pegawai = $this->input->POST('no_pegawai');
+        $jenis_pk = $this->input->POST('jenis_pk');
+        $tanggal_lembur = $this->input->POST('tanggal_lembur');
+
+        $datalembur = array(
+            'id_lembur' => $id_lembur,
+            'no_pegawai' => $no_pegawai,
+            'jenis_pk' => $jenis_pk,
+            'tanggal_lembur' => $tanggal_lembur
+        );
+        $this->Model_admin->tambahlembur($datalembur);
+        redirect('admin/tambah');
+    }
+    public function aksiTambahfakultas()
+    {
+        $id_fakultas = $this->input->POST('id_fakultas');
+        $nama_fakultas = $this->input->POST('nama_fakultas');
+
+        $datafakultas = array(
+            'id_fakultas' => $id_fakultas,
+            'nama_fakultas' => $nama_fakultas
+        );
+        $this->Model_admin->simpanDatafakultas($datafakultas);
+        redirect('admin/tambah');
     }
 }

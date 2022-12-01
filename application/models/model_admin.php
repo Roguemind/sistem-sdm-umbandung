@@ -51,4 +51,32 @@ class Model_admin extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function simpanDataprodi($dataprodi)
+    {
+        return $this->db->insert('prodi', $dataprodi);
+    }
+    public function simpanDatajad($datajad)
+    {
+        return $this->db->insert('jad', $datajad);
+    }
+    public function getjad()
+    {
+        $this->db->select('*');
+        $this->db->from('jad');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function tambahlembur($datalembur)
+    {
+        return $this->db->insert('lembur', $datalembur);
+    }
+    public function simpanDatafakultas($datafakultas)
+    {
+        return $this->db->insert('fakultas', $datafakultas);
+    }
+    public function getlembur()
+    {
+        return $this->db->get('lembur')->result_array();
+    }
 }

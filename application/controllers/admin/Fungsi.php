@@ -27,7 +27,7 @@ class Fungsi extends CI_Controller
 
     public function melihatCuti()
     {
-        $data['listpengajuan'] = $this->Model_admin->getPengajuanbyId($this->session->userdata('pegawai'));
+        $data['listpengajuan'] = $this->Model_admin->getPengajuanbyId();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -46,5 +46,16 @@ class Fungsi extends CI_Controller
     {
         $data['datatendik'] = $this->Model_pimpinan->getDataTendik();
         $this->load->view('pimpinan/view_tendik', $data);
+    }
+
+    public function melihatlembur()
+    {
+        $data['listlembur'] = $this->Model_admin->getlembur();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/melihat_lembur', $data);
     }
 }

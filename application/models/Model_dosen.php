@@ -14,4 +14,17 @@ class Model_dosen extends CI_Model
     {
         return $this->db->insert('pengajuan', $datacuti);
     }
+
+    public function simpanDataprodi($dataprodi)
+    {
+        return $this->db->insert('prodi', $dataprodi);
+    }
+    public function simpanDatajad($datajad)
+    {
+        return $this->db->insert('jad', $datajad);
+    }
+    public function simpanDatafakultas($datafakultas)
+    {
+        return $this->db->insert('fakultas', $datafakultas);
+    }
 }

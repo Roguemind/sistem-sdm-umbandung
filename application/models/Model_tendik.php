@@ -29,4 +29,9 @@ class Model_tendik extends CI_Model
     {
         return $this->db->get('pengajuan')->result_array();
     }
+
+    public function tambahlembur($datalembur)
+    {
+        return $this->db->insert('lembur', $datalembur);
+    }
 }
