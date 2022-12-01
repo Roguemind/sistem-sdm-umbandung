@@ -40,7 +40,7 @@
                                         <div><?= $list['judul'] ?></div>
                                     </td>
                                     <td>
-                                        <div><?= $list['id_unit'] ?></div>
+                                        <div><?= $list['nama_unit'] ?></div>
                                     </td>
                                     <td>
                                         <div><?= $list['tipe_surat'] ?></div>

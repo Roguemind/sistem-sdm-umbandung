@@ -72,17 +72,17 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIK</div>
-                                        <div class="col-lg-9 col-md-8">32052798078009</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai'];?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8">200102045</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['no_pegawai'];?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8">Bandung, 09 September 2001</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir'];?>, <?= $akun['tanggal_lahir'];?></div>
                                     </div>
 
                                     <div class="row">
@@ -92,22 +92,22 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8">Perempuan</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin'];?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Agama</div>
-                                        <div class="col-lg-9 col-md-8">Islam</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['agama'];?></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Dosen Prodi</div>
-                                        <div class="col-lg-9 col-md-8">Teknik Informatika</div>
+                                        <div class="col-lg-3 col-md-4 label">Unit Kerja</div>
+                                        <div class="col-lg-9 col-md-8"><?= $unit['nama_unit']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jabatan</div>
-                                        <div class="col-lg-9 col-md-8">Kepala Bagian Prodi</div>
+                                        <div class="col-lg-9 col-md-8"><?= $jabatan['nama_jabatan']; ?></div>
                                     </div>
 
                                     <div class="row">
@@ -117,19 +117,18 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Alamat</div>
-                                        <div class="col-lg-9 col-md-8">Jl. Ciganitri No. 28, Ds. Cipagalo, Kec. Bojongsoang, Bandung, 40288</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['alamat'] ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Phone</div>
-                                        <div class="col-lg-9 col-md-8">(+62) 821 1820 4968</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['kontak'] ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">eleonora@example.com</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['email'] ?></div>
                                     </div>
-
                                 </div>
 
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">

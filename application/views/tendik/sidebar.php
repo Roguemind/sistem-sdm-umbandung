@@ -91,7 +91,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="pages-blank.html">
+                    <a class="nav-link collapsed" href="<?= base_url(); ?>tendik/fungsi/melihatsk">
                         <i class="bx bx-folder-open"></i>
                         <span>Berkas</span>
                     </a>

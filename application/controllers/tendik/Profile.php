@@ -6,13 +6,15 @@ class Profile extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Model_dosen');
+        $this->load->model('Model_tendik');
         $this->load->model('Model_master');
     }
 
     public function index()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $data['jabatan'] = $this->Model_tendik->getJabatan($this->session->userdata('session_id'));
+        $data['unit'] = $this->Model_tendik->getUnit($this->session->userdata('session_id'));
         $this->load->view('_partials/head', $data);
         $this->load->view('tendik/header', $data);
         $this->load->view('tendik/sidebar', $data);
@@ -42,6 +44,6 @@ class Profile extends CI_Controller
             'email' => $email,
         );
         $this->Model_master->updateProfile($dataPegawai, $nidn);
-        redirect('dosen/profile');
+        redirect('tendik/profile');
     }
 }

@@ -16,12 +16,16 @@
             </div>
             <div class="card-body">
                 <form class="user" method="POST" action="<?= base_url('tendik/pengajuan/aksicuti'); ?>">
-                    <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Nama Cuti</label>
+                    <div class="row mb-3 mt-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Jenis Cuti</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="nama_cuti" name="nama_cuti" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="<?= set_value('nama_cuti') ?>" />
+                                <select id="jenis_cuti" name="jenis_cuti" class="form-select">
+                                    <option id="cuti1" name="cuti1" value="Cuti Nikah">Cuti Nikah
+                                    <option id="cuti2" name="cuti2" value="Cuti Libur">Cuti Libur
+                                    <option id="cuti3" name="cuti3" value="Cuti Hamil">Cuti Hamil
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -35,7 +39,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Tanggal Awal Libur</label>
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Tanggal Mulai Cuti</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
@@ -57,7 +61,7 @@
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                <input type="text" class="form-control" id="" name="" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="" />
+                                <input type="text" class="form-control" id="" name="" placeholder="" aria-label="" aria-describedby="basic-icon-default-fullname2" value="0" readonly/>
                             </div>
                             <div class="row   ">
                                 <div class="col d-md-flex justify-content-md-end mt-3 sm-10 ">

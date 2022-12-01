@@ -14,13 +14,15 @@ class Profile extends CI_Controller
     public function index()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['jabatan'] = $this->Model_master->getJabatan($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['unit'] = $this->Model_master->getUnit($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $this->load->view('dosen/header',$data);
-        $this->load->view('dosen/sidebar');
-        $this->load->view('_partials/head'); 
+        $data['jabatan'] = $this->Model_dosen->getJabatan($this->session->userdata('session_id'));
+        $data['profak'] = $this->Model_dosen->getProfak($this->session->userdata('session_id'));
+        $data['rekpens'] = $this->Model_master->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $this->load->view('_partials/head', $data); 
         $this->load->view('_partials/script'); 
+        $this->load->view('dosen/header',$data);
+        $this->load->view('dosen/sidebar' , $data);
         $this->load->view('dosen/profile', $data);
+        $this->load->view('_partials/footer');
     }
 
     public function aksiEditProfile()
