@@ -29,7 +29,6 @@
                                     <th scope="col">Tanggal Masuk</th>
                                     <th scope="col">Total Hari</th>
                                     <th scope="col">Persetujuan</th>
-                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,29 +41,20 @@
                                             <div><?= $list['nama'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama_cuti'] ?></div>
+                                            <div><?= $list['jensi_cuti'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['tanggal_awal'] ?></div>
+                                            <div><?= $list['tgl_pengajuan'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['tanggal_masuk'] ?></div>
+                                            <div><?= $list['tgl_masuk'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?php $tgla = $list['tanggal_awal'];
-                                                    $tglb = $list['tanggal_masuk'];
-                                                    $tgl1 = new DateTime($tgla);
-                                                    $tgl2 = new DateTime($tglb);
-                                                    $selisih = $tgl2->diff($tgl1);
-                                                    echo $selisih->d;
-                                                    echo " Hari"; ?></div>
+                                            <div><?= $list['jangka_waktu'] ?></div>
                                         </td>
                                         <td>
-                                            <div><i class="bi bi-question-diamond"></i></div>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
-                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
+                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""> Setujui</button>
+                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"> Tolak</button>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

@@ -25,18 +25,23 @@ class Pengajuan extends CI_Controller
     public function aksicuti()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
-        $nama = $this->input->POST('nama_cuti');
+        $nama = $this->input->POST('jenis_cuti');
         $tanggal_awal = $this->input->POST('tanggal_awal');
         $tanggal_masuk = $this->input->POST('tanggal_masuk');
+        $tgl1 = new DateTime($tanggal_awal);
+        $tgl2 = new DateTime($tanggal_masuk);
+        $jangka_waktu = $tgl2->diff($tgl1);
 
         $datacuti = array(
             'id_pegawai' => $id_pegawai,
-            'tanggal_awal' => $tanggal_awal,
-            'nama_cuti' => $nama,
-            'tanggal_masuk' => $tanggal_masuk
+            'jensi_cuti' => $nama,
+            'tgl_pengajuan' => $tanggal_awal,
+            'tgl_masuk' => $tanggal_masuk,
+            'jangka_waktu' => $jangka_waktu->d
 
         );
-
+        //var_dump($jangka_waktu);
+        //exit();
         $this->Model_tendik->simpancuti($datacuti);
         redirect('tendik/dashboard');
     }
