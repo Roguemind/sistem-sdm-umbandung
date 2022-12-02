@@ -74,9 +74,22 @@ class Model_admin extends CI_Model
     {
         return $this->db->insert('arsip_tendik', $dataSk);
     }
+
+    public function getArsip_Dosen()
+    {
+        $this->db->select('*');
+        $this->db->from('arsip_dosen');
+        $this->db->join('prodi','prodi.id_prodi = arsip_dosen.id_prodi');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function getArsipTendik()
     {
-        return $this->db->get('arsip_tendik')->result_array();
+        $this->db->select('*');
+        $this->db->from('arsip_tendik');
+        $this->db->join('tendik','tendik.id_unit = arsip_tendik.id_tendik');
+        $query = $this->db->get();
+        return $query->result_array();
     }
     public function getPengajuan()
     {

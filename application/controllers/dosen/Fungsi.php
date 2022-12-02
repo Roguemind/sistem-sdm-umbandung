@@ -67,13 +67,8 @@ class Fungsi extends CI_Controller
         } else {
             if ($this->Model_dosen->cekJAD($aktivasi == 0)) {
                 $this->load->view('dosen/tunggu');
-<<<<<<< Updated upstream
             } else {
                 redirect('dosen/fungsi/formJAD');
-=======
-            }else{
-                redirect('dosen/formJAD');
->>>>>>> Stashed changes
             }
         }
     }

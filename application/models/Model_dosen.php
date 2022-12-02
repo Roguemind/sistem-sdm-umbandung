@@ -66,12 +66,11 @@ class Model_dosen extends CI_Model
         $this->db->set('aktivasi', 0);
         return $this->db->insert('jad');
     }
-<<<<<<< Updated upstream
     public function getPengajuan()
     {
         return $this->db->get('pengajuan')->result_array();
-=======
-
+    }
+    
     public function getArsip($role,$account_uid)
     {
         $this->db->select('*');
@@ -82,6 +81,5 @@ class Model_dosen extends CI_Model
         $this->db->where('arsip_dosen.id_prodi = dosen.id_prodi');
         $query = $this->db->get();
         return $query->result_array();
->>>>>>> Stashed changes
     }
 }

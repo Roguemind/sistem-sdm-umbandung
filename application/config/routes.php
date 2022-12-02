@@ -69,6 +69,8 @@ $route['dosen/jad'] = 'dosen/fungsi/tambahJAD';
 
 
 // Route Fungsi Admin-PT
-
+$route['admin/viewdosen'] = 'admin/fungsi/datadosen';
+$route['admin/viewtendik'] = 'admin/fungsi/datatendik';
+$route['admin/arsip'] = 'admin/fungsi/melihatSk';
 
 // Route Fungsi Admin-Unit

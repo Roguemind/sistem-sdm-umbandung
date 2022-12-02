@@ -33,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listsk as $list) : ?>
+                                <?php foreach ($lista as $list) : ?>
                                     <tr>
                                         <td>
                                             <div><?= $list['judul'] ?></div>
@@ -42,10 +42,10 @@
                                             <div><?= $list['tipe_surat'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['id_unit'] ?></div>
+                                            <div><?= $list['nama_prodi'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['no_sk'] ?></div>
+                                            <div><?= $list['id_surat'] ?></div>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>

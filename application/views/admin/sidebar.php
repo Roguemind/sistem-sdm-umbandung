@@ -74,12 +74,12 @@
             </a>
             <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url(); ?>admin/fungsi/datadosen">
+                    <a href="<?= base_url(); ?>admin/viewdosen">
                         <i class="bi bi-circle"></i><span>Dosen</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= base_url() ?>admin/fungsi/datatendik">
+                    <a href="<?= base_url() ?>admin/viewtendik">
                         <i class="bi bi-circle"></i><span>Tendik</span>
                     </a>
                 </li>
@@ -87,7 +87,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahSk">
+            <a class="nav-link collapsed" href="<?= base_url() ?>admin/arsip">
                 <i class="bx bx-folder-open"></i>
                 <span>Berkas</span>
             </a>

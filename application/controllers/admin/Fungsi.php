@@ -15,14 +15,14 @@ class Fungsi extends CI_Controller
 
     public function melihatSk()
     {
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['lista'] = $this->Model_dosen->getArsip_dosen($this->session->userdata('role'));
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['lista'] = $this->Model_admin->getArsip_dosen();
         $this->load->view('_partials/head', $data);
-        $this->load->view('dosen/header', $data);
-        $this->load->view('dosen/sidebar', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
-        $this->load->view('dosen/melihat_sk', $data);
+        $this->load->view('admin/tambah_sk', $data);
     }
 
     public function melihatCuti()
