@@ -2,7 +2,7 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url(); ?>dosen">
+            <a class="nav-link " href="<?= base_url(); ?>dosen/dashboard">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -47,12 +47,12 @@
             </a>
             <ul id="charts-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url(); ?>dosen/fungsi/tambahjad">
+                    <a href="<?= base_url(); ?>dosen/jad">
                         <i class="bi bi-circle"></i><span>JAD</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= base_url('dosen/fungsi/cuti'); ?>">
+                    <a href="<?= base_url(); ?>dosen/cuti">
                         <i class="bi bi-circle"></i><span>Cuti</span>
                     </a>
                 </li>
@@ -66,7 +66,7 @@
         <!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url('dosen/pengajuan/melihatSk'); ?>">
+            <a class="nav-link collapsed" href="<?= base_url(); ?>dosen/arsip">
                 <i class="bx bx-folder-open"></i>
                 <span>Berkas</span>
             </a>

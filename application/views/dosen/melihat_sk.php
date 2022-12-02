@@ -31,16 +31,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $num = 1; ?>
                             <?php foreach ($lista as $list) : ?>
                                 <tr>
                                     <td>
-                                        <div><?= $list['no_sk'] ?></div>
+                                        <div><?= $num++;  ?></div>
                                     </td>
                                     <td>
                                         <div><?= $list['judul'] ?></div>
                                     </td>
                                     <td>
-                                        <div><?= $list['nama_unit'] ?></div>
+                                        <div><?= $list['nama_prodi'] ?></div>
                                     </td>
                                     <td>
                                         <div><?= $list['tipe_surat'] ?></div>

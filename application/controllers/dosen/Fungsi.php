@@ -10,10 +10,11 @@ class Fungsi extends CI_Controller
         $this->load->model('Model_master');
     }
 
+    //Fungsi Lihat SK
     public function melihatSk()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['lista'] = $this->Model_master->getArsip($this->session->userdata('role'));
+        $data['lista'] = $this->Model_dosen->getArsip($this->session->userdata('role'), $this->session->userdata('session_id'));
         $this->load->view('_partials/head', $data);
         $this->load->view('dosen/header', $data);
         $this->load->view('dosen/sidebar', $data);
@@ -22,7 +23,8 @@ class Fungsi extends CI_Controller
         $this->load->view('dosen/melihat_sk', $data);
     }
 
-    public function cuti()
+    //Fungsi Pengajuan Cuti
+    public function pengajuanCuti()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
         $this->load->view('_partials/head');
@@ -33,7 +35,7 @@ class Fungsi extends CI_Controller
         $this->load->view('dosen/pengajuan_cuti', $data);
     }
 
-    public function aksicuti()
+    public function aksiCuti()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
         $nama = $this->input->POST('jenis_cuti');
@@ -50,7 +52,8 @@ class Fungsi extends CI_Controller
         redirect('dosen/dashboard');
     }
 
-    public function tambahjad()
+    //Fungsi JAD
+    public function tambahJAD()
     {
         $aktivasi = $this->Model_dosen->cekJAD($this->session->userdata('session_id'))->result_array();
         if ($this->Model_dosen->cekJAD($this->session->userdata('session_id'))->num_rows() == 0) {
@@ -64,8 +67,13 @@ class Fungsi extends CI_Controller
         } else {
             if ($this->Model_dosen->cekJAD($aktivasi == 0)) {
                 $this->load->view('dosen/tunggu');
+<<<<<<< Updated upstream
             } else {
                 redirect('dosen/fungsi/formJAD');
+=======
+            }else{
+                redirect('dosen/formJAD');
+>>>>>>> Stashed changes
             }
         }
     }

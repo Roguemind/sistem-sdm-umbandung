@@ -38,14 +38,26 @@ class Fungsi extends CI_Controller
 
     public function dataDosen()
     {
-        $data['datadosen'] = $this->Model_pimpinan->getDataDosen();
-        $this->load->view('pimpinan/view_dosen', $data);
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['listd'] = $this->Model_admin->getDataDosen();
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/tambah_dosen', $data);
     }
 
     public function dataTendik()
     {
-        $data['datatendik'] = $this->Model_pimpinan->getDataTendik();
-        $this->load->view('pimpinan/view_tendik', $data);
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['datatendik'] = $this->Model_admin->getDataTendik();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/tambah_tendik', $data);
     }
 
     public function melihatlembur()

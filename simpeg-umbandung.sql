@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 01:15 PM
+-- Generation Time: Dec 02, 2022 at 07:47 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -50,11 +50,19 @@ INSERT INTO `account` (`no_pegawai`, `username`, `password`, `role`) VALUES
 --
 
 CREATE TABLE `arsip_dosen` (
-  `no_sk` varchar(50) NOT NULL,
+  `id_surat` bigint(20) NOT NULL,
   `judul` text NOT NULL,
-  `id_unit` varchar(15) NOT NULL,
+  `id_prodi` varchar(15) NOT NULL,
   `tipe_surat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `arsip_dosen`
+--
+
+INSERT INTO `arsip_dosen` (`id_surat`, `judul`, `id_prodi`, `tipe_surat`) VALUES
+(1, 'Surat Test', '2', 'Surat Masuk'),
+(123587954698, 'Test', '2', 'Surat Masuk');
 
 -- --------------------------------------------------------
 
@@ -156,20 +164,9 @@ INSERT INTO `jabatan` (`id_jabatan`, `id_unit`, `nama_jabatan`) VALUES
 
 CREATE TABLE `jad` (
   `id_jad` int(11) NOT NULL,
-  `nama` varchar(40) NOT NULL
+  `id_pegawai` varchar(16) NOT NULL,
+  `aktivasi` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `jad`
---
-
-INSERT INTO `jad` (`id_jad`, `nama`) VALUES
-(1, 't'),
-(88, 'turu'),
-(111, 'siss22'),
-(1111, '22'),
-(8488, 'qq'),
-(11111, '11');
 
 -- --------------------------------------------------------
 
@@ -382,6 +379,13 @@ ALTER TABLE `account`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `arsip_dosen`
+--
+ALTER TABLE `arsip_dosen`
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `fk_id_prodi_arsip` (`id_prodi`);
+
+--
 -- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
@@ -407,7 +411,8 @@ ALTER TABLE `jabatan`
 -- Indexes for table `jad`
 --
 ALTER TABLE `jad`
-  ADD PRIMARY KEY (`id_jad`);
+  ADD PRIMARY KEY (`id_jad`),
+  ADD KEY `fk_id_dosen_jad` (`id_pegawai`);
 
 --
 -- Indexes for table `lembur`
@@ -471,6 +476,18 @@ ALTER TABLE `unit`
 --
 
 --
+-- AUTO_INCREMENT for table `arsip_dosen`
+--
+ALTER TABLE `arsip_dosen`
+  MODIFY `id_surat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123587954699;
+
+--
+-- AUTO_INCREMENT for table `jad`
+--
+ALTER TABLE `jad`
+  MODIFY `id_jad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
@@ -487,6 +504,12 @@ ALTER TABLE `rekam_pendidikan`
 --
 
 --
+-- Constraints for table `arsip_dosen`
+--
+ALTER TABLE `arsip_dosen`
+  ADD CONSTRAINT `fk_id_prodi_arsip` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`);
+
+--
 -- Constraints for table `dosen`
 --
 ALTER TABLE `dosen`
@@ -499,6 +522,12 @@ ALTER TABLE `dosen`
 --
 ALTER TABLE `jabatan`
   ADD CONSTRAINT `fk_id_unit_jabatan` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
+
+--
+-- Constraints for table `jad`
+--
+ALTER TABLE `jad`
+  ADD CONSTRAINT `fk_id_dosen_jad` FOREIGN KEY (`id_pegawai`) REFERENCES `dosen` (`id_pegawai`);
 
 --
 -- Constraints for table `lembur`

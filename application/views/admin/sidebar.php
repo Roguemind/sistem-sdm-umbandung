@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url(); ?>admin/dashboard">
+            <a class="nav-link " href="<?= base_url(); ?>admin">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -74,12 +74,12 @@
             </a>
             <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url(); ?>admin/tambah/tambahdosen">
+                    <a href="<?= base_url(); ?>admin/fungsi/datadosen">
                         <i class="bi bi-circle"></i><span>Dosen</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= base_url() ?>admin/tambah/tambahtendik">
+                    <a href="<?= base_url() ?>admin/fungsi/datatendik">
                         <i class="bi bi-circle"></i><span>Tendik</span>
                     </a>
                 </li>

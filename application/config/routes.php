@@ -53,7 +53,22 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Route Dashboard Aktor
 $route['admin'] = 'admin/dashboard';
 $route['tendik'] = 'tendik/dashboard';
 $route['dosen'] = 'dosen/dashboard';
 $route['pimpinan'] = 'pimpinan/dashboard';
+
+
+// Route Fungsi Dosen
+$route['dosen/arsip'] = 'dosen/fungsi/melihatSk';
+$route['dosen/cuti'] = 'dosen/fungsi/pengajuanCuti';
+$route['dosen/jad'] = 'dosen/fungsi/tambahJAD';
+
+// Route Fungsi Tendik
+
+
+// Route Fungsi Admin-PT
+
+
+// Route Fungsi Admin-Unit

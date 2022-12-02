@@ -78,12 +78,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>tendik/fungsi/tambahlembur">
+                            <a href="<?= base_url(); ?>tendik/tambahlembur">
                                 <i class="bi bi-circle"></i><span>Lembur</span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= base_url(); ?>tendik/pengajuan/pengajuanCuti">
+                            <a href="<?= base_url(); ?>tendik/pengajuanCuti">
                                 <i class="bi bi-circle"></i><span>Cuti</span>
                             </a>
                         </li>
