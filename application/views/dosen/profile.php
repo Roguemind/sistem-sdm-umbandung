@@ -10,6 +10,7 @@
                     <li class="breadcrumb-item active">Profile</li>
                 </ol>
             </nav>
+            <?= $this->session->flashdata('save'); ?>
         </div><!-- End Page Title -->
 
         <!-- #main -->
@@ -64,7 +65,6 @@
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
                                     <h5 class="card-title">Informasi Pribadi</h5>
-
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['nama'] ?></div>
@@ -72,17 +72,17 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIK</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['no_pegawai'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['no_pegawai']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir'];?>, <?= $akun['tanggal_lahir'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
                                     </div>
 
                                     <div class="row">
@@ -92,19 +92,19 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Agama</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['agama'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['agama']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Prodi Dosen</div>
                                         <div class="col-lg-9 col-md-8"><?= $profak['nama_prodi']; ?></div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Fakultas</div>
                                         <div class="col-lg-9 col-md-8"><?= $profak['nama_fakultas']; ?></div>
@@ -122,7 +122,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Alamat</div>
-                                        <div class="col-lg-9 col-md-8"><?=$akun['alamat']?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['alamat'] ?></div>
                                     </div>
 
                                     <div class="row">
@@ -139,123 +139,143 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <?= form_open('dosen/profile/aksiEditProfile')?>
-                                        <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile">
-                                                <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                    <?= form_open('dosen/profile/aksiEditProfile') ?>
+                                    <div class="row mb-3">
+                                        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile">
+                                            <div class="pt-2">
+                                                <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                                                <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="nama" type="text" class="form-control" id="nama" value="<?= $akun['nama']; ?>" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIDN</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="id_pegawai" type="text" class="form-control" id="id_pegawai" value="<?= $akun['id_pegawai']; ?>" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="nik" class="col-md-4 col-lg-3 col-form-label">NIK</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="nik" type="text" class="form-control" id="nik" value="<?= $akun['nik']; ?>">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+                                        <label for="ttl" class="col-md-4 col-lg-3 col-form-label">TTL</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat-lahir']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="ttl" class="col-md-4 col-lg-3 col-form-label">TTL</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="tanggal_lahir" type="date" class="form-control" id="tanggal_lahir" value="<?= $akun['tanggal_lahir']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="negara" class="col-md-4 col-lg-3 col-form-label">Kenegaraan</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="negara" type="text" class="form-control" id="negara" value="Indonesia">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="jk" type="text" class="form-control" id="jk" value="<?= $akun['jenis_kelamin']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="agama" class="col-md-4 col-lg-3 col-form-label">Agama</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="agama" type="text" class="form-control" id="agama" value="<?= $akun['agama']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Dosen Prodi</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="prodi" type="text" class="form-control" id="prodi" value="<?= $profak['nama_prodi']; ?>" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="jabatan" type="text" class="form-control" id="jabatan" value="<?= $jabatan['nama_jabatan']; ?>" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="pangkat" class="col-md-4 col-lg-3 col-form-label">Pangkat</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="pangkat" type="text" class="form-control" id="pangkat" value="3C">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="alamat" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="alamat" type="text" class="form-control" id="alamat" value="<?= $akun['alamat']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="phone" type="text" class="form-control" id="Phone" value="<?= $akun['kontak']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="email" type="email" class="form-control" id="Email" value="<?= $akun['email']; ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal-Save">
+                                            Save changes
+                                        </button>
+                                    </div>
+
+                                    <!-- End Profile Edit Form -->
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal-Save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Save</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Apakah Yakin Akan Menggantinya ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                                                    <button type="submit" class="btn btn-primary">Yakin</button>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nama" type="text" class="form-control" id="nama" value="<?= $akun['nama']; ?>" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="row mb-3">
-                                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIDN</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="id_pegawai" type="text" class="form-control" id="id_pegawai" value="<?= $akun['id_pegawai']; ?>" readonly>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="nik" class="col-md-4 col-lg-3 col-form-label">NIK</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nik" type="text" class="form-control" id="nik" value="<?= $akun['nik']; ?>">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row mb-3">
-                                            <label for="ttl" class="col-md-4 col-lg-3 col-form-label">TTL</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat-lahir']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="ttl" class="col-md-4 col-lg-3 col-form-label">TTL</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="tanggal_lahir" type="date" class="form-control" id="tanggal_lahir" value="<?= $akun['tanggal_lahir']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="negara" class="col-md-4 col-lg-3 col-form-label">Kenegaraan</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="negara" type="text" class="form-control" id="negara" value="Indonesia">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="jk" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="jk" type="text" class="form-control" id="jk" value="<?= $akun['jenis_kelamin']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="agama" class="col-md-4 col-lg-3 col-form-label">Agama</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="agama" type="text" class="form-control" id="agama" value="<?= $akun['agama']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Dosen Prodi</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="prodi" type="text" class="form-control" id="prodi" value="<?= $profak['nama_prodi']; ?>" readonly>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="jabatan" type="text" class="form-control" id="jabatan" value="<?= $jabatan['nama_jabatan']; ?>" readonly>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="pangkat" class="col-md-4 col-lg-3 col-form-label">Pangkat</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="pangkat" type="text" class="form-control" id="pangkat" value="3C">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="alamat" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="alamat" type="text" class="form-control" id="alamat" value="<?= $akun['alamat']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="phone" type="text" class="form-control" id="Phone" value="<?= $akun['kontak']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="Email" value="<?= $akun['email']; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        </div>
+                                    </div>
                                     </form>
-                                    <!-- End Profile Edit Form -->
-
                                 </div>
 
                                 <div class="tab-pane fade pt-3" id="rekam-pendidikan">
@@ -268,20 +288,20 @@
                                                     <h3 class="card-title">Rekam Pendidikan<a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
                                                     <div class="experience-box">
                                                         <ul class="experience-list">
-                                                            <?php foreach ($rekpens as $rekpen): ?>
-                                                            <li>
-                                                                <div class="experience-user">
-                                                                    <div class="before-circle"></div>
-                                                                </div>
-                                                                <div class="experience-content">
-                                                                    <div class="timeline-content">
-                                                                        <span><?= $rekpen['nama_universitas']; ?></span>
-                                                                        <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
-                                                                        <span class="time"><?= $rekpen['tahun_lulus']; ?></span>
+                                                            <?php foreach ($rekpens as $rekpen) : ?>
+                                                                <li>
+                                                                    <div class="experience-user">
+                                                                        <div class="before-circle"></div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <br>
+                                                                    <div class="experience-content">
+                                                                        <div class="timeline-content">
+                                                                            <span><?= $rekpen['nama_universitas']; ?></span>
+                                                                            <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
+                                                                            <span class="time"><?= $rekpen['tahun_lulus']; ?></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <br>
                                                             <?php endforeach; ?>
                                                         </ul>
                                                     </div>
@@ -331,7 +351,6 @@
                     </div>
                 </div>
         </section>
-
     </main><!-- End #main -->
     <!-- End Footer -->
 
