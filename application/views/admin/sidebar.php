@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url(); ?>admin/dashboard">
+            <a class="nav-link " href="<?= base_url(); ?>admin">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -74,12 +74,12 @@
             </a>
             <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url(); ?>admin/tambah/tambahdosen">
+                    <a href="<?= base_url(); ?>admin/viewdosen">
                         <i class="bi bi-circle"></i><span>Dosen</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?= base_url() ?>admin/tambah/tambahtendik">
+                    <a href="<?= base_url() ?>admin/viewtendik">
                         <i class="bi bi-circle"></i><span>Tendik</span>
                     </a>
                 </li>
@@ -87,10 +87,21 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url() ?>admin/tambah/tambahSk">
-                <i class="bx bx-folder-open"></i>
-                <span>Berkas</span>
+            <a class="nav-link collapsed" data-bs-target="#Arsip" data-bs-toggle="collapse">
+                <i class="bx bx-folder-open"></i><span>Arsip</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
+            <ul id="Arsip" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= base_url(); ?>admin/arsip/dosen">
+                        <i class="bi bi-circle"></i><span>Dosen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>admin/arsip/tendik">
+                        <i class="bi bi-circle"></i><span>Tendik</span>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <!-- End Blank Page Nav -->

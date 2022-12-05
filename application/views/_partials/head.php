@@ -22,7 +22,7 @@
   <link href="<?= base_url(); ?>/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="<?= base_url(); ?>/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?= base_url(); ?>/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-html5-2.3.3/fh-3.3.1/datatables.min.css"/>
+  <link href="<?= base_url(); ?>/assets/vendor/datatables/datatables.min.css">
   <!-- Template Main CSS File -->
   <link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet">
   <!-- =======================================================

@@ -164,13 +164,13 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">ADMIN</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= $akun['nama']; ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>ADMIN</h6>
-                        <span>200102045</span>
+                        <h6><?= $akun['nama']; ?></h6>
+                        <span><?= $akun['id_pegawai']; ?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

@@ -11,6 +11,6 @@ class Dashboard extends CI_Controller {
 
     public function index() {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'),$this->session->userdata('no_pegawai'))->row_array();
-        $this->load->view('pimpinan/dashboard_pimpinan',$data);
+        $this->load->view('pimpinan/dashboard',$data);
     }
 }

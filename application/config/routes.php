@@ -53,7 +53,25 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Route Dashboard Aktor
 $route['admin'] = 'admin/dashboard';
 $route['tendik'] = 'tendik/dashboard';
 $route['dosen'] = 'dosen/dashboard';
 $route['pimpinan'] = 'pimpinan/dashboard';
+
+
+// Route Fungsi Dosen
+$route['dosen/arsip'] = 'dosen/fungsi/melihatSk';
+$route['dosen/cuti'] = 'dosen/fungsi/pengajuanCuti';
+$route['dosen/jad'] = 'dosen/fungsi/tambahJAD';
+
+// Route Fungsi Tendik
+
+
+// Route Fungsi Admin-PT
+$route['admin/viewdosen'] = 'admin/fungsi/datadosen';
+$route['admin/viewtendik'] = 'admin/fungsi/datatendik';
+$route['admin/arsip/dosen'] = 'admin/fungsi/lihatArsipDosen';
+$route['admin/arsip/tendik'] = 'admin/fungsi/lihatArsipTendik';
+
+// Route Fungsi Admin-Unit
