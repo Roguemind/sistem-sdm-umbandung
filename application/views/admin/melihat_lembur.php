@@ -27,7 +27,6 @@
                                     <th scope="col">Jenis pk </th>
                                     <th scope="col">Tanggal lembur</th>
                                     <th scope="col">Persetujuan</th>
-                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,11 +45,8 @@
                                             <div><?= $list['tanggal_lembur'] ?></div>
                                         </td>
                                         <td>
-                                            <div><i class="bi bi-question-diamond"></i></div>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
-                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
+                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""> Setujui</button>
+                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"> Tolak</button>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

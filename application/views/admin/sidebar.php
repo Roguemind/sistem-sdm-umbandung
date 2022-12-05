@@ -51,6 +51,16 @@
             </a>
             <ul id="Pengajuan" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+                    <a href="">
+                        <i class="bi bi-circle"></i><span>NIDN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bi bi-circle"></i><span>NIP</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?= base_url(); ?>admin/fungsi/tampiljad">
                         <i class="bi bi-circle"></i><span>JAD</span>
                     </a>
@@ -63,6 +73,11 @@
                 <li>
                     <a href="<?= base_url(); ?>admin/fungsi/melihatlembur">
                         <i class="bi bi-circle"></i><span>Lembur</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bi bi-circle"></i><span>BPJS</span>
                     </a>
                 </li>
             </ul>
@@ -103,6 +118,15 @@
                 </li>
             </ul>
         </li>
+        <a href="<?= base_url(); ?>" class="nav-link collapsed">
+            <i class="bi bi-person"></i>
+            <span>Unit</span>
+        </a>
+        <a href="<?= base_url(); ?>" class="nav-link collapsed">
+            <i class="bi bi-person"></i>
+            <span>Fakultas</span>
+        </a>
+
 
         <!-- End Blank Page Nav -->
 

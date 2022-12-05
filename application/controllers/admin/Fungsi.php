@@ -119,6 +119,8 @@ class Fungsi extends CI_Controller
     // Fungsi Cuti
     public function melihatCuti()
     {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listpengajuan'] = $this->Model_admin->getPengajuanbyId();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
@@ -188,7 +190,7 @@ class Fungsi extends CI_Controller
         );
 
         $this->Model_admin->simpanDataPegawai($dataPegawai);
-        $this->Model_admin->simpanDataTendik($dataTendik);
+        $this->Model_admin->simpanDataTendik($dataDosen);
         redirect('admin/dashboard');
     }
 
@@ -256,10 +258,11 @@ class Fungsi extends CI_Controller
         $this->Model_admin->simpanDataTendik($dataTendik);
         redirect('admin/dashboard');
     }
-    
+
     // Fungsi Lembur
     public function melihatlembur()
     {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listlembur'] = $this->Model_admin->getlembur();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
