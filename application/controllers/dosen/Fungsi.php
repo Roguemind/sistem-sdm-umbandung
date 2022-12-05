@@ -55,7 +55,8 @@ class Fungsi extends CI_Controller
     //Fungsi JAD
     public function tambahJAD()
     {
-        $aktivasi = $this->Model_dosen->cekJAD($this->session->userdata('session_id'))->result_array();
+        $aktivasis = $this->Model_dosen->cekJAD($this->session->userdata('session_id'))->row();
+        
         if ($this->Model_dosen->cekJAD($this->session->userdata('session_id'))->num_rows() == 0) {
             $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
             $this->load->view('_partials/head');
@@ -65,10 +66,12 @@ class Fungsi extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('dosen/tambah_jad', $data);
         } else {
-            if ($this->Model_dosen->cekJAD($aktivasi == 0)) {
+
+            
+            if ($aktivasis->aktivasi == 0) {
                 $this->load->view('dosen/tunggu');
-            } else {
-                redirect('dosen/fungsi/formJAD');
+            } else  {
+                $this->load->view('dosen/formJAD');
             }
         }
     }
