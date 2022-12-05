@@ -1,15 +1,15 @@
 <main id="main" class="main" style="margin-top: 0px;">
 
     <div class="pagetitle">
-        <h1>Tambah SK</h1>
+        <h1>Tambah Surat</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Tambah SK</li>
+                <li class="breadcrumb-item active">Tambah Surat</li>
             </ol>
         </nav>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDosen" data-bs-whatever="">Tambah SK</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDosen" data-bs-whatever="">Tambah Surat</button>
         </div>
     </div>
     <!-- End Page Title -->
@@ -25,16 +25,20 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Tipe Surat</th>
                                     <th scope="col">Unit/Prodi</th>
-                                    <th scope="col">No SK</th>
+                                    <th scope="col">No Surat</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($lista as $list) : ?>
                                     <tr>
+                                        <td>
+                                            <div></div>
+                                        </td>
                                         <td>
                                             <div><?= $list['judul'] ?></div>
                                         </td>
@@ -45,7 +49,7 @@
                                             <div><?= $list['nama_prodi'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['id_surat'] ?></div>
+                                            <div hidden><?= $list['id_surat'] ?> </div>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
@@ -97,9 +101,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputPassword" class="form-label">No SK</label>
+                            <label for="inputPassword" class="form-label">Unggah</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control form-control-user" id="no_sk" name="no_sk" placeholder="No SK" value="<?= set_value('no_sk') ?>">
+                                <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                         </div>
@@ -169,9 +173,9 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputPassword" class="form-label">No SK</label>
+                                <label for="inputPassword" class="form-label">Unggah</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="no_sk" name="no_sk" placeholder="No SK" value="<?= set_value('no_sk') ?>">
+                                    <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat">
                                     <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
