@@ -5,7 +5,7 @@ class Profile extends CI_Controller
 {
     function __construct()
     {
-        parent::__construct();  
+        parent::__construct();
         $this->load->library('upload');
         $this->load->model('Model_dosen');
         $this->load->model('Model_master');
@@ -16,11 +16,11 @@ class Profile extends CI_Controller
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
         $data['jabatan'] = $this->Model_dosen->getJabatan($this->session->userdata('session_id'));
         $data['profak'] = $this->Model_dosen->getProfak($this->session->userdata('session_id'));
-        $data['rekpens'] = $this->Model_dosen->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $this->load->view('_partials/head', $data); 
-        $this->load->view('_partials/script'); 
-        $this->load->view('dosen/header',$data);
-        $this->load->view('dosen/sidebar' , $data);
+        $data['rekpens'] = $this->Model_master->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $this->load->view('_partials/head', $data);
+        $this->load->view('_partials/script');
+        $this->load->view('dosen/header', $data);
+        $this->load->view('dosen/sidebar', $data);
         $this->load->view('dosen/profile', $data);
         $this->load->view('_partials/footer');
     }
@@ -46,6 +46,9 @@ class Profile extends CI_Controller
             'email' => $email,
         );
         $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Berhasil Di Ubah.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
         redirect('dosen/profile');
     }
 }
