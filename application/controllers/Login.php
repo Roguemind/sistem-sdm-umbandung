@@ -35,11 +35,72 @@ class Login extends CI_Controller
                 );
                 $this->session->set_userdata($sesi);
                 redirect($sesi['role'].'/dashboard');
-            } else {
+            }
+            
+            else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger text-center" role="alert"> Username/Password Salah !! </div>');
                 redirect('login');
             }
         }
+    }
+
+    public function auth_user2(){
+        if($this->input->post('username') == NULL){
+            if($this->model_login->cekUsername($this->input->post('username'))->num_rows() > 0 && $this->model_login->cekPassword(
+                $this->input->post('username'),
+                $this->input->post('password')
+            )->num_rows() > 0){
+                $temp = $this->model_login->cekPassword($this->input->post('username'), $this->input->post('password'))->row_array();
+                switch($temp['role']){
+                    case 'dosen':
+                        $sesi = array(
+                            'session_id' => $temp['no_pegawai'],
+                            'logged_in' => TRUE,
+                            'role' => $temp['role'],
+                        );
+                        $this->session->set_userdata($sesi);
+                        redirect('dosen/dashboard');
+
+                    case 'tendik':
+                        $sesi = array(
+                            'session_id' => $temp['no_pegawai'],
+                            'logged_in' => TRUE,
+                            'role' => $temp['role'],
+                        );
+                        $this->session->set_userdata($sesi);
+                        redirect('tendik/dashboard');
+                            
+                    case 'admin':
+                        $sesi = array(
+                            'session_id' => $temp['no_pegawai'],
+                            'logged_in' => TRUE,
+                            'role' => $temp['role'],
+                        );
+                        $this->session->set_userdata($sesi);
+                        redirect('admin/dashboard');
+
+                    case 'pimpinan':
+                        $sesi = array(
+                            'session_id' => $temp['no_pegawai'],
+                            'logged_in' => TRUE,
+                            'role' => $temp['role'],
+                        );
+                            $this->session->set_userdata($sesi);
+                            redirect('pimpinan/dashboard');
+
+                    case 'dosten':
+                        redirect('login/landingpage');
+                }
+            }
+        }
+        else {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger text-center" role="alert"> Username/Password Salah !! </div>');
+            redirect('login');
+        }
+    }
+
+    public function landingpage(){
+        
     }
 
     public function logout(){

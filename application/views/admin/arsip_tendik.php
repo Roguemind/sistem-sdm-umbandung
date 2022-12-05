@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Dosen</h5>
+                        <h5 class="card-title">Arsip Tendik</h5>
 
                         <!-- Table with hoverable rows -->
                         <table class="table table-hover">
@@ -27,7 +27,7 @@
                                 <tr>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Tipe Surat</th>
-                                    <th scope="col">Unit/Prodi</th>
+                                    <th scope="col">Unit</th>
                                     <th scope="col">No SK</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -42,7 +42,7 @@
                                             <div><?= $list['tipe_surat'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama_prodi'] ?></div>
+                                            <div><?= $list['nama_unit'] ?></div>
                                         </td>
                                         <td>
                                             <div><?= $list['id_surat'] ?></div>
@@ -66,7 +66,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Dosen</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Surat</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -136,7 +136,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Dosen</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Surat</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -162,9 +162,9 @@
                                 <div class="col-sm-12">
                                     <select class="form-control form-control-user" id="unit-kerja" name="unit-kerja" placeholder="Unit Kerja">
                                         <option selected disabled>-- Pilih --</option>
-                                        <?php foreach ($lista as $unit) { ?>
+                                        <?php foreach ($lista as $unit) : ?>
                                             <option value=<?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama_unit'] ?></option>
-                                        <?php } ?>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>

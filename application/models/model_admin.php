@@ -23,6 +23,11 @@ class Model_admin extends CI_Model
         return $query->result_array();
     }
 
+    public function getProdi()
+    {
+        return $this->db->get('prodi')->result_array();
+    }
+
     public function getUnit()
     {
         return $this->db->get('unit')->result_array();
@@ -75,7 +80,7 @@ class Model_admin extends CI_Model
         return $this->db->insert('arsip_tendik', $dataSk);
     }
 
-    public function getArsip_Dosen()
+    public function getArsipDosen()
     {
         $this->db->select('*');
         $this->db->from('arsip_dosen');
@@ -87,7 +92,7 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('arsip_tendik');
-        $this->db->join('tendik','tendik.id_unit = arsip_tendik.id_tendik');
+        $this->db->join('unit','unit.id_unit = arsip_tendik.id_unit');
         $query = $this->db->get();
         return $query->result_array();
     }
