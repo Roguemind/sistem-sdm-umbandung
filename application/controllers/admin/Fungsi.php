@@ -68,6 +68,36 @@ class Fungsi extends CI_Controller
         redirect('admin/dashboard');
     }
 
+    public function uploadSurat($role){
+        $judul = $this->input->POST('judul');
+        $tipe_surat = $this->input->POST('tipe_surat');
+        $unit_kerja = $this->input->POST('unit-kerja');
+        $config['allowed_types']    = 'pdf';
+        $config['max_size']         = 100000;
+        $config['upload_path']      = FCPATH.'/upload/berkas/dosen/';
+        $config['file_name']        = $judul."_".$unit_kerja."_".".pdf";
+        $this->load->library('upload', $config);
+        $cek = $this->upload->do_upload('file_surat');
+        if($cek){
+            var_dump($this->upload->data());
+        }else{
+            var_dump($this->upload->display_errors());
+        }
+        /*if(!$this->upload->do_upload('file_surat')){
+            $file_surat = $this->upload->data('file_name');
+            $data = array(
+                'judul' => $judul,
+                'tipe_surat' => $tipe_surat,
+                'id_prodi' => $unit_kerja,
+                'file_surat' => $file_surat,
+            );
+            $this->Model_admin->uploadBerkasDosen($data);
+            redirect('admin/arsip/dosen');
+        }else{
+            var_dump('error');
+            exit;
+        }*/
+    }
     
     public function aksiBerkasTendik()
     {

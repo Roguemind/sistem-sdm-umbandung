@@ -88,6 +88,11 @@ class Model_admin extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function uploadBerkasDosen($data){
+        return $this->db->insert('arsip_dosen', $data);
+    }
+
     public function getArsipTendik()
     {
         $this->db->select('*');

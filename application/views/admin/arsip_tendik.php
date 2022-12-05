@@ -175,8 +175,8 @@
                             <div class="row mb-3">
                                 <label for="inputPassword" class="form-label">Unggah</label>
                                 <div class="col-sm-12">
-                                    <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat" value="<?= set_value('no_sk') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat" value="<?= set_value('nama_file') ?>">
+                                    <?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="modal-footer">
