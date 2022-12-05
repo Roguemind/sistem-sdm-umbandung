@@ -114,13 +114,21 @@ class Model_admin extends CI_Model
     {
         return $this->db->insert('prodi', $dataprodi);
     }
-    public function simpanDatajad($datajad)
+    public function simpanDatajad($datajad,$uid)
     {
-        return $this->db->insert('jad', $datajad);
+        $this->db->set($datajad);
+        $this->db->where('id_jad', $uid);
+        return $this->db->update('jad');
     }
-    public function getjad()
+    public function getJAD()
     {
-        return $this->db->get('jad')->result_array();
+        $this->db->select('*');
+        $this->db->from('jad');
+        $this->db->join('dosen', 'dosen.id_pegawai = jad.id_pegawai');
+        $this->db->join('pegawai', 'pegawai.id_pegawai = dosen.id_pegawai');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $query= $this->db->get();
+        return $query->result_array();
     }
     public function tambahlembur($datalembur)
     {

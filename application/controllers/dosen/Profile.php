@@ -16,7 +16,7 @@ class Profile extends CI_Controller
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
         $data['jabatan'] = $this->Model_dosen->getJabatan($this->session->userdata('session_id'));
         $data['profak'] = $this->Model_dosen->getProfak($this->session->userdata('session_id'));
-        $data['rekpens'] = $this->Model_master->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $data['rekpens'] = $this->Model_dosen->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
         $this->load->view('_partials/head', $data);
         $this->load->view('_partials/script');
         $this->load->view('dosen/header', $data);

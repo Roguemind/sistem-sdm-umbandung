@@ -1,11 +1,11 @@
 <main id="main" class="main" style="margin-top: 0px;">
 
     <div class="pagetitle">
-        <h1>Tambah Dosen</h1>
+        <h1>Data Dosen</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Dosen</li>
+                <li class="breadcrumb-item active">Data Dosen</li>
             </ol>
         </nav>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

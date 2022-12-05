@@ -21,27 +21,37 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID jad</th>
-                                    <th scope="col">Nama jad</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Dosen</th>
+                                    <th scope="col">Prodi</th>
                                     <th scope="col">Persetujuan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($listjad as $list) : ?>
+                                <?php $no= 1; ?>
+                                <?php foreach ($listjad as $jad) : ?>
                                     <tr>
                                         <td>
-                                            <div><?= $list['id_jad'] ?></div>
+                                            <div><?= $no++ ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama'] ?></div>
+                                            <div><?= $jad['nama'] ?></div>
                                         </td>
                                         <td>
-                                            <div><i class="bi bi-question-diamond"></i></div>
+                                            <div><?= $jad['nama_prodi'] ?></div>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
-                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
+                                            <?php 
+                                                if($jad['aktivasi'] == 0){
+                                                    echo "<div>Belum Disetujui</div>";
+                                                }else{
+                                                    echo "<div>Disetujui</div>";
+                                                }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>/admin/fungsi/aksiSetujuJAD/<?= $jad['id_jad'];?>"> Setujui</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

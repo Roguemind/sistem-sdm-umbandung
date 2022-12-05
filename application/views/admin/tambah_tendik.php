@@ -22,7 +22,7 @@
                         <h5 class="card-title">Data Tendik</h5>
 
                         <!-- Table with hoverable rows -->
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="tabel-tendik" name="tabel_tendik">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -33,58 +33,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $no = 1; ?>
+                                <?php foreach ($listt as $dosen) : ?>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Brandon Jacob</td>
-                                    <td>Informatika</td>
-                                    <td>jacob@gmail.com</td>
+                                    <th scope="row"><?= $no++?></th>
+                                    <td><?= $dosen['nama'];  ?></td>
+                                    <td><?= $dosen['nama_unit']; ?></td>
+                                    <td><?= $dosen['email']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditTendik" data-bs-whatever=""></button>
+                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
                                         <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Bridie Kessler</td>
-                                    <td>Psikologi</td>
-                                    <td>bridie@yahoo.com</td>
-                                    <td>
-                                        <div class="d-grid gap-2 d-md-flex ">
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditTendik" data-bs-whatever=""></button>
-                                            <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Ashleigh Langosh</td>
-                                    <td>Ilmu Komunikasi</td>
-                                    <td>ashleigh@example.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditTendik" data-bs-whatever=""></button>
-                                        <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Angus Grady</td>
-                                    <td>Farmasi</td>
-                                    <td>angus@exampl.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditTendik" data-bs-whatever=""></button>
-                                        <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Raheem Lehner</td>
-                                    <td>Bioteknologi</td>
-                                    <td>raheem@gmail.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditTendik" data-bs-whatever=""></button>
-                                        <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
-                                    </td>
-                                </tr>
+                                <?php endforeach?>
                             </tbody>
                         </table>
                         <!-- End Table with hoverable rows -->
@@ -459,3 +420,9 @@
         </div>
     </div>
 </main><!-- End #main -->
+
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#tabel-tendik').DataTable();
+    } );
+</script>

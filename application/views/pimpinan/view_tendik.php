@@ -30,6 +30,7 @@
    </tbody>
 </table>
 
+
 <script type="text/javascript">
 	$(document).ready(function() {
 	    $('#tabel_tendik').DataTable();

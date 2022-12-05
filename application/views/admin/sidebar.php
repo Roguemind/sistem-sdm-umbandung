@@ -51,7 +51,7 @@
             </a>
             <ul id="Pengajuan" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="<?= base_url(); ?>admin/tambah/tampiljad">
+                    <a href="<?= base_url(); ?>admin/fungsi/tampiljad">
                         <i class="bi bi-circle"></i><span>JAD</span>
                     </a>
                 </li>

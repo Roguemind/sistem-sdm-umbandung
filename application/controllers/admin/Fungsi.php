@@ -111,18 +111,6 @@ class Fungsi extends CI_Controller
         $this->load->view('admin/tambah_dosen', $data);
     }
 
-    public function tambahDosen()
-    {
-        $data['units'] = $this->Model_admin->getUnit();
-        $data['jabatans'] = $this->Model_admin->getJabatan();
-        $this->load->view('_partials/head');
-        $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/script');
-        $this->load->view('admin/tambah_dosen', $data);
-    }
-
     public function aksiTambahDosen()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
@@ -178,22 +166,10 @@ class Fungsi extends CI_Controller
     public function dataTendik()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-        $data['datatendik'] = $this->Model_admin->getDataTendik();
+        $data['listt'] = $this->Model_admin->getDataTendik();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/script');
-        $this->load->view('admin/tambah_tendik', $data);
-    }
-
-    public function tambahTendik()
-    {
-        $data['units'] = $this->Model_admin->getUnit();
-        $data['jabatans'] = $this->Model_admin->getJabatan();
-        $this->load->view('_partials/head');
-        $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
         $this->load->view('admin/tambah_tendik', $data);
@@ -386,18 +362,10 @@ class Fungsi extends CI_Controller
     }
 
     //Fungsi JAD
-    public function tambahjad()
-    {
-        $this->load->view('_partials/head');
-        $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/script');
-        $this->load->view('admin/tambah_jad');
-    }
 
     public function tampiljad()
     {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listjad'] = $this->Model_admin->getjad();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
@@ -407,16 +375,13 @@ class Fungsi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function aksitambahjad()
+    public function aksiSetujuJAD($uid)
     {
-        $id_jad = $this->input->POST('id_jad');
-        $nama = $this->input->POST('nama');
-
-        $datajad = array(
-            'id_jad' => $id_jad,
-            'nama' => $nama
+        $aktivasi = array(
+            'id_jad' => $uid,
+            'aktivasi' => 1,
         );
-        $this->Model_admin->simpanDatajad($datajad);
-        redirect('admin/tambah');
+        $this->Model_admin->simpanDatajad($aktivasi, $uid);
+        redirect('admin/fungsi/tampilJad');
     }
 }
