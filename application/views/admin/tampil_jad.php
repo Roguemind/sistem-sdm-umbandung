@@ -1,7 +1,7 @@
-<main id="main" class="main" style="margin-top: 0px;">
+<main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Jad</h1>
+        <h1>JAD</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -29,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no= 1; ?>
+                                <?php $no = 1; ?>
                                 <?php foreach ($listjad as $jad) : ?>
                                     <tr>
                                         <td>
@@ -42,16 +42,17 @@
                                             <div><?= $jad['nama_prodi'] ?></div>
                                         </td>
                                         <td>
-                                            <?php 
-                                                if($jad['aktivasi'] == 0){
-                                                    echo "<div>Belum Disetujui</div>";
-                                                }else{
-                                                    echo "<div>Disetujui</div>";
-                                                }
+                                            <?php
+                                            if ($jad['aktivasi'] == 0) {
+                                                echo "<div>Belum Disetujui</div>";
+                                            } else {
+                                                echo "<div>Disetujui</div>";
+                                            }
                                             ?>
                                         </td>
                                         <td>
-                                            <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>/admin/fungsi/aksiSetujuJAD/<?= $jad['id_jad'];?>"> Setujui</a>
+                                            <a class="btn btn-success bi bi-pencil-square" href="<?= base_url(); ?>/admin/fungsi/aksiSetujuJAD/<?= $jad['id_jad']; ?>"> Setujui</a>
+                                            <a class="btn btn-primary bi bi-eye-fill" href=""> Form</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
