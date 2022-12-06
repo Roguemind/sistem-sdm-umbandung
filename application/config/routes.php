@@ -73,5 +73,7 @@ $route['admin/viewdosen'] = 'admin/fungsi/datadosen';
 $route['admin/viewtendik'] = 'admin/fungsi/datatendik';
 $route['admin/arsip/dosen'] = 'admin/fungsi/lihatArsipDosen';
 $route['admin/arsip/tendik'] = 'admin/fungsi/lihatArsipTendik';
+$route['profile/dosen/(:num)'] = 'admin/fungsi/profileDosen/$1';
+$route['profile/tendik/(:num)'] = 'admin/fungsi/profileTendik/$1';
 
 // Route Fungsi Admin-Unit

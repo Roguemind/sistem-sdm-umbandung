@@ -142,7 +142,7 @@ class Fungsi extends CI_Controller
         $this->load->view('_partials/script');
         $this->load->view('admin/tambah_dosen', $data);
     }
-
+    
     public function aksiTambahDosen()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
@@ -163,7 +163,7 @@ class Fungsi extends CI_Controller
         $almamater = $this->input->POST('almamater');
         $no_sk_pegawai = $this->input->POST('no_sk_pegawai');
         $tmt_pegawai = $this->input->POST('tmt_pegawai');
-
+        
         $dataPegawai = array(
             'id_pegawai' => $id_pegawai,
             'nama' => $nama,
@@ -181,19 +181,73 @@ class Fungsi extends CI_Controller
             'no_sk_pegawai' => $no_sk_pegawai,
             'tmt_pegawai' => $tmt_pegawai,
         );
-
+        
         $dataDosen = array(
             'no_pegawai' => $no_pegawai,
             'id_pegawai' => $id_pegawai,
             'id_prodi' => $unitkerja,
             'id_jabatan' => $jabatan,
         );
-
+        
         $this->Model_admin->simpanDataPegawai($dataPegawai);
         $this->Model_admin->simpanDataTendik($dataDosen);
         redirect('admin/dashboard');
     }
 
+    public function profileDosen($uid){
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['dosen'] = $this->Model_admin->aksesDataDosen($uid);
+        $data['jabatan'] = $this->Model_admin->getJabatan_Dosen($uid);
+        $data['profak'] = $this->Model_admin->getProFak_Dosen($uid);
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $data['prodis'] = $this->Model_admin->getProdi();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/profile_dosen', $data);
+    }
+
+    public function aksiEditProfileDosen()
+    {
+        $nama = $this->input->post('nama');
+        $no_pegawai = $this->input->post('no_pegawai');
+        $nidn = $this->input->POST('id_pegawai');
+        $nik = $this->input->POST('nik');
+        $tmpt_lahir = $this->input->POST('tempat_lahir');
+        $tgl_lahir = $this->input->POST('tanggal_lahir');
+        $jk = $this->input->POST('jenis_kelamin');
+        $prodi = $this->input->POST('prodi');
+        $jabatan = $this->input->POST('jabatan');
+        $agama = $this->input->POST('agama');
+        $alamat = $this->input->POST('alamat');
+        $kontak = $this->input->POST('phone');
+        $email = $this->input->POST('email');
+
+        $dataPegawai = array(
+            'nama' => $nama,
+            'id_pegawai' => $nidn,
+            'nik' => $nik,
+            'tempat-lahir' => $tmpt_lahir,
+            'tanggal_lahir' => $tgl_lahir,
+            'agama' => $agama,
+            'alamat' => $alamat,
+            'kontak' => $kontak,
+            'email' => $email,
+        );
+        $dataDosen = array(
+            'id_prodi' => $prodi,
+            'id_jabatan' => $jabatan,
+        );
+        $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->Model_admin->updateDosen($dataDosen, $no_pegawai);
+        $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Berhasil Di Ubah.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+        redirect('admin/fungsi/profileDosen/'.$no_pegawai);
+    }
+    
     // Fungsi CRUD data Tendik
     public function dataTendik()
     {
@@ -206,6 +260,7 @@ class Fungsi extends CI_Controller
         $this->load->view('_partials/script');
         $this->load->view('admin/tambah_tendik', $data);
     }
+
 
     public function aksiTambahTendik()
     {

@@ -37,11 +37,11 @@
                                 <?php foreach ($listd as $dosen) : ?>
                                 <tr>
                                     <th scope="row"><?= $no++?></th>
-                                    <td><?= $dosen['nama'];  ?></td>
+                                    <td><?= $dosen['nama']; ?></td>
                                     <td><?= $dosen['nama_prodi']; ?></td>
                                     <td><?= $dosen['email']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
+                                        <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>profile/dosen/<?=$dosen['no_pegawai'];?>"></a>
                                         <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
                                     </td>
                                 </tr>

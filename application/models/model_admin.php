@@ -38,6 +38,8 @@ class Model_admin extends CI_Model
         return $this->db->get('jabatan')->result_array();
     }
 
+    //Model Data Dosen
+
     public function getDataDosen(){
         $this->db->select('*');
         $this->db->from('dosen');
@@ -47,13 +49,64 @@ class Model_admin extends CI_Model
         return $query->result_array();
     }
 
-    public function getDataTendik(){
-        $this->db->select('* , pegawai.nama as namapeg, unit.nama_unit as unitkerja');
+    public function aksesDataDosen($uid){
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join('pegawai', 'pegawai.id_pegawai = dosen.id_pegawai');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $this->db->where('dosen.no_pegawai = ' . $uid);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function getProFak_Dosen($account_uid)
+    {
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
+        $this->db->where('dosen.no_pegawai = ' . $account_uid);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function getJabatan_Dosen($account_uid)
+    {
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join('jabatan', 'jabatan.id_jabatan = dosen.id_jabatan');
+        $this->db->where('dosen.no_pegawai = ' . $account_uid);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    //Model data tendik
+    public function getDataTendik($uid){
+        $this->db->select('*');
         $this->db->from('tendik');
         $this->db->join('pegawai', 'pegawai.id_pegawai = tendik.id_pegawai');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
+        $this->db->where('pegawai.id_pegawai = ' . $uid);
         $query = $this->db->get(); 
         return $query->result_array();
+    }
+
+    public function updateDosen($data, $uid)
+    {
+        $this->db->set($data);
+        $this->db->where('no_pegawai',$uid);
+        return $this->db->update('dosen');
+    }
+
+    public function aksesDataTendik($uid)
+    {
+        $this->db->select('*');
+        $this->db->from('account');
+        $this->db->join('tendik', 'tendik.no_pegawai = account.no_pegawai');
+        $this->db->join('pegawai', 'pegawai.id_pegawai = tendik.id_pegawai');
+        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $query = $this->db->get();
+        return $query->row_array();
     }
 
     public function simpanDataPegawai($dataPegawai)
