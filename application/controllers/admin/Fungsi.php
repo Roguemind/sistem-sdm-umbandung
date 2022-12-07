@@ -309,7 +309,6 @@ class Fungsi extends CI_Controller
             'tmt_pegawai' => $tmt_pegawai,
         );
 
-
         $dataTendik = array(
             'no_pegawai' => $no_pegawai,
             'id_pegawai' => $id_pegawai,
