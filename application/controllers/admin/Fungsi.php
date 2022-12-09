@@ -538,4 +538,16 @@ class Fungsi extends CI_Controller
         $this->Model_admin->simpanDatajad($aktivasi, $uid);
         redirect('admin/fungsi/tampilJad');
     }
+
+    // Fungsi melihat unit
+    public function melihatUnit()
+    {
+        $this->load->view('melihat_unit');
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/melihat_cuti');
+    }
 }
