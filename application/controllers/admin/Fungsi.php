@@ -68,7 +68,37 @@ class Fungsi extends CI_Controller
         redirect('admin/dashboard');
     }
 
-
+    public function uploadSurat($role){
+        $judul = $this->input->POST('judul');
+        $tipe_surat = $this->input->POST('tipe_surat');
+        $unit_kerja = $this->input->POST('unit-kerja');
+        $config['allowed_types']    = 'pdf';
+        $config['max_size']         = 100000;
+        $config['upload_path']      = FCPATH.'/upload/berkas/dosen/';
+        $config['file_name']        = $judul."_".$unit_kerja."_".".pdf";
+        $this->load->library('upload', $config);
+        $cek = $this->upload->do_upload('file_surat');
+        if($cek){
+            var_dump($this->upload->data());
+        }else{
+            var_dump($this->upload->display_errors());
+        }
+        /*if(!$this->upload->do_upload('file_surat')){
+            $file_surat = $this->upload->data('file_name');
+            $data = array(
+                'judul' => $judul,
+                'tipe_surat' => $tipe_surat,
+                'id_prodi' => $unit_kerja,
+                'file_surat' => $file_surat,
+            );
+            $this->Model_admin->uploadBerkasDosen($data);
+            redirect('admin/arsip/dosen');
+        }else{
+            var_dump('error');
+            exit;
+        }*/
+    }
+    
     public function aksiBerkasTendik()
     {
         $no_sk = $this->input->POST('no_sk');
@@ -104,6 +134,8 @@ class Fungsi extends CI_Controller
     public function dataDosen()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['prodis'] = $this->Model_admin->getProdi();
+        $data['jabatans'] = $this->Model_admin->getJabatan();
         $data['listd'] = $this->Model_admin->getDataDosen();
         $this->load->view('_partials/head');
         $this->load->view('admin/header', $data);
@@ -112,12 +144,14 @@ class Fungsi extends CI_Controller
         $this->load->view('_partials/script');
         $this->load->view('admin/tambah_dosen', $data);
     }
-
+    
     public function aksiTambahDosen()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
         $no_pegawai = $this->input->POST('no_pegawai');
         $nama = $this->input->POST('nama');
+        $gelar_depan = $this->input->POST('gelar_depan');
+        $gelar_belakang = $this->input->POST('gelar_belakang');
         $alamat = $this->input->POST('alamat');
         $email = $this->input->POST('email');
         $tanggal_lahir = $this->input->POST('tanggal_lahir');
@@ -126,17 +160,17 @@ class Fungsi extends CI_Controller
         $agama = $this->input->POST('agama');
         $pendidikan = $this->input->POST('pendidikan');
         $kontak = $this->input->POST('kontak');
-        $unitkerja = $this->input->POST('unit-kerja');
+        $prodi = $this->input->POST('prodi');
         $jabatan = $this->input->POST('jabatan');
         $status_pernikahan = $this->input->POST('status_pernikahan');
-        $tahun_lulus = $this->input->POST('tahun_lulus');
-        $almamater = $this->input->POST('almamater');
         $no_sk_pegawai = $this->input->POST('no_sk_pegawai');
         $tmt_pegawai = $this->input->POST('tmt_pegawai');
-
+        
         $dataPegawai = array(
             'id_pegawai' => $id_pegawai,
             'nama' => $nama,
+            'gelar_depan' => $gelar_depan,
+            'gelar_belakang' => $gelar_belakang,
             'alamat' => $alamat,
             'email' => $email,
             'tanggal_lahir' => $tanggal_lahir,
@@ -146,28 +180,88 @@ class Fungsi extends CI_Controller
             'pendidikan' => $pendidikan,
             'kontak' => $kontak,
             'status_pernikahan' => $status_pernikahan,
-            'tahun_lulus' => $tahun_lulus,
-            'almamater' => $almamater,
             'no_sk_pegawai' => $no_sk_pegawai,
             'tmt_pegawai' => $tmt_pegawai,
         );
-
+        
         $dataDosen = array(
             'no_pegawai' => $no_pegawai,
             'id_pegawai' => $id_pegawai,
-            'id_prodi' => $unitkerja,
+            'id_prodi' => $prodi,
             'id_jabatan' => $jabatan,
         );
-
-        $this->Model_admin->simpanDataPegawai($dataPegawai);
-        $this->Model_admin->simpanDataTendik($dataDosen);
-        redirect('admin/dashboard');
+        
+        $this->Model_admin->insertPegawai($dataPegawai);
+        $this->Model_admin->insertDosen($dataDosen);
+        redirect('admin/viewdosen');
     }
 
+    public function profileDosen($uid){
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['dosen'] = $this->Model_admin->aksesDataDosen($uid);
+        $data['jabatan'] = $this->Model_admin->getJabatan_Dosen($uid);
+        $data['profak'] = $this->Model_admin->getProFak_Dosen($uid);
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $data['prodis'] = $this->Model_admin->getProdi();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/profile_dosen', $data);
+    }
+
+    public function aksiEditProfileDosen()
+    {
+        $nama = $this->input->post('nama');
+        $no_pegawai = $this->input->post('no_pegawai');
+        $nidn = $this->input->POST('id_pegawai');
+        $nik = $this->input->POST('nik');
+        $tmpt_lahir = $this->input->POST('tempat_lahir');
+        $tgl_lahir = $this->input->POST('tanggal_lahir');
+        $jk = $this->input->POST('jenis_kelamin');
+        $prodi = $this->input->POST('prodi');
+        $jabatan = $this->input->POST('jabatan');
+        $agama = $this->input->POST('agama');
+        $alamat = $this->input->POST('alamat');
+        $kontak = $this->input->POST('phone');
+        $email = $this->input->POST('email');
+
+        $dataPegawai = array(
+            'nama' => $nama,
+            'id_pegawai' => $nidn,
+            'nik' => $nik,
+            'tempat-lahir' => $tmpt_lahir,
+            'tanggal_lahir' => $tgl_lahir,
+            'agama' => $agama,
+            'alamat' => $alamat,
+            'kontak' => $kontak,
+            'email' => $email,
+        );
+        $dataDosen = array(
+            'id_prodi' => $prodi,
+            'id_jabatan' => $jabatan,
+        );
+        $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->Model_admin->updateDosen($dataDosen, $no_pegawai);
+        $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Berhasil Di Ubah.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+        redirect('admin/fungsi/profileDosen/'.$no_pegawai);
+    }
+
+    public function deleteDosen($uid){
+        $this->Model_admin->deleteDosen($uid);
+        $this->Model_admin->deletePegawai($uid);
+        redirect('admin/viewtendik');
+    }
+    
     // Fungsi CRUD data Tendik
     public function dataTendik()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['units'] = $this->Model_admin->getUnit();
+        $data['jabatans'] = $this->Model_admin->getJabatan();
         $data['listt'] = $this->Model_admin->getDataTendik();
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
@@ -177,11 +271,14 @@ class Fungsi extends CI_Controller
         $this->load->view('admin/tambah_tendik', $data);
     }
 
+
     public function aksiTambahTendik()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
         $no_pegawai = $this->input->POST('no_pegawai');
         $nama = $this->input->POST('nama');
+        $gelar_depan = $this->input->POST('gelar_depan');
+        $gelar_belakang = $this->input->POST('gelar_belakang');
         $alamat = $this->input->POST('alamat');
         $email = $this->input->POST('email');
         $tanggal_lahir = $this->input->POST('tanggal_lahir');
@@ -193,8 +290,6 @@ class Fungsi extends CI_Controller
         $unitkerja = $this->input->POST('unit-kerja');
         $jabatan = $this->input->POST('jabatan');
         $status_pernikahan = $this->input->POST('status_pernikahan');
-        $tahun_lulus = $this->input->POST('tahun_lulus');
-        $almamater = $this->input->POST('almamater');
         $no_sk_pegawai = $this->input->POST('no_sk_pegawai');
         $tmt_pegawai = $this->input->POST('tmt_pegawai');
 
@@ -210,12 +305,9 @@ class Fungsi extends CI_Controller
             'pendidikan' => $pendidikan,
             'kontak' => $kontak,
             'status_pernikahan' => $status_pernikahan,
-            'tahun_lulus' => $tahun_lulus,
-            'almamater' => $almamater,
             'no_sk_pegawai' => $no_sk_pegawai,
             'tmt_pegawai' => $tmt_pegawai,
         );
-
 
         $dataTendik = array(
             'no_pegawai' => $no_pegawai,
@@ -224,9 +316,68 @@ class Fungsi extends CI_Controller
             'id_jabatan' => $jabatan,
         );
 
-        $this->Model_admin->simpanDataPegawai($dataPegawai);
-        $this->Model_admin->simpanDataTendik($dataTendik);
-        redirect('admin/dashboard');
+        $this->Model_admin->insertPegawai($dataPegawai);
+        $this->Model_admin->insertTendik($dataTendik);
+        redirect('admin/viewtendik');
+    }
+
+    public function profileTendik($uid)
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['tendik'] = $this->Model_admin->aksesDataTendik($uid);
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $data['units'] = $this->Model_admin->getUnit();
+        $this->load->view('_partials/head', $data);
+        $this->load->view('tendik/header', $data);
+        $this->load->view('tendik/sidebar', $data);
+        $this->load->view('admin/profile_tendik', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+    }
+
+    public function aksiEditProfileTendik()
+    {
+        $nama = $this->input->post('nama');
+        $no_pegawai = $this->input->post('no_pegawai');
+        $nidn = $this->input->POST('id_pegawai');
+        $nik = $this->input->POST('nik');
+        $tmpt_lahir = $this->input->POST('tempat_lahir');
+        $tgl_lahir = $this->input->POST('tanggal_lahir');
+        $jk = $this->input->POST('jenis_kelamin');
+        $unit = $this->input->POST('unit');
+        $jabatan = $this->input->POST('jabatan');
+        $agama = $this->input->POST('agama');
+        $alamat = $this->input->POST('alamat');
+        $kontak = $this->input->POST('phone');
+        $email = $this->input->POST('email');
+
+        $dataPegawai = array(
+            'nama' => $nama,
+            'id_pegawai' => $nidn,
+            'nik' => $nik,
+            'tempat-lahir' => $tmpt_lahir,
+            'tanggal_lahir' => $tgl_lahir,
+            'agama' => $agama,
+            'alamat' => $alamat,
+            'kontak' => $kontak,
+            'email' => $email,
+        );
+        $dataTendik = array(
+            'id_unit' => $unit,
+            'id_jabatan' => $jabatan,
+        );
+        $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->Model_admin->updateTendik($dataTendik, $no_pegawai);
+        $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Berhasil Di Ubah.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+        redirect('view/tendik/'.$no_pegawai);
+    }
+
+    public function deleteTendik($uid){
+        $this->Model_admin->deleteTendik($uid);
+        $this->Model_admin->deletePegawai($uid);
+        redirect('admin/viewtendik');
     }
 
     // Fungsi Lembur

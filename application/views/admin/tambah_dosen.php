@@ -37,11 +37,11 @@
                                 <?php foreach ($listd as $dosen) : ?>
                                 <tr>
                                     <th scope="row"><?= $no++?></th>
-                                    <td><?= $dosen['nama'];  ?></td>
+                                    <td><?= $dosen['nama']; ?></td>
                                     <td><?= $dosen['nama_prodi']; ?></td>
                                     <td><?= $dosen['email']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""></button>
+                                        <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>view/dosen/<?=$dosen['no_pegawai'];?>"></a>
                                         <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
                                     </td>
                                 </tr>
@@ -53,197 +53,6 @@
                 </div>
     </section>
 
-    <!-- Edit -->
-    <div class="modal fade" id="EditDosen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Dosen</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">No Pegawai</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">ID Pegawai</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">Nama Lengkap</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword" class="form-label">Alamat</label>
-                            <div class="col-sm-12">
-                                <textarea class="form-control" style="height: 100px"></textarea>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail" class="form-label">Email</label>
-                            <div class="col-sm-12">
-                                <input type="email" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputDate" class="form-label">Tanggal Lahir</label>
-                            <div class="col-sm-12">
-                                <input type="date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">Tempat Lahir</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <fieldset class="row mb-3">
-                            <legend class="col-form-label pt-0">Jenis Kelamin</legend>
-                            <div class="col-sm-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        Laki-laki
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                    <label class="form-check-label" for="gridRadios2">
-                                        Perempuan
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <div class="row mb-3">
-                            <label class="form-label">Agama</label>
-                            <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Islam</option>
-                                    <option value="2">Katholik</option>
-                                    <option value="3">Kristen</option>
-                                    <option value="3">Hindu</option>
-                                    <option value="3">Budha</option>
-                                    <option value="3">Konghucu</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">Pendidikan</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">No. Handphone</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="form-label">Status Pernikahan</label>
-                            <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Belum Menikah</option>
-                                    <option value="2">Menikah</option>
-                                    <option value="3">Cerai Hidup</option>
-                                    <option value="3">Cerai Mati</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">Tahun Lulus</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">Almamater</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="form-label">Prodi</label>
-                            <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Teknik Informatika</option>
-                                    <option value="2">Teknik Elektro</option>
-                                    <option value="3">Teknik Industri</option>
-                                    <option value="3">Teknologi Pangan Halal</option>
-                                    <option value="3">Farmasi</option>
-                                    <option value="3">Bioteknologi</option>
-                                    <option value="3">Agribisnis</option>
-                                    <option value="3">Psikologi</option>
-                                    <option value="3">Ilmu Komunikasi</option>
-                                    <option value="3">Kriya Tekstil dan Fashion</option>
-                                    <option value="3">Administrasi Publik</option>
-                                    <option value="3">PAI</option>
-                                    <option value="3">PIAUD</option>
-                                    <option value="3">Hukum Keluarga Islam</option>
-                                    <option value="3">Ekonomi Syariah</option>
-                                    <option value="3">Komunikasi Penyiaran Islam</option>
-                                    <option value="3">Akuntansi</option>
-                                    <option value="3">Manajemen</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="form-label">Jabatan Struktural</label>
-                            <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Opsi 1</option>
-                                    <option value="2">Opsi 2</option>
-                                    <option value="3">Opsi 3</option>
-                                    <option value="3">Opsi 4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="form-label">Jabatan Fungsional</label>
-                            <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">Opsi 1</option>
-                                    <option value="2">Opsi 2</option>
-                                    <option value="3">Opsi 3</option>
-                                    <option value="3">Opsi 4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="form-label">No. SK</label>
-                            <div class="col-sm-12">
-                                <input class="form-control" type="file" id="formFile">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="form-label">TMT</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Ubah</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
     <!-- Modal Hapus -->
     <div class="modal fade" id="hapus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -257,7 +66,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?=$dosen['id_pegawai'];?>">Hapus</a>
                 </div>
             </div>
         </div>
@@ -273,33 +82,47 @@
                 <div class="modal-body">
                     <section class="section">
                         <!-- Form tambah dosen -->
-                        <form class="user" method="POST" action="<?= base_url('admin/dashboard/aksiTambahPegawai'); ?>">
+                        <form class="user" method="POST" action="<?= base_url('admin/fungsi/aksiTambahDosen'); ?>">
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">No Pegawai</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="no_pegawai" name="no_pegawai" placeholder="NO PEGAWAI" value="<?= set_value('no_pegawai') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('no_pegawai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">ID Pegawai</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="id_pegawai" name="id_pegawai" placeholder="ID PEGAWAI" value="<?= set_value('id_pegawai') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('id_pegawai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Nama Lengkap</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap" value="<?= set_value('nama') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="form-label">Gelar Depan</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control form-control-user" id="gelar_depan" name="gelar_depan" placeholder="Gelar Depan" value="<?= set_value('gelar_depan') ?>">
+                                    <?= form_error('gelar_depan', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="form-label">Gelar Belakang</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control form-control-user" id="gelar_belakang" name="gelar_belakang" placeholder="Gelar Belakang" value="<?= set_value('gelar_belakang') ?>">
+                                    <?= form_error('gelar_belakang', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputPassword" class="form-label">Alamat</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat" value="<?= set_value('alamat') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -313,14 +136,14 @@
                                 <label for="inputDate" class="form-label">Tanggal Lahir</label>
                                 <div class="col-sm-12">
                                     <input type="date" class="form-control form-control-user" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('id_pegawai') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('tanggal_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Tempat Lahir</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir " <?= set_value('tempat-lahir') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('tempat_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <fieldset class="row mb-3">
@@ -328,17 +151,17 @@
                                 <div class="col-sm-12">
                                     <select class="form-control form-control-user" id="jenis_kelamin" name="jenis_kelamin">
                                         <option selected disabled>---Pilih Jenis Kelamin---</option>
-                                        <option value="<?= set_value('L') ?>">Laki-laki</option>
-                                        <option value="<?= set_value('P') ?>">Perempuan</option>
+                                        <option value="L">Laki-laki</option>
+                                        <option value="P">Perempuan</option>
                                     </select>
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('jenis_kelamin', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </fieldset>
                             <div class="row mb-3">
                                 <label class="form-label">Agama</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="agama" name="agama" placeholder="Agama" value="<?= set_value('agama') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('agama', '<small class="text-danger pl-3">', '</small>'); ?>
 
                                 </div>
                             </div>
@@ -346,44 +169,30 @@
                                 <label for="inputText" class="form-label">Pendidikan</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" placeholder="Pendidikan" value="<?= set_value('penididikan') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('pendidikan', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">No. Handphone</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="kontak" name="kontak" placeholder="Kontak" value="<?= set_value('kontak') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('kontak', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="form-label">Status Pernikahan</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="status_pernikahan" name="status_pernikahan" placeholder="Status Pernikahan" value="<?= set_value('status_pernikahan') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="form-label">Tahun Lulus</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="tahun_lulus" name="tahun_lulus" placeholder="tahun lulus" value="<?= set_value('tahun_lulus') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputText" class="form-label">Almamater</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="almamater" name="almamater" placeholder="Almamater" value="<?= set_value('alamamater') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('status_pernikahan', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="form-label">Prodi</label>
                                 <div class="col-sm-12">
-                                    <select class="form-control form-control-user" id="unit-kerja" name="unit-kerja" placeholder="Unit Kerja">
+                                    <select class="form-control form-control-user" id="prodi" name="prodi" placeholder="Program Studi">
                                         <option selected disabled>-- Pilih Unit--</option>
-                                        <?php foreach ($units as $unit) { ?>
-                                            <option value=<?= $unit['id_unit'] ?>><?= $unit['id_unit'] ?> - <?= $unit['nama_unit'] ?></option>
+                                        <?php foreach ($prodis as $prodi) { ?>
+                                            <option value="<?=$prodi['id_prodi'];?>"><?= $prodi['id_prodi'] ?> - <?= $prodi['nama_prodi'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -400,38 +209,26 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="form-label">Jabatan Fungsional</label>
-                                <div class="col-sm-12">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">Opsi 1</option>
-                                        <option value="2">Opsi 2</option>
-                                        <option value="3">Opsi 3</option>
-                                        <option value="3">Opsi 4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
                                 <label for="inputNumber" class="form-label">No. SK</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="no_sk_pegawai" name="no_sk_pegawai" placeholder="NO SK" value="<?= set_value('no_sk_pegawai') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('no_sk_pegawai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">TMT</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="tmt_pegawai" name="tmt_pegawai" placeholder="TMT" value="<?= set_value('tmt_pegawai') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <input type="date" class="form-control form-control-user" id="tmt_pegawai" name="tmt_pegawai" placeholder="TMT" value="<?= set_value('tmt_pegawai') ?>">
+                                    <?= form_error('tmt_pegawai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
-                        </form>
-                        <!-- End Form tambah dosen -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </form>
+                    <!-- End Form tambah dosen -->
             </div>
         </div>
     </div>

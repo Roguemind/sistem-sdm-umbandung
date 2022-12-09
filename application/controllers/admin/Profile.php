@@ -47,6 +47,6 @@ class Profile extends CI_Controller
             'email' => $email,
         );
         $this->Model_master->updateProfile($dataPegawai, $nidn);
-        redirect('tendik/profile');
+        redirect('admin/profile');
     }
 }

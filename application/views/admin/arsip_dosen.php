@@ -146,23 +146,23 @@
                 <div class="modal-body">
                     <section class="section">
                         <!-- Form tambah dosen -->
-                        <form class="user" method="POST" action="<?= base_url('admin/tambah/aksiSk'); ?>">
+                        <form enctype = "multipart/form-data" class="user" method="POST" action="<?= base_url('admin/fungsi/uploadSurat/dosen'); ?>">
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Judul</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="judul" name="judul" placeholder="Judul" value="<?= set_value('judul') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('judul', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputText" class="form-label">Tipe Surat</label>
+                                <label for="tipe_surat" class="form-label">Tipe Surat</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control form-control-user" id="tipe_surat" name="tipe_surat" placeholder="tipe_surat" value="<?= set_value('tipe_surat') ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('tipe_surat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputText" class="form-label">Unit/Prodi</label>
+                                <label for="unit-kerja" class="form-label">Unit/Prodi</label>
                                 <div class="col-sm-12">
                                     <select class="form-control form-control-user" id="unit-kerja" name="unit-kerja" placeholder="Unit Kerja">
                                         <option selected disabled>-- Pilih --</option>
@@ -173,10 +173,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputPassword" class="form-label">Unggah</label>
+                                <label for="file_surat" class="form-label">Unggah</label>
                                 <div class="col-sm-12">
-                                    <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <input type="file" class="form-control form-control-user" id="file_surat" name="file_surat" value="file_surat">
+                                    <?= form_error('file_surat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="modal-footer">

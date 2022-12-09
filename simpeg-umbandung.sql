@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 07:47 AM
+-- Generation Time: Dec 07, 2022 at 07:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -53,16 +53,9 @@ CREATE TABLE `arsip_dosen` (
   `id_surat` bigint(20) NOT NULL,
   `judul` text NOT NULL,
   `id_prodi` varchar(15) NOT NULL,
-  `tipe_surat` varchar(50) NOT NULL
+  `tipe_surat` varchar(50) NOT NULL,
+  `file_surat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `arsip_dosen`
---
-
-INSERT INTO `arsip_dosen` (`id_surat`, `judul`, `id_prodi`, `tipe_surat`) VALUES
-(1, 'Surat Test', '2', 'Surat Masuk'),
-(123587954698, 'Test', '2', 'Surat Masuk');
 
 -- --------------------------------------------------------
 
@@ -71,27 +64,28 @@ INSERT INTO `arsip_dosen` (`id_surat`, `judul`, `id_prodi`, `tipe_surat`) VALUES
 --
 
 CREATE TABLE `arsip_tendik` (
-  `no_sk` varchar(50) NOT NULL,
+  `id_surat` varchar(50) NOT NULL,
   `judul` text NOT NULL,
   `id_unit` varchar(15) NOT NULL,
-  `tipe_surat` varchar(50) NOT NULL
+  `tipe_surat` varchar(50) NOT NULL,
+  `file_surat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `arsip_tendik`
 --
 
-INSERT INTO `arsip_tendik` (`no_sk`, `judul`, `id_unit`, `tipe_surat`) VALUES
-('293182381', 'Surat PHK', 'SP2021', '0'),
-('293182381', 'Surat PHK', '001', '0'),
-('231231231', 'Surat Aduhai', '101', '1'),
-('231231231', 'Surat Aduhai', '001', '1'),
-('912738912371', 'Surat Kenaikan', '101', '2'),
-('912738912371', 'Surat Kenaikan', '001', '2'),
-('293182381', 'Surat PHK', 'SP2021', '0'),
-('293182381', 'Surat PHK', '001', '0'),
-('231231231', 'Surat Aduhai', '101', '1'),
-('231231231', 'Surat Aduhai', '001', '1');
+INSERT INTO `arsip_tendik` (`id_surat`, `judul`, `id_unit`, `tipe_surat`, `file_surat`) VALUES
+('293182381', 'Surat PHK', 'SP2021', '0', ''),
+('293182381', 'Surat PHK', '001', '0', ''),
+('231231231', 'Surat Aduhai', '101', '1', ''),
+('231231231', 'Surat Aduhai', '001', '1', ''),
+('912738912371', 'Surat Kenaikan', '101', '2', ''),
+('912738912371', 'Surat Kenaikan', '001', '2', ''),
+('293182381', 'Surat PHK', 'SP2021', '0', ''),
+('293182381', 'Surat PHK', '001', '0', ''),
+('231231231', 'Surat Aduhai', '101', '1', ''),
+('231231231', 'Surat Aduhai', '001', '1', '');
 
 -- --------------------------------------------------------
 
@@ -112,7 +106,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`no_pegawai`, `jad`, `id_pegawai`, `id_prodi`, `id_jabatan`) VALUES
-('1234', '-', '1235', '2', '1234');
+('1234', '-', '1235', '17', '1234'),
+('84564678', NULL, '12356', '14', '1234');
 
 -- --------------------------------------------------------
 
@@ -168,6 +163,13 @@ CREATE TABLE `jad` (
   `aktivasi` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jad`
+--
+
+INSERT INTO `jad` (`id_jad`, `id_pegawai`, `aktivasi`) VALUES
+(6, '1235', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -199,6 +201,8 @@ INSERT INTO `lembur` (`id_lembur`, `no_pegawai`, `jenis_pk`, `tanggal_lembur`) V
 CREATE TABLE `pegawai` (
   `id_pegawai` varchar(16) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `gelar_depan` varchar(50) NOT NULL,
+  `gelar_belakang` varchar(50) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `alamat` text DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -206,11 +210,9 @@ CREATE TABLE `pegawai` (
   `tempat-lahir` varchar(30) DEFAULT NULL,
   `jenis_kelamin` enum('L','P') DEFAULT NULL,
   `agama` varchar(12) DEFAULT NULL,
-  `pendidikan` varchar(4) DEFAULT NULL,
   `kontak` varchar(13) DEFAULT NULL,
+  `pendidikan` varchar(4) NOT NULL,
   `status_pernikahan` enum('Lajang','Menikah') DEFAULT NULL,
-  `tahun_lulus` int(4) DEFAULT NULL,
-  `almamater` varchar(50) DEFAULT NULL,
   `no_sk_pegawai` varchar(50) DEFAULT NULL,
   `tmt_pegawai` date DEFAULT NULL,
   `foto_peg` varchar(256) NOT NULL
@@ -220,11 +222,12 @@ CREATE TABLE `pegawai` (
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `nama`, `nik`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `kontak`, `status_pernikahan`, `tahun_lulus`, `almamater`, `no_sk_pegawai`, `tmt_pegawai`, `foto_peg`) VALUES
-('01001', 'Faisal', '', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-10', 'Bekasi', 'L', 'Islam', 'S2', '081315358588', 'Lajang', 2012, 'Universitas Indonesia', '001', '2020-11-03', ''),
-('123', 'Teguh', '', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'islam', 's4', '08960000000', 'Lajang', 2011, 'umbandung', '01', '2022-11-19', ''),
-('1235', 'ema', '3201254487965456', 'Kampung Cidahon', 'ema@gmail.com', '2001-11-01', 'Bandung', 'P', 'islam', 's5', '0888234244422', 'Lajang', 2010, 'umbandung', '02', '2022-12-03', ''),
-('4578928', 'Rehan', '', 'Ohio', 'rehan@gmail.com', '2022-11-23', 'Jakarta', '', 'Islam', 'D4', '085155689887', 'Lajang', 2018, 'Universitas Padjajaran', '-', '0000-00-00', '');
+INSERT INTO `pegawai` (`id_pegawai`, `nama`, `gelar_depan`, `gelar_belakang`, `nik`, `alamat`, `email`, `tanggal_lahir`, `tempat-lahir`, `jenis_kelamin`, `agama`, `kontak`, `pendidikan`, `status_pernikahan`, `no_sk_pegawai`, `tmt_pegawai`, `foto_peg`) VALUES
+('01001', 'Faisal', '', '', '', 'Cibinong', 'm.faisal.n12@gmail.com', '2001-11-02', 'Bekasi', 'L', 'Islam', '081315358588', '', 'Lajang', '001', '2020-11-03', ''),
+('123', 'Teguh Wahidin', '', '', '3216546321654132', 'kp rancaekek ', 'teguh@gmail.com', '2022-11-08', 'bandung', 'L', 'Islam', '08960000000', '', 'Lajang', '01', '2022-11-19', ''),
+('1235', 'Ema Ernawatis', '', '', '3201254487965456', 'Kampung Cidahon', 'ema@gmail.com', '2001-11-01', 'Bandung', 'P', 'Islam', '0888234244422', '', 'Lajang', '02', '2022-12-03', ''),
+('12356', 'Dimas Anggara', 'Dr.', 'M.Sc.', '', 'Dayeuh Kolot', 'dimasangg@gmail.com', '1995-12-10', 'Bekasi', 'L', 'Islam', '0811322848794', 'S2', 'Lajang', '-', '2029-05-02', ''),
+('4578999', 'Ilham Gunawan', '', '', '3215641001654487', 'Ciwastra', 'ilhamg@gmail.com', '1995-09-07', 'Bekasi', 'L', 'Islam', '0846579842645', 'S2', 'Menikah', '-', '2030-12-28', '');
 
 -- --------------------------------------------------------
 
@@ -281,6 +284,15 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `id_fakultas`) VALUES
+('02', 'Teknik Informatika', '1'),
+('03', 'Teknik Industri', '1'),
+('04', 'Teknologi Pangan', '1'),
+('05', 'Bioteknologi', '1'),
+('06', 'Farmasi', '1'),
+('07', 'Agribisnis', '1'),
+('08', 'Administrasi Publik', '2'),
+('09', 'Ilmu Komunikasi', '2'),
+('0﻿1', 'Teknik Elektro', '1'),
 ('10', 'Psikologi', '2'),
 ('11', 'Kriya Tekstil dan Fashion', '2'),
 ('12', 'Akuntansi', '3'),
@@ -289,16 +301,7 @@ INSERT INTO `prodi` (`id_prodi`, `nama_prodi`, `id_fakultas`) VALUES
 ('15', 'Pendidikan Islam Anak Usia Dini', '4'),
 ('16', 'Hukum Keluarga Islam', '4'),
 ('17', 'Ekonomi Syariah', '4'),
-('18', 'Komunikasi Penyiaran Islam', '4'),
-('2', 'Teknik Informatika', '1'),
-('3', 'Teknik Industri', '1'),
-('4', 'Teknologi Pangan', '1'),
-('5', 'Bioteknologi', '1'),
-('6', 'Farmasi', '1'),
-('7', 'Agribisnis', '1'),
-('8', 'Administrasi Publik', '2'),
-('9', 'Ilmu Komunikasi', '2'),
-('﻿1', 'Teknik Elektro', '1');
+('18', 'Komunikasi Penyiaran Islam', '4');
 
 -- --------------------------------------------------------
 
@@ -344,7 +347,7 @@ CREATE TABLE `tendik` (
 INSERT INTO `tendik` (`no_pegawai`, `status`, `id_pegawai`, `id_unit`, `id_jabatan`) VALUES
 ('123', '-', '123', '101', '123'),
 ('2001020', 'Y', '01001', 'SP2021', 'SP21'),
-('4946541', '', '4578928', '001', 'SP21');
+('84564678', '', '4578999', 'SP2021', 'SP21');
 
 -- --------------------------------------------------------
 
@@ -479,13 +482,13 @@ ALTER TABLE `unit`
 -- AUTO_INCREMENT for table `arsip_dosen`
 --
 ALTER TABLE `arsip_dosen`
-  MODIFY `id_surat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123587954699;
+  MODIFY `id_surat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123587954708;
 
 --
 -- AUTO_INCREMENT for table `jad`
 --
 ALTER TABLE `jad`
-  MODIFY `id_jad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pengajuan`
