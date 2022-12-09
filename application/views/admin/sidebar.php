@@ -23,7 +23,7 @@
             <ul id="charts-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="charts-chartjs.html">
-                        <i class="bi bi-circle"></i><span>Pengajaran</span>
+                        <i class="bi bi-circle"></i><span>Pendidikan</span>
                     </a>
                 </li>
                 <li>
@@ -34,6 +34,11 @@
                 <li>
                     <a href="charts-echarts.html">
                         <i class="bi bi-circle"></i><span>Pengabdian</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="charts-echarts.html">
+                        <i class="bi bi-circle"></i><span>Penunjang</span>
                     </a>
                 </li>
                 <li>
