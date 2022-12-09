@@ -4,3 +4,5 @@
       &copy; Copyright <strong><span> 2022 Universitas Muhammadiyah Bandung</span></strong>. All Rights Reserved
     </div>
   </footer><!-- End Footer -->
+
+</html>

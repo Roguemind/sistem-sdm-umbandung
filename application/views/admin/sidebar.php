@@ -4,17 +4,18 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url(); ?>admin">
+            <a class="nav-link <?= $title == "dashboard" ? '' : 'collapsed' ?>" href="<?= base_url(); ?>admin">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>Dashboard</span> 
             </a>
         </li><!-- End Dashboard Nav -->
 
-        <a href="<?= base_url(); ?>admin/profile" class="nav-link collapsed">
-            <i class="bi bi-person"></i>
-            <span>Profile</span>
-        </a>
-        <!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a href="<?= base_url(); ?>admin/pegawai" class="nav-link <?= $title == "pegawai" ? '' : 'collapsed' ?>">
+                <i class="bi bi-person"></i>
+                <span>PEGAWAI TEST</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav1" data-bs-toggle="collapse" href="#">
