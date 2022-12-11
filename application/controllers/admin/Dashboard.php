@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));        
 
         //title halaman
         $data['title'] = 'dashboard';

@@ -32,4 +32,23 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
+  <!-- DATATABLE BUTTON CSS -->
+  <link href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+  <!-- SELECT2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
+  <!-- STYLE biar select2 heightnya sama kek input lain -->
+  <style>
+    .select2-selection__rendered {
+      line-height: 31px !important;
+  }
+  .select2-container .select2-selection--single {
+      height: 35px !important;
+  }
+  .select2-selection__arrow {
+      height: 34px !important;
+  }
+  </style>
 </head>
