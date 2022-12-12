@@ -32,7 +32,7 @@
                                             class="form-control" 
                                             name="inputNoPegawai" 
                                             id="inputNoPegawai"
-                                            value="<?php echo $pegawai->no_pegawai; ?>">
+                                            value="<?php echo $pegawai->id_pegawai; ?>" readonly>
                                 </div>
                                 <div class="col-md-8"> 
                                     <label for="inputNik" class="form-label">No Induk Keluarga</label> 

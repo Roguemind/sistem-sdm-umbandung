@@ -65,8 +65,8 @@ class Pegawai extends CI_Controller
         }
         else{
             $dataPegawai = array(
-                'id_pegawai' => rand(10,1000),
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
+                // 'id_pegawai' => rand(10,1000),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => $this->input->POST('inputGelarDepan'),
                 'nama' => $this->input->POST('inputNamaLengkap'),
@@ -129,7 +129,7 @@ class Pegawai extends CI_Controller
         }
         else{
             $dataPegawai = array(
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => $this->input->POST('inputGelarDepan'),
                 'nama' => $this->input->POST('inputNamaLengkap'),
