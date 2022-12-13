@@ -17,11 +17,12 @@ class Pegawai extends CI_Controller
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['prodis'] = $this->Model_admin->getProdi();
         $data['jabatans'] = $this->Model_admin->getJabatan();
-        $data['listDosen'] = $this->Model_pegawai->getPegawai();
-        $data['listTendik'] = $this->Model_pegawai->getPegawai();
+
+        $data['listDosen'] = $this->Model_pegawai->getPegawaiDosen();
+        $data['listTendik'] = $this->Model_pegawai->getPegawaiTendik();
 
         $data['title'] = 'pegawai';
-        
+
         $this->load->view('_partials/head');
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -29,12 +30,13 @@ class Pegawai extends CI_Controller
         $this->load->view('_partials/script');
         $this->load->view('admin/pegawai/index', $data);
     }
-    
-    public function create(){
+
+    public function create()
+    {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-        
+
         $data['title'] = 'pegawai';
-        
+
         $this->load->view('_partials/head');
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -43,28 +45,29 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/pegawai/tambah', $data);
     }
 
-    public function store(){
+    public function store()
+    {
         // Rules validasi
         $this->form_validation->set_rules(
-                'inputNik', 'Nik',
-                'required',
-                array(
-                    'required' => 'Wajib mengisi %s.',
-                )
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
         );
 
-        if($this->form_validation->run() == false){
+        if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
             $data['title'] = 'pegawai';
-            
+
             $this->load->view('_partials/head');
             $this->load->view('admin/header', $data);
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/tambah', $data);
-        }
-        else{
+        } else {
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
                 'nik' => $this->input->POST('inputNik'),
@@ -91,11 +94,12 @@ class Pegawai extends CI_Controller
         }
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['pegawai'] = $this->Model_pegawai->getPegawaiById($id);
         $data['title'] = 'pegawai';
-        
+
         $this->load->view('_partials/head');
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -104,31 +108,32 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/pegawai/edit', $data);
     }
 
-    public function update(){
+    public function update()
+    {
         $nik = $this->input->POST('inputnik');
 
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNik', 'Nik',
+            'inputNik',
+            'Nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
             )
         );
 
-        if($this->form_validation->run() == false){
+        if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
             $data['pegawai'] = $this->Model_pegawai->getPegawaiById($nik);
             $data['title'] = 'pegawai';
-            
+
             $this->load->view('_partials/head');
             $this->load->view('admin/header', $data);
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/edit', $data);
-        }
-        else{
+        } else {
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
                 'id_pegawai' => $this->input->POST('inputNoPegawai'),
@@ -154,17 +159,18 @@ class Pegawai extends CI_Controller
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $hapusPegawai = $this->Model_pegawai->deletePegawai($id);
 
-        if($hapusPegawai){
+        if ($hapusPegawai) {
             return $this->output
-            ->set_content_type('application/json')
-            ->set_status_header(200)
-            ->set_output(json_encode(array(
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
                     'text' => 'Berhasil hapus data',
                     'type' => 'success'
-            )));
+                )));
         }
     }
 }
