@@ -122,6 +122,7 @@
                                         <option selected disabled>....</option> 
                                         <option value="Lajang" <?php echo ($pegawai->status_pernikahan == 'Lajang' ? 'selected' : '' ); ?>>Lajang</option>
                                         <option value="Menikah" <?php echo ($pegawai->status_pernikahan == 'Menikah' ? 'selected' : '' ); ?>>Menikah</option>
+                                        <option value="Duda/Janda" <?php echo ($pegawai->status_pernikahan == 'Duda/Janda' ? 'selected' : '' ); ?>>Duda/Janda</option>
                                     </select>
                                 </div>
                             </div>
@@ -148,7 +149,7 @@
                                     <input type="text" 
                                             class="form-control" 
                                             name="inputNoSkPegawai"
-                                            value="<?php echo $pegawai->no_sk_pegawai; ?>">
+                                            value="<?php echo $pegawai->sk_pegawai; ?>">
                                 </div>
                                 <div class="col-md-6"> 
                                     <label for="inputTmtPegawai" class="form-label">Tmt pegawai</label> 

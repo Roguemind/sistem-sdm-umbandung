@@ -110,7 +110,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
                         <h6><?= $akun['nama']; ?></h6>
-                        <span><?= $akun['id_pegawai']; ?></span>
+                        <span><?= $akun['nik']; ?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

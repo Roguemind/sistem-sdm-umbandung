@@ -18,6 +18,7 @@ class Pegawai extends CI_Controller
         $data['prodis'] = $this->Model_admin->getProdi();
         $data['jabatans'] = $this->Model_admin->getJabatan();
         $data['listDosen'] = $this->Model_pegawai->getPegawai();
+        $data['listTendik'] = $this->Model_pegawai->getPegawai();
 
         $data['title'] = 'pegawai';
         
@@ -66,8 +67,8 @@ class Pegawai extends CI_Controller
         else{
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
-                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'gelar_depan' => $this->input->POST('inputGelarDepan'),
                 'nama' => $this->input->POST('inputNamaLengkap'),
                 'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
@@ -104,7 +105,7 @@ class Pegawai extends CI_Controller
     }
 
     public function update(){
-        $id_pegawai = $this->input->POST('inputIdPegawai');
+        $nik = $this->input->POST('inputnik');
 
         // Rules validasi
         $this->form_validation->set_rules(
@@ -117,7 +118,7 @@ class Pegawai extends CI_Controller
 
         if($this->form_validation->run() == false){
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-            $data['pegawai'] = $this->Model_pegawai->getPegawaiById($id_pegawai);
+            $data['pegawai'] = $this->Model_pegawai->getPegawaiById($nik);
             $data['title'] = 'pegawai';
             
             $this->load->view('_partials/head');
@@ -129,8 +130,8 @@ class Pegawai extends CI_Controller
         }
         else{
             $dataPegawai = array(
-                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'gelar_depan' => $this->input->POST('inputGelarDepan'),
                 'nama' => $this->input->POST('inputNamaLengkap'),
                 'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
@@ -145,7 +146,7 @@ class Pegawai extends CI_Controller
                 'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
             );
-            $this->Model_pegawai->editPegawai($id_pegawai, $dataPegawai);
+            $this->Model_pegawai->editPegawai($nik, $dataPegawai);
 
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil edit data');

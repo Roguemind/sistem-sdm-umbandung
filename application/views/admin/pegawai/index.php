@@ -65,8 +65,8 @@
                                             <td><?= $dosen['nama']; ?></td>
                                             <td><?= $dosen['email']; ?></td>
                                             <td>
-                                                <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>admin/pegawai/edit/<?=$dosen['id_pegawai'];?>"></a>
-                                                <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['id_pegawai']?>)"></button>
+                                                <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>admin/pegawai/edit/<?=$dosen['nik'];?>"></a>
+                                                <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['nik']?>)"></button>
                                             </td>
                                         </tr>
                                         <?php endforeach?>
@@ -87,21 +87,19 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
-                                            <th scope="col">Prodi</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $no = 1; ?>
-                                        <?php foreach ($listTendik as $dosen) : ?>
+                                        <?php foreach ($listTendik as $tendik) : ?>
                                         <tr>
                                             <th scope="row"><?= $no++?></th>
-                                            <td><?= $dosen['nama']; ?></td>
-                                            <td><?= $dosen['nama_prodi']; ?></td>
-                                            <td><?= $dosen['email']; ?></td>
+                                            <td><?= $tendik['nama']; ?></td>
+                                            <td><?= $tendik['email']; ?></td>
                                             <td>
-                                                <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>view/dosen/<?=$dosen['no_pegawai'];?>"></a>
+                                                <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url();?>admin/pegawai/edit/<?=$tendik['nik'];?>"></a>
                                                 <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
                                             </td>
                                         </tr>

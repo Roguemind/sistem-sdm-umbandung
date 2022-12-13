@@ -28,7 +28,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($role, $role . '.id_pegawai = rekam_pendidikan.id_pegawai');
+        $this->db->join($role, $role . '.nik = rekam_pendidikan.nik');
         $this->db->join('account', 'account.no_pegawai = '.$role.'.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
@@ -53,7 +53,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('aktivasi');
         $this->db->from('jad');
-        $this->db->join('dosen', 'dosen.id_pegawai = jad.id_pegawai');
+        $this->db->join('dosen', 'dosen.nik = jad.nik');
         $this->db->join('account', 'account.no_pegawai = dosen.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
@@ -62,7 +62,7 @@ class Model_dosen extends CI_Model
 
     public function pengajuanJAD($account_uid)
     {
-        $this->db->set('id_pegawai', $account_uid);
+        $this->db->set('nik', $account_uid);
         $this->db->set('aktivasi', 0);
         return $this->db->insert('jad');
     }
