@@ -21,10 +21,13 @@
                     <div class="card-body">
 
                         <div class="row mt-3">
-                            <label for="pilihDataTampil" class="col-md-3 col-form-label">Pilih Data Pegawai</label>
-                            <div class="col-md-6">
+
+                            <label for="pilihDataTampil" class="col-md-3 col-form-label">
+                                Pilih Data Pegawai
+                            </label>
+                            <div class="col-md-9">
                                 <select class="pilihDataTampil" name="pilihDataTampil" style="width: 100%">
-                                    <option value="0" selected disabled>Pilih data pegawai</option>
+                                    <option value="0" selected disabled>----Data Pegawai----</option>
                                     <option value="dosen">Dosen</option>
                                     <option value="tendik">Tendik</option>
                                 </select>
@@ -63,7 +66,7 @@
                                         <?php $no = 1; ?>
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
-                                                <th scope="row"><?= $no++ ?></th>
+                                                <th scope="row"><?= $no++ . "." ?></th>
                                                 <td><?= $dosen['nama']; ?></td>
                                                 <td><?= $dosen['email']; ?></td>
                                                 <td>
@@ -84,11 +87,11 @@
                             <h5 class="card-title">Data Tendik</h5>
                             <div class="table-responsive">
                                 <!-- Table with hoverable rows -->
-                                <table class="table table-hover" id="tabel-tendik" name="tabel-dosen">
+                                <table class="table table-hover tabel-tendik" id="tabel-tendik" name="tabel-tendik">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Nama</th>
+                                            <th scope="col">Nama Tendik</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
@@ -97,7 +100,7 @@
                                         <?php $no = 1; ?>
                                         <?php foreach ($listTendik as $tendik) : ?>
                                             <tr>
-                                                <th scope="row"><?= $no++ ?></th>
+                                                <th scope="row"><?= $no++ . "." ?></th>
                                                 <td><?= $tendik['nama']; ?></td>
                                                 <td><?= $tendik['email']; ?></td>
                                                 <td>
@@ -131,7 +134,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['id_pegawai']; ?>">Hapus</a>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['nik']; ?>">Hapus</a>
                 </div>
             </div>
         </div>
@@ -159,9 +162,10 @@
             let filterData = this.value;
             if (filterData === "dosen") {
                 hideDataAll();
+                $('.tabel-tendik').DataTable().destroy(); //remove datatable table tendik show dosen
 
                 //Show table dosen 
-                $('.tabel-dosen').DataTable({
+                $('#tabel-dosen').DataTable({
                     dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4 text-center'B><'col-sm-12 col-md-4'f>>" +
                         "<'row'<'col-sm-12'tr>>" +
                         "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
@@ -191,6 +195,34 @@
             } else if (filterData === "tendik") {
                 hideDataAll();
                 $('.tabel-dosen').DataTable().destroy(); //remove datatable table dosen show tendik
+
+                //Show table tendik 
+                $('.tabel-tendik').DataTable({
+                    dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4 text-center'B><'col-sm-12 col-md-4'f>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                    buttons: [{
+                            extend: 'csv',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-excel"></i> CSV',
+                        },
+                        {
+                            extend: 'excel',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-excel"></i> Excel',
+                        },
+                        {
+                            extend: 'pdf',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-pdf"></i> Pdf',
+                        },
+                        {
+                            extend: 'print',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-printer"></i> Print',
+                        },
+                    ]
+                });
                 $('.dataTendik').show();
             }
 
