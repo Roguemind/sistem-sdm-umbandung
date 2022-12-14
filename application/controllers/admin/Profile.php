@@ -13,6 +13,7 @@ class Profile extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'profile';
         $data['akun'] = $this->Model_master->aksesDB('tendik', $this->session->userdata('session_id'));
         $data['jabatan'] = $this->Model_tendik->getJabatan($this->session->userdata('session_id'));
         $data['unit'] = $this->Model_tendik->getUnit($this->session->userdata('session_id'));
@@ -28,6 +29,7 @@ class Profile extends CI_Controller
 
     public function aksiEditProfile()
     {
+        $nama = $this->input->post('nama');
         $nidn = $this->input->POST('id_pegawai');
         $nik = $this->input->POST('nik');
         $tmpt_lahir = $this->input->POST('tempat_lahir');
@@ -38,15 +40,16 @@ class Profile extends CI_Controller
         $email = $this->input->POST('email');
 
         $dataPegawai = array(
+            'nama' => $nama,
             'nik' => $nik,
-            'tempat-lahir' => $tmpt_lahir,
+            'tempat_lahir' => $tmpt_lahir,
             'tanggal_lahir' => $tgl_lahir,
             'agama' => $agama,
             'alamat' => $alamat,
             'kontak' => $kontak,
             'email' => $email,
         );
-        $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->Model_master->updateProfile($dataPegawai, $nik);
         redirect('admin/profile');
     }
 }
