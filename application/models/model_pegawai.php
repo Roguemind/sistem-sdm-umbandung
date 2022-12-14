@@ -42,4 +42,8 @@ class Model_pegawai extends CI_Model
     {
         return $this->db->delete($this->table, array("nik" => $id));
     }
+    public function getFakultas()
+    {
+        return $this->db->get('fakultas')->result_array();
+    }
 }

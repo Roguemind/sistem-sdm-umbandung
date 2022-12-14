@@ -131,21 +131,87 @@
                                 </div>
                             </div>
                             <div class="divDosen row g-2">
+
+
+                                <label for="" class="form-label">DOSEN</label><br>
                                 <div class="col-md-4">
-                                    <div class="col-md-6">
-                                        <label for="inputNoSkPegawai" class="form-label">DOSEN</label>
-                                        <input type="text" class="form-control" name="" value="DOSEN">
-                                    </div>
+                                    <label for="inputFakultas" class="form-label">Fakultas</label>
+                                    <select name="inputFakultas" id="inputFakultas" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <?php foreach ($fakultas as $fk) { ?>
+                                            <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
+                                <div class="col-md-4">
+                                    <label for="inputProgramStudi" class="form-label">Program Studi</label>
+                                    <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Teknik Informatika">Teknik Informatika</option>
+                                        <option value="Farmasi">Farmasi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatan" class="form-label">Jabatan</label>
+                                    <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="KetuaProgramStudi">Ketua Program Studi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputStatusKerja" class="form-label">Status Kerja</label>
+                                    <select name="inputStatusKerja" id="inputStatusKerja" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Tetap">Tetap</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                    </select>
+                                </div>
+
                             </div>
                             <div class="divTendik row g-2">
+                                <label for="" class="form-label">TENDIK</label><br>
                                 <div class="col-md-4">
-                                    <div class="col-md-6">
-                                        <label for="inputNoSkPegawai" class="form-label">TENDIK</label>
-                                        <input type="text" class="form-control" name="" value="TENDIK">
-                                    </div>
+                                    <label for="inputUnitKerja" class="form-label">Unit Kerja</label>
+                                    <select class="inputUnitKerja form-select" name="inputUnitKerja" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Fakultas">Fakultas</option>
+                                        <option value="Unit">Unit</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputFakultasUnit" class="form-label">Fakultas/Unit</label>
+                                    <select class="form-select" name="inputFakultasUnit" id="inputFakultasUnit" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div id="dataFakultas">
+                                            <?php foreach ($fakultas as $fk) { ?>
+                                                <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                        <div id="DataUnit">
+                                            <?php foreach ($unit as $unt) { ?>
+                                                <option value=<?= $unt['id_unit'] ?>><?= $unt['nama_unit'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatan" class="form-label">Jabatan</label>
+                                    <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="KetuaProgramStudi">Ketua Program Studi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputStatusKerja" class="form-label">Status Kerja</label>
+                                    <select name="inputStatusKerja" id="inputStatusKerja" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Tetap">Tetap</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                    </select>
                                 </div>
                             </div>
+
+
                             <div class="row g-2">
                                 <div class="text-end">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -167,6 +233,12 @@
         $('.divTendik').hide();
     }
 
+    function hideFakultasUnit() {
+        $('#dataFakultas').hide();
+        $('#DataUnit').hide();
+
+    }
+
     $(document).ready(function() {
         $('select').select2();
         hideDosenTendik();
@@ -183,5 +255,18 @@
                 $('.divTendik').show();
             }
         })
+
+        hideFakultasUnit();
+        $('.inputUnitKerja').on('change', function() {
+            let tipeTendik = this.value;
+            if (tipeTendik === 'Fakultas') {
+                alert(this.value);
+                $('#dataFakultas').show();
+            } else if (tipeTendik === 'Unit') {
+                alert(this.value);
+                $('#DataUnit').show();
+            }
+        })
+
     });
 </script>

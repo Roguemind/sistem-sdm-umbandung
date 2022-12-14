@@ -34,7 +34,8 @@ class Pegawai extends CI_Controller
     public function create()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-
+        $data['fakultas'] = $this->Model_pegawai->getFakultas();
+        $data['unit'] = $this->Model_admin->getUnit();
         $data['title'] = 'pegawai';
 
         $this->load->view('_partials/head');
@@ -59,6 +60,8 @@ class Pegawai extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+            $data['fakultas'] = $this->Model_pegawai->getFakultas();
+            $data['unit'] = $this->Model_admin->getUnit();
             $data['title'] = 'pegawai';
 
             $this->load->view('_partials/head');
