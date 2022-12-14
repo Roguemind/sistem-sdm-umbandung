@@ -21,10 +21,13 @@
                     <div class="card-body">
 
                         <div class="row mt-3">
-                            <label for="pilihDataTampil" class="col-md-2 col-form-label">Pilih Data Pegawai</label>
-                            <div class="col-md-3">
+
+                            <label for="pilihDataTampil" class="col-md-3 col-form-label">
+                                Pilih Data Pegawai
+                            </label>
+                            <div class="col-md-9">
                                 <select class="pilihDataTampil" name="pilihDataTampil" style="width: 100%">
-                                    <option value="0" selected disabled>Pilih data pegawai</option>
+                                    <option value="0" selected disabled>----Data Pegawai----</option>
                                     <option value="dosen">Dosen</option>
                                     <option value="tendik">Tendik</option>
                                 </select>
