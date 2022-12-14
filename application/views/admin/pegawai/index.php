@@ -82,7 +82,7 @@
                             <h5 class="card-title">Data Tendik</h5>
                             <div class="table-responsive">
                                 <!-- Table with hoverable rows -->
-                                <table class="table table-hover" id="tabel-tendik" name="tabel-dosen">
+                                <table class="table table-hover" id="tabel-tendik" name="tabel-tendik">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?=$dosen['id_pegawai'];?>">Hapus</a>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?=$dosen['nik'];?>">Hapus</a>
                 </div>
             </div>
         </div>
