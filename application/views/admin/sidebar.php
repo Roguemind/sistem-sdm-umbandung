@@ -6,14 +6,14 @@
         <li class="nav-item">
             <a class="nav-link <?= $title == "dashboard" ? '' : 'collapsed' ?>" href="<?= base_url(); ?>admin">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span> 
+                <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
             <a href="<?= base_url(); ?>admin/pegawai" class="nav-link <?= $title == "pegawai" ? '' : 'collapsed' ?>">
                 <i class="bi bi-person"></i>
-                <span>PEGAWAI TEST</span>
+                <span>Pegawai</span>
             </a>
         </li><!-- End Profile Page Nav -->
 
@@ -89,7 +89,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <!--<li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#Pegawai" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-people"></i><span>Pegawai</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -105,7 +105,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li>-->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#Arsip" data-bs-toggle="collapse">

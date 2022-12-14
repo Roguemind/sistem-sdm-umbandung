@@ -19,6 +19,7 @@ class Fungsi extends CI_Controller
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['lista'] = $this->Model_admin->getArsipDosen();
         $data['listp'] = $this->Model_admin->getProdi();
+        $data['title'] = 'Arsip Dosen';
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -31,6 +32,7 @@ class Fungsi extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['lista'] = $this->Model_admin->getArsipTendik();
+        $data['title'] = 'Arsip Tendik';
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -68,19 +70,20 @@ class Fungsi extends CI_Controller
         redirect('admin/dashboard');
     }
 
-    public function uploadSurat($role){
+    public function uploadSurat($role)
+    {
         $judul = $this->input->POST('judul');
         $tipe_surat = $this->input->POST('tipe_surat');
         $unit_kerja = $this->input->POST('unit-kerja');
         $config['allowed_types']    = 'pdf';
         $config['max_size']         = 100000;
-        $config['upload_path']      = FCPATH.'/upload/berkas/dosen/';
-        $config['file_name']        = $judul."_".$unit_kerja."_".".pdf";
+        $config['upload_path']      = FCPATH . '/upload/berkas/dosen/';
+        $config['file_name']        = $judul . "_" . $unit_kerja . "_" . ".pdf";
         $this->load->library('upload', $config);
         $cek = $this->upload->do_upload('file_surat');
-        if($cek){
+        if ($cek) {
             var_dump($this->upload->data());
-        }else{
+        } else {
             var_dump($this->upload->display_errors());
         }
         /*if(!$this->upload->do_upload('file_surat')){
@@ -98,7 +101,7 @@ class Fungsi extends CI_Controller
             exit;
         }*/
     }
-    
+
     public function aksiBerkasTendik()
     {
         $no_sk = $this->input->POST('no_sk');
@@ -122,6 +125,7 @@ class Fungsi extends CI_Controller
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listpengajuan'] = $this->Model_admin->getPengajuanbyId();
+        $data['title'] = 'Cuti';
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -144,7 +148,7 @@ class Fungsi extends CI_Controller
         $this->load->view('_partials/script');
         $this->load->view('admin/tambah_dosen', $data);
     }
-    
+
     public function aksiTambahDosen()
     {
         $id_pegawai = $this->input->POST('id_pegawai');
@@ -165,7 +169,7 @@ class Fungsi extends CI_Controller
         $status_pernikahan = $this->input->POST('status_pernikahan');
         $no_sk_pegawai = $this->input->POST('no_sk_pegawai');
         $tmt_pegawai = $this->input->POST('tmt_pegawai');
-        
+
         $dataPegawai = array(
             'id_pegawai' => $id_pegawai,
             'nama' => $nama,
@@ -183,20 +187,21 @@ class Fungsi extends CI_Controller
             'no_sk_pegawai' => $no_sk_pegawai,
             'tmt_pegawai' => $tmt_pegawai,
         );
-        
+
         $dataDosen = array(
             'no_pegawai' => $no_pegawai,
             'id_pegawai' => $id_pegawai,
             'id_prodi' => $prodi,
             'id_jabatan' => $jabatan,
         );
-        
+
         $this->Model_admin->insertPegawai($dataPegawai);
         $this->Model_admin->insertDosen($dataDosen);
         redirect('admin/viewdosen');
     }
 
-    public function profileDosen($uid){
+    public function profileDosen($uid)
+    {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['dosen'] = $this->Model_admin->aksesDataDosen($uid);
         $data['jabatan'] = $this->Model_admin->getJabatan_Dosen($uid);
@@ -247,15 +252,16 @@ class Fungsi extends CI_Controller
         $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
         Berhasil Di Ubah.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-        redirect('admin/fungsi/profileDosen/'.$no_pegawai);
+        redirect('admin/fungsi/profileDosen/' . $no_pegawai);
     }
 
-    public function deleteDosen($uid){
+    public function deleteDosen($uid)
+    {
         $this->Model_admin->deleteDosen($uid);
         $this->Model_admin->deletePegawai($uid);
         redirect('admin/viewtendik');
     }
-    
+
     // Fungsi CRUD data Tendik
     public function dataTendik()
     {
@@ -371,10 +377,11 @@ class Fungsi extends CI_Controller
         $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
         Berhasil Di Ubah.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-        redirect('view/tendik/'.$no_pegawai);
+        redirect('view/tendik/' . $no_pegawai);
     }
 
-    public function deleteTendik($uid){
+    public function deleteTendik($uid)
+    {
         $this->Model_admin->deleteTendik($uid);
         $this->Model_admin->deletePegawai($uid);
         redirect('admin/viewtendik');
