@@ -22,8 +22,8 @@
                         <h5 class="card-title">Edit Data Pegawai</h5>
                         <form class="row g-3" method="POST" action="<?= base_url()?>admin/pegawai/update">
                             <input type="hidden" 
-                                    name="inputIdPegawai" 
-                                    value="<?php echo $pegawai->id_pegawai; ?>"
+                                    name="inputnik" 
+                                    value="<?php echo $pegawai->nik; ?>"
                                     readonly>
                             <div class="row g-2">
                                 <div class="col-md-4"> 

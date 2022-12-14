@@ -83,7 +83,7 @@ class Pegawai extends CI_Controller
                 'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
                 'email' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
-                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
@@ -148,7 +148,7 @@ class Pegawai extends CI_Controller
                 'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
                 'email' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
-                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
             );
             $this->Model_pegawai->editPegawai($nik, $dataPegawai);
