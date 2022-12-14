@@ -63,7 +63,7 @@
                                         <?php $no = 1; ?>
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
-                                                <th scope="row"><?= $no++ ?></th>
+                                                <th scope="row"><?= $no++ . "." ?></th>
                                                 <td><?= $dosen['nama']; ?></td>
                                                 <td><?= $dosen['email']; ?></td>
                                                 <td>
@@ -84,11 +84,11 @@
                             <h5 class="card-title">Data Tendik</h5>
                             <div class="table-responsive">
                                 <!-- Table with hoverable rows -->
-                                <table class="table table-hover" id="tabel-tendik" name="tabel-dosen">
+                                <table class="table table-hover tabel-tendik" id="tabel-tendik" name="tabel-dosen">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Nama</th>
+                                            <th scope="col">Nama Tendik</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
@@ -97,7 +97,7 @@
                                         <?php $no = 1; ?>
                                         <?php foreach ($listTendik as $tendik) : ?>
                                             <tr>
-                                                <th scope="row"><?= $no++ ?></th>
+                                                <th scope="row"><?= $no++ . "." ?></th>
                                                 <td><?= $tendik['nama']; ?></td>
                                                 <td><?= $tendik['email']; ?></td>
                                                 <td>
@@ -159,6 +159,7 @@
             let filterData = this.value;
             if (filterData === "dosen") {
                 hideDataAll();
+                $('.tabel-tendik').DataTable().destroy(); //remove datatable table tendik show dosen
 
                 //Show table dosen 
                 $('.tabel-dosen').DataTable({
@@ -191,6 +192,34 @@
             } else if (filterData === "tendik") {
                 hideDataAll();
                 $('.tabel-dosen').DataTable().destroy(); //remove datatable table dosen show tendik
+
+                //Show table dosen 
+                $('.tabel-tendik').DataTable({
+                    dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4 text-center'B><'col-sm-12 col-md-4'f>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                    buttons: [{
+                            extend: 'csv',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-excel"></i> CSV',
+                        },
+                        {
+                            extend: 'excel',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-excel"></i> Excel',
+                        },
+                        {
+                            extend: 'pdf',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-file-pdf"></i> Pdf',
+                        },
+                        {
+                            extend: 'print',
+                            className: 'btn-primary',
+                            text: '<i class="mdi mdi-printer"></i> Print',
+                        },
+                    ]
+                });
                 $('.dataTendik').show();
             }
 
