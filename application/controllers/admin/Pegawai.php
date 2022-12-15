@@ -35,6 +35,7 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['fakultas'] = $this->Model_pegawai->getFakultas();
+        $data['prodi'] = $this->Model_admin->getProdi();
         $data['unit'] = $this->Model_admin->getUnit();
         $data['title'] = 'pegawai';
 
@@ -61,6 +62,7 @@ class Pegawai extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
             $data['fakultas'] = $this->Model_pegawai->getFakultas();
+            $data['prodi'] = $this->Model_admin->getProdi();
             $data['unit'] = $this->Model_admin->getUnit();
             $data['title'] = 'pegawai';
 

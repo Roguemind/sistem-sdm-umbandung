@@ -134,7 +134,7 @@
 
 
                                 <!-- <label for="" class="form-label">DOSEN</label><br> -->
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <label for="inputFakultas" class="form-label">Fakultas</label>
                                     <select name="inputFakultas" id="inputFakultas" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
@@ -142,13 +142,14 @@
                                             <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
                                         <?php } ?>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4">
                                     <label for="inputProgramStudi" class="form-label">Program Studi</label>
                                     <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <option value="Teknik Informatika">Teknik Informatika</option>
-                                        <option value="Farmasi">Farmasi</option>
+                                        <?php foreach ($prodi as $prd) { ?>
+                                            <option value=<?= $prd['nama_prodi'] ?>><?= $prd['nama_prodi'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -248,10 +249,10 @@
 
             hideDosenTendik();
             if (tipePegawai === 'Dosen') {
-                alert(this.value);
+
                 $('.divDosen').show();
             } else if (tipePegawai === 'Tendik') {
-                alert(this.value);
+
                 $('.divTendik').show();
             }
         })
@@ -262,11 +263,11 @@
         $('.inputUnitKerja').on('change', function() {
             let tipeTendik = this.value;
             if (tipeTendik === 'Fakultas') {
-                alert(this.value);
+
                 $('#DataUnit').hide();
                 $('#dataFakultas').show();
             } else if (tipeTendik === 'Unit') {
-                alert(this.value);
+
                 $('#dataFakultas').hide();
                 $('#DataUnit').show();
             }
