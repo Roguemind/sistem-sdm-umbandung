@@ -128,7 +128,7 @@
                                     <input type="text" class="form-control" name="inputNoSkPegawai" value="<?php echo $pegawai->sk_pegawai; ?>">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputTmtPegawai" class="form-label">Tmt pegawai</label>
+                                    <label for="inputTmtPegawai" class="form-label">Terhitung Mulai Tanggal</label>
                                     <input type="text" class="form-control" name="inputTmtPegawai" value="<?php echo $pegawai->tmt_pegawai; ?>">
                                 </div>
                             </div>

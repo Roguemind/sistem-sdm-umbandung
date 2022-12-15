@@ -91,6 +91,7 @@ class Pegawai extends CI_Controller
                 'pendidikan' => $this->input->POST('inputpendidikan'),
                 'sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
+
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
 
@@ -111,7 +112,7 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/sidebar', $data);
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
-        $this->load->view('admin/pegawai/edit', $data);
+        $this->load->view('admin/pegawai/editUp', $data);
     }
 
     public function update()
@@ -138,7 +139,7 @@ class Pegawai extends CI_Controller
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
-            $this->load->view('admin/pegawai/edit', $data);
+            $this->load->view('admin/pegawai/editUp', $data);
         } else {
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
