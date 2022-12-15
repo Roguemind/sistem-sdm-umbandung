@@ -72,17 +72,17 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIK</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['nik'];?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['no_pegawai'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai'];?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir'];?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir'];?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
                                     </div>
 
                                     <div class="row">
@@ -134,7 +134,7 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form>
+                                    <form method="post" action="<?php echo base_url();?>admin/profile/aksiEditProfile">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
@@ -149,7 +149,7 @@
                                         <div class="row mb-3">
                                             <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="fullName" type="text" class="form-control" id="fullName" value="<?= $akun['nama']; ?>">
+                                                <input name="nama" type="text" class="form-control" id="nama" value="<?= $akun['nama']; ?>">
                                             </div>
                                         </div>
 
@@ -170,7 +170,7 @@
                                         <div class="row mb-3">
                                             <label for="ttl" class="col-md-4 col-lg-3 col-form-label">Tempat Lahir</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat-lahir']; ?>">
+                                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat_lahir']; ?>">
                                             </div>
                                         </div>
 

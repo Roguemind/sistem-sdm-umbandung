@@ -117,7 +117,7 @@
                     </li>
 
                     <li>
-                        <a href="<?= base_url('dosen/profile_dosen'); ?>" class="dropdown-item d-flex align-items-center">
+                        <a href="<?= base_url('admin/profile'); ?>" class="dropdown-item d-flex align-items-center">
                             <i class="bi bi-person"></i>
                             <span>Akun Saya</span>
                         </a>
