@@ -141,6 +141,7 @@ class Pegawai extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/editUp', $data);
         } else {
+            $nik = $this->input->POST('inputNik');
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
                 'id_pegawai' => $this->input->POST('inputNoPegawai'),

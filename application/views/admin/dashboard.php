@@ -40,11 +40,11 @@
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-cart"></i>
+                    <i class="bi bi-book"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
-                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <h6>40%</h6>
+                    <span class="text-danger small pt-1 fw-bold">60%</span> <span class="text-muted small pt-2 ps-1">Belum Bekerja</span>
 
                   </div>
                 </div>
@@ -71,15 +71,50 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">Absensi <span>| Bulan Ini</span></h5>
+                <h5 class="card-title">Presensi <span>| Bulan Ini</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-emoji-smile"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>$3,264</h6>
-                    <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <h6>85%</h6>
+                    <span class="text-danger small pt-1 fw-bold">15%</span> <span class="text-muted small pt-2 ps-1">Tidak Masuk</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                  <li><a class="dropdown-item" href="#">Bulan Ini</a></li>
+                  <li><a class="dropdown-item" href="#">Tahun Ini</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">JAD <span>| Bulan Ini</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-folder2-open"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>20%</h6>
+                    <span class="text-danger small pt-1 fw-bold">80%</span> <span class="text-muted small pt-2 ps-1">Belum Mengajukan</span>
 
                   </div>
                 </div>
@@ -92,7 +127,7 @@
           <!-- End Customers Card -->
 
           <!-- Reports -->
-          <div class="col-12">
+          <!-- <div class="col-12">
             <div class="card">
 
               <div class="filter">
@@ -109,10 +144,10 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">Kinerja <span>/Hari Ini</span></h5>
+                <h5 class="card-title">Kinerja <span>/Hari Ini</span></h5> -->
 
-                <!-- Line Chart -->
-                <div id="reportsChart"></div>
+          <!-- Line Chart -->
+          <!-- <div id="reportsChart"></div>
 
                 <script>
                   document.addEventListener("DOMContentLoaded", () => {
@@ -165,14 +200,128 @@
                       }
                     }).render();
                   });
-                </script>
-                <!-- End Line Chart -->
+                </script> -->
+          <!-- End Line Chart -->
 
-              </div>
+          <!-- </div>
 
             </div>
-          </div><!-- End Reports -->
+          </div> -->
+          <!-- End Reports -->
+          <!-- Bar Chart -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center">Grafik Jumlah Pegawai</h5>
+                <ul class="nav nav-tabs nav-tabs-bordered">
 
+                  <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Dosen</button>
+                  </li>
+
+                  <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Tendik</button>
+                  </li>
+
+                </ul>
+                <div class="tab-content pt-2">
+
+                  <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <canvas id="barChart" style="max-height: 400px;"></canvas>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.querySelector('#barChart'), {
+                          type: 'bar',
+                          data: {
+                            labels: ['FST', 'FEB', 'FAI', 'FSH'],
+                            datasets: [{
+                              label: 'Dosen',
+                              data: [43, 149, 106, 87],
+                              backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                              ],
+                              borderColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)'
+                              ],
+                              borderWidth: 1
+                            }]
+                          },
+                          options: {
+                            scales: {
+                              y: {
+                                beginAtZero: true
+                              }
+                            }
+                          }
+                        });
+                      });
+                    </script>
+                  </div>
+                </div>
+                <div class="tab-content pt-2">
+
+                  <div class="tab-pane fade show profile-edit" id="profile-edit">
+                    <canvas id="barChart1" style="max-height: 400px;"></canvas>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.querySelector('#barChart1'), {
+                          type: 'bar',
+                          data: {
+                            labels: ['FST', 'FEB2', 'FAI', 'FSH', 'LPnlLMyrt', 'LPnkLAik', 'LPej', 'Pimpinan'],
+                            datasets: [{
+                              label: '',
+                              data: [35, 55, 10, 20, 40, 63, 11, 45],
+                              backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)',
+                                'rgba(221, 213, 217, 0.2)'
+                              ],
+                              borderColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)',
+                                'rgb(221, 223, 227)'
+                              ],
+                              borderWidth: 1
+                            }]
+                          },
+                          options: {
+                            scales: {
+                              y: {
+                                beginAtZero: true
+                              }
+                            }
+                          }
+                        });
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Bar CHart -->
           <!-- Recent Sales -->
           <!-- End Recent Sales -->
 
@@ -264,7 +413,7 @@
           </div>
 
           <div class="card-body pb-0">
-            <h5 class="card-title">Absensi</h5>
+            <h5 class="card-title">Presensi</h5>
 
             <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 

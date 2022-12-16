@@ -35,24 +35,28 @@
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                     <label for="inputGelarDepan" class="form-label">Gelar Depan</label>
                                     <select name="inputGelarDepan" name="inputGelarDepan" class="form-select" style="width: 100%">
                                         <option selected disabled>Pilih gelar depan...</option>
                                         <option value="Prof.">Prof.</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
                                     <label for="inputNamaLengkap" class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap">
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
+                                    <label for="Email" class="form-label">Email</label>
+                                    <input type="text" class="form-control" name="inputEmail">
+                                </div>
+                                <!-- <div class="col-md-3">
                                     <label for="inputGelarBelakang" class="form-label">Gelar Belakang</label>
                                     <select name="inputGelarBelakang" name="inputGelarBelakang" class="form-select" style="width: 100%">
                                         <option selected disabled>Pilih gelar belakang...</option>
                                         <option value="M.Ag">M.Ag</option>
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-12">
@@ -100,25 +104,22 @@
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-md-6">
-                                    <label for="Email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" name="inputEmail">
-                                </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="Kontak" class="form-label">Kontak</label>
                                     <input type="text" class="form-control" name="inputKontak">
                                 </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="inputNoSkPegawai" class="form-label">No sk</label>
                                     <input type="text" class="form-control" name="inputNoSkPegawai">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="inputTmtPegawai" class="form-label">Terhitung Mulai Tanggal</label>
                                     <input type="text" class="form-control" name="inputTmtPegawai">
                                 </div>
+                            </div>
+                            <div class="row g-2">
+
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-4">
