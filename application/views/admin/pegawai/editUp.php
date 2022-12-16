@@ -1,5 +1,5 @@
 <body>
-    <main id="main" class="main">
+    <main id="main" class="main" style="margin-top: 0px;">
 
         <div class="pagetitle">
             <h1>Profile</h1>
@@ -21,7 +21,7 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                             <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
-                            <h2><?= $akun['nama']; ?></h2>
+                            <h2><?php echo $pegawai->nama; ?></h2>
                             <h3>Kepala Bagian Prodi</h3>
 
                             <div class="social-links mt-2">
@@ -72,7 +72,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label for="inputGelarDepan" class="col-md-4 col-lg-3 col-form-label">Gelar Depan</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <select name="inputGelarDepan" name="inputGelarDepan" class="form-select" style="width: 100%">
@@ -80,7 +80,7 @@
                                                     <option value="Prof." <?php echo ($pegawai->gelar_depan == 'Prof.' ? 'selected' : ''); ?>>Prof.</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="row mb-3">
                                             <label for="inputNamaLengkap" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
@@ -89,7 +89,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
+                                        <!-- <div class="row mb-3">
                                             <label for="inputGelarBelakang" class="col-md-4 col-lg-3 col-form-label">Gelar Belakang</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <select name="inputGelarBelakang" name="inputGelarBelakang" class="form-select" style="width: 100%">
@@ -97,7 +97,7 @@
                                                     <option value="M.Ag" <?php echo ($pegawai->gelar_belakang == 'M.Ag' ? 'selected' : ''); ?>>M.Ag</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="row mb-3">
                                             <label for="inputNik" class="col-md-4 col-lg-3 col-form-label">No Induk Keluarga</label>
@@ -237,7 +237,7 @@
                                         <div class="row mb-3">
                                             <label for="inputTmtPegawai" class="col-md-4 col-lg-3 col-form-label">Terhitung Mulai Tanggal</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input type="text" class="form-control" name="inputTmtPegawai" value="<?php echo $pegawai->tmt_pegawai; ?>">
+                                                <input type="date" class="form-control" name="inputTmtPegawai" value="<?php echo $pegawai->tmt_pegawai; ?>">
                                             </div>
                                         </div>
 
