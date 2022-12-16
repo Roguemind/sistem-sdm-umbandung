@@ -16,7 +16,6 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['prodis'] = $this->Model_admin->getProdi();
-        $data['jabatans'] = $this->Model_admin->getJabatan();
 
         $data['listDosen'] = $this->Model_pegawai->getPegawaiDosen();
         $data['listTendik'] = $this->Model_pegawai->getPegawaiTendik();
@@ -35,6 +34,7 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['fakultas'] = $this->Model_pegawai->getFakultas();
+        $data['jabatans'] = $this->Model_admin->getJabatan();
         $data['prodi'] = $this->Model_admin->getProdi();
         $data['unit'] = $this->Model_admin->getUnit();
         $data['title'] = 'pegawai';
@@ -89,11 +89,20 @@ class Pegawai extends CI_Controller
                 'email' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
 
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
+            if ($this->input->post('inputJabatanPegawai') == 'Dosen'){
+                $dataDosen = array(
+                    'nik' => $this->input->post('inputNik'),
+                    'id_prodi' => $this->input->post('inputProgramStudi'),
+                    'id_jabatan' => $this->input->post('inputJabatan'),
+                    'status_kerja' => $this->input->post('inputStatusKerja')
+                );
+                $this->Model_pegawai->saveDosen($dataDosen);
+            }
 
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
@@ -128,6 +137,34 @@ class Pegawai extends CI_Controller
                 'required' => 'Wajib mengisi %s.',
             )
         );
+        
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
@@ -141,6 +178,7 @@ class Pegawai extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/editUp', $data);
         } else {
+            $nik = $this->input->POST('inputNik');
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
                 'id_pegawai' => $this->input->POST('inputNoPegawai'),
@@ -156,7 +194,7 @@ class Pegawai extends CI_Controller
                 'email' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
                 'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
                 'foto_peg' => $this->input->POST('inputfotoprofile'),
             );
@@ -170,9 +208,10 @@ class Pegawai extends CI_Controller
 
     public function delete($id)
     {
-        $hapusPegawai = $this->Model_pegawai->deletePegawai($id);
+        $this->Model_pegawai->deleteDosen($id);
+        $this->Model_pegawai->deletePegawai($id);
 
-        if ($hapusPegawai) {
+        if ($this->Model_pegawai->deletePegawai($id) == TRUE) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_status_header(200)

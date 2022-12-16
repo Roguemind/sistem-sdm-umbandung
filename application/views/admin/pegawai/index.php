@@ -252,10 +252,10 @@
                     success: function(data) {
                         Swal.fire({
                             title: 'Hapus!',
-                            text: 'Data berhasil dihapus.',
+                            text: data.text,
                             icon: 'success'
                         }).then(function() {
-                            window.location.href = '<?php echo base_url(); ?>admin/pegawai';
+                            window.location.href = '<?php echo base_url(); ?>admin/pegawai/';
                         });
                     }
                 });

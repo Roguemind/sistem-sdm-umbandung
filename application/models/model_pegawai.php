@@ -28,6 +28,16 @@ class Model_pegawai extends CI_Model
         return $this->db->insert($this->table, $data);
     }
 
+    public function saveDosen($data)
+    {
+        return $this->db->insert('dosen', $data);
+    }
+
+    public function saveTendik($data)
+    {
+        return $this->db->insert('tendik', $data);
+    }
+
     public function getPegawaiById($id)
     {
         return $this->db->get_where($this->table, ["nik" => $id])->row();
@@ -42,6 +52,12 @@ class Model_pegawai extends CI_Model
     {
         return $this->db->delete($this->table, array("nik" => $id));
     }
+
+    public function deleteDosen($id)
+    {
+        return $this->db->delete('dosen', array("nik" => $id));
+    }
+
     public function getFakultas()
     {
         return $this->db->get('fakultas')->result_array();

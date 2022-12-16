@@ -85,7 +85,7 @@
                                         <div class="row mb-3">
                                             <label for="inputNamaLengkap" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap" value="<?php echo $pegawai->nama; ?>">
+                                                <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap" value="<?= $pegawai->nama; ?>">
                                             </div>
                                         </div>
 
@@ -189,7 +189,7 @@
                                         <div class="row mb-3">
                                             <label for="inputNoSkPegawai" class="col-md-4 col-lg-3 col-form-label">No SK</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input type="text" class="form-control" name="inputNoSkPegawai" value="<?php echo $pegawai->sk_pegawai; ?>">
+                                                <input type="text" class="form-control" name="inputNoSkPegawai" value="<?php echo $pegawai->no_sk_pegawai; ?>">
                                             </div>
                                         </div>
 

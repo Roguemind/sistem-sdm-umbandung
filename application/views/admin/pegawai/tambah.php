@@ -149,7 +149,7 @@
                                     <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
                                         <?php foreach ($prodi as $prd) { ?>
-                                            <option value=<?= $prd['nama_prodi'] ?>><?= $prd['nama_prodi'] ?></option>
+                                            <option value=<?= $prd['id_prodi'] ?>><?= $prd['nama_prodi'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -157,7 +157,9 @@
                                     <label for="inputJabatan" class="form-label">Jabatan</label>
                                     <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <option value="KetuaProgramStudi">Ketua Program Studi</option>
+                                        <?php foreach ($jabatans as $jbtn) { ?>
+                                            <option value=<?= $jbtn['id_jabatan'] ?>><?= $jbtn['nama_jabatan'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
