@@ -27,7 +27,6 @@ class Profile extends CI_Controller
 
     public function aksiEditProfile()
     {
-        $nidn = $this->input->POST('id_pegawai');
         $nik = $this->input->POST('nik');
         $tmpt_lahir = $this->input->POST('tempat_lahir');
         $tgl_lahir = $this->input->POST('tanggal_lahir');
@@ -38,14 +37,14 @@ class Profile extends CI_Controller
 
         $dataPegawai = array(
             'nik' => $nik,
-            'tempat-lahir' => $tmpt_lahir,
+            'tempat_lahir' => $tmpt_lahir,
             'tanggal_lahir' => $tgl_lahir,
             'agama' => $agama,
             'alamat' => $alamat,
             'kontak' => $kontak,
             'email' => $email,
         );
-        $this->Model_master->updateProfile($dataPegawai, $nidn);
+        $this->Model_master->updateProfile($dataPegawai, $nik);
         $this->session->set_flashdata('save', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
         Berhasil Di Ubah.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');

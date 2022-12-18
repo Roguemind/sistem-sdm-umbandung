@@ -158,8 +158,8 @@
                                     <label for="inputJabatan" class="form-label">Jabatan</label>
                                     <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <?php foreach ($jabatans as $jbtn) { ?>
-                                            <option value=<?= $jbtn['id_jabatan'] ?>><?= $jbtn['nama_jabatan'] ?></option>
+                                        <?php foreach ($jabdos as $jbtnds) { ?>
+                                            <option value=<?= $jbtnds['id_jabatan'] ?>><?= $jbtnds['nama_jabatan'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

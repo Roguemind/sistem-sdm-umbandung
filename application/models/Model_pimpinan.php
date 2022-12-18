@@ -17,4 +17,12 @@
             $query = $this->db->get(); 
             return $query->result_array();
         }
+
+        public function getJabatanDosen(){
+            return $this->db->get('jabatan_dosen')->result_array();
+        }
+
+        public function getJabatanTendik(){
+            return $this->db->get('jabatan_tendik')->result_array();
+        }
     }

@@ -15,7 +15,6 @@ class Pegawai extends CI_Controller
     public function index()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-        $data['prodis'] = $this->Model_admin->getProdi();
 
         $data['listDosen'] = $this->Model_pegawai->getPegawaiDosen();
         $data['listTendik'] = $this->Model_pegawai->getPegawaiTendik();
@@ -30,13 +29,43 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/pegawai/index', $data);
     }
 
+    public function profileDosen($uid)
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['dosen'] = $this->Model_pegawai->getProfilDosen($uid);
+        $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
+        $data['title'] = 'pegawai';
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/pegawai/profile_dosen', $data);
+    }
+
+    public function profileTendik($uid)
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['tendik'] = $this->Model_pegawai->getProfilTendik($uid);
+        $data['jabatans'] = $this->Model_admin->getJabatan();
+        $data['units'] = $this->Model_admin->getUnit();
+        $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
+        $data['title'] = 'pegawai';
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/pegawai/profile_tendik', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+    }
+
     public function create()
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-        $data['fakultas'] = $this->Model_pegawai->getFakultas();
-        $data['jabatans'] = $this->Model_admin->getJabatan();
-        $data['prodi'] = $this->Model_admin->getProdi();
-        $data['unit'] = $this->Model_admin->getUnit();
+        $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
+        $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
+        $data['prodis'] = $this->Model_admin->getProdi();
+        $data['units'] = $this->Model_admin->getUnit();
         $data['title'] = 'pegawai';
 
         $this->load->view('_partials/head');
@@ -103,7 +132,26 @@ class Pegawai extends CI_Controller
                 );
                 $this->Model_pegawai->saveDosen($dataDosen);
             }
-
+            else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
+                if($this->input->post('inputUnitKerja') == 'Fakultas'){
+                    $dataTendik = array(
+                        'nik' => $this->input->post('inputNik'),
+                        'id_unit' => $this->input->post('inputProgramStudi'),
+                        'id_jabatan' => $this->input->post('inputJabatan'),
+                        'status_kerja' => $this->input->post('inputStatusKerja')
+                    );
+                    $this->Model_pegawai->saveTendik($dataTendik);
+                }
+                else if ($this->input->post('inputJabatanPegawai') == 'Unit'){
+                    $dataTendik = array(
+                        'nik' => $this->input->post('inputNik'),
+                        'id_fakultas' => $this->input->post('inputProgramStudi'),
+                        'id_jabatan' => $this->input->post('inputJabatan'),
+                        'status_kerja' => $this->input->post('inputStatusKerja')
+                    );
+                    $this->Model_pegawai->saveTendik($dataTendik);
+                }
+            }
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
             redirect('admin/pegawai');
@@ -121,7 +169,7 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/sidebar', $data);
         $this->load->view('_partials/footer');
         $this->load->view('_partials/script');
-        $this->load->view('admin/pegawai/editUp', $data);
+        $this->load->view('admin/pegawai/edit', $data);
     }
 
     public function update()
@@ -208,7 +256,11 @@ class Pegawai extends CI_Controller
 
     public function delete($id)
     {
-        $this->Model_pegawai->deleteDosen($id);
+        if($this->input->post('pilihDataTampil') == "dosen"){
+            $this->Model_pegawai->deleteDosen($id);
+        } else if ($this->input->post('pilihDataTampil') == "tendik"){
+            $this->Model_pegawai->deleteTendik($id);
+        }
         $this->Model_pegawai->deletePegawai($id);
 
         if ($this->Model_pegawai->deletePegawai($id) == TRUE) {

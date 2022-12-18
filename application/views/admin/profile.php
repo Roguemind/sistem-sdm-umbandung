@@ -21,8 +21,16 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                             <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
-                            <h2><?= $akun['nama']; ?></h2>
-                            <h3>Kepala Bagian Prodi</h3>
+                            <h2>
+                            <?php if ($akun['nama_depan'] != NULL){
+                                    echo $akun['nama_depan'].' ';
+                                } if ($akun['nama_tengah'] != NULL){
+                                    echo $akun['nama_tengah'].' ';
+                                }
+                                echo $akun['nama_belakang'];
+                            ?>
+                            </h2>
+                            <h3><?= $akun['nama_jabatan'].' '.$akun['nama_unit']?></h3>
 
                             <div class="social-links mt-2">
                                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -67,7 +75,15 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nama'] ?></div>
+                                        <div class="col-lg-9 col-md-8">
+                                        <?php if ($akun['nama_depan'] != NULL){
+                                                echo $akun['nama_depan'].' ';
+                                            } if ($akun['nama_tengah'] != NULL){
+                                                echo $akun['nama_tengah'].' ';
+                                            }
+                                            echo $akun['nama_belakang'];
+                                            ?>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -102,12 +118,12 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Unit Kerja</div>
-                                        <div class="col-lg-9 col-md-8"><?= $unit['nama_unit']; ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_unit']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jabatan</div>
-                                        <div class="col-lg-9 col-md-8"><?= $jabatan['nama_jabatan']; ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_jabatan']; ?></div>
                                     </div>
 
                                     <div class="row">
@@ -121,13 +137,13 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Phone</div>
+                                        <div class="col-lg-3 col-md-4 label">Telepon</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['kontak'] ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['email'] ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['email_pribadi'] ?></div>
                                     </div>
                                 </div>
 
@@ -147,9 +163,23 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
+                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Depan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="nama" type="text" class="form-control" id="nama" value="<?= $akun['nama']; ?>">
+                                                <input name="namadpn" type="text" class="form-control" id="namadpn" value="<?= $akun['nama_depan']; ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Tengah</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="namatgh" type="text" class="form-control" id="namatgh" value="<?= $akun['nama_tengah']; ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Belakang</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $akun['nama_belakang']; ?>">
                                             </div>
                                         </div>
 
@@ -206,10 +236,7 @@
                                             <label for="prodi" class="col-md-4 col-lg-3 col-form-label">Unit Kerja</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <select name="unit_kerja" class="form-select" id="unit_kerja">
-                                                    <option default value="<?= $unit['id_unit']; ?>" disabled> <?= $unit['nama_unit']; ?></option>
-                                                    <?php foreach ($units as $listunit) :?>
-                                                        <option value="<?= $listunit['id_unit']?>"><?= $listunit['nama_unit']?></option>
-                                                    <?php endforeach ?>
+                                                    <option default value="<?= $akun['id_unit']; ?>" readonly> <?= $akun['nama_unit']; ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -218,10 +245,7 @@
                                             <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <select name="jabatan" class="form-select" id="jabatan">
-                                                    <option default value="<?= $jabatan['id_jabatan']; ?>" disabled> <?= $jabatan['nama_jabatan']; ?></option>
-                                                    <?php foreach ($jabatans as $listjab) :?>
-                                                        <option value="<?= $listjab['id_jabatan']?>"><?= $listjab['nama_jabatan']?></option>
-                                                    <?php endforeach ?>
+                                                    <option default value="<?= $akun['id_jabatan']; ?>" readonly> <?= $akun['nama_jabatan']; ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -250,7 +274,7 @@
                                         <div class="row mb-3">
                                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="Email" value="<?= $akun['email']; ?>">
+                                                <input name="email" type="email" class="form-control" id="Email" value="<?= $akun['email_pribadi']; ?>">
                                             </div>
                                         </div>
                                         <div class="text-center">

@@ -36,26 +36,6 @@
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <div class="col-md-3">
-                                    <label for="inputGelarDepan" class="form-label">Gelar Depan</label>
-                                    <select name="inputGelarDepan" name="inputGelarDepan" class="form-select" style="width: 100%">
-                                        <option selected disabled>Pilih gelar depan...</option>
-                                        <option value="Prof." <?php echo ($pegawai->gelar_depan == 'Prof.' ? 'selected' : ''); ?>>Prof.</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputNamaLengkap" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap" value="<?php echo $pegawai->nama; ?>">
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="inputGelarBelakang" class="form-label">Gelar Belakang</label>
-                                    <select name="inputGelarBelakang" name="inputGelarBelakang" class="form-select" style="width: 100%">
-                                        <option selected disabled>Pilih gelar belakang...</option>
-                                        <option value="M.Ag" <?php echo ($pegawai->gelar_belakang == 'M.Ag' ? 'selected' : ''); ?>>M.Ag</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row g-2">
                                 <div class="col-md-12">
                                     <label for="inputAlamat" class="form-label">Alamat</label>
                                     <textarea type="text" class="form-control" name="inputAlamat" id="inputAlamat"><?php echo $pegawai->alamat; ?></textarea>
@@ -125,17 +105,11 @@
                             <div class="row g-2">
                                 <div class="col-md-6">
                                     <label for="inputNoSkPegawai" class="form-label">No sk</label>
-                                    <input type="text" class="form-control" name="inputNoSkPegawai" value="<?php echo $pegawai->sk_pegawai; ?>">
+                                    <input type="text" class="form-control" name="inputNoSkPegawai" value="<?php echo $pegawai->no_sk_pegawai; ?>">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputTmtPegawai" class="form-label">Terhitung Mulai Tanggal</label>
-                                    <input type="text" class="form-control" name="inputTmtPegawai" value="<?php echo $pegawai->tmt_pegawai; ?>">
-                                </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-md-4">
-                                    <label for="inputfotoprofile" class="form-label">Foto Profile</label>
-                                    <input type="file" class="form-control" name="inputfotoprofile" value="<?php echo $pegawai->foto_peg; ?>">
+                                    <input type="date" class="form-control" name="inputTmtPegawai" value="<?php echo $pegawai->tmt_pegawai; ?>">
                                 </div>
                             </div>
                             <div class="row g-2">

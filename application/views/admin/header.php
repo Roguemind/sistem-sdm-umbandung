@@ -104,12 +104,20 @@
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= $akun['nama']; ?></span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">
+                        <?php
+                            if($akun['nama_tengah'] != NULL){
+                                echo $akun['nama_tengah'];
+                            } else {
+                                echo $akun['nama_belakang'];
+                            }
+                        ?>
+                    </span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6><?= $akun['nama']; ?></h6>
+                        <h6><?= $akun['nama_tengah']; ?></h6>
                         <span><?= $akun['nik']; ?></span>
                     </li>
                     <li>

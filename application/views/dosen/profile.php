@@ -82,7 +82,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat-lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
                                     </div>
 
                                     <div class="row">
@@ -92,7 +92,13 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin']; ?></div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <?php if($akun['jenis_kelamin'] == 'L'){?>
+                                                Laki - Laki
+                                            <?php } else if($akun['jenis_kelamin'] == 'P'){?>
+                                                Perempuan
+                                            <?php }?>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -176,7 +182,7 @@
                                     <div class="row mb-3">
                                         <label for="ttl" class="col-md-4 col-lg-3 col-form-label">TTL</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat-lahir']; ?>">
+                                            <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="<?= $akun['tempat_lahir']; ?>">
                                         </div>
                                     </div>
 
@@ -288,7 +294,7 @@
                                                     <h3 class="card-title">Rekam Pendidikan<a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
                                                     <div class="experience-box">
                                                         <ul class="experience-list">
-                                                            <?php foreach ($rekpens as $rekpen) : ?>
+                                                        <?php foreach ($rekpens as $rekpen) : ?>
                                                                 <li>
                                                                     <div class="experience-user">
                                                                         <div class="before-circle"></div>
@@ -297,7 +303,8 @@
                                                                         <div class="timeline-content">
                                                                             <span><?= $rekpen['nama_universitas']; ?></span>
                                                                             <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
-                                                                            <span class="time"><?= $rekpen['tahun_lulus']; ?></span>
+                                                                            <span class="time"><?= $rekpen['tahun_lulus']; ?></span><br>
+                                                                            <span><?= $rekpen['nama_gelar'];?>
                                                                         </div>
                                                                     </div>
                                                                 </li>

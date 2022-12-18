@@ -7,6 +7,8 @@ class Model_admin extends CI_Model
         $this->db->from('account');
         $this->db->join('tendik', 'tendik.no_pegawai = account.no_pegawai');
         $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
+        $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
+        $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->row_array();

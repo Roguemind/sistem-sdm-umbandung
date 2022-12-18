@@ -58,7 +58,7 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -67,8 +67,16 @@
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><?= $dosen['nama']; ?></td>
-                                                <td><?= $dosen['email']; ?></td>
+                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['nik']; ?>">
+                                                <?php if ($dosen['nama_depan'] != NULL){
+                                                        echo $dosen['nama_depan'].' ';
+                                                    } if ($dosen['nama_tengah'] != NULL){
+                                                        echo $dosen['nama_tengah'].' ';
+                                                    }
+                                                    echo $dosen['nama_belakang'];
+                                                    ?>
+                                                </a></td>
+                                                <td><?= $dosen['email_kampus']; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/pegawai/edit/<?= $dosen['nik']; ?>"></a>
                                                     <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['nik'] ?>)"></button>
@@ -101,8 +109,16 @@
                                         <?php foreach ($listTendik as $tendik) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><?= $tendik['nama']; ?></td>
-                                                <td><?= $tendik['email']; ?></td>
+                                                <td><a href="<?= base_url(); ?>view/tendik/<?= $tendik['nik']; ?>">
+                                                <?php if ($dosen['nama_depan'] != NULL){
+                                                        echo $dosen['nama_depan'].' ';
+                                                    } if ($dosen['nama_tengah'] != NULL){
+                                                        echo $dosen['nama_tengah'].' ';
+                                                    }
+                                                    echo $dosen['nama_belakang'];
+                                                ?>
+                                                </a></td>
+                                                <td><?= $tendik['email_pribadi']; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/pegawai/edit/<?= $tendik['nik']; ?>"></a>
                                                     <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"></button>
@@ -198,9 +214,9 @@
 
                 //Show table tendik 
                 $('.tabel-tendik').DataTable({
-                    dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4 text-center'B><'col-sm-12 col-md-4'f>>" +
-                        "<'row'<'col-sm-12'tr>>" +
-                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                    dom: "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-6 text-center'B><'col-sm-12 col-md-2'f>>" +
+                        "<'row'<tr>>" +
+                        "<'row'<'col-sm-12 col-md-9'i><'col-sm-12 col-md-2'p>>",
                     buttons: [{
                             extend: 'csv',
                             className: 'btn-primary',

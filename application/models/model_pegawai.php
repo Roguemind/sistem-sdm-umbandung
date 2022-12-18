@@ -6,8 +6,10 @@ class Model_pegawai extends CI_Model
     public function getPegawaiDosen()
     {
         $this->db->select('*');
-        $this->db->from('pegawai');
-        $this->db->join('dosen', 'pegawai.nik = dosen.nik');
+        $this->db->from($this->table);
+        $this->db->join('dosen', $this->table.'.nik = dosen.nik');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $query = $this->db->get();
 
         return $query->result_array();
@@ -16,12 +18,44 @@ class Model_pegawai extends CI_Model
     public function getPegawaiTendik()
     {
         $this->db->select('*');
-        $this->db->from('pegawai');
-        $this->db->join('tendik', 'pegawai.nik = tendik.nik');
+        $this->db->from($this->table);
+        $this->db->join('tendik', $this->table.'.nik = tendik.nik');
         $query = $this->db->get();
 
         return $query->result_array();
     }
+
+    public function getRekamPendidikan($id){
+        $this->db->select('*');
+        $this->db->from('rekam_pendidikan');
+        $this->db->join($this->table, $this->table.'.nik =rekam_pendidikan.nik');
+        $this->db->where('rekam_pendidikan.nik ='. $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getProfilDosen($id){
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join($this->table, $this->table.'.nik = dosen.nik');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
+        $this->db->where('dosen.nik = ' . $id);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function getProfilTendik($id){
+        $this->db->select('*');
+        $this->db->from('tendik');
+        $this->db->join($this->table, $this->table.'.nik = tendik.nik');
+        $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
+        $this->db->join('jabatan', 'jabatan.id_jabatan = tendik.id_jabatan');
+        $this->db->where('tendik.nik = ' . $id);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 
     public function savePegawai($data)
     {
@@ -58,8 +92,21 @@ class Model_pegawai extends CI_Model
         return $this->db->delete('dosen', array("nik" => $id));
     }
 
+    public function deleteTendik($id)
+    {
+        return $this->db->delete('tendik', array("nik" => $id));
+    }
+
     public function getFakultas()
     {
         return $this->db->get('fakultas')->result_array();
+    }
+
+    public function getJabatanDosen(){
+        return $this->db->get('jabatan_dosen')->result_array();
+    }
+
+    public function getJabatanTendik(){
+        return $this->db->get('jabatan_tendik')->result_array();
     }
 }
