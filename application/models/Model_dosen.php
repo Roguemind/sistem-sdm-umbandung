@@ -13,17 +13,6 @@ class Model_dosen extends CI_Model
         return $query->row_array();
     }
 
-    public function getJabatan($account_uid)
-    {
-        $this->db->select('*');
-        $this->db->from('account');
-        $this->db->join('dosen', 'dosen.no_pegawai = account.no_pegawai');
-        $this->db->join('jabatan', 'jabatan.id_jabatan = dosen.id_jabatan');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
-        $query = $this->db->get();
-        return $query->row_array();
-    }
-
     public function getRekamPendidikan($role,$account_uid)
     {
         $this->db->select('*');

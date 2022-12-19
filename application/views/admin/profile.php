@@ -108,7 +108,15 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['jenis_kelamin'];?></div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <?php
+                                                if ($akun['jenis_kelamin'] == 'L'){
+                                                    echo "Laki-Laki";
+                                                } else if ($akun['jenis_kelamin'] == 'P'){
+                                                    echo "Perempuan";
+                                                }
+                                            ?>
+                                        </div>
                                     </div>
 
                                     <div class="row">

@@ -59,6 +59,10 @@ $route['tendik'] = 'tendik/dashboard';
 $route['dosen'] = 'dosen/dashboard';
 $route['pimpinan'] = 'pimpinan/dashboard';
 
+// Route Edit Profile
+$route['tendik/saveprofile'] = 'tendik/profile/aksiEditProfile';
+$route['dosen/saveprofile'] = 'dosen/profile/aksiEditProfile';
+$route['admin/saveprofile'] = 'admin/profile/aksiEditProfile';
 
 // Route Fungsi Dosen
 $route['dosen/arsip'] = 'dosen/fungsi/melihatSk';

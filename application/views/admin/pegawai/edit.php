@@ -84,7 +84,7 @@
                             <div class="row g-2">
                                 <div class="col-md-4">
                                     <label for="Email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" name="inputEmail" value="<?php echo $pegawai->email; ?>">
+                                    <input type="text" class="form-control" name="inputEmail" value="<?php echo $pegawai->email_pribadi; ?>">
                                 </div>
 
                                 <div class="col-md-4">

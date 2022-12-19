@@ -2,12 +2,12 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
+        <i class="bx bx-menu-alt-left toggle-sidebar-btn"></i>
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="<?= base_url(); ?>assets/img/LogoUMB.png" alt="">
         </a>
     </div>
     <div>
-        <i class="bx bx-menu-alt-left toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">
@@ -94,90 +94,38 @@
 
             </li><!-- End Notification Nav -->
 
-            <li class="nav-item dropdown">
+            <!-- End Messages Icon -->
 
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bx bx-message-rounded-dots"></i>
-                    <span class="badge bg-success badge-number">3</span>
-                </a><!-- End Messages Icon -->
+            <!-- End Messages Dropdown Items -->
 
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-                    <li class="dropdown-header">
-                        You have 3 new messages
-                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="<?= base_url(); ?>assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>Maria Hudson</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>4 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="<?= base_url(); ?>assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>Anna Nelson</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>6 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="message-item">
-                        <a href="#">
-                            <img src="<?= base_url(); ?>assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                            <div>
-                                <h4>David Muldon</h4>
-                                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                <p>8 hrs. ago</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="dropdown-footer">
-                        <a href="#">Show all messages</a>
-                    </li>
-
-                </ul><!-- End Messages Dropdown Items -->
-
-            </li><!-- End Messages Nav -->
+            <!-- End Messages Nav -->
 
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= $akun['nama']; ?></span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">
+                        <?php
+                            if($akun['nama_tengah'] != NULL){
+                                echo $akun['nama_tengah'];
+                            } else {
+                                echo $akun['nama_belakang'];
+                            }
+                        ?>
+                    </span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6><?= $akun['nama']; ?></h6>
-                        <span>200102045</span>
+                        <h6><?= $akun['nama_tengah']; ?></h6>
+                        <span><?= $akun['nik']; ?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
 
                     <li>
-                        <a href="<?= base_url(''); ?>tendik/profile" class="dropdown-item d-flex align-items-center">
+                        <a href="<?= base_url('admin/profile'); ?>" class="dropdown-item d-flex align-items-center">
                             <i class="bi bi-person"></i>
                             <span>Akun Saya</span>
                         </a>
@@ -187,7 +135,7 @@
                     </li>
 
                     <li>
-                        <a href="<?= base_url(); ?>tendik/profile" class="dropdown-item d-flex align-items-center">
+                        <a href="<?= base_url(); ?>profile" class="dropdown-item d-flex align-items-center">
                             <i class="bi bi-gear"></i>
                             <span>Pengaturan Akun</span>
                         </a>

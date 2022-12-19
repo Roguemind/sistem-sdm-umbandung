@@ -8,7 +8,7 @@ class Model_master extends CI_Model
         if($role == 'dosen'){
             $this->db->join('dosen','dosen.no_pegawai = account.no_pegawai');
             $this->db->join('pegawai', 'pegawai.nik = dosen.nik');
-            $this->db->join('jabatan_dosen', 'jabatan_dosen.nik = dosen.nik');
+            $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
             $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
             $this->db->join('unit', 'unit.id_unit = prodi.id_fakultas');
         }
@@ -27,6 +27,27 @@ class Model_master extends CI_Model
         $this->db->where('account.no_pegawai = ' . $uid);
         $query = $this->db->get();
         return $query->row_array();
+    }
+
+    public function getRekamPendidikan($role,$id){
+        $this->db->select('*');
+        $this->db->from('account');
+        if($role == 'dosen'){
+            $this->db->join('dosen','dosen.no_pegawai = account.no_pegawai');
+            $this->db->join('pegawai', 'pegawai.nik = dosen.nik');
+        }
+        else if($role == 'tendik'){
+            $this->db->join('tendik','tendik.no_pegawai = account.no_pegawai');
+            $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
+        }
+        else if($role == 'admin'){
+            $this->db->join('tendik','tendik.no_pegawai = account.no_pegawai');
+            $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
+        }
+        $this->db->join('rekam_pendidikan','rekam_pendidikan.nik = pegawai.nik');
+        $this->db->where('account.no_pegawai = '.$role.'.no_pegawai');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function setProfile($id, $data)
