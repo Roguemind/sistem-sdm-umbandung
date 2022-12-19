@@ -22,22 +22,16 @@
 
                             <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="Profile" class="rounded-circle">
                             <h2>
-                            <?php if ($akun['nama_depan'] != NULL){
-                                    echo $akun['nama_depan'].' ';
-                                } if ($akun['nama_tengah'] != NULL){
-                                    echo $akun['nama_tengah'].' ';
+                                <?php if ($akun['nama_depan'] != NULL) {
+                                    echo $akun['nama_depan'] . ' ';
+                                }
+                                if ($akun['nama_tengah'] != NULL) {
+                                    echo $akun['nama_tengah'] . ' ';
                                 }
                                 echo $akun['nama_belakang'];
-                            ?>
+                                ?>
                             </h2>
-                            <h3><?= $akun['nama_jabatan'].' '.$akun['nama_unit']?></h3>
-
-                            <div class="social-links mt-2">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <h3 class="text-center"><?= $akun['nama_jabatan'] . ' ' . $akun['nama_unit'] ?></h3>
                         </div>
                     </div>
 
@@ -76,10 +70,11 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
                                         <div class="col-lg-9 col-md-8">
-                                        <?php if ($akun['nama_depan'] != NULL){
-                                                echo $akun['nama_depan'].' ';
-                                            } if ($akun['nama_tengah'] != NULL){
-                                                echo $akun['nama_tengah'].' ';
+                                            <?php if ($akun['nama_depan'] != NULL) {
+                                                echo $akun['nama_depan'] . ' ';
+                                            }
+                                            if ($akun['nama_tengah'] != NULL) {
+                                                echo $akun['nama_tengah'] . ' ';
                                             }
                                             echo $akun['nama_belakang'];
                                             ?>
@@ -88,17 +83,17 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIK</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nik'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['nik']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']; ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir'];?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
                                     </div>
 
                                     <div class="row">
@@ -110,18 +105,18 @@
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
                                         <div class="col-lg-9 col-md-8">
                                             <?php
-                                                if ($akun['jenis_kelamin'] == 'L'){
-                                                    echo "Laki-Laki";
-                                                } else if ($akun['jenis_kelamin'] == 'P'){
-                                                    echo "Perempuan";
-                                                }
+                                            if ($akun['jenis_kelamin'] == 'L') {
+                                                echo "Laki-Laki";
+                                            } else if ($akun['jenis_kelamin'] == 'P') {
+                                                echo "Perempuan";
+                                            }
                                             ?>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Agama</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['agama'];?></div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['agama']; ?></div>
                                     </div>
 
                                     <div class="row">
@@ -158,7 +153,7 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form method="post" action="<?php echo base_url();?>tendik/saveprofile">
+                                    <form method="post" action="<?php echo base_url(); ?>tendik/saveprofile">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
@@ -312,7 +307,7 @@
                                                                             <span><?= $rekpen['nama_universitas']; ?></span>
                                                                             <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
                                                                             <span class="time"><?= $rekpen['tahun_lulus']; ?></span><br>
-                                                                            <span><?= $rekpen['nama_gelar'];?>
+                                                                            <span><?= $rekpen['nama_gelar']; ?>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -325,47 +320,47 @@
                                         </div><!-- End settings Form -->
                                     </div>
 
-                                    </div>
+                                </div>
 
-                                    <div class="tab-pane fade pt-3" id="profile-change-password">
-                                        <!-- Change Password Form -->
-                                        <form>
+                                <div class="tab-pane fade pt-3" id="profile-change-password">
+                                    <!-- Change Password Form -->
+                                    <form>
 
-                                            <div class="row mb-3">
-                                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="password" type="password" class="form-control" id="currentPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="password" type="password" class="form-control" id="currentPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="row mb-3">
-                                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="newpassword" type="password" class="form-control" id="newPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="newpassword" type="password" class="form-control" id="newPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="row mb-3">
-                                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Change Password</button>
-                                            </div>
-                                        </form><!-- End Change Password Form -->
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                        </div>
+                                    </form><!-- End Change Password Form -->
 
-                                    </div>
+                                </div>
 
-                                </div><!-- End Bordered Tabs -->
+                            </div><!-- End Bordered Tabs -->
 
-                            </div>
                         </div>
-
                     </div>
+
                 </div>
+            </div>
         </section>
 
     </main><!-- End #main -->

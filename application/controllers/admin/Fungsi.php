@@ -392,6 +392,7 @@ class Fungsi extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listlembur'] = $this->Model_admin->getlembur();
+        $data['title'] = 'Lembur';
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -528,6 +529,7 @@ class Fungsi extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['listjad'] = $this->Model_admin->getjad();
+        $data['title'] = 'Jabatan Akademik Dosen';
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);

@@ -23,22 +23,16 @@
 
                             <img src="<?= base_url(); ?>assets/img/profile-img1.png" alt="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" class="rounded-circle">
                             <h2>
-                                <?php if ($akun['nama_depan'] != NULL){
-                                        echo $akun['nama_depan'].' ';
-                                    } if ($akun['nama_tengah'] != NULL){
-                                        echo $akun['nama_tengah'].' ';
-                                    }
-                                    echo $akun['nama_belakang'];
+                                <?php if ($akun['nama_depan'] != NULL) {
+                                    echo $akun['nama_depan'] . ' ';
+                                }
+                                if ($akun['nama_tengah'] != NULL) {
+                                    echo $akun['nama_tengah'] . ' ';
+                                }
+                                echo $akun['nama_belakang'];
                                 ?>
                             </h2>
-                            <h3><?= $akun['nama_jabatan'].' '.$akun['nama_prodi']?></h3>
-
-                            <div class="social-links mt-2">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <h3 class=""><?= $akun['nama_jabatan'] . ' ' . $akun['nama_prodi'] ?></h3>
                         </div>
                     </div>
 
@@ -76,13 +70,14 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
                                         <div class="col-lg-9 col-md-8">
-                                        <?php if ($akun['nama_depan'] != NULL){
-                                                echo $akun['nama_depan'].' ';
-                                            } if ($akun['nama_tengah'] != NULL){
-                                                echo $akun['nama_tengah'].' ';
+                                            <?php if ($akun['nama_depan'] != NULL) {
+                                                echo $akun['nama_depan'] . ' ';
+                                            }
+                                            if ($akun['nama_tengah'] != NULL) {
+                                                echo $akun['nama_tengah'] . ' ';
                                             }
                                             echo $akun['nama_belakang'];
-                                        ?>
+                                            ?>
                                         </div>
                                     </div>
 
@@ -109,11 +104,11 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
                                         <div class="col-lg-9 col-md-8">
-                                            <?php if($akun['jenis_kelamin'] == 'L'){?>
+                                            <?php if ($akun['jenis_kelamin'] == 'L') { ?>
                                                 Laki - Laki
-                                            <?php } else if($akun['jenis_kelamin'] == 'P'){?>
+                                            <?php } else if ($akun['jenis_kelamin'] == 'P') { ?>
                                                 Perempuan
-                                            <?php }?>
+                                            <?php } ?>
                                         </div>
                                     </div>
 
@@ -162,7 +157,7 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form method="post" action="<?php echo base_url();?>dosen/saveprofile">
+                                    <form method="post" action="<?php echo base_url(); ?>dosen/saveprofile">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
@@ -297,99 +292,100 @@
 
                                 </div>
 
-                                    <!-- End Profile Edit Form -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="Modal-Save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Save</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Apakah Yakin Akan Menggantinya ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                                                    <button type="submit" class="btn btn-primary">Yakin</button>
-                                                </div>
+                                <!-- End Profile Edit Form -->
+                                <!-- Modal -->
+                                <div class="modal fade" id="Modal-Save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Save</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah Yakin Akan Menggantinya ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                                                <button type="submit" class="btn btn-primary">Yakin</button>
                                             </div>
                                         </div>
                                     </div>
-                                    </form>
                                 </div>
+                                </form>
+                            </div>
 
-                                <div class="tab-pane fade pt-3" id="rekam-pendidikan">
-                                    <!-- rekam pendidikan -->
-                                    <div class="row">
+                            <div class="tab-pane fade pt-3" id="rekam-pendidikan">
+                                <!-- rekam pendidikan -->
+                                <h3 class="card-title text-center">Rekam Pendidikan</h3>
+                                <div class="row">
+                                    <?php foreach ($rekpens as $rekpen) : ?>
                                         <div class="col-md-6 d-flex mb-4">
                                             <div class="card profile-box flex-fill">
                                                 <div class="card-body">
-                                                    <h3 class="card-title">Rekam Pendidikan<a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
                                                     <div class="experience-box">
-                                                        <ul class="experience-list">
-                                                            <?php foreach ($rekpens as $rekpen) : ?>
-                                                                <li>
-                                                                    <div class="experience-user">
-                                                                        <div class="before-circle"></div>
-                                                                    </div>
-                                                                    <div class="experience-content">
-                                                                        <div class="timeline-content">
-                                                                            <span><?= $rekpen['nama_universitas']; ?></span>
-                                                                            <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
-                                                                            <span class="time"><?= $rekpen['tahun_lulus']; ?></span><br>
-                                                                            <span><?= $rekpen['nama_gelar'];?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <br>
-                                                            <?php endforeach; ?>
-                                                        </ul>
+                                                        <div class="experience-user">
+                                                            <div class="before-circle"></div>
+                                                        </div>
+                                                        <div class="experience-content mt-4">
+                                                            <div class="timeline-content">
+                                                                <h6 class="fw-bold"> Kampus </h6>
+                                                                <p class=""><?= $rekpen['nama_universitas']; ?></p>
+                                                                <h6 class="fw-bold"> Program Studi </h6>
+                                                                <p class=""><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></p>
+                                                                <p class="time">
+                                                                    <span class="fw-bold">Tahun Lulus </span><?= $rekpen['tahun_lulus']; ?>
+                                                                </p>
+                                                                <p><span class="fw-bold">Gelar </span>
+                                                                    <?= $rekpen['nama_gelar']; ?> </p>
+                                                            </div>
+                                                        </div>
+                                                        <br>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div><!-- End settings Form -->
-                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
 
-                                    <div class="tab-pane fade pt-3" id="profile-change-password">
-                                        <!-- Change Password Form -->
-                                        <form>
+                                <div class="tab-pane fade pt-3" id="profile-change-password">
+                                    <!-- Change Password Form -->
+                                    <form>
 
-                                            <div class="row mb-3">
-                                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="password" type="password" class="form-control" id="currentPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="password" type="password" class="form-control" id="currentPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="row mb-3">
-                                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="newpassword" type="password" class="form-control" id="newPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="newpassword" type="password" class="form-control" id="newPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="row mb-3">
-                                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                                                </div>
+                                        <div class="row mb-3">
+                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
                                             </div>
+                                        </div>
 
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Change Password</button>
-                                            </div>
-                                        </form><!-- End Change Password Form -->
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                        </div>
+                                    </form><!-- End Change Password Form -->
 
-                                    </div>
+                                </div>
 
-                                </div><!-- End Bordered Tabs -->
+                            </div><!-- End Bordered Tabs -->
 
-                            </div>
                         </div>
-
                     </div>
+
                 </div>
+            </div>
         </section>
     </main><!-- End #main -->
     <!-- End Footer -->

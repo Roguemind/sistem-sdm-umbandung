@@ -1,4 +1,4 @@
-<div class="container">
+<main id="main" class="main" style="margin-top: 0px;">
     <div class="pagetitle pt-4 ms-3">
         <h1>Pengajuan JAD</h1>
         <nav>
@@ -15,9 +15,25 @@
                 <div class="col-lg">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Pengajuan JAD</h1>
+                            <h1 class="h4 text-gray-900 mb-4 ">Pengajuan Jabatan Akademik Dosen</h1>
                         </div>
-                        <form class="user" method="POST" action="<?= base_url('dosen/fungsi/aksiPengajuanJAD'); ?>">
+                        <div class="col-lg">
+                            <div class="p-3 bg-warning bg-opacity-10 ">
+                                <h5 class="text-center fw-bold">Persyaratan</h5>
+                                <ol type="1">
+                                    <li>
+                                        Min 2 Tahun Mengajar
+                                    </li>
+                                    <li>
+                                        Ijazah
+                                    </li>
+                                    <li>
+                                        Laporan Kinerja
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <form class="user mt-3" method="POST" action="<?= base_url('dosen/fungsi/aksiPengajuanJAD'); ?>">
                             <div class="form-group">
                                 <input type="hidden" class="form-control form-control-user" id="id_pegawai" name="id_pegawai" value="<?= $akun['id_pegawai']; ?>">
                             </div>
@@ -33,4 +49,4 @@
         </div>
     </div>
 
-</div>
+</main>

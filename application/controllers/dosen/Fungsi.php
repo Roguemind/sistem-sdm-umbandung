@@ -97,6 +97,12 @@ class Fungsi extends CI_Controller
 
     public function formJAD()
     {
+        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
+        $this->load->view('_partials/head');
+        $this->load->view('dosen/header', $data);
+        $this->load->view('dosen/sidebar');
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
         $this->load->view('dosen/formJAD');
     }
 }
