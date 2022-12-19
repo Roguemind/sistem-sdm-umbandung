@@ -36,7 +36,15 @@
                                             <div><?= $no++ ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $jad['nama'] ?></div>
+                                            <div>
+                                            <?php if ($jad['nama_depan'] != NULL){
+                                                echo $jad['nama_depan'].' ';
+                                            } if ($jad['nama_tengah'] != NULL){
+                                                echo $jad['nama_tengah'].' ';
+                                            }
+                                            echo $jad['nama_belakang'];
+                                            ?>
+                                            </div>
                                         </td>
                                         <td>
                                             <div><?= $jad['nama_prodi'] ?></div>

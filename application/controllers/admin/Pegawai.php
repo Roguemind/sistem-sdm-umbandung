@@ -47,7 +47,6 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['tendik'] = $this->Model_pegawai->getProfilTendik($uid);
-        $data['jabatans'] = $this->Model_admin->getJabatan();
         $data['units'] = $this->Model_admin->getUnit();
         $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
         $data['title'] = 'pegawai';
@@ -64,8 +63,8 @@ class Pegawai extends CI_Controller
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
         $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
-        $data['prodis'] = $this->Model_admin->getProdi();
-        $data['units'] = $this->Model_admin->getUnit();
+        $data['prodi'] = $this->Model_admin->getProdi();
+        $data['unit'] = $this->Model_admin->getUnit();
         $data['title'] = 'pegawai';
 
         $this->load->view('_partials/head');
@@ -91,8 +90,8 @@ class Pegawai extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
             $data['fakultas'] = $this->Model_pegawai->getFakultas();
-            $data['prodi'] = $this->Model_admin->getProdi();
-            $data['unit'] = $this->Model_admin->getUnit();
+            $data['prodi'] = $this->Model_pegawai->getProdi();
+            $data['unit'] = $this->Model_pegawai->getUnit();
             $data['title'] = 'pegawai';
 
             $this->load->view('_partials/head');
@@ -106,16 +105,16 @@ class Pegawai extends CI_Controller
                 // 'id_pegawai' => rand(10,1000),
                 'nik' => $this->input->POST('inputNik'),
                 'id_pegawai' => $this->input->POST('inputNoPegawai'),
-                'gelar_depan' => $this->input->POST('inputGelarDepan'),
-                'nama' => $this->input->POST('inputNamaLengkap'),
-                'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
+                'gelar_depan' => 'Prof.',
+                'nama_tengah' => $this->input->POST('inputNamaLengkap'),
+                'gelar_belakang' => 'M.Sc',
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
                 'agama' => $this->input->POST('inputAgama'),
                 'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
                 'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
-                'email' => $this->input->POST('inputEmail'),
+                'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
                 'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),

@@ -26,8 +26,7 @@
                       <!--/.bg-holder-->
                       <div class="z-index-1 position-relative">
                         <h4 class="text-white mb-4 font-sans-serif text-center fw-bolder" href="../../../index.html">PENGUMUMAN</h4>
-                        <p class="opacity-75 text-white">With the power of Falcon, you can now f
-                          ocus only on functionaries for your digital products, while leaving the UI design on us!</p>
+                        <p class="opacity-75 text-white">Lorem Ipsum</p>
                       </div>
                     </div>
                     <div class="card-body p-0">
@@ -44,7 +43,8 @@
                         </div>
 
                         <div class="pt-0 pb-0">
-                          <h5 class="card-title text-center pb-0 fs-4">Selamat Datang! 👋</h5>
+                        <h5 class="card-title text-center pb-0 fs-4">SIMPEG</h5>
+                          <h5 class="text-center pb-0 fs-4">Selamat Datang! 👋</h5>
                           <p class="text-center small">Masukan Data Diri Anda Di Bawah Ini</p>
                         </div>
                         <?= form_open('login/auth_user') ?>

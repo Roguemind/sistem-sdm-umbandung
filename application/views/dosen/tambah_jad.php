@@ -35,7 +35,7 @@
                         </div>
                         <form class="user mt-3" method="POST" action="<?= base_url('dosen/fungsi/aksiPengajuanJAD'); ?>">
                             <div class="form-group">
-                                <input type="hidden" class="form-control form-control-user" id="id_pegawai" name="id_pegawai" value="<?= $akun['id_pegawai']; ?>">
+                                <input type="hidden" class="form-control form-control-user" id="nik" name="nik" value="<?= $akun['nik']; ?>">
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <button type="submit" class="btn btn-primary btn-lg btn-user btn-block position-relative top-50 start-50 translate-middle">

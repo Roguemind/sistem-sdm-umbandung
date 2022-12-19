@@ -110,12 +110,12 @@
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
                                                 <td><a href="<?= base_url(); ?>view/tendik/<?= $tendik['nik']; ?>">
-                                                <?php if ($dosen['nama_depan'] != NULL){
-                                                        echo $dosen['nama_depan'].' ';
-                                                    } if ($dosen['nama_tengah'] != NULL){
-                                                        echo $dosen['nama_tengah'].' ';
+                                                <?php if ($tendik['nama_depan'] != NULL){
+                                                        echo $tendik['nama_depan'].' ';
+                                                    } if ($tendik['nama_tengah'] != NULL){
+                                                        echo $tendik['nama_tengah'].' ';
                                                     }
-                                                    echo $dosen['nama_belakang'];
+                                                    echo $tendik['nama_belakang'];
                                                 ?>
                                                 </a></td>
                                                 <td><?= $tendik['email_pribadi']; ?></td>

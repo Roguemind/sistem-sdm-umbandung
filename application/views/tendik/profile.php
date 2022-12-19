@@ -289,36 +289,37 @@
                                 </div>
 
                                 <div class="tab-pane fade pt-3" id="rekam-pendidikan">
-                                    <!-- rekam pendidikan -->
-                                    <div class="row">
+                                <!-- rekam pendidikan -->
+                                <h3 class="card-title text-center">Rekam Pendidikan</h3>
+                                <div class="row">
+                                    <?php foreach ($rekpens as $rekpen) : ?>
                                         <div class="col-md-6 d-flex mb-4">
                                             <div class="card profile-box flex-fill">
                                                 <div class="card-body">
-                                                    <h3 class="card-title">Rekam Pendidikan<a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
                                                     <div class="experience-box">
-                                                        <ul class="experience-list">
-                                                            <?php foreach ($rekpens as $rekpen) : ?>
-                                                                <li>
-                                                                    <div class="experience-user">
-                                                                        <div class="before-circle"></div>
-                                                                    </div>
-                                                                    <div class="experience-content">
-                                                                        <div class="timeline-content">
-                                                                            <span><?= $rekpen['nama_universitas']; ?></span>
-                                                                            <div><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></div>
-                                                                            <span class="time"><?= $rekpen['tahun_lulus']; ?></span><br>
-                                                                            <span><?= $rekpen['nama_gelar']; ?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <br>
-                                                            <?php endforeach; ?>
-                                                        </ul>
+                                                        <div class="experience-user">
+                                                            <div class="before-circle"></div>
+                                                        </div>
+                                                        <div class="experience-content mt-4">
+                                                            <div class="timeline-content">
+                                                                <h6 class="fw-bold"> Kampus </h6>
+                                                                <p class=""><?= $rekpen['nama_universitas']; ?></p>
+                                                                <h6 class="fw-bold"> Program Studi </h6>
+                                                                <p class=""><?= $rekpen['jenjang']; ?> - <?= $rekpen['jurusan']; ?></p>
+                                                                <p class="time">
+                                                                    <span class="fw-bold">Tahun Lulus </span><?= $rekpen['tahun_lulus']; ?>
+                                                                </p>
+                                                                <p><span class="fw-bold">Gelar </span>
+                                                                    <?= $rekpen['nama_gelar']; ?> </p>
+                                                            </div>
+                                                        </div>
+                                                        <br>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div><!-- End settings Form -->
-                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
 
                                 </div>
 

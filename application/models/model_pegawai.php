@@ -39,7 +39,8 @@ class Model_pegawai extends CI_Model
         $this->db->from('dosen');
         $this->db->join($this->table, $this->table.'.nik = dosen.nik');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
-        $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
+        $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
+        $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $this->db->where('dosen.nik = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
@@ -50,7 +51,7 @@ class Model_pegawai extends CI_Model
         $this->db->from('tendik');
         $this->db->join($this->table, $this->table.'.nik = tendik.nik');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
-        $this->db->join('jabatan', 'jabatan.id_jabatan = tendik.id_jabatan');
+        $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
         $this->db->where('tendik.nik = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
@@ -100,6 +101,16 @@ class Model_pegawai extends CI_Model
     public function getFakultas()
     {
         return $this->db->get('fakultas')->result_array();
+    }
+
+    public function getUnit()
+    {
+        return $this->db->get('unit')->result_array();
+    }
+
+    public function getProdi()
+    {
+        return $this->db->get('prodi')->result_array();
     }
 
     public function getJabatanDosen(){

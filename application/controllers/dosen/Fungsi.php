@@ -90,8 +90,8 @@ class Fungsi extends CI_Controller
 
     public function aksiPengajuanJAD()
     {
-        $id_pegawai = $this->input->post('id_pegawai');
-        $this->Model_dosen->pengajuanJAD($id_pegawai);
+        $nik = $this->input->post('nik');
+        $this->Model_dosen->pengajuanJAD($nik);
         redirect('dosen');
     }
 

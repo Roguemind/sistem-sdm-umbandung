@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputTmtPegawai" class="form-label">Terhitung Mulai Tanggal</label>
-                                    <input type="text" class="form-control" name="inputTmtPegawai">
+                                    <input type="date" class="form-control" name="inputTmtPegawai">
                                 </div>
                             </div>
                             <div class="row g-2">
@@ -149,9 +149,9 @@
                                     <label for="inputProgramStudi" class="form-label">Program Studi</label>
                                     <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <?php foreach ($prodi as $prd) { ?>
-                                            <option value=<?= $prd['id_prodi'] ?>><?= $prd['nama_prodi'] ?></option>
-                                        <?php } ?>
+                                        <?php foreach ($prodi as $prd) :  ?>
+                                            <option value="<?= $prd['id_prodi'] ?>"><?= $prd['nama_prodi'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -209,7 +209,11 @@
                                     <label for="inputJabatan" class="form-label">Jabatan</label>
                                     <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <option value="KetuaProgramStudi">Ketua Program Studi</option>
+                                        <div>
+                                            <?php foreach ($jabten as $jbtn) { ?>
+                                                <option value=<?= $jbtn['id_jabatan'] ?>><?= $jbtn['nama_jabatan'] ?></option>
+                                            <?php } ?>
+                                        </div>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
