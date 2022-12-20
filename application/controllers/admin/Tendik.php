@@ -1,0 +1,258 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Tendik extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Model_admin');
+        $this->load->model('Model_dosen');
+
+        $this->load->model('Model_pegawai');
+    }
+
+    public function index()
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+
+        $data['listTendik'] = $this->Model_pegawai->getPegawaiTendik();
+
+        $data['title'] = 'tendik';
+
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/pegawai/tendik/index', $data);
+    }
+
+    public function profileTendik($uid)
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['tendik'] = $this->Model_pegawai->getProfilTendik($uid);
+        $data['units'] = $this->Model_admin->getUnit();
+        $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
+        $data['title'] = 'tendik';
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/pegawai/profile_tendik', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+    }
+
+    public function create()
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
+        $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
+        $data['prodi'] = $this->Model_admin->getProdi();
+        $data['unit'] = $this->Model_admin->getUnit();
+        $data['title'] = 'pegawai';
+
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/pegawai/tendik/tambah', $data);
+    }
+
+    public function store()
+    {
+        // Rules validasi
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        if ($this->form_validation->run() == false) {
+            $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+            $data['fakultas'] = $this->Model_pegawai->getFakultas();
+            $data['prodi'] = $this->Model_pegawai->getProdi();
+            $data['unit'] = $this->Model_pegawai->getUnit();
+            $data['title'] = 'pegawai';
+
+            $this->load->view('_partials/head');
+            $this->load->view('admin/header', $data);
+            $this->load->view('admin/sidebar', $data);
+            $this->load->view('_partials/footer');
+            $this->load->view('_partials/script');
+            $this->load->view('admin/pegawai/tambah', $data);
+        } else {
+            $dataPegawai = array(
+                // 'id_pegawai' => rand(10,1000),
+                'nik' => $this->input->POST('inputNik'),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
+                'gelar_depan' => 'Prof.',
+                'nama_tengah' => $this->input->POST('inputNamaLengkap'),
+                'gelar_belakang' => 'M.Sc',
+                'alamat' => $this->input->POST('inputAlamat'),
+                'tempat_lahir' => $this->input->POST('inputTempatLahir'),
+                'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
+                'agama' => $this->input->POST('inputAgama'),
+                'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
+                'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
+                'email_pribadi' => $this->input->POST('inputEmail'),
+                'kontak' => $this->input->POST('inputKontak'),
+                'pendidikan' => $this->input->POST('inputpendidikan'),
+                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
+
+            );
+            $this->Model_pegawai->savePegawai($dataPegawai);
+            if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
+                $dataDosen = array(
+                    'nik' => $this->input->post('inputNik'),
+                    'id_prodi' => $this->input->post('inputProgramStudi'),
+                    'id_jabatan' => $this->input->post('inputJabatan'),
+                    'status_kerja' => $this->input->post('inputStatusKerja')
+                );
+                $this->Model_pegawai->saveDosen($dataDosen);
+            } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
+                if ($this->input->post('inputUnitKerja') == 'Fakultas') {
+                    $dataTendik = array(
+                        'nik' => $this->input->post('inputNik'),
+                        'id_unit' => $this->input->post('inputProgramStudi'),
+                        'id_jabatan' => $this->input->post('inputJabatan'),
+                        'status_kerja' => $this->input->post('inputStatusKerja')
+                    );
+                    $this->Model_pegawai->saveTendik($dataTendik);
+                } else if ($this->input->post('inputJabatanPegawai') == 'Unit') {
+                    $dataTendik = array(
+                        'nik' => $this->input->post('inputNik'),
+                        'id_fakultas' => $this->input->post('inputProgramStudi'),
+                        'id_jabatan' => $this->input->post('inputJabatan'),
+                        'status_kerja' => $this->input->post('inputStatusKerja')
+                    );
+                    $this->Model_pegawai->saveTendik($dataTendik);
+                }
+            }
+            // set flash data
+            $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
+            redirect('admin/pegawai');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['pegawai'] = $this->Model_pegawai->getPegawaiById($id);
+        $data['title'] = 'tendik';
+
+        $this->load->view('_partials/head');
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/pegawai/tendik/edit', $data);
+    }
+
+    public function update()
+    {
+        $nik = $this->input->POST('inputnik');
+
+        // Rules validasi
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNik',
+            'Nik',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+
+        if ($this->form_validation->run() == false) {
+            $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+            $data['pegawai'] = $this->Model_pegawai->getPegawaiById($nik);
+            $data['title'] = 'pegawai';
+
+            $this->load->view('_partials/head');
+            $this->load->view('admin/header', $data);
+            $this->load->view('admin/sidebar', $data);
+            $this->load->view('_partials/footer');
+            $this->load->view('_partials/script');
+            $this->load->view('admin/pegawai/editUp', $data);
+        } else {
+            $nik = $this->input->POST('inputNik');
+            $dataPegawai = array(
+                'nik' => $this->input->POST('inputNik'),
+                'id_pegawai' => $this->input->POST('inputNoPegawai'),
+                'gelar_depan' => $this->input->POST('inputGelarDepan'),
+                'nama' => $this->input->POST('inputNamaLengkap'),
+                'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
+                'alamat' => $this->input->POST('inputAlamat'),
+                'tempat_lahir' => $this->input->POST('inputTempatLahir'),
+                'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
+                'agama' => $this->input->POST('inputAgama'),
+                'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
+                'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
+                'email' => $this->input->POST('inputEmail'),
+                'kontak' => $this->input->POST('inputKontak'),
+                'pendidikan' => $this->input->POST('inputpendidikan'),
+                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
+                'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
+                'foto_peg' => $this->input->POST('inputfotoprofile'),
+            );
+            $this->Model_pegawai->editPegawai($nik, $dataPegawai);
+
+            // set flash data
+            $this->session->set_flashdata('msg', 'Berhasil edit data');
+            redirect('admin/pegawai');
+        }
+    }
+
+    public function delete($id)
+    {
+        if ($this->input->post('pilihDataTampil') == "dosen") {
+            $this->Model_pegawai->deleteDosen($id);
+        } else if ($this->input->post('pilihDataTampil') == "tendik") {
+            $this->Model_pegawai->deleteTendik($id);
+        }
+        $this->Model_pegawai->deletePegawai($id);
+
+        if ($this->Model_pegawai->deletePegawai($id) == TRUE) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
+                    'text' => 'Berhasil hapus data',
+                    'type' => 'success'
+                )));
+        }
+    }
+}
