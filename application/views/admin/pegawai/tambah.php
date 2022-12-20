@@ -123,7 +123,7 @@
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-4">
-                                    <label for="inputJabatanPegawai" class="form-label">Jabatan Pegawai (Dosen / Tendik /dll)</label>
+                                    <label for="inputJabatanPegawai" class="form-label">Jenis Pegawai</label>
                                     <select name="inputJabatanPegawai" id="inputJabatanPegawai" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
                                         <option value="Dosen">Dosen</option>

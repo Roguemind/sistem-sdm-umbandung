@@ -114,11 +114,168 @@
                             </div>
                             <div class="row g-2">
                                 <div class="col-md-4">
-                                    <label for="inputJabatanPegawai" class="form-label">Jabatan Pegawai (Dosen / Tendik /dll)</label>
-                                    <select name="inputJabatanPegawai" class="form-select" style="width: 100%">
+                                    <label for="inputJabatanPegawai" class="form-label">Jenis Pegawai</label>
+                                    <select name="inputJabatanPegawai" id="inputJabatanPegawai" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
                                         <option value="Dosen">Dosen</option>
                                         <option value="Tendik">Tendik</option>
+                                        <option value="DosenDanTendik">Dosen dan Tendik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="divDosen row g-2">
+
+
+                                <!-- <label for="" class="form-label">DOSEN</label><br> -->
+                                <!-- <div class="col-md-4">
+                                    <label for="inputFakultas" class="form-label">Fakultas</label>
+                                    <select name="inputFakultas" id="inputFakultas" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <?php foreach ($fakultas as $fk) { ?>
+                                            <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div> -->
+                                <div class="col-md-4">
+                                    <label for="inputProgramStudi" class="form-label">Program Studi</label>
+                                    <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <?php foreach ($prodi as $prd) :  ?>
+                                            <option value="<?= $prd['id_prodi'] ?>"><?= $prd['nama_prodi'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatan" class="form-label">Jabatan</label>
+                                    <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <?php foreach ($jabdos as $jbtnds) { ?>
+                                            <option value=<?= $jbtnds['id_jabatan'] ?>><?= $jbtnds['nama_jabatan'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputStatusKerja" class="form-label">Status Kerja</label>
+                                    <select class="inputStatusKerja form-select" name="inputStatusKerja" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Tetap">Tetap</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="divTendik row g-2">
+                                <!-- <label for="" class="form-label">TENDIK</label><br> -->
+                                <div class="col-md-4">
+                                    <label for="inputUnitKerja" class="form-label">Unit Kerja</label>
+                                    <select class="inputUnitKerja form-select" name="inputUnitKerja" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Fakultas">Fakultas</option>
+                                        <option value="Unit">Unit</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" id="dataFakultas">
+                                    <label for="inputFakultasUnit" class="form-label">Fakultas</label>
+                                    <select class="form-select" name="inputFakultasUnit" id="inputFakultasUnit" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div>
+                                            <?php foreach ($fakultas as $fk) { ?>
+                                                <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" id="DataUnit">
+                                    <label for="inputFakultasUnit" class="form-label">Unit</label>
+                                    <select class="form-select" name="inputFakultasUnit" id="inputFakultasUnit" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div>
+                                            <?php foreach ($unit as $unt) { ?>
+                                                <option value=<?= $unt['id_unit'] ?>><?= $unt['nama_unit'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatan" class="form-label">Jabatan</label>
+                                    <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div>
+                                            <?php foreach ($jabten as $jbtn) { ?>
+                                                <option value=<?= $jbtn['id_jabatan'] ?>><?= $jbtn['nama_jabatan'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputStatusKerja" class="form-label">Status Kerja</label>
+                                    <select name="inputStatusKerja" id="inputStatusKerja" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Tetap">Tetap</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="divDosenTendik row g-2">
+                                <div class="col-md-4">
+                                    <label for="inputProgramStudi" class="form-label">Program Studi</label>
+                                    <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <?php foreach ($prodi as $prd) { ?>
+                                            <option value=<?= $prd['nama_prodi'] ?>><?= $prd['nama_prodi'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputUnitKerja1" class="form-label">Unit Kerja</label>
+                                    <select class="inputUnitKerja1 form-select" name="inputUnitKerja1" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Fakultas">Fakultas</option>
+                                        <option value="Unit">Unit</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" id="dataFakultas1">
+                                    <label for="inputFakultasUnit" class="form-label">Fakultas</label>
+                                    <select class="form-select" name="inputFakultasUnit" id="inputFakultasUnit" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div>
+                                            <?php foreach ($fakultas as $fk) { ?>
+                                                <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" id="DataUnit1">
+                                    <label for="inputFakultasUnit" class="form-label">Unit</label>
+                                    <select class="form-select" name="inputFakultasUnit" id="inputFakultasUnit" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <div>
+                                            <?php foreach ($unit as $unt) { ?>
+                                                <option value=<?= $unt['id_unit'] ?>><?= $unt['nama_unit'] ?></option>
+                                            <?php } ?>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatanProgramStudi" class="form-label">Jabatan Program Studi</label>
+                                    <select name="inputJabatanProgramStudi" id="inputJabatanProgramStudi" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="KetuaProgramStudi">Ketua Program Studi</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputJabatanUnit" class="form-label">Jabatan Unit</label>
+                                    <select name="inputJabatanUnit" id="inputJabatanUnit" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="KetuaProgramStudi">Ketua Bagian</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputStatusKerja" class="form-label">Status Kerja</label>
+                                    <select name="inputStatusKerja" id="inputStatusKerja" class="form-select" style="width: 100%">
+                                        <option selected disabled>....</option>
+                                        <option value="Tetap">Tetap</option>
+                                        <option value="Kontrak">Kontrak</option>
                                     </select>
                                 </div>
                             </div>
@@ -138,7 +295,60 @@
 <!-- End #main -->
 
 <script type="text/javascript">
+    function hideDosenTendik() {
+        $('.divDosen').hide();
+        $('.divTendik').hide();
+        $('.divDosenTendik').hide();
+    }
+
     $(document).ready(function() {
         $('select').select2();
+        hideDosenTendik();
+
+        $('#inputJabatanPegawai').on('change', function() {
+            let tipePegawai = this.value;
+
+            hideDosenTendik();
+            if (tipePegawai === 'Dosen') {
+
+                $('.divDosen').show();
+            } else if (tipePegawai === 'Tendik') {
+
+                $('.divTendik').show();
+            } else if (tipePegawai === 'DosenDanTendik') {
+                $('#dataFakultas1').hide();
+                $('#DataUnit1').hide();
+                $('.divDosenTendik').show();
+                $('.inputUnitKerja1').on('change', function() {
+                    let tipeTendik = this.value;
+                    if (tipeTendik === 'Fakultas') {
+
+                        $('#DataUnit1').hide();
+                        $('#dataFakultas1').show();
+                    } else if (tipeTendik === 'Unit') {
+
+                        $('#dataFakultas1').hide();
+                        $('#DataUnit1').show();
+                    }
+                })
+            }
+        })
+
+
+        $('#dataFakultas').hide();
+        $('#DataUnit').hide();
+        $('.inputUnitKerja').on('change', function() {
+            let tipeTendik = this.value;
+            if (tipeTendik === 'Fakultas') {
+
+                $('#DataUnit').hide();
+                $('#dataFakultas').show();
+            } else if (tipeTendik === 'Unit') {
+
+                $('#dataFakultas').hide();
+                $('#DataUnit').show();
+            }
+        })
+
     });
 </script>
