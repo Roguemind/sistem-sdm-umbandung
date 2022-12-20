@@ -34,6 +34,39 @@
                             </h2>
                             <h3 class=""><?= $akun['nama_jabatan'] . ' ' . $akun['nama_prodi'] ?></h3>
                         </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">NIDN</div>
+                                <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']; ?></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <?php if ($akun['nama_depan'] != NULL) {
+                                        echo $akun['nama_depan'] . ' ';
+                                    }
+                                    if ($akun['nama_tengah'] != NULL) {
+                                        echo $akun['nama_tengah'] . ' ';
+                                    }
+                                    echo $akun['nama_belakang'];
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <?php if ($akun['jenis_kelamin'] == 'L') { ?>
+                                        Laki - Laki
+                                    <?php } else if ($akun['jenis_kelamin'] == 'P') { ?>
+                                        Perempuan
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Tempat, Tanggal Lahir</div>
+                                <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -66,77 +99,47 @@
 
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
-                                    <h5 class="card-title">Informasi Pribadi</h5>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                                        <div class="col-lg-9 col-md-8">
-                                            <?php if ($akun['nama_depan'] != NULL) {
-                                                echo $akun['nama_depan'] . ' ';
-                                            }
-                                            if ($akun['nama_tengah'] != NULL) {
-                                                echo $akun['nama_tengah'] . ' ';
-                                            }
-                                            echo $akun['nama_belakang'];
-                                            ?>
-                                        </div>
-                                    </div>
-
+                                    <h5 class="card-title">Kependudukan</h5>
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">NIK</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['nik']; ?></div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">NIDN</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']; ?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">TTL</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['tempat_lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Kenegaraan</div>
-                                        <div class="col-lg-9 col-md-8">Indonesia</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                                        <div class="col-lg-9 col-md-8">
-                                            <?php if ($akun['jenis_kelamin'] == 'L') { ?>
-                                                Laki - Laki
-                                            <?php } else if ($akun['jenis_kelamin'] == 'P') { ?>
-                                                Perempuan
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label ">Agama</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['agama']; ?></div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Prodi Dosen</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_prodi']; ?></div>
+                                        <div class="col-lg-3 col-md-4 label ">Kenegaraan</div>
+                                        <div class="col-lg-9 col-md-8">Indonesia</div>
                                     </div>
+                                    <h5 class="card-title">Keluarga</h5>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Staus Perkawinan</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Nama Suami/Istri</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Pekerja Suami/Istri (list)</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Jumlah Tanggungan</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <h5 class="card-title">Bidang Keilmuan</h5>
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Fakultas</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['nama_unit']; ?></div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jabatan</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['nama_jabatan']; ?></div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Pangkat/Golongan</div>
-                                        <div class="col-lg-9 col-md-8">3C</div>
-                                    </div>
-
+                                    <h5 class="card-title">Alamat dan Kontak</h5>
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Alamat</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['alamat'] ?></div>
@@ -151,9 +154,90 @@
                                         <div class="col-lg-3 col-md-4 label">Email</div>
                                         <div class="col-lg-9 col-md-8"><?= $akun['email_pribadi'] ?></div>
                                     </div>
+
+                                    <h5 class="card-title">Kepegawaian</h5>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Prodi Dosen</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_prodi']; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">NIP</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Status Kepegawai</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Status Keaktifan</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Nomber SK Calon Pegawai</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">TMT SK Calon Pegawai</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Nomber SK Pegawai Tetap</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Pangkat/Golonga</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Jabatan fungsional</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Jabatan Struktural</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <h5 class="card-title">Lain-lain</h5>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">NPWP</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">Nama Wajib Pajak</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">SINTA ID</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">Scopus ID</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">Publons ID</div>
+                                        <div class="col-lg-9 col-md-8"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">NIDN</div>
+                                        <div class="col-lg-9 col-md-8"><?= $akun['id_pegawai']; ?></div>
+                                    </div>
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <?php if ($akun['jenis_kelamin'] == 'L') { ?>
+                                                Laki - Laki
+                                            <?php } else if ($akun['jenis_kelamin'] == 'P') { ?>
+                                                Perempuan
+                                            <?php } ?>
+                                        </div>
+                                    </div>
                                 </div>
-
-
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
