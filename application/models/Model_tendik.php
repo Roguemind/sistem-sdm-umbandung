@@ -1,6 +1,18 @@
 <?php
 class Model_tendik extends CI_Model
 {
+
+    public function getPegawaiTendik()
+    {
+        $this->db->select('*');
+        $this->db->from('pegawai');
+        $this->db->join('tendik', 'pegawai.nik = tendik.nik');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+
     public function getAccTendik($nik)
     {
         $query = $this->db->query(

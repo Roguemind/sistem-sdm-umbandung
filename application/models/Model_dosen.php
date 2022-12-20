@@ -1,6 +1,18 @@
 <?php
 class Model_dosen extends CI_Model
 {
+    public function getPegawaiDosen()
+    {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->join('dosen', $this->table . '.nik = dosen.nik');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
+        $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
     public function getProFak($account_uid)
     {
         $this->db->select('*');
@@ -13,12 +25,12 @@ class Model_dosen extends CI_Model
         return $query->row_array();
     }
 
-    public function getRekamPendidikan($role,$account_uid)
+    public function getRekamPendidikan($role, $account_uid)
     {
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
         $this->db->join($role, $role . '.nik = rekam_pendidikan.nik');
-        $this->db->join('account', 'account.no_pegawai = '.$role.'.no_pegawai');
+        $this->db->join('account', 'account.no_pegawai = ' . $role . '.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->result_array();
@@ -59,14 +71,14 @@ class Model_dosen extends CI_Model
     {
         return $this->db->get('pengajuan')->result_array();
     }
-    
-    public function getArsip($role,$account_uid)
+
+    public function getArsip($role, $account_uid)
     {
         $this->db->select('*');
-        $this->db->from('arsip_'.$role);
-        $this->db->join($role, $role . '.id_prodi = arsip_'.$role.'.id_prodi');
+        $this->db->from('arsip_' . $role);
+        $this->db->join($role, $role . '.id_prodi = arsip_' . $role . '.id_prodi');
         $this->db->join('prodi', 'prodi.id_prodi = arsip_dosen.id_prodi');
-        $this->db->join('account', 'account.no_pegawai ='.$role.'.no_pegawai');
+        $this->db->join('account', 'account.no_pegawai =' . $role . '.no_pegawai');
         $this->db->where('arsip_dosen.id_prodi = dosen.id_prodi');
         $query = $this->db->get();
         return $query->result_array();

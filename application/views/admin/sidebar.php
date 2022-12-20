@@ -18,6 +18,24 @@
         </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
+            <a class="nav-link <?= ($title == "dosen") || ($title == "tendik") ? '' : 'collapsed' ?>" data-bs-target="#Pegawai" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-people"></i><span>Pegawai</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= base_url(); ?>admin/dosen" class="<?= $title == "dosen" ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Dosen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url() ?>admin/tendik" class="<?= $title == "tendik" ? 'active' : '' ?>">
+                        <i class="bi bi-circle"></i><span>Tendik</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav1" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>Kinerja</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -88,24 +106,6 @@
                 </li>
             </ul>
         </li>
-
-        <!--<li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#Pegawai" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-people"></i><span>Pegawai</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="Pegawai" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="<?= base_url(); ?>admin/viewdosen">
-                        <i class="bi bi-circle"></i><span>Dosen</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() ?>admin/viewtendik">
-                        <i class="bi bi-circle"></i><span>Tendik</span>
-                    </a>
-                </li>
-            </ul>
-        </li>-->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#Arsip" data-bs-toggle="collapse">
