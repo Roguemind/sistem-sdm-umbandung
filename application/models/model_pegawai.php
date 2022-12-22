@@ -41,7 +41,7 @@ class Model_pegawai extends CI_Model
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
-        $this->db->where('dosen.nik = ' . $id);
+        $this->db->where('dosen.no_pegawai = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -52,7 +52,7 @@ class Model_pegawai extends CI_Model
         $this->db->join($this->table, $this->table.'.no_pegawai = tendik.no_pegawai');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
         $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
-        $this->db->where('tendik.nik = ' . $id);
+        $this->db->where('tendik.no_pegawai = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }

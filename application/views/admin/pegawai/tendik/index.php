@@ -34,17 +34,17 @@
                             </div>
                         <?php endif; ?>
 
-                        <!-- DATA DOSEN -->
-                        <div class="dataDosen">
+                        <!-- DATA TENDIK -->
+                        <div class="dataTendik">
                             <h5 class="card-title">Data Tenaga Kependidikan</h5>
                             <div class="table-responsive">
                                 <!-- Table with hoverable rows -->
-                                <table class="table table-hover tabel-dosen" id="tabel-tendik" name="tabel-tendik">
+                                <table class="table table-hover tabel-tendik" id="tabel-tendik" name="tabel-tendik">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -53,7 +53,7 @@
                                         <?php foreach ($listTendik as $tendik) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $tendik['no_pegawai']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/tendik/<?= $tendik['no_pegawai']; ?>">
                                                         <?php if ($tendik['nama_depan'] != NULL) {
                                                             echo $tendik['nama_depan'] . ' ';
                                                         }
@@ -75,7 +75,7 @@
                                 <!-- End Table with hoverable rows -->
                             </div>
                         </div>
-                        <!-- DATA DOSEN -->
+                        <!-- DATA TENDIK -->
                     </div>
                 </div>
     </section>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['no_pegawai']; ?>">Hapus</a>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteTendik/<?= $tendik['no_pegawai']; ?>">Hapus</a>
                 </div>
             </div>
         </div>

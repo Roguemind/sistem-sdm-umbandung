@@ -21,7 +21,7 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">Nama Lengkap</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?= $akun['nama_depan']?>">
                                 </div>
                             </div>
                         </div>

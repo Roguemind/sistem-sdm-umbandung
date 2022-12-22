@@ -11,13 +11,6 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a href="<?= base_url(); ?>admin/pegawai" class="nav-link <?= $title == "pegawai" ? '' : 'collapsed' ?>">
-                <i class="bi bi-person"></i>
-                <span>Pegawai</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
-
-        <li class="nav-item">
             <a class="nav-link <?= ($title == "dosen") || ($title == "tendik") ? '' : 'collapsed' ?>" data-bs-target="#Pegawai" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-people"></i><span>Pegawai</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -35,6 +28,7 @@
             </ul>
         </li>
 
+        <!--
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav1" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>Kinerja</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -66,7 +60,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
         <!-- End Charts Nav -->
 
         <li class="nav-item">
@@ -124,6 +118,7 @@
                 </li>
             </ul>
         </li>
+        <!--
         <a href="<?= base_url(); ?>" class="nav-link collapsed">
             <i class="bi bi-person"></i>
             <span>Unit</span>
@@ -132,7 +127,7 @@
             <i class="bi bi-person"></i>
             <span>Fakultas</span>
         </a>
-
+        -->
 
         <!-- End Blank Page Nav -->
 

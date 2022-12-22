@@ -44,7 +44,7 @@ class Model_master extends CI_Model
             $this->db->join('tendik','tendik.id_pegawai = account.no_pegawai');
             $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
         }
-        $this->db->join('rekam_pendidikan','rekam_pendidikan.no_pengawai = pegawai.no_pegawai');
+        $this->db->join('rekam_pendidikan','rekam_pendidikan.no_pegawai = pegawai.no_pegawai');
         $this->db->where('account.no_pegawai = '.$role.'.no_pegawai');
         $query = $this->db->get();
         return $query->result_array();
