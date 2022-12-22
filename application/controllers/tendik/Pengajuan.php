@@ -35,6 +35,8 @@ class Pengajuan extends CI_Controller
             if($file=''){}else{
                 $config['upload_path']     ='./surat';
                 $config['allowed_types']   ='pdf';
+                $config['max_size']         = 100000;
+                $config['file_name']        = $no_pegawai . "_" . $nama . "_" . ".pdf";
                 $this->load->library('upload',$config); 
                 if(!$this->upload->do_upload('file')){
                     echo "Upload gagal";die();
@@ -42,7 +44,7 @@ class Pengajuan extends CI_Controller
                     $file=$this->upload->data('file_name');
                 }
             }
-       
+        
         
         
 
@@ -59,21 +61,5 @@ class Pengajuan extends CI_Controller
         //exit();
         $this->Model_tendik->simpancuti($datacuti);
         redirect('tendik/dashboard');
-    }
-    public  function viewPdf($file)
-
-    {
-
-        $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['bsx'] = $this->Model_dosen->getviewPdf($this->session->userdata('role'));
-
-        if (isset($_POST['view'])) {
-
-            header("content-type: application/pdf");
-
-            readfile('./surat/' . $file . '.pdf');
-
-        }
-
     }
 }
