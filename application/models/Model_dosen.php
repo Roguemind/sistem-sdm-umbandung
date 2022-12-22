@@ -5,7 +5,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->join('dosen', $this->table . '.nik = dosen.nik');
+        $this->db->join('dosen', $this->table . '.no_pegawai = dosen.no_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $query = $this->db->get();
@@ -29,7 +29,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($role, $role . '.nik = rekam_pendidikan.nik');
+        $this->db->join($role, $role . '.no_pegawai = rekam_pendidikan.no_pegawai');
         $this->db->join('account', 'account.no_pegawai = ' . $role . '.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
@@ -54,7 +54,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('aktivasi');
         $this->db->from('jad');
-        $this->db->join('dosen', 'dosen.nik = jad.nik');
+        $this->db->join('dosen', 'dosen.no_pegawai = jad.no_pegawai');
         $this->db->join('account', 'account.no_pegawai = dosen.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();
@@ -63,7 +63,7 @@ class Model_dosen extends CI_Model
 
     public function pengajuanJAD($account_uid)
     {
-        $this->db->set('nik', $account_uid);
+        $this->db->set('no_pegawai', $account_uid);
         $this->db->set('aktivasi', 0);
         return $this->db->insert('jad');
     }
@@ -83,4 +83,15 @@ class Model_dosen extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function getviewPdf($file)
+    {
+        $this->db->select('*');
+        $this->db->from('pengajuan');
+        $this->db->join($file,$file . '.no_pegawai = pengajuan.no_pegawai');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+
 }

@@ -69,13 +69,13 @@ class Fungsi extends CI_Controller
 
     public function aksiCuti()
     {
-        $id_pegawai = $this->input->POST('id_pegawai');
+        $no_pegawai = $this->input->POST('no_pegawai');
         $nama = $this->input->POST('nama_cuti');
         $tanggal_awal = $this->input->POST('tanggal_awal');
         $tanggal_masuk = $this->input->POST('tanggal_masuk');
 
         $datacuti = array(
-            'id_pegawai' => $id_pegawai,
+            'no_pegawai' => $no_pegawai,
             'tanggal_awal' => $tanggal_awal,
             'nama_cuti' => $nama,
             'tanggal_masuk' => $tanggal_masuk

@@ -53,7 +53,7 @@
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['nik']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['no_pegawai']; ?>">
                                                         <?php if ($dosen['nama_depan'] != NULL) {
                                                             echo $dosen['nama_depan'] . ' ';
                                                         }
@@ -65,8 +65,8 @@
                                                     </a></td>
                                                 <td><?= $dosen['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['nik']; ?>"></a>
-                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['nik'] ?>)"></button>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['no_pegawai']; ?>"></a>
+                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['no_pegawai'] ?>)"></button>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['nik']; ?>">Hapus</a>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['no_pegawai']; ?>">Hapus</a>
                 </div>
             </div>
         </div>
