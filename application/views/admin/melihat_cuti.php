@@ -22,12 +22,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID Pegawai</th>
+                                    <th scope="col">NO Pegawai</th>
                                     <th scope="col">Nama Pegawai</th>
                                     <th scope="col">Nama Cuti</th>
                                     <th scope="col">Tanggal Awal Cuti</th>
                                     <th scope="col">Tanggal Masuk</th>
                                     <th scope="col">Total Hari</th>
+                                    <th scope="col">file</th>
                                     <th scope="col">Persetujuan</th>
                                 </tr>
                             </thead>
@@ -35,10 +36,17 @@
                                 <?php foreach ($listpengajuan as $list) : ?>
                                     <tr>
                                         <td>
-                                            <div><?= $list['id_pegawai'] ?></div>
+                                            <div><?= $list['no_pegawai'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['nama'] ?></div>
+                                        <?php if ($akun['nama_depan'] != NULL) {
+                                                echo $akun['nama_depan'] . ' ';
+                                            }
+                                            if ($akun['nama_tengah'] != NULL) {
+                                                echo $akun['nama_tengah'] . ' ';
+                                            }
+                                            echo $akun['nama_belakang'];
+                                            ?>
                                         </td>
                                         <td>
                                             <div><?= $list['jensi_cuti'] ?></div>
@@ -52,6 +60,13 @@
                                         <td>
                                             <div><?= $list['jangka_waktu'] ?></div>
                                         </td>
+
+                                        <td>
+                                            <!-- <iframe src="<?= base_url(); ?>surat/<?= $list['file']; ?>" width="100%" height="500px">file</iframe> -->
+                                           
+                                            <a class="btn btn-primary" href="<?= base_url()?>surat/<?=$list['file'];?>">lihat file</a>
+                                        </td>
+                                       
                                         <td>
                                             <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditDosen" data-bs-whatever=""> Setujui</button>
                                             <button type="button" class="btn btn-danger bi bi-trash3" data-bs-toggle="modal" data-bs-target="#hapus"> Tolak</button>

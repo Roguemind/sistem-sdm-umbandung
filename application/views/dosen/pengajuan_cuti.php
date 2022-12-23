@@ -15,7 +15,7 @@
                 <h5 class="mb-0">Pengajuan Cuti</h5>
             </div>
             <div class="card-body">
-                <form class="user" method="POST" action="<?= base_url('tendik/pengajuan/aksicuti'); ?>">
+                <?php echo form_open_multipart('tendik/pengajuan/aksicuti');?>
                     <div class="row mb-3 mt-3">
                         <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Jenis Cuti</label>
                         <div class="col-sm-10">
@@ -30,11 +30,11 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">ID Pegawai</label>
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">NO Pegawai</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                <input type="text" id="id_pegawai" name="id_pegawai" class="form-control" aria-describedby="basic-icon-default-company2" value="<?= $akun['id_pegawai'] ?>" readonly />
+                                <input type="text" id="no_pegawai" name="no_pegawai" class="form-control" aria-describedby="basic-icon-default-company2" value="<?= $akun['no_pegawai'] ?>" readonly />
                             </div>
                         </div>
                     </div>
@@ -65,12 +65,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">UPLOAD FILE</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                                <input type="file" id="file" name="file" class="form-control" placeholder="" aria-label="john.doe" aria-describedby="basic-icon-default-email2" value="" />
+                            </div>
+                        </div>
                     <div class="row col-sm-12">
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                         </div>
                     </div>
-                </form>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>

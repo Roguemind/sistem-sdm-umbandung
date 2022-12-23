@@ -171,7 +171,7 @@ class Fungsi extends CI_Controller
         $tmt_pegawai = $this->input->POST('tmt_pegawai');
 
         $dataPegawai = array(
-            'id_pegawai' => $id_pegawai,
+            'no_pegawai' => $no_pegawai,
             'nama' => $nama,
             'gelar_depan' => $gelar_depan,
             'gelar_belakang' => $gelar_belakang,

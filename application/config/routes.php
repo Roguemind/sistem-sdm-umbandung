@@ -80,4 +80,5 @@ $route['admin/arsip/tendik'] = 'admin/fungsi/lihatArsipTendik';
 $route['view/dosen/(:num)'] = 'admin/pegawai/profileDosen/$1';
 $route['view/tendik/(:num)'] = 'admin/pegawai/profileTendik/$1';
 
+
 // Route Fungsi Admin-Unit

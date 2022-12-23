@@ -21,7 +21,14 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">Nama Lengkap</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?php if ($akun['nama_depan'] != NULL) {
+                                                echo $akun['nama_depan'] . ' ';
+                                            }
+                                            if ($akun['nama_tengah'] != NULL) {
+                                                echo $akun['nama_tengah'] . ' ';
+                                            }
+                                            echo $akun['nama_belakang'];
+                                            ?>">
                                 </div>
                             </div>
                         </div>
@@ -29,7 +36,7 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">NIDN</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?php echo $akun['nidn']?>">
                                 </div>
                             </div>
                         </div>
@@ -45,7 +52,7 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">Program Studi</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?= $akun['nama_prodi']?>">
                                 </div>
                             </div>
                         </div>
@@ -53,7 +60,7 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">Pendidikan Terakhir</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?= $akun['pendidikan']?>">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +76,7 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">Golongan</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?= $akun['golongan_dan_pangkat']?>>
                                 </div>
                             </div>
                         </div>
@@ -77,12 +84,12 @@
                             <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">JAD Terakhir</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="<?= $akun['jad']?>>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3 mt-3">
-                            <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">JAD Usulan</label>
+                            <label class="col-sm-4 col-form-label" for="basic-icon-default-fullname">JAD Ajuan</label>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-merge">
                                     <select name="" class="form-select" style="width: 100%">

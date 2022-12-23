@@ -79,8 +79,8 @@ class Pegawai extends CI_Controller
     {
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNik',
-            'Nik',
+            'inputNoPegawai',
+            'no_pegawai',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -103,8 +103,8 @@ class Pegawai extends CI_Controller
         } else {
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
+                'no_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
-                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'gelar_depan' => 'Prof.',
                 'nama_tengah' => $this->input->POST('inputNamaLengkap'),
                 'gelar_belakang' => 'M.Sc',
@@ -124,7 +124,7 @@ class Pegawai extends CI_Controller
             $this->Model_pegawai->savePegawai($dataPegawai);
             if ($this->input->post('inputJabatanPegawai') == 'Dosen'){
                 $dataDosen = array(
-                    'nik' => $this->input->post('inputNik'),
+                    'no_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_prodi' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja')
@@ -134,7 +134,7 @@ class Pegawai extends CI_Controller
             else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
                 if($this->input->post('inputUnitKerja') == 'Fakultas'){
                     $dataTendik = array(
-                        'nik' => $this->input->post('inputNik'),
+                        'no_pegawai' => $this->input->post('inputNoPegawai'),
                         'id_unit' => $this->input->post('inputProgramStudi'),
                         'id_jabatan' => $this->input->post('inputJabatan'),
                         'status_kerja' => $this->input->post('inputStatusKerja')
@@ -143,7 +143,7 @@ class Pegawai extends CI_Controller
                 }
                 else if ($this->input->post('inputJabatanPegawai') == 'Unit'){
                     $dataTendik = array(
-                        'nik' => $this->input->post('inputNik'),
+                        'no_pegawai' => $this->input->post('inputNoPegawai'),
                         'id_fakultas' => $this->input->post('inputProgramStudi'),
                         'id_jabatan' => $this->input->post('inputJabatan'),
                         'status_kerja' => $this->input->post('inputStatusKerja')
@@ -173,12 +173,12 @@ class Pegawai extends CI_Controller
 
     public function update()
     {
-        $nik = $this->input->POST('inputnik');
+        $nik = $this->input->POST('inputNoPegawai');
 
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNik',
-            'Nik',
+            'inputNoPegawai',
+            'no_pegawai',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -186,8 +186,8 @@ class Pegawai extends CI_Controller
         );
         
         $this->form_validation->set_rules(
-            'inputNik',
-            'Nik',
+            'inputNoPegawai',
+            'no_pegawai',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -195,8 +195,8 @@ class Pegawai extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNik',
-            'Nik',
+            'inputNoPegawai',
+            'no_pegawai',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -204,8 +204,8 @@ class Pegawai extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNik',
-            'Nik',
+            'inputNoPegawai',
+            'no_pegawai',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -225,10 +225,10 @@ class Pegawai extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/editUp', $data);
         } else {
-            $nik = $this->input->POST('inputNik');
+            $nik = $this->input->POST('inputNoPegawai');
             $dataPegawai = array(
+                'no_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
-                'id_pegawai' => $this->input->POST('inputNoPegawai'),
                 'gelar_depan' => $this->input->POST('inputGelarDepan'),
                 'nama' => $this->input->POST('inputNamaLengkap'),
                 'gelar_belakang' => $this->input->POST('inputGelarBelakang'),

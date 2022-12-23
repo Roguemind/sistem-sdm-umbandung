@@ -7,7 +7,7 @@ class Model_pegawai extends CI_Model
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->join('dosen', $this->table.'.nik = dosen.nik');
+        $this->db->join('dosen', $this->table.'.no_pegawai = dosen.no_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $query = $this->db->get();
@@ -19,7 +19,7 @@ class Model_pegawai extends CI_Model
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->join('tendik', $this->table.'.nik = tendik.nik');
+        $this->db->join('tendik', $this->table.'.no_pegawai = tendik.no_pegawai');
         $query = $this->db->get();
 
         return $query->result_array();
@@ -28,8 +28,8 @@ class Model_pegawai extends CI_Model
     public function getRekamPendidikan($id){
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($this->table, $this->table.'.nik =rekam_pendidikan.nik');
-        $this->db->where('rekam_pendidikan.nik ='. $id);
+        $this->db->join($this->table, $this->table.'.no_pegawai =rekam_pendidikan.no_pegawai');
+        $this->db->where('rekam_pendidikan.no_pegawai ='. $id);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -37,11 +37,11 @@ class Model_pegawai extends CI_Model
     public function getProfilDosen($id){
         $this->db->select('*');
         $this->db->from('dosen');
-        $this->db->join($this->table, $this->table.'.nik = dosen.nik');
+        $this->db->join($this->table, $this->table.'.no_pegawai = dosen.no_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
-        $this->db->where('dosen.nik = ' . $id);
+        $this->db->where('dosen.no_pegawai = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -49,10 +49,10 @@ class Model_pegawai extends CI_Model
     public function getProfilTendik($id){
         $this->db->select('*');
         $this->db->from('tendik');
-        $this->db->join($this->table, $this->table.'.nik = tendik.nik');
+        $this->db->join($this->table, $this->table.'.no_pegawai = tendik.no_pegawai');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
         $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
-        $this->db->where('tendik.nik = ' . $id);
+        $this->db->where('tendik.no_pegawai = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -75,27 +75,27 @@ class Model_pegawai extends CI_Model
 
     public function getPegawaiById($id)
     {
-        return $this->db->get_where($this->table, ["nik" => $id])->row();
+        return $this->db->get_where($this->table, ["no_pegawai" => $id])->row();
     }
 
     public function editPegawai($id, $data)
     {
-        return $this->db->update($this->table, $data, array('nik' => $id));
+        return $this->db->update($this->table, $data, array('no_pegawai' => $id));
     }
 
     public function deletePegawai($id)
     {
-        return $this->db->delete($this->table, array("nik" => $id));
+        return $this->db->delete($this->table, array("no_pegawai" => $id));
     }
 
     public function deleteDosen($id)
     {
-        return $this->db->delete('dosen', array("nik" => $id));
+        return $this->db->delete('dosen', array("no_pegawai" => $id));
     }
 
     public function deleteTendik($id)
     {
-        return $this->db->delete('tendik', array("nik" => $id));
+        return $this->db->delete('tendik', array("no_pegawai" => $id));
     }
 
     public function getFakultas()
