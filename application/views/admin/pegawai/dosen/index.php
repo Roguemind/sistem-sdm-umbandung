@@ -53,7 +53,7 @@
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['no_pegawai']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['nik']; ?>">
                                                         <?php if ($dosen['nama_depan'] != NULL) {
                                                             echo $dosen['nama_depan'] . ' ';
                                                         }
@@ -65,8 +65,8 @@
                                                     </a></td>
                                                 <td><?= $dosen['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['no_pegawai']; ?>"></a>
-                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['no_pegawai'] ?>)"></button>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['nik']; ?>"></a>
+                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['nik'] ?>)"></button>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <!-- End Revenue Card -->
                     <!-- Bar Chart -->
@@ -96,7 +96,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fai">Fakultas Agama Islam </button>
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#fai">Fakultas Agama Islam </button>
                             </li>
 
                             <li class="nav-item">
@@ -107,16 +107,16 @@
                         <div class="tab-content pt-2">
 
                             <div class="tab-pane fade show active profile-overview" id="fst">
-                                <canvas id="fst" style="max-height: 400px;"></canvas>
+                                <canvas id="barChart1" style="max-height: 400px;"></canvas>
                                 <script>
                                     document.addEventListener("DOMContentLoaded", () => {
-                                        new Chart(document.querySelector('#fst'), {
+                                        new Chart(document.querySelector('#barChart1'), {
                                             type: 'bar',
                                             data: {
                                                 labels: ['Teknik Informatika', 'Teknik Elektro', 'Teknik Indrustri', 'Tendik Pangan', 'Bioteknologi', 'Farmasi', 'Agribisnis'],
                                                 datasets: [{
                                                     label: 'Dosen',
-                                                    data: [43, 149, 106, 87],
+                                                    data: [43, 149, 106, 87, 34, 12, 77],
                                                     backgroundColor: [
                                                         'rgba(255, 99, 132, 0.2)',
                                                         'rgba(255, 159, 64, 0.2)',
@@ -152,13 +152,48 @@
                         </div>
                         <div class="tab-content pt-2">
                             <div class="tab-pane fade show profile-edit" id="feb">
-                                <canvas id="feb" style="max-height: 400px;"></canvas>
+                                <canvas id="barChart2" style="max-height: 400px;"></canvas>
                                 <script>
                                     document.addEventListener("DOMContentLoaded", () => {
-                                        new Chart(document.querySelector('#feb'), {
+                                        new Chart(document.querySelector('#barChart2'), {
                                             type: 'bar',
                                             data: {
-                                                labels: ['FST', 'FEB2', 'FAI', 'FSH', 'LPnlLMyrt', 'LPnkLAik', 'LPej', 'Pimpinan'],
+                                                labels: ['Akutansi', 'Manajemen'],
+                                                datasets: [{
+                                                    label: 'Tendik',
+                                                    data: [16, 20],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgb(255, 99, 132)',
+                                                        'rgb(255, 159, 64)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="tab-content pt-2">
+                            <div class="tab-pane fade show profile-edit" id="fai">
+                                <canvas id="barChart3" style="max-height: 400px;"></canvas>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new Chart(document.querySelector('#barChart3'), {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['Pendidikan Agama Islam', 'Pendidikan Islam Anak Usia Dini', 'Ekonomi Syariah', 'Komunikasi Penyiaran Islam', 'Hukum Keluarga Islam'],
                                                 datasets: [{
                                                     label: 'Tendik',
                                                     data: [35, 55, 10, 20, 40, 63, 11, 45],
@@ -167,20 +202,53 @@
                                                         'rgba(255, 159, 64, 0.2)',
                                                         'rgba(255, 205, 86, 0.2)',
                                                         'rgba(75, 192, 192, 0.2)',
-                                                        'rgba(54, 162, 235, 0.2)',
-                                                        'rgba(153, 102, 255, 0.2)',
-                                                        'rgba(201, 203, 207, 0.2)',
-                                                        'rgba(221, 213, 217, 0.2)'
+                                                        'rgba(54, 162, 235, 0.2)'
                                                     ],
                                                     borderColor: [
                                                         'rgb(255, 99, 132)',
                                                         'rgb(255, 159, 64)',
                                                         'rgb(255, 205, 86)',
                                                         'rgb(75, 192, 192)',
-                                                        'rgb(54, 162, 235)',
-                                                        'rgb(153, 102, 255)',
-                                                        'rgb(201, 203, 207)',
-                                                        'rgb(221, 223, 227)'
+                                                        'rgb(54, 162, 235)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="tab-content pt-2">
+                            <div class="tab-pane fade show profile-edit" id="fsh">
+                                <canvas id="barChart4" style="max-height: 400px;"></canvas>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new Chart(document.querySelector('#barChart4'), {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['Administrasi Publik', 'Ilmu Komunikasi', 'Kriya Tekstil dan Fashion', 'Psikolog'],
+                                                datasets: [{
+                                                    label: 'Tendik',
+                                                    data: [35, 55, 10, 20, 40, 63, 11, 45],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)',
+                                                        'rgba(255, 205, 86, 0.2)',
+                                                        'rgba(75, 192, 192, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgb(255, 99, 132)',
+                                                        'rgb(255, 159, 64)',
+                                                        'rgb(255, 205, 86)',
+                                                        'rgb(75, 192, 192)'
                                                     ],
                                                     borderWidth: 1
                                                 }]
@@ -204,6 +272,51 @@
 
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="card ">
+                    <!-- End Revenue Card -->
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Grafik Dosen Berdasarkan Jabatan Akademik Dosen</h5>
+                        <canvas id="jad" style="max-height: 400px;"></canvas>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new Chart(document.querySelector('#jad'), {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['Asisten Ahli', 'Lektor', 'Lektor Kepala', 'Guru Besar', 'Tenaga Pengajar'],
+                                        datasets: [{
+                                            label: 'Dosen',
+                                            data: [66, 49, 26, 17, 30],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)',
+                                                'rgba(255, 205, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 99, 132)',
+                                                'rgb(255, 159, 64)',
+                                                'rgb(255, 205, 86)',
+                                                'rgb(75, 192, 192)',
+                                                'rgb(54, 162, 235)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -220,7 +333,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['no_pegawai']; ?>">Hapus</a>
+                    <a class="btn btn-danger" href="<?= base_url(); ?>admin/fungsi/deleteDosen/<?= $dosen['nik']; ?>">Hapus</a>
                 </div>
             </div>
         </div>

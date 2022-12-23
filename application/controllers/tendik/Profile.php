@@ -1,4 +1,6 @@
 <?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
 class Profile extends CI_Controller
 {
     function __construct()
@@ -11,7 +13,7 @@ class Profile extends CI_Controller
     public function index()
     {
         $data['akun'] = $this->Model_master->aksesDB($this->session->userdata('role'), $this->session->userdata('session_id'));
-        $data['rekpens'] = $this->Model_master->getRekamPendidikan($this->session->userdata('role'),$this->session->userdata('session_id'));
+        $data['rekpens'] = $this->Model_master->getRekamPendidikan($this->session->userdata('role'), $this->session->userdata('session_id'));
         $data['title'] = 'profile';
         $this->load->view('_partials/head', $data);
         $this->load->view('_partials/script');
