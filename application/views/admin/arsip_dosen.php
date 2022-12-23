@@ -146,7 +146,7 @@
                 <div class="modal-body">
                     <section class="section">
                         <!-- Form tambah dosen -->
-                        <form enctype = "multipart/form-data" class="user" method="POST" action="<?= base_url('admin/fungsi/uploadSurat/dosen'); ?>">
+                        <form enctype = "multipart/form-data" class="user" method="POST" action="<?= base_url('admin/fungsi/aksiBerkas/dosen'); ?>">
                             <div class="row mb-3">
                                 <label for="inputText" class="form-label">Judul</label>
                                 <div class="col-sm-12">

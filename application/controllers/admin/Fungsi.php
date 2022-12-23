@@ -53,21 +53,21 @@ class Fungsi extends CI_Controller
         $this->load->view('admin/tambah_sk', $data);
     }
 
-    public function aksiBerkasDosen()
+    public function aksiBerkas($role)
     {
         $no_sk = $this->input->POST('no_sk');
         $judul = $this->input->POST('judul');
         $id_unit = $this->input->POST('unit-kerja');
         $tipe_surat = $this->input->POST('tipe_surat');
 
-        $dataSk = array(
+        $dataBerkas = array(
             'no_sk' => $no_sk,
             'judul' => $judul,
             'id_unit' => $id_unit,
             'tipe_surat' => $tipe_surat
         );
-        $this->Model_admin->tambahSk($dataSk);
-        redirect('admin/dashboard');
+        $this->Model_admin->tambahBerkas($role,$dataBerkas);
+        redirect('admin/arsip/'.$role);
     }
 
     public function uploadSurat($role)

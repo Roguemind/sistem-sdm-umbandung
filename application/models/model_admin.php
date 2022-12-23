@@ -182,9 +182,9 @@ class Model_admin extends CI_Model
     {
         return $this->db->insert('jabatan', $dataJabatan);
     }
-    public function tambahSk($dataSk)
+    public function tambahBerkas($role, $dataBerkas)
     {
-        return $this->db->insert('arsip_tendik', $dataSk);
+        return $this->db->insert('arsip_'.$role, $dataSk);
     }
 
     public function getArsipDosen()
