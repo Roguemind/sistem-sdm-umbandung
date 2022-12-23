@@ -32,7 +32,13 @@
                                     echo $akun['nama_belakang'];
                                     ?>
                                 </h2>
-                                <h3 class=""><?= $akun['nama_jabatan'] . ' ' . $akun['nama_prodi'] ?></h3>
+                                <h3 class=""> <?= $akun['nama_jabatan'] ?> 
+                                    <?php if($akun['nama_jabatan'] == 'Dekan'){
+                                            echo 'Fakultas '.$akun['nama_unit'];
+                                        } else{
+                                            echo $akun['nama_prodi'];
+                                        }?>
+                                </h3>
                             </div>
                         </div>
                         <div class="col-md-8">
