@@ -78,6 +78,133 @@
                         <!-- DATA DOSEN -->
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <!-- End Revenue Card -->
+                    <!-- Bar Chart -->
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Grafik Jumlah Pegawai</h5>
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fst">Fakultas Saintek dan Teknologi</button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#feb">Fakultas Ekonomi dan Bisnis</button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#fai">Fakultas Agama Islam </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#fsh">Fakultas Sosial dan Humaniora</button>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content pt-2">
+
+                            <div class="tab-pane fade show active profile-overview" id="fst">
+                                <canvas id="fst" style="max-height: 400px;"></canvas>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new Chart(document.querySelector('#fst'), {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['Teknik Informatika', 'Teknik Elektro', 'Teknik Indrustri', 'Tendik Pangan', 'Bioteknologi', 'Farmasi', 'Agribisnis'],
+                                                datasets: [{
+                                                    label: 'Dosen',
+                                                    data: [43, 149, 106, 87],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)',
+                                                        'rgba(255, 205, 86, 0.2)',
+                                                        'rgba(75, 192, 192, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(153, 102, 255, 0.2)',
+                                                        'rgba(201, 203, 207, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgb(255, 99, 132)',
+                                                        'rgb(255, 159, 64)',
+                                                        'rgb(255, 205, 86)',
+                                                        'rgb(75, 192, 192)',
+                                                        'rgb(54, 162, 235)',
+                                                        'rgb(153, 102, 255)',
+                                                        'rgb(201, 203, 207)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="tab-content pt-2">
+                            <div class="tab-pane fade show profile-edit" id="feb">
+                                <canvas id="feb" style="max-height: 400px;"></canvas>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", () => {
+                                        new Chart(document.querySelector('#feb'), {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['FST', 'FEB2', 'FAI', 'FSH', 'LPnlLMyrt', 'LPnkLAik', 'LPej', 'Pimpinan'],
+                                                datasets: [{
+                                                    label: 'Tendik',
+                                                    data: [35, 55, 10, 20, 40, 63, 11, 45],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 159, 64, 0.2)',
+                                                        'rgba(255, 205, 86, 0.2)',
+                                                        'rgba(75, 192, 192, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(153, 102, 255, 0.2)',
+                                                        'rgba(201, 203, 207, 0.2)',
+                                                        'rgba(221, 213, 217, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgb(255, 99, 132)',
+                                                        'rgb(255, 159, 64)',
+                                                        'rgb(255, 205, 86)',
+                                                        'rgb(75, 192, 192)',
+                                                        'rgb(54, 162, 235)',
+                                                        'rgb(153, 102, 255)',
+                                                        'rgb(201, 203, 207)',
+                                                        'rgb(221, 223, 227)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- End Bar CHart -->
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Modal Hapus -->

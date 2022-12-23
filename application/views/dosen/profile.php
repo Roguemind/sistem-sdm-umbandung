@@ -70,7 +70,7 @@
                                         <div class="col-lg-5 col-md-4 label">Tempat, Tanggal Lahir</div>
                                         <div class="col-lg-7 col-md-8"><?= $akun['tempat_lahir']; ?>, <?= date('d F Y', strtotime($akun['tanggal_lahir'])); ?></div>
                                     </div>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#ringkasan">
                                         </button>
                                     </div>
@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col-xl-4">
                     <div class="card">
-                        <div class=" body-card">
+                        <div class="card-body">
 
                             <h5 class="card-title text-center">Kependudukan</h5>
                             <div class="row ms-4">
@@ -97,8 +97,8 @@
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label ">Kenegaraan</div>
                                 <div class="col-lg-7 col-md-8">Indonesia</div>
-                                <div class="d-md-flex justify-content-md-end">
-                                    <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kependudukan">
+                                <div class="d-md-flex justify-content-md-end mt-3">
+                                    <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#kependudukan">
                                     </button>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Alamat dan Kontak</h5>
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label">Alamat</div>
@@ -122,7 +122,7 @@
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label">Email</div>
                                     <div class="col-lg-7 col-md-8"><?= $akun['email_pribadi'] ?></div>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#alamatdankontak">
                                         </button>
                                     </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Bidang Keilmuan</h5>
                                 <div class="row ms-4">
                                     <div class="col-lg-3 col-md-4 label">Fakultas</div>
@@ -142,7 +142,7 @@
                                 <div class="row ms-4">
                                     <div class="col-lg-3 col-md-4 label">Jabatan</div>
                                     <div class="col-lg-9 col-md-8"><?= $akun['nama_jabatan']; ?></div>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#bidangkeilmuan">
                                         </button>
                                     </div>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Lain-lain</h5>
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label ">NPWP</div>
@@ -173,7 +173,7 @@
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label ">Publons ID</div>
                                     <div class="col-lg-7 col-md-8"></div>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#lain-lain">
                                         </button>
                                     </div>
@@ -183,7 +183,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Dokumen Kerja</h5>
                                 <div class="m-2">
                                     <!-- Table with hoverable rows -->
@@ -209,7 +209,7 @@
                                     </table>
                                     <!-- End Table with hoverable rows -->
                                 </div>
-                                <div class="d-md-flex justify-content-md-end">
+                                <div class="d-md-flex justify-content-md-end mt-3">
                                     <button type="button" class="btn btn-primary bi bi-plus-circle" data-bs-toggle="modal" data-bs-target="#dokumenkerja">
                                     </button>
                                 </div>
@@ -224,7 +224,7 @@
 
                 <div class="col-xl-8">
                     <div class="card">
-                        <div class=" body-card">
+                        <div class="card-body">
                             <h5 class="card-title text-center">Keluarga</h5>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label ">Staus Perkawinan</div>
@@ -241,7 +241,7 @@
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label ">Jumlah Tanggungan</div>
                                 <div class="col-lg-7 col-md-8">2</div>
-                                <div class="d-md-flex justify-content-md-end">
+                                <div class="d-md-flex justify-content-md-end mt-3 ">
                                     <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#keluarga">
                                     </button>
                                 </div>
@@ -251,7 +251,7 @@
 
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Kepegawaian</h5>
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label">Prodi Dosen</div>
@@ -292,7 +292,7 @@
                                 <div class="row ms-4">
                                     <div class="col-lg-5 col-md-4 label">Jabatan Struktural</div>
                                     <div class="col-lg-7 col-md-8"></div>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">
                                         </button>
                                     </div>
@@ -302,7 +302,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <div class=" body-card">
+                            <div class="card-body">
                                 <h5 class="card-title text-center">Rekam Pendidikan</h5>
                                 <div class="row">
                                     <?php foreach ($rekpens as $rekpen) : ?>
@@ -332,7 +332,7 @@
                                             </div>
                                         </div><!-- End settings Form -->
                                     <?php endforeach; ?>
-                                    <div class="d-md-flex justify-content-md-end">
+                                    <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-plus-circle " data-bs-toggle="modal" data-bs-target="#rekampendidikan">
                                         </button>
                                     </div>
@@ -348,7 +348,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Ringkasan</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Ringkasan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -389,7 +389,7 @@
                                     <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $akun['nama_belakang']; ?>">
                                 </div>
                             </div>
-                            <div class="row-mb-3">
+                            <div class="row mb-3">
                                 <label for="inputJenisKelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
                                 <div class="col-md-8 col-lg-9">
                                     <select name="inputJenisKelamin" class="form-select">
@@ -413,11 +413,30 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Kependudukan</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kependudukan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="nik" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Agama</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="agama" value="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Kenegaraan</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namatgh" type="text" class="form-control" id="kenegaraan" value="">
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -435,7 +454,25 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="alamat" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">No. HP</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="nohp" value="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namatgh" type="text" class="form-control" id="email" value="">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -449,11 +486,22 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Bidang Keilmuan</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Bidang Keilmuan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Fakultas</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Jabatan</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -467,12 +515,42 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Lain-lain</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Lain-lain</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NPWP</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Wajib Pajak</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Sinta ID</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Scopus ID</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Publons ID</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                         <button type="button" class="btn btn-primary">Ajukan</button>
@@ -485,11 +563,38 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Keluarga</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Keluarga</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Status Perkawinan</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Suami/Istri</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPekerjaan" class="col-md-4 col-lg-3 col-form-label">Pekerjaan Suami/Istri</label>
+                            <div class="col-md-8 col-lg-9">
+                                <select name="inputPekerjaan" class="form-select">
+                                    <option selected disabled>....</option>
+                                    <option value="L">Laki-laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Jumlah Tanggungan</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -521,11 +626,46 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengunggah Rekam Pendidikan</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Unggah Rekam Pendidikan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Nama Institusi</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Program Studi</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Jenjang</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Tahun Lulus</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Gelar</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Bukti Ijazah</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="file" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -539,11 +679,22 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mengunggah Dokumen Kerja</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Unggah Dokumen Kerja</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="row mb-3">
+                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Nama Berkas</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Upload File</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namadpn" type="file" class="form-control" id="jabatan" value="">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
