@@ -101,12 +101,29 @@ class Pegawai extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/tambah', $data);
         } else {
+            if($this->input->post('inputNamaDepan') != NULL){
+                $nama_dpn = $this->input->post('inputNamaDepan');
+            }else {
+                $nama_dpn = NULL;
+            }
+            if($this->input->post('inputNamaTengah') != NULL){
+                $nama_tgh = $this->input->post('inputNamaTengah');
+            }else {
+                $nama_tgh = NULL;
+            }
+            if($this->input->post('inputNamaBelakang') != NULL){
+                $nama_blkg = $this->input->post('inputNamaBelakang');
+            }else {
+                $nama_blkg = NULL;
+            }
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
                 'no_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => 'Prof.',
-                'nama_tengah' => $this->input->POST('inputNamaLengkap'),
+                'nama_depan' => $nama_dpn,
+                'nama_tengah' => $nama_tgh,
+                'nama_belakang' => $nama_blkg,
                 'gelar_belakang' => 'M.Sc',
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
@@ -132,28 +149,21 @@ class Pegawai extends CI_Controller
                 $this->Model_pegawai->saveDosen($dataDosen);
             }
             else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
-                if($this->input->post('inputUnitKerja') == 'Fakultas'){
-                    $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
-                        'id_unit' => $this->input->post('inputProgramStudi'),
-                        'id_jabatan' => $this->input->post('inputJabatan'),
-                        'status_kerja' => $this->input->post('inputStatusKerja')
-                    );
-                    $this->Model_pegawai->saveTendik($dataTendik);
-                }
-                else if ($this->input->post('inputJabatanPegawai') == 'Unit'){
-                    $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
-                        'id_fakultas' => $this->input->post('inputProgramStudi'),
-                        'id_jabatan' => $this->input->post('inputJabatan'),
-                        'status_kerja' => $this->input->post('inputStatusKerja')
-                    );
-                    $this->Model_pegawai->saveTendik($dataTendik);
-                }
+                $dataTendik = array(
+                    'no_pegawai' => $this->input->post('inputNoPegawai'),
+                    'id_unit' => $this->input->post('inputProgramStudi'),
+                    'id_jabatan' => $this->input->post('inputJabatan'),
+                    'status_kerja' => $this->input->post('inputStatusKerja')
+                );
+                 $this->Model_pegawai->saveTendik($dataTendik);
             }
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
-            redirect('admin/pegawai');
+            if($this->input->post('inputJabatanPegawai') == 'Dosen'){
+                redirect('admin/dosen');
+            }else if($this->input->post('inputJabatanPegawai') == 'Tendik'){
+                redirect('admin/tendik');
+            }
         }
     }
 

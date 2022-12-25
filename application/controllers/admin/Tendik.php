@@ -49,7 +49,7 @@ class Tendik extends CI_Controller
         $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
         $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
         $data['prodi'] = $this->Model_admin->getProdi();
-        $data['unit'] = $this->Model_admin->getUnit();
+        $data['units'] = $this->Model_pegawai->getUnit();
         $data['title'] = 'pegawai';
 
         $this->load->view('_partials/head');
@@ -115,28 +115,18 @@ class Tendik extends CI_Controller
                     'status_kerja' => $this->input->post('inputStatusKerja')
                 );
                 $this->Model_pegawai->saveDosen($dataDosen);
-            } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
-                if ($this->input->post('inputUnitKerja') == 'Fakultas') {
-                    $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
-                        'id_unit' => $this->input->post('inputProgramStudi'),
-                        'id_jabatan' => $this->input->post('inputJabatan'),
-                        'status_kerja' => $this->input->post('inputStatusKerja')
-                    );
-                    $this->Model_pegawai->saveTendik($dataTendik);
-                } else if ($this->input->post('inputJabatanPegawai') == 'Unit') {
-                    $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
-                        'id_fakultas' => $this->input->post('inputProgramStudi'),
-                        'id_jabatan' => $this->input->post('inputJabatan'),
-                        'status_kerja' => $this->input->post('inputStatusKerja')
-                    );
-                    $this->Model_pegawai->saveTendik($dataTendik);
-                }
-            }
+            } else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
+                $dataTendik = array(
+                    'no_pegawai' => $this->input->post('inputNoPegawai'),
+                    'id_unit' => $this->input->post('inputProgramStudi'),
+                    'id_jabatan' => $this->input->post('inputJabatan'),
+                    'status_kerja' => $this->input->post('inputStatusKerja')
+                );
+                $this->Model_pegawai->saveTendik($dataTendik);
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
             redirect('admin/pegawai');
+            }
         }
     }
 
@@ -238,11 +228,7 @@ class Tendik extends CI_Controller
 
     public function delete($id)
     {
-        if ($this->input->post('pilihDataTampil') == "dosen") {
-            $this->Model_pegawai->deleteDosen($id);
-        } else if ($this->input->post('pilihDataTampil') == "tendik") {
-            $this->Model_pegawai->deleteTendik($id);
-        }
+        $this->Model_pegawai->deleteTendik($id);
         $this->Model_pegawai->deletePegawai($id);
 
         if ($this->Model_pegawai->deletePegawai($id) == TRUE) {

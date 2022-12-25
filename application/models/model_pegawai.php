@@ -100,7 +100,11 @@ class Model_pegawai extends CI_Model
 
     public function getFakultas()
     {
-        return $this->db->get('fakultas')->result_array();
+        $this->db->select('*');
+        $this->db->from('unit');
+        $this->db->like('id_unit','FK');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function getUnit()

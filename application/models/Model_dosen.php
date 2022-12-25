@@ -53,8 +53,8 @@ class Model_dosen extends CI_Model
     public function cekJAD($account_uid)
     {
         $this->db->select('aktivasi');
-        $this->db->from('jad');
-        $this->db->join('dosen', 'dosen.no_pegawai = jad.no_pegawai');
+        $this->db->from('pengajuan_jad');
+        $this->db->join('dosen', 'dosen.no_pegawai = pengajuan_jad.id_dosen');
         $this->db->join('account', 'account.no_pegawai = dosen.no_pegawai');
         $this->db->where('account.no_pegawai = ' . $account_uid);
         $query = $this->db->get();

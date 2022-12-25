@@ -53,6 +53,8 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['logout'] = 'login/logout';
+
 // Route Dashboard Aktor
 $route['admin'] = 'admin/dashboard';
 $route['tendik'] = 'tendik/dashboard';

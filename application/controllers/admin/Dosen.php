@@ -236,11 +236,7 @@ class Dosen extends CI_Controller
 
     public function delete($id)
     {
-        if ($this->input->post('pilihDataTampil') == "dosen") {
-            $this->Model_pegawai->deleteDosen($id);
-        } else if ($this->input->post('pilihDataTampil') == "tendik") {
-            $this->Model_pegawai->deleteTendik($id);
-        }
+        $this->Model_pegawai->deleteDosen($id);
         $this->Model_pegawai->deletePegawai($id);
 
         if ($this->Model_pegawai->deletePegawai($id) == TRUE) {

@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tambah Data Dosen</h5>
-                        <form class="row g-3" method="POST" action="<?= base_url() ?>#">
+                        <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/store">
                             <div class="row g-2">
                                 <div class="col-md-4">
                                     <label for="inputNoPegawai" class="form-label">Nomor Pegawai</label>
@@ -42,9 +42,18 @@
                                         <option value="Prof.">Prof.</option>
                                     </select>
                                 </div> -->
-                                <div class="col-md-6">
-                                    <label for="inputNamaLengkap" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap">
+                                <input type="hidden" name="inputJabatanPegawai" id="inputJabatanPegawai" value="Dosen">
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Depan</label>
+                                    <input type="text" class="form-control" name="inputNamaDepan" id="inputNamaLengkap">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Tengah</label>
+                                    <input type="text" class="form-control" name="inputNamaTengah" id="inputNamaLengkap">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Belakang</label>
+                                    <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaLengkap">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Email" class="form-label">Email</label>

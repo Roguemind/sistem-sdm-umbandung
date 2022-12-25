@@ -400,8 +400,8 @@
                                 <div class="col-md-8 col-lg-9">
                                     <select name="inputJenisKelamin" class="form-select">
                                         <option selected disabled>....</option>
-                                        <option value="L" <?php echo ($pegawai->jenis_kelamin == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
-                                        <option value="P" <?php echo ($pegawai->jenis_kelamin == 'P' ? 'selected' : ''); ?>>Perempuan</option>
+                                        <option value="L" <?php echo ($akun['jenis_kelamin'] == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
+                                        <option value="P" <?php echo ($$akun['jenis_kelamin'] == 'P' ? 'selected' : ''); ?>>Perempuan</option>
                                     </select>
                                 </div>
                             </div>

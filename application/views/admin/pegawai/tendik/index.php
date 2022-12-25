@@ -151,7 +151,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '<?php echo base_url(); ?>admin/pegawai/delete/' + id,
+                    url: '<?php echo base_url(); ?>admin/tendik/delete/' + id,
                     type: 'DELETE',
                     error: function() {
                         console.log('Something is wrong');
@@ -162,7 +162,7 @@
                             text: data.text,
                             icon: 'success'
                         }).then(function() {
-                            window.location.href = '<?php echo base_url(); ?>admin/pegawai/';
+                            window.location.href = '<?php echo base_url(); ?>admin/tendik/';
                         });
                     }
                 });

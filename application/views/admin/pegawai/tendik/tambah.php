@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tambah Data Tenaga Kependidikan</h5>
-                        <form class="row g-3" method="POST" action="<?= base_url() ?>#">
+                        <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/store">
                             <div class="row g-2">
                                 <div class="col-md-4">
                                     <label for="inputNoPegawai" class="form-label">Nomor Pegawai</label>
@@ -42,9 +42,18 @@
                                         <option value="Prof.">Prof.</option>
                                     </select>
                                 </div> -->
-                                <div class="col-md-6">
-                                    <label for="inputNamaLengkap" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="inputNamaLengkap" id="inputNamaLengkap">
+                                <input type="hidden" name="inputJabatanPegawai" id="inputJabatanPegawai" value="Tendik">
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Depan</label>
+                                    <input type="text" class="form-control" name="inputNamaDepan" id="inputNamaLengkap">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Tengah</label>
+                                    <input type="text" class="form-control" name="inputNamaTengah" id="inputNamaLengkap">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputNamaLengkap" class="form-label">Nama Belakang</label>
+                                    <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaLengkap">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Email" class="form-label">Email</label>
@@ -119,22 +128,12 @@
                                 </div>
                             </div>
                             <div class="row g-2">
-                                <!-- <label for="" class="form-label">DOSEN</label><br> -->
-                                <!-- <div class="col-md-4">
-                                    <label for="inputFakultas" class="form-label">Fakultas</label>
-                                    <select name="inputFakultas" id="inputFakultas" class="form-select" style="width: 100%">
-                                        <option selected disabled>....</option>
-                                        <?php foreach ($fakultas as $fk) { ?>
-                                            <option value=<?= $fk['id_fakultas'] ?>><?= $fk['nama_fakultas'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div> -->
                                 <div class="col-md-4">
-                                    <label for="inputProgramStudi" class="form-label">Program Studi</label>
+                                    <label for="inputProgramStudi" class="form-label">Unit Kerja</label>
                                     <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <?php foreach ($prodi as $prd) :  ?>
-                                            <option value="<?= $prd['id_prodi'] ?>"><?= $prd['nama_prodi'] ?></option>
+                                        <?php foreach ($units as $unit) :  ?>
+                                            <option value="<?= $unit['id_unit'] ?>"><?= $unit['nama_unit'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -142,8 +141,8 @@
                                     <label for="inputJabatan" class="form-label">Jabatan</label>
                                     <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
                                         <option selected disabled>....</option>
-                                        <?php foreach ($jabdos as $jbtnds) { ?>
-                                            <option value=<?= $jbtnds['id_jabatan'] ?>><?= $jbtnds['nama_jabatan'] ?></option>
+                                        <?php foreach ($jabten as $jbtntd) { ?>
+                                            <option value=<?= $jbtntd['id_jabatan'] ?>><?= $jbtntd['nama_jabatan'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
