@@ -15,9 +15,9 @@ class model_login extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('account');
-        $this->db->join($role, $role . '.no_pegawai = account.no_pegawai');
+        $this->db->join($role, $role . '.id_pegawai = account.id_pegawai');
         $this->db->join('pegawai', 'pegawai.nik = ' . $role . '.nik');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $this->db->where('account.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query;
     }

@@ -5,7 +5,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->join('dosen', $this->table . '.no_pegawai = dosen.no_pegawai');
+        $this->db->join('dosen', $this->table . '.nik = dosen.nik');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $query = $this->db->get();
@@ -17,7 +17,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('account');
-        $this->db->join('dosen', 'dosen.no_pegawai = account.no_pegawai');
+        $this->db->join('dosen', 'dosen.id_pegawai = account.id_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
         $this->db->where('account.no_pegawai = ' . $account_uid);
@@ -29,9 +29,9 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($role, $role . '.no_pegawai = rekam_pendidikan.no_pegawai');
-        $this->db->join('account', 'account.no_pegawai = ' . $role . '.no_pegawai');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $this->db->join($role, $role . '.nik = rekam_pendidikan.nik');
+        $this->db->join('account', 'account.id_pegawai = ' . $role . '.id_pegawai');
+        $this->db->where('account.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -54,16 +54,16 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('aktivasi');
         $this->db->from('pengajuan_jad');
-        $this->db->join('dosen', 'dosen.no_pegawai = pengajuan_jad.id_dosen');
-        $this->db->join('account', 'account.no_pegawai = dosen.no_pegawai');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $this->db->join('dosen', 'dosen.nidn = pengajuan_jad.id_dosen');
+        $this->db->join('account', 'account.id_pegawai = dosen.id_pegawai');
+        $this->db->where('account.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query;
     }
 
     public function pengajuanJAD($account_uid)
     {
-        $this->db->set('no_pegawai', $account_uid);
+        $this->db->set('id_pegawai', $account_uid);
         $this->db->set('aktivasi', 0);
         return $this->db->insert('jad');
     }
@@ -78,7 +78,7 @@ class Model_dosen extends CI_Model
         $this->db->from('arsip_' . $role);
         $this->db->join($role, $role . '.id_prodi = arsip_' . $role . '.id_prodi');
         $this->db->join('prodi', 'prodi.id_prodi = arsip_dosen.id_prodi');
-        $this->db->join('account', 'account.no_pegawai =' . $role . '.no_pegawai');
+        $this->db->join('account', 'account.id_pegawai =' . $role . '.id_pegawai');
         $this->db->where('arsip_dosen.id_prodi = dosen.id_prodi');
         $query = $this->db->get();
         return $query->result_array();
@@ -88,7 +88,7 @@ class Model_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('pengajuan');
-        $this->db->join($file,$file . '.no_pegawai = pengajuan.no_pegawai');
+        $this->db->join($file,$file . '.id_pegawai = pengajuan.id_pegawai');
         $query = $this->db->get();
         return $query->result_array();
     }

@@ -5,11 +5,11 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('account');
-        $this->db->join('tendik', 'tendik.id_pegawai = account.no_pegawai');
-        $this->db->join('pegawai', 'pegawai.no_pegawai = tendik.no_pegawai');
+        $this->db->join('tendik', 'tendik.id_pegawai = account.id_pegawai');
+        $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
         $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $this->db->where('account.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -18,9 +18,9 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($role, $role . '.no_pegawai = rekam_pendidikan.no_pegawai');
-        $this->db->join('account', 'account.no_pegawai = ' . $role . '.no_pegawai');
-        $this->db->where('account.no_pegawai = ' . $account_uid);
+        $this->db->join($role, $role . '.nik = rekam_pendidikan.nik');
+        $this->db->join('account', 'account.id_pegawai = ' . $role . '.id_pegawai');
+        $this->db->where('account.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -56,7 +56,7 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('dosen');
-        $this->db->join('pegawai', 'pegawai.no_pegawai = dosen.no_pegawai');
+        $this->db->join('pegawai', 'pegawai.id_pegawai = dosen.id_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $query = $this->db->get();
         return $query->result_array();
@@ -66,7 +66,7 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('dosen');
-        $this->db->join('pegawai', 'pegawai.no-pegawai = dosen.no_pegawai');
+        $this->db->join('pegawai', 'pegawai.no-id_pegawai = dosen.id_pegawai');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
         $this->db->where('dosen.id_pegawai = ' . $uid);
@@ -80,7 +80,7 @@ class Model_admin extends CI_Model
         $this->db->from('dosen');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('fakultas', 'fakultas.id_fakultas = prodi.id_fakultas');
-        $this->db->where('dosen.no_pegawai = ' . $account_uid);
+        $this->db->where('dosen.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -90,7 +90,7 @@ class Model_admin extends CI_Model
         $this->db->select('*');
         $this->db->from('dosen');
         $this->db->join('jabatan', 'jabatan.id_jabatan = dosen.id_jabatan');
-        $this->db->where('dosen.no_pegawai = ' . $account_uid);
+        $this->db->where('dosen.id_pegawai = ' . $account_uid);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -103,7 +103,7 @@ class Model_admin extends CI_Model
     public function updateDosen($data, $uid)
     {
         $this->db->set($data);
-        $this->db->where('no_pegawai', $uid);
+        $this->db->where('nik', $uid);
         return $this->db->update('dosen');
     }
 
@@ -117,7 +117,7 @@ class Model_admin extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tendik');
-        $this->db->join('pegawai', 'pegawai.no_pegawai = tendik.no_pegawai');
+        $this->db->join('pegawai', 'pegawai.nik = tendik.nik');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
         $query = $this->db->get();
         return $query->result_array();

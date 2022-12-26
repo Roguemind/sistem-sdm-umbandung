@@ -113,7 +113,7 @@
                             }
                         ?>
                     </span>
-                </a><!-- End Profile Iamge Icon -->
+                </a><!-- End Profile Image Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">

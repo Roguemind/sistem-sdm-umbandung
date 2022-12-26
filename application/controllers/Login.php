@@ -29,7 +29,7 @@ class Login extends CI_Controller
             )->num_rows() > 0) {
                 $temp = $this->model_login->cekPassword($this->input->post('username'), $this->input->post('password'))->row_array();
                 $sesi = array(
-                    'session_id' => $temp['no_pegawai'],
+                    'session_id' => $temp['id_pegawai'],
                     'logged_in' => TRUE,
                     'role' => $temp['role'],
                 );
@@ -54,7 +54,7 @@ class Login extends CI_Controller
                 switch($temp['role']){
                     case 'dosen':
                         $sesi = array(
-                            'session_id' => $temp['no_pegawai'],
+                            'session_id' => $temp['id_pegawai'],
                             'logged_in' => TRUE,
                             'role' => $temp['role'],
                         );
@@ -63,7 +63,7 @@ class Login extends CI_Controller
 
                     case 'tendik':
                         $sesi = array(
-                            'session_id' => $temp['no_pegawai'],
+                            'session_id' => $temp['id_pegawai'],
                             'logged_in' => TRUE,
                             'role' => $temp['role'],
                         );
@@ -72,7 +72,7 @@ class Login extends CI_Controller
                             
                     case 'admin':
                         $sesi = array(
-                            'session_id' => $temp['no_pegawai'],
+                            'session_id' => $temp['id_pegawai'],
                             'logged_in' => TRUE,
                             'role' => $temp['role'],
                         );
@@ -81,7 +81,7 @@ class Login extends CI_Controller
 
                     case 'pimpinan':
                         $sesi = array(
-                            'session_id' => $temp['no_pegawai'],
+                            'session_id' => $temp['id_pegawai'],
                             'logged_in' => TRUE,
                             'role' => $temp['role'],
                         );

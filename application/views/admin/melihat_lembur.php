@@ -36,7 +36,7 @@
                                             <div><?= $list['id_lembur'] ?></div>
                                         </td>
                                         <td>
-                                            <div><?= $list['no_pegawai'] ?></div>
+                                            <div><?= $list['nik'] ?></div>
                                         </td>
                                         <td>
                                             <div><?= $list['jenis_pk'] ?></div>
