@@ -88,7 +88,7 @@ class Tendik extends CI_Controller
         } else {
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
+                
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => 'Prof.',
                 'nama_tengah' => $this->input->POST('inputNamaLengkap'),

@@ -36,23 +36,23 @@ class Model_pegawai extends CI_Model
 
     public function getProfilDosen($id){
         $this->db->select('*');
-        $this->db->from('dosen');
-        $this->db->join($this->table, $this->table.'. nik = dosen.nik');
+        $this->db->from('pegawai');
+        $this->db->join('dosen', 'dosen.nik = pegawai.nik');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
-        $this->db->where('dosen.id_pegawai = ' . $id);
+        $this->db->where('dosen.nik = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }
 
     public function getProfilTendik($id){
         $this->db->select('*');
-        $this->db->from('tendik');
-        $this->db->join($this->table, $this->table.'.no_pegawai = tendik.no_pegawai');
+        $this->db->from('pegawai');
+        $this->db->join('tendik', 'tendik.nik = pegawai.nik');
         $this->db->join('unit', 'unit.id_unit = tendik.id_unit');
         $this->db->join('jabatan_tendik', 'jabatan_tendik.id_jabatan = tendik.id_jabatan');
-        $this->db->where('tendik.id_pegawai = ' . $id);
+        $this->db->where('tendik.nik = ' . $id);
         $query = $this->db->get();
         return $query->row_array();
     }

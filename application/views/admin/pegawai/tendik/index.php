@@ -53,7 +53,7 @@
                                         <?php foreach ($listTendik as $tendik) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/tendik/<?= $tendik['no_pegawai']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/tendik/<?= $tendik['nik']; ?>">
                                                         <?php if ($tendik['nama_depan'] != NULL) {
                                                             echo $tendik['nama_depan'] . ' ';
                                                         }
@@ -65,8 +65,8 @@
                                                     </a></td>
                                                 <td><?= $tendik['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/edit/<?= $tendik['no_pegawai']; ?>"></a>
-                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $tendik['no_pegawai'] ?>)"></button>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/edit/<?= $tendik['nik']; ?>"></a>
+                                                    <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $tendik['nik'] ?>)"></button>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>

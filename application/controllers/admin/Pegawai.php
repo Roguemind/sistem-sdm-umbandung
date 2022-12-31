@@ -79,8 +79,8 @@ class Pegawai extends CI_Controller
     {
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -118,7 +118,7 @@ class Pegawai extends CI_Controller
             }
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
+                
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => 'Prof.',
                 'nama_depan' => $nama_dpn,
@@ -141,7 +141,8 @@ class Pegawai extends CI_Controller
             $this->Model_pegawai->savePegawai($dataPegawai);
             if ($this->input->post('inputJabatanPegawai') == 'Dosen'){
                 $dataDosen = array(
-                    'no_pegawai' => $this->input->post('inputNoPegawai'),
+                    'nik' => $this->input->POST('inputNik'),
+                    'id_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_prodi' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja')
@@ -150,7 +151,8 @@ class Pegawai extends CI_Controller
             }
             else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
                 $dataTendik = array(
-                    'no_pegawai' => $this->input->post('inputNoPegawai'),
+                    'nik' => $this->input->POST('inputNik'),
+                    'id_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_unit' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja')
@@ -187,8 +189,8 @@ class Pegawai extends CI_Controller
 
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -196,8 +198,8 @@ class Pegawai extends CI_Controller
         );
         
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -205,8 +207,8 @@ class Pegawai extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -214,8 +216,8 @@ class Pegawai extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',

@@ -62,8 +62,8 @@ class Dosen extends CI_Controller
     {
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -107,7 +107,7 @@ class Dosen extends CI_Controller
             $this->Model_pegawai->savePegawai($dataPegawai);
             if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
                 $dataDosen = array(
-                    'no_pegawai' => $this->input->post('inputNoPegawai'),
+                    'id_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_prodi' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja')
@@ -116,7 +116,7 @@ class Dosen extends CI_Controller
             } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
                 if ($this->input->post('inputUnitKerja') == 'Fakultas') {
                     $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
+                        'id_pegawai' => $this->input->post('inputNoPegawai'),
                         'id_unit' => $this->input->post('inputProgramStudi'),
                         'id_jabatan' => $this->input->post('inputJabatan'),
                         'status_kerja' => $this->input->post('inputStatusKerja')
@@ -124,7 +124,7 @@ class Dosen extends CI_Controller
                     $this->Model_pegawai->saveTendik($dataTendik);
                 } else if ($this->input->post('inputJabatanPegawai') == 'Unit') {
                     $dataTendik = array(
-                        'no_pegawai' => $this->input->post('inputNoPegawai'),
+                        'id_pegawai' => $this->input->post('inputNoPegawai'),
                         'id_fakultas' => $this->input->post('inputProgramStudi'),
                         'id_jabatan' => $this->input->post('inputJabatan'),
                         'status_kerja' => $this->input->post('inputStatusKerja')
@@ -158,8 +158,8 @@ class Dosen extends CI_Controller
 
         // Rules validasi
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -167,8 +167,8 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -176,8 +176,8 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -185,8 +185,8 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'no_pegawai',
+            'inputNik',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
