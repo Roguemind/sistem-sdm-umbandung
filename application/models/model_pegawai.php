@@ -28,7 +28,7 @@ class Model_pegawai extends CI_Model
     public function getRekamPendidikan($id){
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($this->table, $this->table.'.nik = rekam_pendidikan.nik');
+        $this->db->join('pegawai', $this->table.'.nik = rekam_pendidikan.nik');
         $this->db->where('rekam_pendidikan.nik ='. $id);
         $query = $this->db->get();
         return $query->result_array();

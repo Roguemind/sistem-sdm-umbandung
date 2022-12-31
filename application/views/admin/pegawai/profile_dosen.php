@@ -30,7 +30,12 @@
                                 echo $dosen['nama_belakang'];
                                 ?>
                             </h2>
-                            <h3 class=""> <?= $dosen['nama_jabatan']." ".$dosen['nama_unit']; ?>
+                            <h3 class=""> <?= $dosen['nama_jabatan'] ?>
+                                <?php if ($dosen['nama_jabatan'] == 'Dekan') {
+                                    echo 'Fakultas ' . $dosen['nama_unit'];
+                                } else {
+                                    echo $dosen['nama_prodi'];
+                                } ?>
                             </h3>
                         </div>
                     </div>
