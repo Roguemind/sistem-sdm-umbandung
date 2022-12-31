@@ -53,7 +53,7 @@
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['nik']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['id_pegawai']; ?>">
                                                         <?php if ($dosen['nama_depan'] != NULL) {
                                                             echo $dosen['nama_depan'] . ' ';
                                                         }

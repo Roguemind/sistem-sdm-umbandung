@@ -28,7 +28,7 @@ class Model_pegawai extends CI_Model
     public function getRekamPendidikan($id){
         $this->db->select('*');
         $this->db->from('rekam_pendidikan');
-        $this->db->join($this->table, $this->table.'.nik = rekam_pendidikan.nik');
+        $this->db->join('pegawai', $this->table.'.nik = rekam_pendidikan.nik');
         $this->db->where('rekam_pendidikan.nik ='. $id);
         $query = $this->db->get();
         return $query->result_array();
@@ -36,8 +36,8 @@ class Model_pegawai extends CI_Model
 
     public function getProfilDosen($id){
         $this->db->select('*');
-        $this->db->from('dosen');
-        $this->db->join($this->table, $this->table.'. nik = dosen.nik');
+        $this->db->from('pegawai');
+        $this->db->join('dosen','dosen.nik = pegawai.nik');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
         $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
