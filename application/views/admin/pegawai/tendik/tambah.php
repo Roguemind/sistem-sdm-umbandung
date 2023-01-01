@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="row g-2 mt-2">
                                         <div class="col-md-4">
-                                            <label for="inputJenisKelamin" class="form-label">jenis kelamin</label>
+                                            <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
                                             <select name="inputJenisKelamin" class="form-select" style="width: 100%">
                                                 <option selected disabled>....</option>
-                                                <option value="L">laki laki</option>
-                                                <option value="P">perempuan</option>
+                                                <option value="L">Laki - Laki</option>
+                                                <option value="P">Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
@@ -96,11 +96,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <label for="inputAgama" class="form-label">Kewarganegaraan</label>
-                                        <select name="inputAgama" class="form-select" style="width: 100%">
+                                        <label for="inputKewarganegaraan" class="form-label">Kewarganegaraan</label>
+                                        <select name="inputKewarganegaraan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
-                                            <option value="Islam">WNI</option>
-                                            <option value="Kristen">WNA</option>
+                                            <option value="WNI">WNI</option>
+                                            <option value="WNA">WNA</option>
                                         </select>
                                     </div>
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3">
@@ -125,7 +125,7 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <label for="Kontak" class="form-label">Kontak</label>
+                                            <label for="Kontak" class="form-label">Nomor Telepon/HP</label>
                                             <input type="text" class="form-control" name="inputKontak">
                                         </div>
                                     </div>
@@ -144,25 +144,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row ">
-                                        <h5 class="card-title ms-2">Bidang Keilmuan</h5>
-                                        <!-- <div class="col-lg-3 col-md-4 label fw-bold">Fakultas</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_unit']; ?></div> -->
-                                    </div>
-                                    <div class="row ">
-                                        <!-- <div class="col-lg-3 col-md-4 label fw-bold">Jabatan</div>
-                                        <div class="col-lg-9 col-md-8"><?= $akun['nama_jabatan']; ?></div> -->
-                                        <!-- <div class="d-md-flex justify-content-md-end mt-3">
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#bidangkeilmuan">
-                                            </button>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
@@ -179,28 +161,6 @@
                                             <input type="text" class="form-control" name="InputNamaWajibPajak">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="InputSINTAID" class="form-label">SINTA ID</label>
-                                            <input type="text" class="form-control" name="InputSINTAID">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="InputNPWP" class="form-label">Scopus ID</label>
-                                            <input type="text" class="form-control" name="InputScopusID">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="InputPublonsID" class="form-label">Publons ID</label>
-                                            <input type="text" class="form-control" name="InputPublonsID">
-                                        </div>
-                                        <!-- <div class="d-md-flex justify-content-md-end mt-3">
-                                            <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#lain-lain">
-                                            </button>
-                                        </div> -->
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -212,31 +172,31 @@
                                 <div class="row ">
                                     <h5 class="card-title ms-2">Keluarga</h5>
                                     <div class="col-md-6">
-                                        <label for="inputSetatusPernikahan" class="form-label">Status pernikahan</label>
-                                        <select name="inputSetatusPernikahan" class="form-select" style="width: 100%">
+                                        <label for="inputSetatusPernikahan" class="form-label">Status Pernikahan</label>
+                                        <select name="inputStatusPernikahan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Lajang">Lajang</option>
                                             <option value="Menikah">Menikah</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InputDokumenKerja" class="form-label">Nama Suami/Istri</label>
-                                        <input type="text" class="form-control" name="InputDokumenKerja">
+                                        <label for="InputDataPasangan" class="form-label">Nama Suami/Istri</label>
+                                        <input type="text" class="form-control" name="InputNamaPasangan">
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6">
-                                        <label for="inputAgama" class="form-label">Pekerjaan Suami/Istri</label>
-                                        <select name="inputAgama" class="form-select" style="width: 100%">
+                                        <label for="InputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
+                                        <select name="InputPekerjaanPasangan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
-                                            <option value="Islam">Wirausaha</option>
-                                            <option value="Kristen">Kantoran</option>
-                                            <option value="Budha">Buruh</option>
+                                            <option value="Wirausaha">Wirausahawan</option>
+                                            <option value="Pegawai Swasta">Pegawai Swasta</option>
+                                            <option value="Pengusaha">Pengusaha</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InputDokumenKerja" class="form-label">Jumlah Tanggungan</label>
-                                        <input type="text" class="form-control" name="InputDokumenKerja">
+                                        <label for="InputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
+                                        <input type="text" class="form-control" name="InputJumlahTanggungan">
                                     </div>
                                 </div>
                                 <div class="row ms-4">
@@ -258,8 +218,8 @@
                                             <input type="text" class="form-control" name="inputNoPegawai" id="inputNoPegawai">
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="inputProgramStudi" class="form-label">Unit Kerja</label>
-                                            <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
+                                            <label for="inputUnitKerja" class="form-label">Unit Kerja</label>
+                                            <select name="inputUnitKerja" id="inputUnitKerja" class="form-select" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <?php foreach ($units as $unit) :  ?>
                                                     <option value="<?= $unit['id_unit'] ?>"><?= $unit['nama_unit'] ?></option>
@@ -291,27 +251,27 @@
                                     <div class="row ">
                                         <div class="col">
                                             <label for="inputNoSKCalonPegawai" class="form-label">Nomor SK Calon Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputNoSKCalonPegawai">
+                                            <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai">
                                         </div>
                                         <div class="col">
                                             <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputTMTSKCalonPegawai">
+                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
                                         </div>
                                         <div class="col">
                                             <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputNoSKPegawaiTetap">
+                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col">
                                             <label for="inputGolongan" class="form-label">Pangkat/Golongan</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputGolongan">
+                                            <input type="text" class="form-control" name="inputGolongan" id="inputGolongan">
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col">
-                                            <label for="inputJabatanFungsional" class="form-label">Jabatan fungsional</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputJabatanFungsional">
+                                            <label for="inputJabatanFungsional" class="form-label">Jabatan Fungsional</label>
+                                            <input type="text" class="form-control" name="inputJabatanFungsional" id="inputJabatanFungsional">
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -329,72 +289,6 @@
                                             </button>
                                         </div> -->
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title ">Rekam Pendidikan</h5>
-                                    <div>
-                                        <div class="row mb-3">
-                                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Nama Institusi</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Program Studi</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Jenjang</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Tahun Lulus</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="namadpn" type="text" class="form-control" id="jabatan" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">Gelar</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="nidn" type="text" class="form-control" id="fakultas" value="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Bukti Ijazah</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="namadpn" type="file" class="form-control" id="jabatan" value="">
-                                            </div>
-                                        </div>
-                                        <!-- <div class="d-md-flex justify-content-md-end mt-3">
-                                            <button type="button" class="btn btn-primary bi bi-plus-circle " data-bs-toggle="modal" data-bs-target="#rekampendidikan">
-                                            </button>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title ms-2 ">Dokumen Kerja</h5>
-                                    <div class="m-2">
-                                        <label for="InputNamaDokumen" class="form-label">Nama Dokumen</label>
-                                        <input type="text" class="form-control" name="InputNamaDokumen">
-                                        <label for="InputDokumenKerja" class="form-label">Dokumen</label>
-                                        <input type="file" class="form-control" name="InputDokumenKerja">
-                                    </div>
-                                    <!-- <div class="d-md-flex justify-content-md-end mt-3">
-                                        <button type="button" class="btn btn-primary bi bi-plus-circle" data-bs-toggle="modal" data-bs-target="#dokumenkerja">
-                                        </button>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
