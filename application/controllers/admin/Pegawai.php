@@ -101,24 +101,24 @@ class Pegawai extends CI_Controller
             $this->load->view('_partials/script');
             $this->load->view('admin/pegawai/tambah', $data);
         } else {
-            if($this->input->post('inputNamaDepan') != NULL){
+            if ($this->input->post('inputNamaDepan') != NULL) {
                 $nama_dpn = $this->input->post('inputNamaDepan');
-            }else {
+            } else {
                 $nama_dpn = NULL;
             }
-            if($this->input->post('inputNamaTengah') != NULL){
+            if ($this->input->post('inputNamaTengah') != NULL) {
                 $nama_tgh = $this->input->post('inputNamaTengah');
-            }else {
+            } else {
                 $nama_tgh = NULL;
             }
-            if($this->input->post('inputNamaBelakang') != NULL){
+            if ($this->input->post('inputNamaBelakang') != NULL) {
                 $nama_blkg = $this->input->post('inputNamaBelakang');
-            }else {
+            } else {
                 $nama_blkg = NULL;
             }
             $dataPegawai = array(
                 // 'id_pegawai' => rand(10,1000),
-                
+
                 'nik' => $this->input->POST('inputNik'),
                 'gelar_depan' => 'Prof.',
                 'nama_depan' => $nama_dpn,
@@ -139,7 +139,7 @@ class Pegawai extends CI_Controller
 
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
-            if ($this->input->post('inputJabatanPegawai') == 'Dosen'){
+            if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
                 $dataDosen = array(
                     'nik' => $this->input->POST('inputNik'),
                     'id_pegawai' => $this->input->post('inputNoPegawai'),
@@ -148,8 +148,7 @@ class Pegawai extends CI_Controller
                     'status_kerja' => $this->input->post('inputStatusKerja')
                 );
                 $this->Model_pegawai->saveDosen($dataDosen);
-            }
-            else if ($this->input->post('inputJabatanPegawai') == 'Tendik'){
+            } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
                 $dataTendik = array(
                     'nik' => $this->input->POST('inputNik'),
                     'id_pegawai' => $this->input->post('inputNoPegawai'),
@@ -157,13 +156,13 @@ class Pegawai extends CI_Controller
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja')
                 );
-                 $this->Model_pegawai->saveTendik($dataTendik);
+                $this->Model_pegawai->saveTendik($dataTendik);
             }
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
-            if($this->input->post('inputJabatanPegawai') == 'Dosen'){
+            if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
                 redirect('admin/dosen');
-            }else if($this->input->post('inputJabatanPegawai') == 'Tendik'){
+            } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
                 redirect('admin/tendik');
             }
         }
@@ -196,7 +195,7 @@ class Pegawai extends CI_Controller
                 'required' => 'Wajib mengisi %s.',
             )
         );
-        
+
         $this->form_validation->set_rules(
             'inputNik',
             'nik',
@@ -267,9 +266,9 @@ class Pegawai extends CI_Controller
 
     public function delete($id)
     {
-        if($this->input->post('pilihDataTampil') == "dosen"){
+        if ($this->input->post('pilihDataTampil') == "dosen") {
             $this->Model_pegawai->deleteDosen($id);
-        } else if ($this->input->post('pilihDataTampil') == "tendik"){
+        } else if ($this->input->post('pilihDataTampil') == "tendik") {
             $this->Model_pegawai->deleteTendik($id);
         }
         $this->Model_pegawai->deletePegawai($id);
