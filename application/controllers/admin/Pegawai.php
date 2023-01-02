@@ -143,7 +143,7 @@ class Pegawai extends CI_Controller
                 'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
                 'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
                 'golongan_dan_panggkat_inpassing' => '-',
-                'status_kewarganegaraan' => 'inputKewarganegaraan',
+                'status_kewarganegaraan' => $this->input->POST('inputKewarganegaraan'),
             );
             $dataKeluarga = array(
                 'nik_pegawai' => $this->input->post('inputNik'),

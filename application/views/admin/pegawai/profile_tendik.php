@@ -94,8 +94,8 @@
                             <div class="col-lg-7 col-md-8"><?= $tendik['agama']; ?></div>
                         </div>
                         <div class="row ms-4">
-                            <div class="col-lg-5 col-md-4 label fw-bold ">Kenegaraan</div>
-                            <div class="col-lg-7 col-md-8">Indonesia</div>
+                            <div class="col-lg-5 col-md-4 label fw-bold ">Status Kewarganegaraan</div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['status_kewarganegaraan'];?></div>
                             <div class="d-md-flex justify-content-md-end mt-3">
                                 <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#kependudukan">
                                 </button>
