@@ -256,7 +256,7 @@
                                             <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai">
                                         </div>
                                         <div class="col">
-                                            <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
+                                            <label for="inputTMTSKCalonPegawai" class="form-label">Terhitung Masuk Tanggal</label>
                                             <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
                                         </div>
                                         <div class="col">

@@ -278,7 +278,7 @@
                                 <div class="col-lg-7 col-md-8"><?= $dosen['no_sk_calon_pegawai']; ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">TMT SK Calon Pegawai</div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Terhitung Tanggal Masuk</div>
                                 <div class="col-lg-7 col-md-8"><?= $dosen['tmt_calon_pegawai']; ?></div>
                             </div>
                             <div class="row ms-4">
