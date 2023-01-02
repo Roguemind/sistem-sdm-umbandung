@@ -53,6 +53,32 @@ class Fungsi extends CI_Controller
         $this->load->view('admin/tambah_sk', $data);
     }
 
+    // Fungsi melihat grafikdosen
+    public function grafikdosen()
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['title'] = 'Grafik Dosen';
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/grafik_dosen');
+    }
+
+    // Fungsi melihat grafikdosen
+    public function grafiktendik()
+    {
+        $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+        $data['title'] = 'Grafik Tendik';
+        $this->load->view('_partials/head', $data);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('_partials/footer');
+        $this->load->view('_partials/script');
+        $this->load->view('admin/grafik_tendik');
+    }
+
     public function aksiBerkas($role)
     {
         $no_sk = $this->input->POST('no_sk');
@@ -66,8 +92,8 @@ class Fungsi extends CI_Controller
             'id_unit' => $id_unit,
             'tipe_surat' => $tipe_surat
         );
-        $this->Model_admin->tambahBerkas($role,$dataBerkas);
-        redirect('admin/arsip/'.$role);
+        $this->Model_admin->tambahBerkas($role, $dataBerkas);
+        redirect('admin/arsip/' . $role);
     }
 
     public function uploadSurat($role)
@@ -546,17 +572,5 @@ class Fungsi extends CI_Controller
         );
         $this->Model_admin->simpanDatajad($aktivasi, $uid);
         redirect('admin/fungsi/tampilJad');
-    }
-
-    // Fungsi melihat unit
-    public function melihatUnit()
-    {
-        $this->load->view('melihat_unit');
-        $this->load->view('_partials/head');
-        $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
-        $this->load->view('_partials/footer');
-        $this->load->view('_partials/script');
-        $this->load->view('admin/melihat_cuti');
     }
 }
