@@ -34,7 +34,7 @@
                                 <?php if ($akun['nama_jabatan'] == 'Dekan') {
                                     echo 'Fakultas ' . $akun['nama_unit'];
                                 } else {
-                                    echo $akun['nama_prodi'];
+                                    echo $akun['nama_unit'];
                                 } ?>
                             </h3>
                         </div>
