@@ -5,8 +5,8 @@
             <h1>Data Pegawai</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url() ?>/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url() ?>admin/pegawai">Data Pegawai</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url() ?>admin">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url() ?>admin/dosen">Data Dosen</a></li>
                     <li class="breadcrumb-item active">Tambah Data Pegawai</li>
                 </ol>
             </nav>
@@ -16,9 +16,8 @@
 
         <!-- #main -->
         <section class="section profile">
-            <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/store">
+            <form class="row g-3" method="POST" action="<?= base_url() ?>admin/dosen/store">
                 <div>
-                    <input type="hidden" name="inputJabatanPegawai" value="Dosen">
                     <h3 class="fw-bold text-center">Tambah Data Dosen</h3>
                     <div class="card mb-3">
 
@@ -40,23 +39,35 @@
                                             <label for="inputNamaBelakang" class="form-label">Nama Belakang</label>
                                             <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaBelakang">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNamaBelakang') ?>
+                                        </div>
                                     </div>
                                     <div class="row g-2 mt-2">
                                         <div class="col-md-4">
                                             <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
                                             <select name="inputJenisKelamin" class="form-select" style="width: 100%">
                                                 <option selected disabled>....</option>
-                                                <option value="L">Laki-laki</option>
-                                                <option value="P">Perempuan</option>
+                                                <option value="Lk">Laki-laki</option>
+                                                <option value="Pr">Perempuan</option>
                                             </select>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputJenisKelamin') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputTempatLahir" class="form-label">Tempat lahir</label>
                                             <input type="text" class="form-control" name="inputTempatLahir" id="inputTempatLahir">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputTempatLahir') ?>
+                                        </div>
                                         <div class="col-md-4">
                                             <label for="inputTanggalLahir" class="form-label">Tanggal lahir</label>
                                             <input type="date" class="form-control" name="inputTanggalLahir" id="inputTanggalLahir">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputTanggalLahir') ?>
                                         </div>
                                     </div>
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3">
@@ -94,6 +105,9 @@
                                             <option value="Konghucu">Konghucu</option>
                                         </select>
                                     </div>
+                                    <div class="invalid-feedback">
+                                            <?php echo form_error('inputAgama') ?>
+                                        </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -103,6 +117,9 @@
                                             <option value="WNI">WNI</option>
                                             <option value="WNA">WNA</option>
                                         </select>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('inputKewarganegaraan') ?>
                                     </div>
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#kependudukan">
@@ -121,9 +138,11 @@
                                                 <label for="inputAlamat" class="form-label">Alamat</label>
                                                 <textarea type="text" class="form-control" name="inputAlamat" id="inputAlamat"></textarea>
                                             </div>
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('inputAlamat') ?>
+                                            </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col">
                                             <label for="Kontak" class="form-label">Nomor Telepon/HP</label>
@@ -133,7 +152,7 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <label for="Email" class="form-label">Email</label>
+                                            <label for="Email" class="form-label">Email Pribadi</label>
                                             <input type="text" class="form-control" name="inputEmail">
                                         </div>
                                         <!-- <div class="d-md-flex justify-content-md-end mt-3">
@@ -141,7 +160,6 @@
                                             </button>
                                         </div> -->
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -154,11 +172,17 @@
                                             <label for="inputNPWP" class="form-label">NPWP</label>
                                             <input type="text" class="form-control" name="inputNPWP">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNPWP') ?>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputNamaWajibPajak" class="form-label">Nama Wajib Pajak</label>
                                             <input type="text" class="form-control" name="inputNamaWajibPajak">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNamaWajibPajak') ?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -199,8 +223,12 @@
                                             <option selected disabled>....</option>
                                             <option value="Lajang">Lajang</option>
                                             <option value="Menikah">Menikah</option>
+                                            <option value="Duda/Janda">Duda/Janda</option>
                                         </select>
                                     </div>
+                                    <div class="invalid-feedback">
+                                            <?php echo form_error('inputNamaWajibPajak') ?>
+                                        </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri</label>
                                         <input type="text" class="form-control" name="inputNamaPasangan">
@@ -211,15 +239,22 @@
                                         <label for="inputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
                                         <select name="inputPekerjaanPasangan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
+                                            <option value="Tidak Bekerja">Tidak Bekerja</option>
                                             <option value="Wirausaha">Wirausaha</option>
                                             <option value="Kantoran">Kantoran</option>
                                             <option value="Buruh">Buruh</option>
                                         </select>
                                     </div>
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('inputPekerjaanPasangan') ?>
+                                    </div>
                                     <div class="col-md-6">
                                         <label for="inputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
                                         <input type="text" class="form-control" name="inputJumlahTanggungan">
                                     </div>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <?php echo form_error('inputJumlahTanggungan') ?>
                                 </div>
                                 <div class="row ">
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3 ">
@@ -239,6 +274,9 @@
                                             <label for="inputNoPegawai" class="form-label">Nomor Induk Pegawai</label>
                                             <input type="text" class="form-control" name="inputNoPegawai" id="inputNoPegawai">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNoPegawai') ?>
+                                        </div>
                                         <div class="col-md-6">
                                             <label for="inputProgramStudi" class="form-label">Program Studi</label>
                                             <select name="inputProgramStudi" id="inputProgramStudi" class="form-select" style="width: 100%">
@@ -247,6 +285,9 @@
                                                     <option value="<?= $prd['id_prodi'] ?>"><?= $prd['nama_prodi'] ?></option>
                                                 <?php endforeach; ?>
                                             </select>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputProgramStudi') ?>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -259,48 +300,38 @@
                                                 <option selected disabled>....</option>
                                                 <option value="Tetap">Tetap</option>
                                                 <option value="Kontrak">Kontrak</option>
-                                                <option value="Calon">Calon Tetap</option>
+                                                <option value="Calon Tetap">Calon Tetap</option>
                                             </select>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputStatusKerja') ?>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="inputStatusKeaktifan" class="form-label">Status Keaktifan</label>
-                                            <select class="inputStatusKeaktifan form-select" name="inputKeaktifan" style="width: 100%">
+                                            <label for="inputStatus" class="form-label">Status</label>
+                                            <select class="inputStatus form-select" name="inputStatus" style="width: 100%">
                                                 <option selected disabled>....</option>
-                                                <option value="Aktif">Aktif</option>
-                                                <option value="Tidak Aktif">Tidak AKtif</option>
+                                                <option value="y">Aktif</option>
+                                                <option value="n">Tidak AKtif</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="divTetap row">
-                                        <div class="col">
-                                            <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
-                                        </div>
-                                        <div class="col">
-                                            <label for="inputTMTSKCalonPegawai" class="form-label">Terhitung Masuk Tanggal</label>
-                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
-                                        </div>
-
-                                    </div>
-                                    <div class="divCalon row">
-                                        <div class="col">
-                                            <label for="inputNoSKCalonPegawai" class="form-label">Nomor SK Calon Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai">
-                                        </div>
-                                        <div class="col">
-                                            <label for="inputTMTSKCalonPegawai" class="form-label">Terhitung Masuk Tanggal</label>
-                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputStatus') ?>
                                         </div>
                                     </div>
-
-                                    <div class="divKontrak row">
+                                    <div class="row">
                                         <div class="col">
-                                            <label for="inputNoSKKontrakPegawai" class="form-label">Nomor SK Kontrak Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKKontrakPegawai">
+                                            <label for="inputNoSKPegawai" class="form-label">Nomber SK Pegawai</label>
+                                            <input type="text" class="form-control" name="inputNoSKPegawai" id="inputNoSKPegawai">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNoSKPegawai') ?>
                                         </div>
                                         <div class="col">
-                                            <label for="inputTMTSKCalonPegawai" class="form-label">Terhitung Masuk Tanggal</label>
-                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                            <label for="inputTMTSKPegawai" class="form-label">Terhitung Masuk Tanggal</label>
+                                            <input type="date" class="form-control" name="inputTMTSKPegawai" id="inputTMTSKPegawai">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputTMTSKPegawai') ?>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -311,7 +342,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col">
-                                            <label for="inputJabatanFungsional" class="form-label">Jabatan fungsional</label>
+                                            <label for="inputJabatanFungsional" class="form-label">Jabatan Fungsional</label>
                                             <input type="text" class="form-control" name="inputJabatanFungsional" id="inputJabatanFungsional">
                                         </div>
                                     </div>
@@ -320,10 +351,13 @@
                                             <label for="inputJabatan" class="form-label">Jabatan Struktural</label>
                                             <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
                                                 <option selected disabled>....</option>
-                                                <?php foreach ($jabdos as $jbtnds) { ?>
-                                                    <option value=<?= $jbtnds['id_jabatan'] ?>><?= $jbtnds['nama_jabatan'] ?></option>
+                                                <?php foreach ($jabdos as $jbds) { ?>
+                                                    <option value=<?= $jbds['id_jabatan'] ?>><?= $jbds['nama_jabatan'] ?></option>
                                                 <?php } ?>
                                             </select>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputJabatan') ?>
                                         </div>
                                         <!-- <div class="d-md-flex justify-content-md-end mt-3">
                                             <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">

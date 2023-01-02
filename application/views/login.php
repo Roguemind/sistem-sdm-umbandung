@@ -53,15 +53,15 @@
                           <div class="col-12 mt-0 pt-0">
                             <label for="yourUsername" class="form-label">Username</label>
                             <div class="input-group has-validation">
-                              <input type="text" name="username" class="form-control" id="yourUsername" placeholder="Enter your email or username" autofocus required>
-                              <div class="invalid-feedback">Please enter your username.</div>
+                              <input type="text" name="username" class="form-control" id="yourUsername" placeholder="Masukkan username anda" autofocus required>
+                              <div class="invalid-feedback">Silahkan masukkan username anda.</div>
                             </div>
                           </div>
                           <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
-                              <label class="form-label" for="password">Password</label>
+                              <label class="form-label" for="password">Kata Sandi</label>
                               <a href="auth-forgot-password-basic.html">
-                                <small>Forgot Password?</small>
+                                <small>Lupa Kata Sandi?</small>
                               </a>
                             </div>
                             <div class="input-group input-group-merge">

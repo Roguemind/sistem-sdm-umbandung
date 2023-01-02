@@ -58,9 +58,9 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold">Jenis Kelamin</div>
                                     <div class="col-lg-7 col-md-8">
-                                        <?php if ($tendik['jenis_kelamin'] == 'L') { ?>
+                                        <?php if ($tendik['jenis_kelamin'] == 'Lk') { ?>
                                             Laki - Laki
-                                        <?php } else if ($tendik['jenis_kelamin'] == 'P') { ?>
+                                        <?php } else if ($tendik['jenis_kelamin'] == 'Pr') { ?>
                                             Perempuan
                                         <?php } ?>
                                     </div>
@@ -134,25 +134,6 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row ms-4">
-                                <h5 class="card-title ms-2">Bidang Keilmuan</h5>
-                                <div class="col-lg-3 col-md-4 label fw-bold">Fakultas</div>
-                                <div class="col-lg-9 col-md-8"><?= $tendik['nama_unit']; ?></div>
-                            </div>
-                            <div class="row ms-4">
-                                <div class="col-lg-3 col-md-4 label fw-bold">Jabatan</div>
-                                <div class="col-lg-9 col-md-8"><?= $tendik['nama_jabatan']; ?></div>
-                                <div class="d-md-flex justify-content-md-end mt-3">
-                                    <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#bidangkeilmuan">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row ms-4">
                                 <h5 class="card-title ms-2">Lain-lain</h5>
                                 <div class="col-lg-5 col-md-4 label fw-bold ">NPWP</div>
                                 <div class="col-lg-7 col-md-8"><?= $tendik['npwp']; ?></div>
@@ -215,11 +196,11 @@
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Nama Suami/Istri</div>
-                            <div class="col-lg-7 col-md-8"><?= $keluarga['nama_anggota'] ?></div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['nama_pasangan']; ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Pekerja Suami/Istri (list)</div>
-                            <div class="col-lg-7 col-md-8"><?= $keluarga['pekerjaan'] ?></div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['pekerjaan_pasangan']; ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Jumlah Tanggungan</div>
@@ -245,36 +226,34 @@
                                 <div class="col-lg-7 col-md-8"><?= $tendik['id_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kepegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['status_kepegawaian'] ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kerja</div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['status_kerja'] ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Status Keaktifan</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['status_keaktifan'] ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Status</div>
+                                <div class="col-lg-7 col-md-8">
+                                    <?php if ($tendik['status'] == 'y') { ?>
+                                        Aktif
+                                    <?php } else{ ?>
+                                        Tidak Aktif
+                                    <?php } ?>
+                                </div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomor SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_calon_pegawai'] ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Nomor SK Pegawai</div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Terhitung Masuk Tanggal</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['tmt_calon_pegawai'] ?></div>
-                            </div>
-                            <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomor SK Pegawai Tetap</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_pegawai_tetap'] ?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['tmt_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Pangkat/Golongan</div>
                                 <div class="col-lg-7 col-md-8"><?= $tendik['golongan_dan_pangkat'] ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Jabatan fungsional</div>
-                                <div class="col-lg-7 col-md-8">-</div>
-                            </div>
-                            <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Jabatan Struktural</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['nama_jabatan'] ?></div>
                                 <div class="d-md-flex justify-content-md-end mt-3">
                                     <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">
                                     </button>

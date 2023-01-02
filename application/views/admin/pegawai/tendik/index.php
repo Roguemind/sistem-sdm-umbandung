@@ -10,7 +10,7 @@
             </ol>
         </nav>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="<?= base_url(); ?>admin/tendik/create" class="btn btn-primary">Tambah Pegawai</a>
+            <a href="<?= base_url(); ?>admin/tendik/store" class="btn btn-primary">Tambah Pegawai</a>
         </div>
     </div>
     <!-- End Page Title -->
@@ -68,7 +68,7 @@
                                                     </a></td>
                                                 <td><?= $tendik['nik'] ?></td>
                                                 <td><?= $tendik['nama_jabatan'] ?></td>
-                                                <td><?php if ($tendik['status_keaktifan'] == 'y') {
+                                                <td><?php if ($tendik['status'] == 'y') {
                                                         echo "<button class='btn btn-success'>Aktif</button>";
                                                     } else {
                                                         echo "<button class='btn btn-danger'>Tidak Aktif</button>";

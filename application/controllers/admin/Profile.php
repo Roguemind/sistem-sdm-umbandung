@@ -14,7 +14,7 @@ class Profile extends CI_Controller
     public function index()
     {
         $data['title'] = 'profile';
-        $data['akun'] = $this->Model_master->aksesDB('admin', '1');
+        $data['akun'] = $this->Model_master->aksesDB('admin', $this->session->userdata('session_id'));
         $data['rekpens'] = $this->Model_master->getRekamPendidikan('tendik', $this->session->userdata('session_id'));
         $this->load->view('_partials/head', $data);
         $this->load->view('admin/header', $data);

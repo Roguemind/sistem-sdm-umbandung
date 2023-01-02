@@ -154,11 +154,17 @@
                                             <label for="inputNPWP" class="form-label">NPWP</label>
                                             <input type="text" class="form-control" name="inputNPWP" value="<?= $dosen['npwp']; ?>">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNPWP') ?>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputNamaWajibPajak" class="form-label">Nama Wajib Pajak</label>
                                             <input type="text" class="form-control" name="inputNamaWajibPajak" value="<?= $dosen['nama_wajib_pajak']; ?>">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('inputNamaWajibPajak') ?>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -204,7 +210,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
-                                        <input type="text" class="form-control" name="inputNamaPasangan">
+                                        <input type="text" class="form-control" name="inputNamaPasangan" value="<?= $dosen['nama_pasangan']?>">
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -212,6 +218,7 @@
                                         <label for="inputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
                                         <select name="inputPekerjaanPasangan" class="form-select" style="width: 100%">
                                             <option disabled></option>
+                                            <option value="Tidak Bekerja">Tidak Bekerja</option>
                                             <option value="Wirausaha">Wirausahawan</option>
                                             <option value="Pegawai Swasta">Pegawai Swasta</option>
                                             <option value="Pengusaha">Pengusaha</option>
@@ -247,6 +254,9 @@
                                                         <option value="<?= $prd['id_prodi'] ?>"><?= $prd['nama_prodi'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('inputProgramStudi') ?>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row ">
@@ -262,58 +272,28 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="inputStatusKeaktifan" class="form-label">Status Keaktifan</label>
-                                                    <select class="inputStatusKeaktifan form-select" name="inputKeaktifan" value="<?= $dosen['status_keaktifan']; ?>" style="width: 100%">
-                                                        <option disabled value="<?= $dosen['status_keaktifan']; ?>"><?= $dosen['status_keaktifan'] ?></option>
+                                                    <select class="inputStatusKeaktifan form-select" name="inputKeaktifan" value="<?= $dosen['status']; ?>" style="width: 100%">
+                                                        <option disabled value="<?= $dosen['status']; ?>"><?= $dosen['status'] ?></option>
                                                         <option value="Aktif">Aktif</option>
                                                         <option value="Tidak Aktif">Tidak AKtif</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="divTetap row">
+                                            <div class="row">
                                                 <div class="col">
-                                                    <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                                    <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
+                                                    <label for="inputNoSKPegawai" class="form-label">Nomber SK Pegawai</label>
+                                                    <input type="text" class="form-control" name="inputNoSKPegawai" id="inputNoSKPegawai" value="<?= $dosen['no_sk_pegawai']; ?>">
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('inputNoSKPegawai') ?>
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                                    <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                                    <label for="inputTMTSKPegawai" class="form-label">TMT Pegawai</label>
+                                                    <input type="date" class="form-control" name="inputTMTSKPegawai" id="inputTMTSKPegawai" value="<?= $dosen['tmt_pegawai']; ?>">
                                                 </div>
-
-                                            </div>
-                                            <div class="divCalon row">
-                                                <div class="col">
-                                                    <label for="inputNoSKCalonPegawai" class="form-label">Nomor SK Calon Pegawai</label>
-                                                    <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai">
+                                                <div class="invalid-feedback">
+                                                    <?php echo form_error('inputTMTSKPegawai') ?>
                                                 </div>
-                                                <div class="col">
-                                                    <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                                    <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
-                                                </div>
-                                            </div>
-
-                                            <div class="divKontrak row">
-                                                <div class="col">
-                                                    <label for="inputNoSKKontrakPegawai" class="form-label">Nomor SK Kontrak Pegawai</label>
-                                                    <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKKontrakPegawai">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                                    <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="inputNoSKCalonPegawai" class="form-label">Nomor SK Calon Pegawai</label>
-                                                <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai" value="<?= $dosen['no_sk_calon_pegawai']; ?>">
-                                            </div>
-                                            <div class="col">
-                                                <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                                <input type="text" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai" value="<?= $dosen['tmt_calon_pegawai']; ?>">
-                                            </div>
-                                            <div class="col">
-                                                <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                                <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap" value="<?= $dosen['no_sk_pegawai_tetap']; ?>">
                                             </div>
                                         </div>
                                         <div class="row ">
@@ -337,6 +317,9 @@
                                                         <option value=<?= $jbtnds['id_jabatan'] ?>><?= $jbtnds['nama_jabatan'] ?></option>
                                                     <?php } ?>
                                                 </select>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                    <?php echo form_error('inputJabatan') ?>
                                             </div>
                                             <!-- <div class="d-md-flex justify-content-md-end mt-3">
                                             <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">

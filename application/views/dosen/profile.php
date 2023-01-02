@@ -63,9 +63,9 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold">Jenis Kelamin</div>
                                     <div class="col-lg-7 col-md-8">
-                                        <?php if ($akun['jenis_kelamin'] == 'L') { ?>
+                                        <?php if ($akun['jenis_kelamin'] == 'Lk') { ?>
                                             Laki - Laki
-                                        <?php } else if ($akun['jenis_kelamin'] == 'P') { ?>
+                                        <?php } else if ($akun['jenis_kelamin'] == 'Pr') { ?>
                                             Perempuan
                                         <?php } ?>
                                     </div>
@@ -160,23 +160,23 @@
                             <div class="row ms-4">
                                 <h5 class="card-title ms-2">Lain-lain</h5>
                                 <div class="col-lg-5 col-md-4 label fw-bold ">NPWP</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['npwp']?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold ">Nama Wajib Pajak</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['nama_wajib_pajak']?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold ">SINTA ID</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['id_sinta']?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold ">Scopus ID</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['id_scopus']?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold ">Publons ID</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['id_publons']?></div>
                                 <div class="d-md-flex justify-content-md-end mt-3">
                                     <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#lain-lain">
                                     </button>
@@ -232,19 +232,19 @@
                         <div class="row ms-4">
                             <h5 class="card-title ms-2">Keluarga</h5>
                             <div class="col-lg-5 col-md-4 label fw-bold ">Staus Perkawinan</div>
-                            <div class="col-lg-7 col-md-8">Menikah</div>
+                            <div class="col-lg-7 col-md-8"><?= $akun['status_pernikahan']?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Nama Suami/Istri</div>
-                            <div class="col-lg-7 col-md-8">Diana</div>
+                            <div class="col-lg-7 col-md-8"><?= $akun['nama_pasangan']?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Pekerja Suami/Istri (list)</div>
-                            <div class="col-lg-7 col-md-8">Kantoran</div>
+                            <div class="col-lg-7 col-md-8"><?= $akun['pekerjaan_pasangan']?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Jumlah Tanggungan</div>
-                            <div class="col-lg-7 col-md-8">2</div>
+                            <div class="col-lg-7 col-md-8"><?= $akun['jumlah_tanggungan']?></div>
                             <div class="d-md-flex justify-content-md-end mt-3 ">
                                 <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#keluarga">
                                 </button>
@@ -258,44 +258,40 @@
                         <div class="card-body">
                             <div class="row ms-4">
                                 <h5 class="card-title ms-2">Kepegawaian</h5>
-                                <div class="col-lg-5 col-md-4 label fw-bold">Unit Tendik</div>
-                                <div class="col-lg-7 col-md-8"><?= $akun['nama_unit']; ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Program Studi</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['nama_prodi']; ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">NIP</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">NIDN</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['nidn']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kepegawai</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kepegawaian</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['status_kerja']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Status Keaktifan</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Status</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['Status']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Pegawai</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['no_sk_pegawai']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">TMT SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">TMT SK Pegawai</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['tmt_pegawai']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Pegawai Tetap</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Pangkat/Golongan</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['golongan_dan_pangkat']?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Pangkat/Golonga</div>
-                                <div class="col-lg-7 col-md-8"></div>
-                            </div>
-                            <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Jabatan fungsional</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Jabatan Fungsional</div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['jad']?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Jabatan Struktural</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $akun['nama_jabatan']?></div>
                                 <div class="d-md-flex justify-content-md-end mt-3">
                                     <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">
                                     </button>

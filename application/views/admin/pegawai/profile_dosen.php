@@ -63,9 +63,9 @@
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold">Jenis Kelamin</div>
                                     <div class="col-lg-7 col-md-8">
-                                        <?php if ($dosen['jenis_kelamin'] == 'L') { ?>
+                                        <?php if ($dosen['jenis_kelamin'] == 'Lk') { ?>
                                             Laki - Laki
-                                        <?php } else if ($dosen['jenis_kelamin'] == 'P') { ?>
+                                        <?php } else if ($dosen['jenis_kelamin'] == 'Pr') { ?>
                                             Perempuan
                                         <?php } ?>
                                     </div>
@@ -132,25 +132,6 @@
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row ms-4">
-                                <h5 class="card-title ms-2">Bidang Keilmuan</h5>
-                                <div class="col-lg-3 col-md-4 label fw-bold">Fakultas</div>
-                                <div class="col-lg-9 col-md-8"><?= $dosen['nama_unit']; ?></div>
-                            </div>
-                            <div class="row ms-4">
-                                <div class="col-lg-3 col-md-4 label fw-bold">Jabatan</div>
-                                <div class="col-lg-9 col-md-8"><?= $dosen['nama_jabatan']; ?></div>
-                                <div class="d-md-flex justify-content-md-end mt-3">
-                                    <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#bidangkeilmuan">
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -236,11 +217,11 @@
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Nama Suami/Istri</div>
-                            <div class="col-lg-7 col-md-8">Diana</div>
+                            <div class="col-lg-7 col-md-8"><?= $dosen['nama_pasangan']; ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Pekerja Suami/Istri (list)</div>
-                            <div class="col-lg-7 col-md-8">Kantoran</div>
+                            <div class="col-lg-7 col-md-8"><?= $dosen['pekerjaan_pasangan']; ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Jumlah Tanggungan</div>
@@ -258,44 +239,50 @@
                         <div class="card-body">
                             <div class="row ms-4">
                                 <h5 class="card-title ms-2">Kepegawaian</h5>
-                                <div class="col-lg-5 col-md-4 label fw-bold">Unit dosen</div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Fakultas</div>
                                 <div class="col-lg-7 col-md-8"><?= $dosen['nama_unit']; ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">NIP</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['id_pegawai']; ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Program Studi</div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['nama_prodi']; ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kepegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['status_kepegawaian']; ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">NIDN</div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['nidn']; ?></div>
+                            </div>
+                            <div class="row ms-4">
+                                <div class="col-lg-5 col-md-4 label fw-bold">Status Kerja</div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['status_kerja']; ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Status Keaktifan</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['status_keaktifan']; ?></div>
+                                <div class="col-lg-7 col-md-8">
+                                    <?php if ($dosen['status'] == 'y') { ?>
+                                        Aktif
+                                    <?php } else{ ?>
+                                        Tidak Aktif
+                                    <?php } ?>
+                                </div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['no_sk_calon_pegawai']; ?></div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Pegawai</div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['no_sk_pegawai']; ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Terhitung Tanggal Masuk</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['tmt_calon_pegawai']; ?></div>
-                            </div>
-                            <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Nomber SK Pegawai Tetap</div>
-                                <div class="col-lg-7 col-md-8"><?= $dosen['no_sk_pegawai_tetap']; ?></div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['tmt_pegawai']; ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Pangkat/Golonga</div>
                                 <div class="col-lg-7 col-md-8"><?= $dosen['golongan_dan_pangkat']; ?></div>
                             </div>
                             <div class="row ms-4">
-                                <div class="col-lg-5 col-md-4 label fw-bold">Jabatan fungsional</div>
-                                <div class="col-lg-7 col-md-8">-</div>
+                                <div class="col-lg-5 col-md-4 label fw-bold">Jabatan Fungsional</div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['jad']; ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Jabatan Struktural</div>
-                                <div class="col-lg-7 col-md-8"></div>
+                                <div class="col-lg-7 col-md-8"><?= $dosen['nama_jabatan']; ?></div>
                                 <div class="d-md-flex justify-content-md-end mt-3">
                                     <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">
                                     </button>
