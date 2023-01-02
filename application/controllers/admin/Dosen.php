@@ -167,8 +167,8 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNik',
-            'nik',
+            'inputNamaDepan',
+            'nama_depan',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -176,8 +176,8 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNik',
-            'nik',
+            'inputNamaTengah',
+            'nama_tengah',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -185,14 +185,193 @@ class Dosen extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNik',
-            'nik',
+            'inputNamaBelakang',
+            'nama_belakang',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
             )
         );
 
+        $this->form_validation->set_rules(
+            'inputAlamat',
+            'alamat',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputTempatLahir',
+            'tempat_lahir',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputTanggalLahir',
+            'tanggal_lahir',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputAgama',
+            'agama',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputJenisKelamin',
+            'jenis_kelamin',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputEmail',
+            'email_pribadi',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputKontak',
+            'kontak',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputPendidikan',
+            'pendidikan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNoSKPegawai',
+            'no_sk_pegawai',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputTMTSKPegawai',
+            'tmt_pegawai',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNPWP',
+            'npwp',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNamaWajibPajak',
+            'nama_wajib_pajak',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputStatusPernikahan',
+            'status_pernikahan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputJumlahTanggungan',
+            'jumlah_tanggungan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputGolongan',
+            'golongan_dan_pangkat',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputKewarganegaraan',
+            'status_kewarganegaraan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNoPegawai',
+            'id_pegawai',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'InputProgramStudi',
+            'id_prodi',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputJabatan',
+            'id_jabatan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+        
+        $this->form_validation->set_rules(
+            'inputStatusKerja',
+            'status_kerja',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
