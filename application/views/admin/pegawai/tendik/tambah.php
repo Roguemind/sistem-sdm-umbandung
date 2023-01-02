@@ -18,6 +18,7 @@
         <section class="section profile">
             <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/store">
                 <div>
+                <input type="hidden" name="inputJabatanPegawai" value="Tendik">
                     <h3 class="fw-bold text-center">Tambah Data Tenaga Kependidikan</h3>
                     <div class="card mb-3">
 
