@@ -152,9 +152,9 @@ class Dosen extends CI_Controller
         $this->load->view('admin/pegawai/dosen/edit', $data);
     }
 
-    public function update()
+    public function update($uid)
     {
-        $nik = $this->input->POST('inputNoPegawai');
+        $nik = $this->input->POST('inputNik');
 
         // Rules validasi
         $this->form_validation->set_rules(
@@ -196,7 +196,10 @@ class Dosen extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-            $data['pegawai'] = $this->Model_pegawai->getPegawaiById($nik);
+            $data['dosen'] = $this->Model_pegawai->getProfilDosen($uid);
+            $data['keluarga'] = $this->Model_pegawai->getKeluargaPegawai($uid);
+            $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
+            $data['prodi'] = $this->Model_admin->getProdi();
             $data['title'] = 'pegawai';
 
             $this->load->view('_partials/head');
@@ -204,33 +207,49 @@ class Dosen extends CI_Controller
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
-            $this->load->view('admin/pegawai/editUp', $data);
+            $this->load->view('admin/dosen/edit', $data);
         } else {
-            $nik = $this->input->POST('inputNoPegawai');
+            $nik = $this->input->POST('inputNik');
             $dataPegawai = array(
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
-                'gelar_depan' => $this->input->POST('inputGelarDepan'),
-                'nama' => $this->input->POST('inputNamaLengkap'),
-                'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
+                'nama_depan' => $nama_dpn,
+                'nama_tengah' => $nama_tgh,
+                'nama_belakang' => $nama_blkg,
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
                 'agama' => $this->input->POST('inputAgama'),
                 'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
                 'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
-                'email' => $this->input->POST('inputEmail'),
+                'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
-                'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
-                'foto_peg' => $this->input->POST('inputfotoprofile'),
+                'no_sk_pegawai_tetap' => $this->input->POST('inputNoSKPegawaiTetap'),
+                'no_sk_calon_pegawai' => $this->input->POST('inputNoSKCalonPegawai'),
+                'tmt_calon_pegawai' => $this->input->POST('inputTMTSKCalonPegawai'),
+                'npwp' => $this->input->POST('inputNPWP'),
+                'nama_wajib_pajak' => $this->input->POST('inputNamaWajibPajak'),
+                'status_pernikahan' => $this->input->POST('inputStatusPernikahan'),
+                'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
+                'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
+                'golongan_dan_panggkat_inpassing' => '-',
+                'status_kewarganegaraan' => $this->input->POST('inputKewarganegaraan'),
+            );
+            $dataDosen = array(
+                'nik' => $this->input->POST('inputNik'),
+                'id_pegawai' => $this->input->post('inputNoPegawai'),
+                'id_prodi' => $this->input->post('inputProgramStudi'),
+                'id_jabatan' => $this->input->post('inputJabatan'),
+                'status_kerja' => $this->input->post('inputStatusKerja'),
+                'id_scopus' => $this->input->post('inputScopusID'),
+                'id_sinta' => $this->input->post('inputSINTAID'),
+                'id_publons' => $this->input->post('inputPublonsID'),
             );
             $this->Model_pegawai->editPegawai($nik, $dataPegawai);
-
+            $this->Model_pegawai->editDosen($nik, $dataDosen);
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil edit data');
-            redirect('admin/pegawai');
+            redirect('admin/pegawai/dosen/index');
         }
     }
 
