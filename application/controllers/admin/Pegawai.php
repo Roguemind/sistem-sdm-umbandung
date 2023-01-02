@@ -132,16 +132,15 @@ class Pegawai extends CI_Controller
                 'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'no_sk_pegawai_tetap' => $this->input->POST('inputNoSkPegawaiTetap'),
+                'no_sk_pegawai_tetap' => $this->input->POST('inputNoSKPegawaiTetap'),
                 'no_sk_calon_pegawai' => $this->input->POST('inputNoSKCalonPegawai'),
                 'tmt_calon_pegawai' => $this->input->POST('inputTMTSKCalonPegawai'),
                 'npwp' => $this->input->POST('inputNPWP'),
                 'nama_wajib_pajak' => $this->input->POST('inputNamaWajibPajak'),
                 'status_pernikahan' => $this->input->POST('inputStatusPernikahan'),
-                'InputDataPasangan' => $this->input->POST('inputInputDataPasangan'),
                 'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
                 'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
-                'golongan_dan_pangkat_inpassing' => '-',
+                'golongan_dan_panggkat_inpassing' => '-',
                 'status_kewarganegaraan' => 'inputKewarganegaraan',
             );
             $dataKeluarga = array(
@@ -175,7 +174,7 @@ class Pegawai extends CI_Controller
                 $dataTendik = array(
                     'nik' => $this->input->POST('inputNik'),
                     'id_pegawai' => $this->input->post('inputNoPegawai'),
-                    'id_unit' => $this->input->post('inputProgramStudi'),
+                    'id_unit' => $this->input->post('inputUnitKerja'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
                     'status_kerja' => $this->input->post('inputStatusKerja'),
                 );

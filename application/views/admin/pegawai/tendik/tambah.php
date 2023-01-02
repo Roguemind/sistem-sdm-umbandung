@@ -182,7 +182,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="inputDataPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
+                                        <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
                                         <input type="text" class="form-control" name="inputNamaPasangan">
                                     </div>
                                 </div>
