@@ -106,7 +106,7 @@ class Model_pegawai extends CI_Model
     }
 
     public function deleteAkun($id){
-        return $this->db->delete('akun', array("id_pegawai" => $id));
+        return $this->db->delete('akun', array("username" => $id));
     }
 
     public function getFakultas()
