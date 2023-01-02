@@ -15,6 +15,15 @@ class Model_pegawai extends CI_Model
         return $query->result_array();
     }
 
+    public function getKeluargaPegawai($id){
+        $this->db->select('*');
+        $this->db->from('keluarga_peg');
+        $this->db->join('pegawai', 'pegawai.nik = keluarga_peg.nik_pegawai');
+        $this->db->where('keluarga_peg.nik_pegawai = '.$id);
+        $query = $this->db->get();
+        $return = $query->result_array();
+    }
+
     public function getPegawaiTendik()
     {
         $this->db->select('*');
@@ -62,7 +71,7 @@ class Model_pegawai extends CI_Model
         return $this->db->insert($this->table, $data);
     }
 
-    public function saveKelurgaPegawai($data){
+    public function saveKeluargaPegawai($data){
         return $this->db->insert('keluarga_peg', $data);
     }
 

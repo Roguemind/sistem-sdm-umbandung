@@ -33,6 +33,7 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['dosen'] = $this->Model_pegawai->getProfilDosen($uid);
+        $data['keluarga'] = $this->Model_pegawai->getKeluargaPegawai($uid);
         $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
         $data['title'] = 'pegawai';
         $this->load->view('_partials/head', $data);
@@ -47,6 +48,7 @@ class Pegawai extends CI_Controller
     {
         $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
         $data['tendik'] = $this->Model_pegawai->getProfilTendik($uid);
+        $data['keluarga'] = $this->Model_pegawai->getKeluargaPegawai($uid);
         $data['units'] = $this->Model_admin->getUnit();
         $data['rekpens'] = $this->Model_pegawai->getRekamPendidikan($uid);
         $data['title'] = 'pegawai';
@@ -141,7 +143,7 @@ class Pegawai extends CI_Controller
                 'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
                 'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
                 'golongan_dan_panggkat_inpassing' => '-',
-                'status_kewarganegaraan' => 'inputKewarganegaraan',
+                'status_kewarganegaraan' => $this->input->POST('inputKewarganegaraan'),
             );
             $dataKeluarga = array(
                 'nik_pegawai' => $this->input->post('inputNik'),
@@ -151,6 +153,7 @@ class Pegawai extends CI_Controller
                 'pekerjaan' => $this->input->post('inputPekerjaanPasangan'),
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
+            $this->Model_pegawai->saveKeluargaPegawai($dataKeluarga);
             if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
                 $dataDosen = array(
                     'nik' => $this->input->POST('inputNik'),
@@ -169,7 +172,7 @@ class Pegawai extends CI_Controller
                     'id_pegawai' => $this->input->post('inputNoPegawai')
                 );
                 $this->Model_pegawai->saveDosen($dataDosen);
-                $this->Model_dosen->saveAkun($dataAkun);
+                $this->Model_pegawai->saveAkun($dataAkun);
             } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
                 $dataTendik = array(
                     'nik' => $this->input->POST('inputNik'),
