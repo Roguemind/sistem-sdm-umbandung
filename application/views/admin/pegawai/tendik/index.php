@@ -46,7 +46,7 @@
                                             <th scope="col">Nama</th>
                                             <th scope="col">NIK</th>
                                             <th scope="col">Jabatan</th>
-                                            <th scope="col">Keaktifan</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
