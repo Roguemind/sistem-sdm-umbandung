@@ -167,7 +167,7 @@ class Pegawai extends CI_Controller
                 );
                 $dataAkun = array(
                     'username' => $this->input->post('inputNik'),
-                    'password' => 'dosen',
+                    'password' => md5($this->input->post('inputNik')),
                     'role' => 'dosen',
                     'id_pegawai' => $this->input->post('inputNoPegawai')
                 );
@@ -183,7 +183,7 @@ class Pegawai extends CI_Controller
                 );
                 $dataAkun = array(
                     'username' => $this->input->post('inputNik'),
-                    'password' => 'tendik',
+                    'password' => md5($this->input->post('inputNik')),
                     'role' => 'tendik',
                     'id_pegawai' => $this->input->post('inputNoPegawai')
                 );
@@ -214,7 +214,7 @@ class Pegawai extends CI_Controller
         $this->load->view('admin/pegawai/edit', $data);
     }
 
-    public function update()
+    public function update($uid)
     {
         $nik = $this->input->POST('inputNoPegawai');
 
@@ -275,9 +275,9 @@ class Pegawai extends CI_Controller
             $nik = $this->input->POST('inputNik');
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
-                'nama_depan' => $nama_dpn,
-                'nama_tengah' => $nama_tgh,
-                'nama_belakang' => $nama_blkg,
+                'nama_depan' => $this->input->post('inputNamaDepan'),
+                'nama_tengah' => $this->input->post('inputNamaTengah'),
+                'nama_belakang' => $this->input->post('inputNamaBelakang'),
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),

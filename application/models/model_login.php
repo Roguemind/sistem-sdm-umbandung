@@ -8,8 +8,8 @@ class model_login extends CI_Model
 
     public function cekPassword($username, $password)
     {
-        return $this->db->get_where('account', array('username' => $username, 'password' => $password));
-    }   
+        return $this->db->get_where('account', array('username' => $username, 'password' => md5($password)));
+    }
 
     public function aksesDB($role, $account_uid)
     {
@@ -21,5 +21,4 @@ class model_login extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-
 }

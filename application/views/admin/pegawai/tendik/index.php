@@ -45,6 +45,7 @@
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">NIK</th>
+                                            <th scope="col">Jabatan</th>
                                             <th scope="col">Keaktifan</th>
                                             <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
@@ -66,6 +67,7 @@
                                                         ?>
                                                     </a></td>
                                                 <td><?= $tendik['nik'] ?></td>
+                                                <td><?= $tendik['nama_jabatan'] ?></td>
                                                 <td><?php if ($tendik['status_keaktifan'] == 'y') {
                                                         echo "<button class='btn btn-success'>Aktif</button>";
                                                     } else {
