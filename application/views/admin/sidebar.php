@@ -67,7 +67,7 @@
                 <i class="bx bx-file-blank"></i><span>Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="Pengajuan" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
+                <!-- <li>
                     <a href="">
                         <i class="bi bi-circle"></i><span>NIDN</span>
                     </a>
@@ -76,7 +76,7 @@
                     <a href="">
                         <i class="bi bi-circle"></i><span>NIP</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?= base_url(); ?>admin/fungsi/tampiljad">
                         <i class="bi bi-circle"></i><span>JAD</span>
@@ -92,9 +92,27 @@
                         <i class="bi bi-circle"></i><span>Lembur</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="">
                         <i class="bi bi-circle"></i><span>BPJS</span>
+                    </a>
+                </li> -->
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#grafik" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-bar-chart-line"></i><span>Grafik</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="grafik" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= base_url(); ?>admin/fungsi/grafikdosen">
+                        <i class="bi bi-circle"></i><span>Dosen</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url(); ?>admin/fungsi/grafiktendik">
+                        <i class="bi bi-circle"></i><span>Tendik</span>
                     </a>
                 </li>
             </ul>
