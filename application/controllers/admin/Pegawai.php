@@ -167,7 +167,7 @@ class Pegawai extends CI_Controller
                 );
                 $dataAkun = array(
                     'username' => $this->input->post('inputNik'),
-                    'password' => 'dosen',
+                    'password' => md5('dosen'),
                     'role' => 'dosen',
                     'id_pegawai' => $this->input->post('inputNoPegawai')
                 );

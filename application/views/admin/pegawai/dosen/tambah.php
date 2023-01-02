@@ -26,7 +26,7 @@
                             <div class="card-body">
 
                                 <div>
-                                    <h5 class="card-title">Ringkasan</h5>
+                                    <h5 class="card-title">Profil</h5>
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="inputNamaDepan" class="form-label">Nama Depan</label>
@@ -314,12 +314,12 @@
                                 </div>
                             </div>
                         </div>
-                <div class="row g-2">
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="reset" class="btn btn-secondary">Batal</button>
-                    </div>
-                </div>
+                        <div class="row g-2">
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="reset" class="btn btn-secondary">Batal</button>
+                            </div>
+                        </div>
             </form>
         </section>
     </main><!-- End #main -->

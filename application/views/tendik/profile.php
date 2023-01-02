@@ -42,7 +42,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <div>
-                                <h5 class="card-title">Ringkasan</h5>
+                                <h5 class="card-title">Profil</h5>
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold ">NIDN</div>
                                     <div class="col-lg-7 col-md-8"><?= $akun['id_pegawai']; ?></div>
@@ -352,7 +352,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Ringkasan</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Profil</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -454,7 +454,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Alamat dan Kontak</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Alamat dan Kontak</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -612,7 +612,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Kepegawaian</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kepegawaian</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

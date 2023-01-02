@@ -30,14 +30,14 @@
                                 echo $tendik['nama_belakang'];
                                 ?>
                             </h2>
-                            <h3 class=""> <?= $tendik['nama_jabatan']." ".$tendik['nama_unit']; ?>
+                            <h3 class=""> <?= $tendik['nama_jabatan'] . " " . $tendik['nama_unit']; ?>
                             </h3>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <div>
-                                <h5 class="card-title">Ringkasan</h5>
+                                <h5 class="card-title">Profil</h5>
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold ">NIDN</div>
                                     <div class="col-lg-7 col-md-8"><?= $tendik['id_pegawai']; ?></div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Status Kewarganegaraan</div>
-                            <div class="col-lg-7 col-md-8"><?= $tendik['status_kewarganegaraan'];?></div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['status_kewarganegaraan']; ?></div>
                             <div class="d-md-flex justify-content-md-end mt-3">
                                 <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#kependudukan">
                                 </button>
@@ -155,11 +155,11 @@
                             <div class="row ms-4">
                                 <h5 class="card-title ms-2">Lain-lain</h5>
                                 <div class="col-lg-5 col-md-4 label fw-bold ">NPWP</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['npwp'];?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['npwp']; ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold ">Nama Wajib Pajak</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['nama_wajib_pajak'];?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['nama_wajib_pajak']; ?></div>
                             </div>
                         </div>
                     </div>
@@ -211,19 +211,19 @@
                         <div class="row ms-4">
                             <h5 class="card-title ms-2">Keluarga</h5>
                             <div class="col-lg-5 col-md-4 label fw-bold ">Staus Perkawinan</div>
-                            <div class="col-lg-7 col-md-8"><?= $tendik['status_pernikahan']?></div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['status_pernikahan'] ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Nama Suami/Istri</div>
-                            <div class="col-lg-7 col-md-8"><?= $keluarga['nama_anggota']?></div>
+                            <div class="col-lg-7 col-md-8"><?= $keluarga['nama_anggota'] ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Pekerja Suami/Istri (list)</div>
-                            <div class="col-lg-7 col-md-8"><?= $keluarga['pekerjaan']?></div>
+                            <div class="col-lg-7 col-md-8"><?= $keluarga['pekerjaan'] ?></div>
                         </div>
                         <div class="row ms-4">
                             <div class="col-lg-5 col-md-4 label fw-bold ">Jumlah Tanggungan</div>
-                            <div class="col-lg-7 col-md-8"><?= $tendik['jumlah_tanggungan']?></div>
+                            <div class="col-lg-7 col-md-8"><?= $tendik['jumlah_tanggungan'] ?></div>
                             <div class="d-md-flex justify-content-md-end mt-3 ">
                                 <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#keluarga">
                                 </button>
@@ -242,31 +242,31 @@
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">NIP</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['id_pegawai']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['id_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Status Kepegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['status_kepegawaian']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['status_kepegawaian'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Status Keaktifan</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['status_keaktifan']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['status_keaktifan'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Nomor SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_calon_pegawai']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_calon_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">TMT SK Calon Pegawai</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['tmt_calon_pegawai']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['tmt_calon_pegawai'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Nomor SK Pegawai Tetap</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_pegawai_tetap']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['no_sk_pegawai_tetap'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Pangkat/Golongan</div>
-                                <div class="col-lg-7 col-md-8"><?= $tendik['golongan_dan_pangkat']?></div>
+                                <div class="col-lg-7 col-md-8"><?= $tendik['golongan_dan_pangkat'] ?></div>
                             </div>
                             <div class="row ms-4">
                                 <div class="col-lg-5 col-md-4 label fw-bold">Jabatan fungsional</div>
@@ -366,52 +366,52 @@
                             </div>
                         </div>
 
-                            <div class="row mb-3">
-                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Belakang</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $tendik['nama_belakang']; ?>">
-                                </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Belakang</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $tendik['nama_belakang']; ?>">
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputJenisKelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select name="inputJenisKelamin" class="form-select">
-                                        <option selected disabled>....</option>
-                                        <option value="L" <?php echo ($pegawai->jenis_kelamin == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
-                                        <option value="P" <?php echo ($pegawai->jenis_kelamin == 'P' ? 'selected' : ''); ?>>Perempuan</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputJenisKelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
+                            <div class="col-md-8 col-lg-9">
+                                <select name="inputJenisKelamin" class="form-select">
+                                    <option selected disabled>....</option>
+                                    <option value="L" <?php echo ($pegawai->jenis_kelamin == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
+                                    <option value="P" <?php echo ($pegawai->jenis_kelamin == 'P' ? 'selected' : ''); ?>>Perempuan</option>
+                                </select>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                        <button type="button" class="btn btn-primary">Ajukan</button>
-                    </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                    <button type="button" class="btn btn-primary">Ajukan</button>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="kependudukan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kependudukan</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="kependudukan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kependudukan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
+                        <div class="col-md-8 col-lg-9">
+                            <input name="nidn" type="text" class="form-control" id="nik" value="">
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="row mb-3">
-                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
-                            <div class="col-md-8 col-lg-9">
-                                <input name="nidn" type="text" class="form-control" id="nik" value="">
-                            </div>
+                    <div class="row mb-3">
+                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Agama</label>
+                        <div class="col-md-8 col-lg-9">
+                            <input name="namadpn" type="text" class="form-control" id="agama" value="">
                         </div>
-                        <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Agama</label>
-                            <div class="col-md-8 col-lg-9">
-                                <input name="namadpn" type="text" class="form-control" id="agama" value="">
-                            </div>
-                        </div>
+                    </div>
 
                     <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Kenegaraan</label>

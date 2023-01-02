@@ -42,7 +42,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <div>
-                                <h5 class="card-title">Ringkasan</h5>
+                                <h5 class="card-title">Profil</h5>
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 label fw-bold ">NIDN</div>
                                     <div class="col-lg-7 col-md-8"><?= $akun['id_pegawai']; ?></div>
@@ -352,7 +352,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Ringkasan</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Profil</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -387,52 +387,52 @@
                             </div>
                         </div>
 
-                            <div class="row mb-3">
-                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Belakang</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $akun['nama_belakang']; ?>">
-                                </div>
+                        <div class="row mb-3">
+                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama Belakang</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="namablkg" type="text" class="form-control" id="namablkg" value="<?= $akun['nama_belakang']; ?>">
                             </div>
-                            <div class="row mb-3">
-                                <label for="inputJenisKelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
-                                <div class="col-md-8 col-lg-9">
-                                    <select name="inputJenisKelamin" class="form-select">
-                                        <option selected disabled>....</option>
-                                        <option value="L" <?php echo ($pegawai->jenis_kelamin == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
-                                        <option value="P" <?php echo ($pegawai->jenis_kelamin == 'P' ? 'selected' : ''); ?>>Perempuan</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputJenisKelamin" class="col-md-4 col-lg-3 col-form-label">Jenis Kelamin</label>
+                            <div class="col-md-8 col-lg-9">
+                                <select name="inputJenisKelamin" class="form-select">
+                                    <option selected disabled>....</option>
+                                    <option value="L" <?php echo ($pegawai->jenis_kelamin == 'L' ? 'selected' : ''); ?>>Laki-laki</option>
+                                    <option value="P" <?php echo ($pegawai->jenis_kelamin == 'P' ? 'selected' : ''); ?>>Perempuan</option>
+                                </select>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                        <button type="button" class="btn btn-primary">Ajukan</button>
-                    </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                    <button type="button" class="btn btn-primary">Ajukan</button>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="kependudukan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kependudukan</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="kependudukan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kependudukan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
+                        <div class="col-md-8 col-lg-9">
+                            <input name="nidn" type="text" class="form-control" id="nik" value="">
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="row mb-3">
-                            <label for="nidn" class="col-md-4 col-lg-3 col-form-label">NIK</label>
-                            <div class="col-md-8 col-lg-9">
-                                <input name="nidn" type="text" class="form-control" id="nik" value="">
-                            </div>
+                    <div class="row mb-3">
+                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Agama</label>
+                        <div class="col-md-8 col-lg-9">
+                            <input name="namadpn" type="text" class="form-control" id="agama" value="">
                         </div>
-                        <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Agama</label>
-                            <div class="col-md-8 col-lg-9">
-                                <input name="namadpn" type="text" class="form-control" id="agama" value="">
-                            </div>
-                        </div>
+                    </div>
 
                     <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Kenegaraan</label>
@@ -454,7 +454,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Alamat dan Kontak</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Alamat dan Kontak</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -612,7 +612,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mengubah Kepegawaian</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Kepegawaian</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

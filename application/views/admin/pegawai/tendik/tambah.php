@@ -18,7 +18,7 @@
         <section class="section profile">
             <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/store">
                 <div>
-                <input type="hidden" name="inputJabatanPegawai" value="Tendik">
+                    <input type="hidden" name="inputJabatanPegawai" value="Tendik">
                     <h3 class="fw-bold text-center">Tambah Data Tenaga Kependidikan</h3>
                     <div class="card mb-3">
 
@@ -26,7 +26,7 @@
                             <div class="card-body">
 
                                 <div>
-                                    <h5 class="card-title">Ringkasan</h5>
+                                    <h5 class="card-title">Profil</h5>
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="inputNamaLengkap" class="form-label">Nama Depan</label>
