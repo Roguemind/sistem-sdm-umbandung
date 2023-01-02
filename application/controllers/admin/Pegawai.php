@@ -258,7 +258,11 @@ class Pegawai extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
-            $data['pegawai'] = $this->Model_pegawai->getPegawaiById($nik);
+            $data['dosen'] = $this->Model_pegawai->getProfilDosen($uid);
+            $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
+            $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
+            $data['prodi'] = $this->Model_admin->getProdi();
+            $data['unit'] = $this->Model_admin->getUnit();
             $data['title'] = 'pegawai';
 
             $this->load->view('_partials/head');
@@ -266,27 +270,33 @@ class Pegawai extends CI_Controller
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
-            $this->load->view('admin/pegawai/editUp', $data);
+            $this->load->view('admin/dosen/edit', $data);
         } else {
-            $nik = $this->input->POST('inputNoPegawai');
+            $nik = $this->input->POST('inputNik');
             $dataPegawai = array(
-                'no_pegawai' => $this->input->POST('inputNoPegawai'),
                 'nik' => $this->input->POST('inputNik'),
-                'gelar_depan' => $this->input->POST('inputGelarDepan'),
-                'nama' => $this->input->POST('inputNamaLengkap'),
-                'gelar_belakang' => $this->input->POST('inputGelarBelakang'),
+                'nama_depan' => $nama_dpn,
+                'nama_tengah' => $nama_tgh,
+                'nama_belakang' => $nama_blkg,
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
                 'agama' => $this->input->POST('inputAgama'),
                 'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
                 'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
-                'email' => $this->input->POST('inputEmail'),
+                'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
-                'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
-                'foto_peg' => $this->input->POST('inputfotoprofile'),
+                'no_sk_pegawai_tetap' => $this->input->POST('inputNoSKPegawaiTetap'),
+                'no_sk_calon_pegawai' => $this->input->POST('inputNoSKCalonPegawai'),
+                'tmt_calon_pegawai' => $this->input->POST('inputTMTSKCalonPegawai'),
+                'npwp' => $this->input->POST('inputNPWP'),
+                'nama_wajib_pajak' => $this->input->POST('inputNamaWajibPajak'),
+                'status_pernikahan' => $this->input->POST('inputStatusPernikahan'),
+                'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
+                'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
+                'golongan_dan_panggkat_inpassing' => '-',
+                'status_kewarganegaraan' => $this->input->POST('inputKewarganegaraan'),
             );
             $this->Model_pegawai->editPegawai($nik, $dataPegawai);
 
@@ -304,7 +314,7 @@ class Pegawai extends CI_Controller
             $this->Model_pegawai->deleteTendik($id);
         }
         $this->Model_pegawai->deletePegawai($id);
-
+        $this->Model_pegawai->deleteAkun($id);
         if ($this->Model_pegawai->deletePegawai($id) == TRUE) {
             return $this->output
                 ->set_content_type('application/json')

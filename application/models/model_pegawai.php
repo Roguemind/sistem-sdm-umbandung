@@ -99,6 +99,16 @@ class Model_pegawai extends CI_Model
         return $this->db->update($this->table, $data, array('nik' => $id));
     }
 
+    public function editDosen($id, $data)
+    {
+        return $this->db->update('dosen',$data, array('nik' => $id));
+    }
+
+    public function editTendik($data)
+    {
+        return $this->db->update('tendik',$data, array('nik' => $id));
+    }
+
     public function deletePegawai($id)
     {
         return $this->db->delete($this->table, array("nik" => $id));
@@ -137,11 +147,13 @@ class Model_pegawai extends CI_Model
         return $this->db->get('prodi')->result_array();
     }
 
-    public function getJabatanDosen(){
+    public function getJabatanDosen()
+    {
         return $this->db->get('jabatan_dosen')->result_array();
     }
 
-    public function getJabatanTendik(){
+    public function getJabatanTendik()
+    {
         return $this->db->get('jabatan_tendik')->result_array();
     }
 }

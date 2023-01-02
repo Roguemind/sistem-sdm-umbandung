@@ -73,7 +73,7 @@
                                                     } ?></td>
                                                 <td><?= $tendik['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/edit/<?= $tendik['nik']; ?>"></a>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/update/<?= $tendik['nik']; ?>"></a>
                                                     <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $tendik['nik'] ?>)"></button>
                                                 </td>
                                             </tr>
