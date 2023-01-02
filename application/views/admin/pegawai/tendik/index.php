@@ -44,6 +44,8 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">NIK</th>
+                                            <th scope="col">Keaktifan</th>
                                             <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
@@ -63,6 +65,12 @@
                                                         echo $tendik['nama_belakang'];
                                                         ?>
                                                     </a></td>
+                                                <td><?= $tendik['nik'] ?></td>
+                                                <td><?php if ($tendik['status_keaktifan'] == 'y') {
+                                                        echo "<button class='btn btn-success'>Aktif</button>";
+                                                    } else {
+                                                        echo "<button class='btn btn-danger'>Tidak Aktif</button>";
+                                                    } ?></td>
                                                 <td><?= $tendik['email_kampus']; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/edit/<?= $tendik['nik']; ?>"></a>
