@@ -132,7 +132,7 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <label for="Email" class="form-label">Email</label>
+                                            <label for="Email" class="form-label">Email Pribadi</label>
                                             <input type="text" class="form-control" name="inputEmail">
                                         </div>
                                         <!-- <div class="d-md-flex justify-content-md-end mt-3">
@@ -151,14 +151,14 @@
                                     <div class="row">
                                         <h5 class="card-title ms-2">Lain-lain</h5>
                                         <div class="col">
-                                            <label for="InputNPWP" class="form-label">NPWP</label>
-                                            <input type="text" class="form-control" name="InputNPWP">
+                                            <label for="inputNPWP" class="form-label">NPWP</label>
+                                            <input type="text" class="form-control" name="inputNPWP">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <label for="InputNamaWajibPajak" class="form-label">Nama Wajib Pajak</label>
-                                            <input type="text" class="form-control" name="InputNamaWajibPajak">
+                                            <label for="inputNamaWajibPajak" class="form-label">Nama Wajib Pajak</label>
+                                            <input type="text" class="form-control" name="inputNamaWajibPajak">
                                         </div>
                                     </div>
                                 </div>
@@ -172,22 +172,23 @@
                                 <div class="row ">
                                     <h5 class="card-title ms-2">Keluarga</h5>
                                     <div class="col-md-6">
-                                        <label for="inputSetatusPernikahan" class="form-label">Status Pernikahan</label>
+                                        <label for="inputStatusPernikahan" class="form-label">Status Pernikahan</label>
                                         <select name="inputStatusPernikahan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Lajang">Lajang</option>
                                             <option value="Menikah">Menikah</option>
+                                            <option value="Duda/Janda">Duda/Janda</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InputDataPasangan" class="form-label">Nama Suami/Istri</label>
-                                        <input type="text" class="form-control" name="InputNamaPasangan">
+                                        <label for="inputDataPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
+                                        <input type="text" class="form-control" name="inputNamaPasangan">
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6">
-                                        <label for="InputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
-                                        <select name="InputPekerjaanPasangan" class="form-select" style="width: 100%">
+                                        <label for="inputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
+                                        <select name="inputPekerjaanPasangan" class="form-select" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Wirausaha">Wirausahawan</option>
                                             <option value="Pegawai Swasta">Pegawai Swasta</option>
@@ -195,8 +196,8 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
-                                        <input type="text" class="form-control" name="InputJumlahTanggungan">
+                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
+                                        <input type="text" class="form-control" name="inputJumlahTanggungan">
                                     </div>
                                 </div>
                                 <div class="row ms-4">
@@ -243,8 +244,8 @@
                                             <label for="inputStatusKeaktifan" class="form-label">Status Keaktifan</label>
                                             <select class="inputStatusKeaktifan form-select" name="inputKeaktifan" style="width: 100%">
                                                 <option selected disabled>....</option>
-                                                <option value="Tetap">Aktif</option>
-                                                <option value="Kontrak">Tidak AKtif</option>
+                                                <option value="Aktif">Aktif</option>
+                                                <option value="Tidak Aktif">Tidak AKtif</option>
                                             </select>
                                         </div>
                                     </div>
@@ -258,7 +259,7 @@
                                             <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
                                         </div>
                                         <div class="col">
-                                            <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
+                                            <label for="inputNoSKPegawaiTetap" class="form-label">Nomor SK Pegawai Tetap</label>
                                             <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
                                         </div>
                                     </div>

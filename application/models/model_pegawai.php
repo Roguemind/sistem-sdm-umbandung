@@ -57,10 +57,13 @@ class Model_pegawai extends CI_Model
         return $query->row_array();
     }
 
-
     public function savePegawai($data)
     {
         return $this->db->insert($this->table, $data);
+    }
+
+    public function saveKelurgaPegawai($data){
+        return $this->db->insert('keluarga_peg', $data);
     }
 
     public function saveDosen($data)
@@ -71,6 +74,10 @@ class Model_pegawai extends CI_Model
     public function saveTendik($data)
     {
         return $this->db->insert('tendik', $data);
+    }
+
+    public function saveAkun($data){
+        return $this->db->insert('account', $data);
     }
 
     public function getPegawaiById($id)
@@ -96,6 +103,10 @@ class Model_pegawai extends CI_Model
     public function deleteTendik($id)
     {
         return $this->db->delete('tendik', array("nik" => $id));
+    }
+
+    public function deleteAkun($id){
+        return $this->db->delete('akun', array("id_pegawai" => $id));
     }
 
     public function getFakultas()

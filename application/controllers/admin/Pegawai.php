@@ -120,11 +120,9 @@ class Pegawai extends CI_Controller
                 // 'id_pegawai' => rand(10,1000),
 
                 'nik' => $this->input->POST('inputNik'),
-                'gelar_depan' => 'Prof.',
                 'nama_depan' => $nama_dpn,
                 'nama_tengah' => $nama_tgh,
                 'nama_belakang' => $nama_blkg,
-                'gelar_belakang' => 'M.Sc',
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
@@ -134,9 +132,24 @@ class Pegawai extends CI_Controller
                 'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
-                'no_sk_pegawai' => $this->input->POST('inputNoSkPegawai'),
-                'tmt_pegawai' => $this->input->POST('inputTmtPegawai'),
-
+                'no_sk_pegawai_tetap' => $this->input->POST('inputNoSkPegawaiTetap'),
+                'no_sk_calon_pegawai' => $this->input->POST('inputNoSKCalonPegawai'),
+                'tmt_calon_pegawai' => $this->input->POST('inputTMTSKCalonPegawai'),
+                'npwp' => $this->input->POST('inputNPWP'),
+                'nama_wajib_pajak' => $this->input->POST('inputNamaWajibPajak'),
+                'status_pernikahan' => $this->input->POST('inputStatusPernikahan'),
+                'InputDataPasangan' => $this->input->POST('inputInputDataPasangan'),
+                'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
+                'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
+                'golongan_dan_pangkat_inpassing' => '-',
+                'status_kewarganegaraan' => 'inputKewarganegaraan',
+            );
+            $dataKeluarga = array(
+                'nik_pegawai' => $this->input->post('inputNik'),
+                'nama_anggota' => $this->input->post('inputNamaPasangan'),
+                'hubungan' => 'Suami/Istri',
+                'nik_anggota' => '-',
+                'pekerjaan' => $this->input->post('inputPekerjaanPasangan'),
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
             if ($this->input->post('inputJabatanPegawai') == 'Dosen') {
@@ -145,18 +158,35 @@ class Pegawai extends CI_Controller
                     'id_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_prodi' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
-                    'status_kerja' => $this->input->post('inputStatusKerja')
+                    'status_kerja' => $this->input->post('inputStatusKerja'),
+                    'id_scopus' => $this->input->post('inputScopusID'),
+                    'id_sinta' => $this->input->post('inputSINTAID'),
+                    'id_publons' => $this->input->post('inputPublonsID'),
+                );
+                $dataAkun = array(
+                    'username' => $this->input->post('inputNik'),
+                    'password' => 'dosen',
+                    'role' => 'dosen',
+                    'id_pegawai' => $this->input->post('inputNoPegawai')
                 );
                 $this->Model_pegawai->saveDosen($dataDosen);
+                $this->Model_dosen->saveAkun($dataAkun);
             } else if ($this->input->post('inputJabatanPegawai') == 'Tendik') {
                 $dataTendik = array(
                     'nik' => $this->input->POST('inputNik'),
                     'id_pegawai' => $this->input->post('inputNoPegawai'),
                     'id_unit' => $this->input->post('inputProgramStudi'),
                     'id_jabatan' => $this->input->post('inputJabatan'),
-                    'status_kerja' => $this->input->post('inputStatusKerja')
+                    'status_kerja' => $this->input->post('inputStatusKerja'),
+                );
+                $dataAkun = array(
+                    'username' => $this->input->post('inputNik'),
+                    'password' => 'tendik',
+                    'role' => 'tendik',
+                    'id_pegawai' => $this->input->post('inputNoPegawai')
                 );
                 $this->Model_pegawai->saveTendik($dataTendik);
+                $this->Model_pegawai->saveAkun($dataAkun);
             }
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
