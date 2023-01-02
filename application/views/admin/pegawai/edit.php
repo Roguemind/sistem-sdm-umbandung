@@ -4,7 +4,7 @@
         <h1>Data Pegawai</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= base_url() ?>/">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url() ?>admin/pegawai">Data Pegawai</a></li>
                 <li class="breadcrumb-item active">Edit Data Pegawai</li>
             </ol>
@@ -21,11 +21,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Edit Data Pegawai</h5>
                         <form class="row g-3" method="POST" action="<?= base_url() ?>admin/pegawai/update">
-                            <input type="hidden" name="inputIdPegawai" value="<?php echo $pegawai->no_pegawai; ?>" readonly>
+                            <input type="hidden" name="inputIdPegawai" value="<?php echo $pegawai->id_pegawai; ?>" readonly>
                             <div class="row g-2">
                                 <div class="col-md-4">
                                     <label for="inputNoPegawai" class="form-label">Nomor Pegawai</label>
-                                    <input type="text" class="form-control" name="inputNoPegawai" id="inputNoPegawai" value="<?php echo $pegawai->no_pegawai; ?>" readonly>
+                                    <input type="text" class="form-control" name="inputNoPegawai" id="inputNoPegawai" value="<?php echo $pegawai->id_pegawai; ?>" readonly>
                                 </div>
                                 <div class="col-md-8">
                                     <label for="inputNik" class="form-label">No Induk Keluarga</label>

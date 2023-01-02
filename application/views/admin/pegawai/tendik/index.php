@@ -44,6 +44,9 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">NIK</th>
+                                            <th scope="col">Jabatan</th>
+                                            <th scope="col">Keaktifan</th>
                                             <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
@@ -63,9 +66,16 @@
                                                         echo $tendik['nama_belakang'];
                                                         ?>
                                                     </a></td>
+                                                <td><?= $tendik['nik'] ?></td>
+                                                <td><?= $tendik['nama_jabatan'] ?></td>
+                                                <td><?php if ($tendik['status_keaktifan'] == 'y') {
+                                                        echo "<button class='btn btn-success'>Aktif</button>";
+                                                    } else {
+                                                        echo "<button class='btn btn-danger'>Tidak Aktif</button>";
+                                                    } ?></td>
                                                 <td><?= $tendik['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/edit/<?= $tendik['nik']; ?>"></a>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/tendik/update/<?= $tendik['nik']; ?>"></a>
                                                     <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $tendik['nik'] ?>)"></button>
                                                 </td>
                                             </tr>

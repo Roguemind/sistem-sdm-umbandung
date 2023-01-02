@@ -44,6 +44,9 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">NIK</th>
+                                            <th scope="col">Jabatan</th>
+                                            <th scope="col">Keaktifan</th>
                                             <th scope="col">Email Kampus</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
@@ -63,6 +66,13 @@
                                                         echo $dosen['nama_belakang'];
                                                         ?>
                                                     </a></td>
+                                                <td><?= $dosen['nik'] ?></td>
+                                                <td><?= $dosen['nama_jabatan'] ?></td>
+                                                <td><?php if ($dosen['status_keaktifan'] == 'y') {
+                                                        echo "<button class='btn btn-success'>Aktif</button>";
+                                                    } else {
+                                                        echo "<button class='btn btn-danger'>Tidak Aktif</button>";
+                                                    } ?></td>
                                                 <td><?= $dosen['email_kampus']; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['nik']; ?>"></a>

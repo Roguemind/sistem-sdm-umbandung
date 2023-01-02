@@ -203,7 +203,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri</label>
-                                        <input type="text" class="form-control" name="inputDokumenKerja">
+                                        <input type="text" class="form-control" name="inputNamaPasangan">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -255,10 +255,11 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="inputStatusKerja" class="form-label">Status Kerja</label>
-                                            <select class="inputStatusKerja form-select" name="inputStatusKerja" style="width: 100%">
+                                            <select class="inputStatusKerja form-select" id="inputStatusKerja" name="inputStatusKerja" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <option value="Tetap">Tetap</option>
                                                 <option value="Kontrak">Kontrak</option>
+                                                <option value="Calon">Calon Tetap</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6">
@@ -270,18 +271,36 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="divTetap row">
+                                        <div class="col">
+                                            <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
+                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
+                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                        </div>
+
+                                    </div>
+                                    <div class="divCalon row">
                                         <div class="col">
                                             <label for="inputNoSKCalonPegawai" class="form-label">Nomor SK Calon Pegawai</label>
                                             <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKCalonPegawai">
                                         </div>
                                         <div class="col">
                                             <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
-                                            <input type="text" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
+                                        </div>
+                                    </div>
+
+                                    <div class="divKontrak row">
+                                        <div class="col">
+                                            <label for="inputNoSKKontrakPegawai" class="form-label">Nomor SK Kontrak Pegawai</label>
+                                            <input type="text" class="form-control" name="inputNoSKCalonPegawai" id="inputNoSKKontrakPegawai">
                                         </div>
                                         <div class="col">
-                                            <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap">
+                                            <label for="inputTMTSKCalonPegawai" class="form-label">TMT SK Calon Pegawai</label>
+                                            <input type="date" class="form-control" name="inputTMTSKCalonPegawai" id="inputTMTSKCalonPegawai">
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -328,4 +347,31 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>
 
-</html>
+<script type="text/javascript">
+    function hideDosenTendik() {
+        $('.divTetap').hide();
+        $('.divCalon').hide();
+        $('.divKontrak').hide();
+    }
+
+    $(document).ready(function() {
+        $('select').select2();
+        hideDosenTendik();
+
+        $('#inputStatusKerja').on('change', function() {
+            let tipePegawai = this.value;
+
+            hideDosenTendik();
+            if (tipePegawai === 'Tetap') {
+
+                $('.divTetap').show();
+            } else if (tipePegawai === 'Calon') {
+
+                $('.divCalon').show();
+            } else if (tipePegawai === 'Kontrak') {
+                $('.divKontrak').show();
+            }
+        })
+
+    });
+</script>
