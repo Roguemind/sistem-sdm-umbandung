@@ -275,7 +275,7 @@
                                     <div class="col-lg-7 col-md-8"></div>
                                 </div>
                                 <div class="row ms-4">
-                                    <div class="col-lg-5 col-md-4 label fw-bold">TMT SK Calon Pegawai</div>
+                                    <div class="col-lg-5 col-md-4 label fw-bold">Terhitung Masuk Tanggal</div>
                                     <div class="col-lg-7 col-md-8"></div>
                                 </div>
                                 <div class="row ms-4">
