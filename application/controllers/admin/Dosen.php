@@ -154,7 +154,7 @@ class Dosen extends CI_Controller
 
     public function update($uid)
     {
-        $nik = $this->input->POST('inputNik');
+        $nik = $uid;
 
         // Rules validasi
         $this->form_validation->set_rules(
@@ -207,14 +207,14 @@ class Dosen extends CI_Controller
             $this->load->view('admin/sidebar', $data);
             $this->load->view('_partials/footer');
             $this->load->view('_partials/script');
-            $this->load->view('admin/dosen/edit', $data);
+            $this->load->view('admin/pegawai/dosen/edit', $data);
         } else {
-            $nik = $this->input->POST('inputNik');
+            $nik = $uid;
             $dataPegawai = array(
                 'nik' => $this->input->POST('inputNik'),
-                'nama_depan' => $nama_dpn,
-                'nama_tengah' => $nama_tgh,
-                'nama_belakang' => $nama_blkg,
+                'nama_depan' => $this->input->POST('inputNamaDepan'),
+                'nama_tengah' => $this->input->POST('inputNamaTengah'),
+                'nama_belakang' => $this->input->POST('inputNamaBelakang'),
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
@@ -249,7 +249,7 @@ class Dosen extends CI_Controller
             $this->Model_pegawai->editDosen($nik, $dataDosen);
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil edit data');
-            redirect('admin/pegawai/dosen/index');
+            redirect('admin/dosen/');
         }
     }
 

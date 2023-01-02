@@ -16,7 +16,7 @@
 
         <!-- #main -->
         <section class="section profile">
-            <form class="row g-3" method="POST" action="<?= base_url() ?>admin/dosen/update">
+            <form class="row g-3" method="POST" action="<?= base_url();?>admin/dosen/update/<?= $dosen['nik'];?>">
                 <div>
                     <input type="hidden" name="inputJabatanPegawai" value="Dosen">
                     <h3 class="fw-bold text-center">Edit Data Dosen</h3>
@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputNamaBelakang" class="form-label">Nama Belakang</label>
-                                            <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaBelakang" value="<?= $dosen['belakang'];?>">
+                                            <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaBelakang" value="<?= $dosen['nama_belakang'];?>">
                                         </div>
                                     </div>
                                     <div class="row g-2 mt-2">
@@ -281,7 +281,7 @@
                                         </div>
                                         <div class="col">
                                             <label for="inputNoSKPegawaiTetap" class="form-label">Nomber SK Pegawai Tetap</label>
-                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap" value="<?= $dosen['no_sk_pegawa_tetap'];?>">
+                                            <input type="text" class="form-control" name="inputNoSKPegawaiTetap" id="inputNoSKPegawaiTetap" value="<?= $dosen['no_sk_pegawai_tetap'];?>">
                                         </div>
                                     </div>
                                     <div class="row ">

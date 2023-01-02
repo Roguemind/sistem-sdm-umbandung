@@ -56,7 +56,7 @@
                                         <?php foreach ($listDosen as $dosen) : ?>
                                             <tr>
                                                 <th scope="row"><?= $no++ . "." ?></th>
-                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['id_pegawai']; ?>">
+                                                <td><a href="<?= base_url(); ?>view/dosen/<?= $dosen['nik']; ?>">
                                                         <?php if ($dosen['nama_depan'] != NULL) {
                                                             echo $dosen['nama_depan'] . ' ';
                                                         }
@@ -75,7 +75,7 @@
                                                     } ?></td>
                                                 <td><?= $dosen['email_kampus']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/edit/<?= $dosen['nik']; ?>"></a>
+                                                    <a class="btn btn-primary bi bi-pencil-square" href="<?= base_url(); ?>admin/dosen/update/<?= $dosen['nik']; ?>"></a>
                                                     <button type="button" class="btn btn-danger bi bi-trash3" onclick="hapusPegawai(<?= $dosen['nik'] ?>)"></button>
                                                 </td>
                                             </tr>

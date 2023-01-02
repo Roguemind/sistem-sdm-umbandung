@@ -62,7 +62,7 @@ class Tendik extends CI_Controller
 
     public function update($uid)
     {
-        $nik = $this->input->POST('inputNik');
+        $nik = $uid;
 
         // Rules validasi
         $this->form_validation->set_rules(
@@ -122,7 +122,7 @@ class Tendik extends CI_Controller
                 'nik' => $this->input->POST('inputNik'),
                 'nama_depan' => $this->input->POST('inputNamaDepan'),
                 'nama_tengah' => $this->input->POST('inputNamaTengah'),
-                'nama_belakang' => $$this->input->POST('inputNamaBelakang'),
+                'nama_belakang' => $this->input->POST('inputNamaBelakang'),
                 'alamat' => $this->input->POST('inputAlamat'),
                 'tempat_lahir' => $this->input->POST('inputTempatLahir'),
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
@@ -155,7 +155,7 @@ class Tendik extends CI_Controller
             $this->Model_pegawai->editTendik($nik, $dataTendik);
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil edit data');
-            redirect('admin/pegawai/tendik/index');
+            redirect('admin/tendik/');
         }
     }
 

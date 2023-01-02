@@ -52,7 +52,7 @@ class Model_pegawai extends CI_Model
         $this->db->from('pegawai');
         $this->db->join('dosen', 'dosen.nik = pegawai.nik');
         $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi');
-        $this->db->join('unit', 'prodi.id_fakultas = unit.id_unit');
+        $this->db->join('unit', 'unit.id_unit = prodi.id_fakultas');
         $this->db->join('jabatan_dosen', 'jabatan_dosen.id_jabatan = dosen.id_jabatan');
         $this->db->where('dosen.nik = ' . $id);
         $query = $this->db->get();
