@@ -29,15 +29,15 @@
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="inputNamaDepan" class="form-label">Nama Depan</label>
-                                            <input type="text" class="form-control" name="inputNamaDepan" id="inputNamaDepan">
+                                            <input type="text" class="form-control <?php echo form_error('inputNamaDepan') ? 'is-invalid' : '' ?>" name="inputNamaDepan" id="inputNamaDepan">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputNamaTengah" class="form-label">Nama Tengah</label>
-                                            <input type="text" class="form-control" name="inputNamaTengah" id="inputNamaTengah">
+                                            <input type="text" class="form-control <?php echo form_error('inputNamaTengah') ? 'is-invalid' : '' ?>" name="inputNamaTengah" id="inputNamaTengah">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputNamaBelakang" class="form-label">Nama Belakang</label>
-                                            <input type="text" class="form-control" name="inputNamaBelakang" id="inputNamaLengkap">
+                                            <input type="text" class="form-control <?php echo form_error('inputNamaBelakang') ? 'is-invalid' : '' ?>" name="inputNamaBelakang" id="inputNamaLengkap">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNamaBelakang') ?>
@@ -46,7 +46,7 @@
                                     <div class="row g-2 mt-2">
                                         <div class="col-md-4">
                                             <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
-                                            <select name="inputJenisKelamin" class="form-select" style="width: 100%">
+                                            <select name="inputJenisKelamin" class="form-select <?php echo form_error('inputJenisKelamin') ? 'is-invalid' : '' ?>" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <option value="Lk">Laki - Laki</option>
                                                 <option value="Pr">Perempuan</option>
@@ -57,14 +57,14 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputTempatLahir" class="form-label">Tempat lahir</label>
-                                            <input type="text" class="form-control" name="inputTempatLahir" id="inputTempatLahir">
+                                            <input type="text" class="form-control <?php echo form_error('inputTempatLahir') ? 'is-invalid' : '' ?>" name="inputTempatLahir" id="inputTempatLahir">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputTempatLahir') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="inputTanggalLahir" class="form-label">Tanggal lahir</label>
-                                            <input type="date" class="form-control" name="inputTanggalLahir" id="inputTanggalLahir">
+                                            <input type="date" class="form-control <?php echo form_error('inputTanggalLahir') ? 'is-invalid' : '' ?>" name="inputTanggalLahir" id="inputTanggalLahir">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputTanggalLahir') ?>
@@ -86,7 +86,7 @@
                                 <div class="row">
                                     <h5 class="card-title ms-2">Kependudukan</h5>
                                     <div class="col">
-                                        <label for="inputNik" class="form-label">No Induk Keluarga</label>
+                                        <label for="inputNik" class="form-label">No Induk Kependudukan</label>
                                         <input type="text" class="form-control <?php echo form_error('inputNik') ? 'is-invalid' : '' ?>" name="inputNik" id="inputNik">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNik') ?>
@@ -96,7 +96,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="inputAgama" class="form-label">Agama</label>
-                                        <select name="inputAgama" class="form-select" style="width: 100%">
+                                        <select name="inputAgama" class="form-select <?php echo form_error('inputAgama') ? 'is-invalid' : '' ?>" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Islam">Islam</option>
                                             <option value="Kristen">Kristen</option>
@@ -106,21 +106,21 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputAgama') ?>
-                                        </div>
+                                        <?php echo form_error('inputAgama') ?>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <label for="inputKewarganegaraan" class="form-label">Kewarganegaraan</label>
-                                        <select name="inputKewarganegaraan" class="form-select" style="width: 100%">
+                                        <select name="inputKewarganegaraan" class="form-select <?php echo form_error('inputKewarganegaraan') ? 'is-invalid' : '' ?>" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="WNI">WNI</option>
                                             <option value="WNA">WNA</option>
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputKewarganegaraan') ?>
-                                        </div>
+                                        <?php echo form_error('inputKewarganegaraan') ?>
+                                    </div>
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3">
                                         <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#kependudukan">
                                         </button>
@@ -136,7 +136,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <label for="inputAlamat" class="form-label">Alamat</label>
-                                                <textarea type="text" class="form-control" name="inputAlamat" id="inputAlamat"></textarea>
+                                                <textarea type="text" class="form-control <?php echo form_error('inputAlamat') ? 'is-invalid' : '' ?>" name="inputAlamat" id="inputAlamat"></textarea>
                                             </div>
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('inputAlamat') ?>
@@ -147,14 +147,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputKontak" class="form-label">Nomor Telepon/HP</label>
-                                            <input type="text" class="form-control" name="inputKontak">
+                                            <input type="text" class="form-control <?php echo form_error('inputKontak') ? 'is-invalid' : '' ?>" name="inputKontak">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputEmail" class="form-label">Email Pribadi</label>
-                                            <input type="text" class="form-control" name="inputEmail">
+                                            <input type="text" class="form-control <?php echo form_error('inputEmail') ? 'is-invalid' : '' ?>" name="inputEmail">
                                         </div>
                                     </div>
 
@@ -169,7 +169,7 @@
                                         <h5 class="card-title ms-2">Lain-lain</h5>
                                         <div class="col">
                                             <label for="inputNPWP" class="form-label">NPWP</label>
-                                            <input type="text" class="form-control" name="inputNPWP">
+                                            <input type="text" class="form-control <?php echo form_error('inputNPWP') ? 'is-invalid' : '' ?>" name="inputNPWP">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNPWP') ?>
@@ -178,7 +178,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputNamaWajibPajak" class="form-label">Nama Wajib Pajak</label>
-                                            <input type="text" class="form-control" name="inputNamaWajibPajak">
+                                            <input type="text" class="form-control <?php echo form_error('inputNamaWajibPajak') ? 'is-invalid' : '' ?>" name="inputNamaWajibPajak">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNamaWajibPajak') ?>
@@ -196,7 +196,7 @@
                                     <h5 class="card-title ms-2">Keluarga</h5>
                                     <div class="col-md-6">
                                         <label for="inputStatusPernikahan" class="form-label">Status Pernikahan</label>
-                                        <select name="inputStatusPernikahan" class="form-select" style="width: 100%">
+                                        <select name="inputStatusPernikahan" class="form-select <?php echo form_error('inputStatusPernikahan') ? 'is-invalid' : '' ?>" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Lajang">Lajang</option>
                                             <option value="Menikah">Menikah</option>
@@ -204,17 +204,17 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputStatusPernikahan') ?>
-                                        </div>
+                                        <?php echo form_error('inputStatusPernikahan') ?>
+                                    </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
-                                        <input type="text" class="form-control" name="inputNamaPasangan">
+                                        <input type="text" class="form-control <?php echo form_error('inputNamaPasangan') ? 'is-invalid' : '' ?>" name="inputNamaPasangan">
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6">
                                         <label for="inputPekerjaanPasangan" class="form-label">Pekerjaan Suami/Istri</label>
-                                        <select name="inputPekerjaanPasangan" class="form-select" style="width: 100%">
+                                        <select name="inputPekerjaanPasangan" class="form-select <?php echo form_error('inputPekerjaanPasangan') ? 'is-invalid' : '' ?>" style="width: 100%">
                                             <option selected disabled>....</option>
                                             <option value="Wirausaha">Wirausahawan</option>
                                             <option value="Pegawai Swasta">Pegawai Swasta</option>
@@ -222,15 +222,15 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputPekerjaanPasangan') ?>
-                                        </div>
+                                        <?php echo form_error('inputPekerjaanPasangan') ?>
+                                    </div>
                                     <div class="col-md-6">
-                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
-                                        <input type="text" class="form-control" name="inputJumlahTanggungan">
+                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Anak</label>
+                                        <input type="text" class="form-control <?php echo form_error('inputJumlahTanggungan') ? 'is-invalid' : '' ?>" name="inputJumlahTanggungan">
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputJumlahTanggungan') ?>
-                                        </div>
+                                        <?php echo form_error('inputJumlahTanggungan') ?>
+                                    </div>
                                 </div>
                                 <div class="row ms-4">
                                     <!-- <div class="d-md-flex justify-content-md-end mt-3 ">
@@ -248,14 +248,14 @@
                                         <h5 class="card-title ms-2">Kepegawaian</h5>
                                         <div class="col-md-6">
                                             <label for="inputNoPegawai" class="form-label">Nomor Induk Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoPegawai" id="inputNoPegawai">
+                                            <input type="text" class="form-control <?php echo form_error('inputNoPegawai') ? 'is-invalid' : '' ?>" name="inputNoPegawai" id="inputNoPegawai">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNoPegawai') ?>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputUnitKerja" class="form-label">Unit Kerja</label>
-                                            <select name="inputUnitKerja" id="inputUnitKerja" class="form-select" style="width: 100%">
+                                            <select name="inputUnitKerja" id="inputUnitKerja" class="form-select <?php echo form_error('inputUnitKerja') ? 'is-invalid' : '' ?>" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <?php foreach ($units as $unit) :  ?>
                                                     <option value="<?= $unit['id_unit'] ?>"><?= $unit['nama_unit'] ?></option>
@@ -272,7 +272,7 @@
                                     <div class="row ">
                                         <div class="col-md-6">
                                             <label for="inputStatusKerja" class="form-label">Status Kerja</label>
-                                            <select class="inputStatusKerja form-select" id="inputStatusKerja" name="inputStatusKerja" style="width: 100%">
+                                            <select class="inputStatusKerja form-select <?php echo form_error('inputStatusKerja') ? 'is-invalid' : '' ?>" id="inputStatusKerja" name="inputStatusKerja" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <option value="Tetap">Tetap</option>
                                                 <option value="Kontrak">Kontrak</option>
@@ -284,7 +284,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputStatus" class="form-label">Status Keaktifan</label>
-                                            <select class="inputStatus form-select" name="inputStatus" style="width: 100%">
+                                            <select class="inputStatus form-select <?php echo form_error('inputStatus') ? 'is-invalid' : '' ?>" name="inputStatus" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <option value="y">Aktif</option>
                                                 <option value="n">Tidak AKtif</option>
@@ -297,14 +297,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="inputNoSKPegawai" class="form-label">Nomber SK Pegawai</label>
-                                            <input type="text" class="form-control" name="inputNoSKPegawai" id="inputNoSKPegawaiTetap">
+                                            <input type="text" class="form-control <?php echo form_error('inputNoSKPegawai') ? 'is-invalid' : '' ?>" name="inputNoSKPegawai" id="inputNoSKPegawaiTetap">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNoSKPegawai') ?>
                                         </div>
                                         <div class="col">
                                             <label for="inputTMTSKPegawai" class="form-label">TMT SK Pegawai</label>
-                                            <input type="date" class="form-control" name="inputTMTSKPegawai" id="inputTMTSKCalonPegawai">
+                                            <input type="date" class="form-control <?php echo form_error('inputTMTSKPegawai') ? 'is-invalid' : '' ?>" name="inputTMTSKPegawai" id="inputTMTSKCalonPegawai">
                                         </div>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputTMTSKPegawai') ?>
@@ -313,13 +313,13 @@
                                     <div class="row ">
                                         <div class="col">
                                             <label for="inputGolongan" class="form-label">Pangkat/Golongan</label>
-                                            <input type="text" class="form-control" name="inputGolongan" id="inputGolongan">
+                                            <input type="text" class="form-control <?php echo form_error('inputGolongan') ? 'is-invalid' : '' ?>" name="inputGolongan" id="inputGolongan">
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col">
                                             <label for="inputJabatan" class="form-label">Jabatan Struktural</label>
-                                            <select name="inputJabatan" id="inputJabatan" class="form-select" style="width: 100%">
+                                            <select name="inputJabatan" id="inputJabatan" class="form-select <?php echo form_error('inputJabatan') ? 'is-invalid' : '' ?>" style="width: 100%">
                                                 <option selected disabled>....</option>
                                                 <?php foreach ($jabten as $jbtntd) { ?>
                                                     <option value=<?= $jbtntd['id_jabatan'] ?>><?= $jbtntd['nama_jabatan'] ?></option>

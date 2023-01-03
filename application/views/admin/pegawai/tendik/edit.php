@@ -16,7 +16,7 @@
 
         <!-- #main -->
         <section class="section profile">
-        <?php echo validation_errors(); ?>
+            <?php echo validation_errors(); ?>
             <form class="row g-3" method="POST" action="<?= base_url(); ?>admin/tendik/update/<?= $tendik['nik']; ?>">
                 <div>
                     <input type="hidden" name="inputJabatanPegawai" value="Tendik">
@@ -27,7 +27,7 @@
                             <div class="card-body">
 
                                 <div>
-                                    <h5 class="card-title">Ringkasan</h5>
+                                    <h5 class="card-title">Profil</h5>
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="inputNamaDepan" class="form-label">Nama Depan</label>
@@ -88,7 +88,7 @@
                                 <div class="row">
                                     <h5 class="card-title ms-2">Kependudukan</h5>
                                     <div class="col">
-                                        <label for="inputNik" class="form-label">No Induk Keluarga</label>
+                                        <label for="inputNik" class="form-label">No Induk Kependudukan</label>
                                         <input type="text" class="form-control <?php echo form_error('inputNik') ? 'is-invalid' : '' ?>" name="inputNik" id="inputNik" value="<?= $tendik['nik']; ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNik') ?>
@@ -108,8 +108,8 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputAgama') ?>
-                                        </div>
+                                        <?php echo form_error('inputAgama') ?>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -210,11 +210,11 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputStatusPernikahan') ?>
-                                        </div>
+                                        <?php echo form_error('inputStatusPernikahan') ?>
+                                    </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
-                                        <input type="text" class="form-control" name="inputNamaPasangan" value="<?= $tendik['nama_pasangan']?>">
+                                        <input type="text" class="form-control" name="inputNamaPasangan" value="<?= $tendik['nama_pasangan'] ?>">
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -228,10 +228,10 @@
                                         </select>
                                     </div>
                                     <div class="invalid-feedback">
-                                            <?php echo form_error('inputPekerjaanPasangan') ?>
-                                        </div>
+                                        <?php echo form_error('inputPekerjaanPasangan') ?>
+                                    </div>
                                     <div class="col-md-6">
-                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
+                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Anak</label>
                                         <input type="text" class="form-control" name="inputJumlahTanggungan" value="<?= $tendik['jumlah_tanggungan']; ?>">
                                     </div>
                                     <div class="invalid-feedback">

@@ -38,7 +38,7 @@
                         <div class="dataTendik">
                             <h5 class="card-title">Data Tenaga Kependidikan</h5>
                             <div class="table-responsive">
-                                <!-- Table with hoverable rows -->
+                                <!-- Table with hoverable rows -->p
                                 <table class="table table-hover tabel-tendik" id="tabel-tendik" name="tabel-tendik">
                                     <thead>
                                         <tr>

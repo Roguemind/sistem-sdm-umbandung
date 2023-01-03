@@ -26,7 +26,7 @@
                             <div class="card-body">
 
                                 <div>
-                                    <h5 class="card-title">Ringkasan</h5>
+                                    <h5 class="card-title">Profil</h5>
                                     <div class="row g-2">
                                         <div class="col-md-4">
                                             <label for="inputNamaDepan" class="form-label">Nama Depan</label>
@@ -75,7 +75,7 @@
                                 <div class="row">
                                     <h5 class="card-title ms-2">Kependudukan</h5>
                                     <div class="col">
-                                        <label for="inputNik" class="form-label">No Induk Keluarga</label>
+                                        <label for="inputNik" class="form-label">No Induk Kependudukan</label>
                                         <input type="text" class="form-control <?php echo form_error('inputNik') ? 'is-invalid' : '' ?>" name="inputNik" id="inputNik" value="<?= $dosen['nik']; ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('inputNik') ?>
@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputNamaPasangan" class="form-label">Nama Suami/Istri (Kosongkan bila tidak ada)</label>
-                                        <input type="text" class="form-control" name="inputNamaPasangan" value="<?= $dosen['nama_pasangan']?>">
+                                        <input type="text" class="form-control" name="inputNamaPasangan" value="<?= $dosen['nama_pasangan'] ?>">
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -225,7 +225,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Tanggungan</label>
+                                        <label for="inputJumlahTanggungan" class="form-label">Jumlah Anak</label>
                                         <input type="text" class="form-control" name="inputJumlahTanggungan" value="<?= $dosen['jumlah_tanggungan']; ?>">
                                     </div>
                                     <div class="row ">
@@ -319,7 +319,7 @@
                                                 </select>
                                             </div>
                                             <div class="invalid-feedback">
-                                                    <?php echo form_error('inputJabatan') ?>
+                                                <?php echo form_error('inputJabatan') ?>
                                             </div>
                                             <!-- <div class="d-md-flex justify-content-md-end mt-3">
                                             <button type="button" class="btn btn-primary bi bi-pencil-square " data-bs-toggle="modal" data-bs-target="#kepegawaian">

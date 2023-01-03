@@ -7,8 +7,7 @@ class Tendik extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Model_admin');
-        $this->load->model('Model_dosen');
-
+        $this->load->model('Model_tendik');
         $this->load->model('Model_pegawai');
     }
 
@@ -110,15 +109,6 @@ class Tendik extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputKewarganegaraan',
-            'kewarganegaraan',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
             'inputAgama',
             'agama',
             'required',
@@ -207,15 +197,6 @@ class Tendik extends CI_Controller
                 'required' => 'Wajib mengisi %s.',
             )
         );
-        
-        $this->form_validation->set_rules(
-            'inputUnitKerja',
-            'unit kerja tendik',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
 
         $this->form_validation->set_rules(
             'inputStatusKerja',
@@ -263,8 +244,17 @@ class Tendik extends CI_Controller
         );
 
         $this->form_validation->set_rules(
+            'inputKewarganegaraan',
+            'kewarganegaraan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
             'inputJabatan',
-            'jabatan struktural dosen',
+            'jabatan struktural tendik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -273,8 +263,9 @@ class Tendik extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['akun'] = $this->Model_admin->aksesDB($this->session->userdata('session_id'));
+            $data['jabdos'] = $this->Model_pegawai->getJabatanDosen();
             $data['jabten'] = $this->Model_pegawai->getJabatanTendik();
-            $data['units'] = $this->Model_admin->getUnit();
+            $data['prodi'] = $this->Model_admin->getProdi();
             $data['title'] = 'pegawai';
 
             $this->load->view('_partials/head');
@@ -309,6 +300,7 @@ class Tendik extends CI_Controller
                 'tanggal_lahir' => $this->input->POST('inputTanggalLahir'),
                 'agama' => $this->input->POST('inputAgama'),
                 'jenis_kelamin' => $this->input->POST('inputJenisKelamin'),
+                'status_pernikahan' => $this->input->POST('inputSetatusPernikahan'),
                 'email_pribadi' => $this->input->POST('inputEmail'),
                 'kontak' => $this->input->POST('inputKontak'),
                 'pendidikan' => $this->input->POST('inputpendidikan'),
@@ -325,12 +317,16 @@ class Tendik extends CI_Controller
                 'status_kewarganegaraan' => $this->input->POST('inputKewarganegaraan'),
             );
             $this->Model_pegawai->savePegawai($dataPegawai);
-            $dataTendik = array(
+            $datatendik = array(
                 'nik' => $this->input->POST('inputNik'),
                 'id_pegawai' => $this->input->post('inputNoPegawai'),
-                'id_unit' => $this->input->post('inputUnitKerja'),
+                'id_prodi' => $this->input->post('inputProgramStudi'),
                 'id_jabatan' => $this->input->post('inputJabatan'),
                 'status_kerja' => $this->input->post('inputStatusKerja'),
+                'status' => $this->input->post('inputStatus'),
+                'id_scopus' => $this->input->post('inputScopusID'),
+                'id_sinta' => $this->input->post('inputSINTAID'),
+                'id_publons' => $this->input->post('inputPublonsID'),
             );
             $dataAkun = array(
                 'username' => $this->input->post('inputNik'),
@@ -338,7 +334,7 @@ class Tendik extends CI_Controller
                 'role' => 'tendik',
                 'id_pegawai' => $this->input->post('inputNoPegawai')
             );
-            $this->Model_pegawai->saveTendik($dataTendik);
+            $this->Model_pegawai->savetendik($datatendik);
             $this->Model_pegawai->saveAkun($dataAkun);
             // set flash data
             $this->session->set_flashdata('msg', 'Berhasil menambahkan data');
@@ -353,13 +349,30 @@ class Tendik extends CI_Controller
         // Rules validasi
         $this->form_validation->set_rules(
             'inputNik',
-            'NIK',
+            'nik',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
             )
         );
 
+        $this->form_validation->set_rules(
+            'inputNamaDepan',
+            'nama_depan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNamaTengah',
+            'nama_tengah',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
 
         $this->form_validation->set_rules(
             'inputNamaBelakang',
@@ -398,15 +411,6 @@ class Tendik extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputKewarganegaraan',
-            'kewarganegaraan',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
             'inputAgama',
             'agama',
             'required',
@@ -418,6 +422,33 @@ class Tendik extends CI_Controller
         $this->form_validation->set_rules(
             'inputJenisKelamin',
             'jenis_kelamin',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputEmail',
+            'email_pribadi',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputKontak',
+            'kontak',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputPendidikan',
+            'pendidikan',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -470,15 +501,6 @@ class Tendik extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputPekerjaanPasangan',
-            'pekerjaan pasangan/isi tidak bekerja bila lajang',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
             'inputJumlahTanggungan',
             'jumlah_tanggungan',
             'required',
@@ -488,62 +510,35 @@ class Tendik extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'nomor pegawai',
+            'inputGolongan',
+            'golongan_dan_pangkat',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
             )
         );
-        
+
+        $this->form_validation->set_rules(
+            'inputKewarganegaraan',
+            'status_kewarganegaraan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputNoPegawai',
+            'id_pegawai',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
         $this->form_validation->set_rules(
             'inputUnitKerja',
-            'unit kerja tendik',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
-            'inputStatusKerja',
-            'status pekerja',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
-            'inputStatus',
-            'status',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
-            'inputNoSKPegawai',
-            'nomor sk pegawai',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
-            'inputTMTSKPegawai',
-            'tmt pegawai',
-            'required',
-            array(
-                'required' => 'Wajib mengisi %s.',
-            )
-        );
-
-        $this->form_validation->set_rules(
-            'inputNoPegawai',
-            'nomor pegawai',
+            'id_unit',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -552,7 +547,16 @@ class Tendik extends CI_Controller
 
         $this->form_validation->set_rules(
             'inputJabatan',
-            'jabatan struktural dosen',
+            'id_jabatan',
+            'required',
+            array(
+                'required' => 'Wajib mengisi %s.',
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'inputStatusKerja',
+            'status_kerja',
             'required',
             array(
                 'required' => 'Wajib mengisi %s.',
@@ -594,8 +598,6 @@ class Tendik extends CI_Controller
                 'npwp' => $this->input->POST('inputNPWP'),
                 'nama_wajib_pajak' => $this->input->POST('inputNamaWajibPajak'),
                 'status_pernikahan' => $this->input->POST('inputStatusPernikahan'),
-                'nama_pasangan' => $this->input->POST('inputNamaPasangan'),
-                'pekerjaan_pasangan' => $this->input->POST('inputPekerjaanPasangan'),
                 'jumlah_tanggungan' => $this->input->POST('inputJumlahTanggungan'),
                 'golongan_dan_pangkat' => $this->input->POST('inputGolongan'),
                 'golongan_dan_panggkat_inpassing' => '-',
@@ -607,7 +609,7 @@ class Tendik extends CI_Controller
                 'id_pegawai' => $this->input->post('inputNoPegawai'),
                 'id_unit' => $this->input->post('inputUnitKerja'),
                 'id_jabatan' => $this->input->post('inputJabatan'),
-                'status' => $this->input->post('inputStatus'),
+                'jabfung' => $this->input->post('inputJabatanFungsional'),
                 'status_kerja' => $this->input->post('inputStatusKerja'),
             );
             $this->Model_pegawai->editPegawai($nik, $dataPegawai);

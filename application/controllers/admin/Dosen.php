@@ -179,7 +179,7 @@ class Dosen extends CI_Controller
                 'required' => 'Wajib mengisi %s.',
             )
         );
-        
+
         $this->form_validation->set_rules(
             'inputProgramStudi',
             'program studi dosen',
@@ -321,7 +321,7 @@ class Dosen extends CI_Controller
             );
             $dataAkun = array(
                 'username' => $this->input->post('inputNik'),
-                'password' => md5('dosen'),
+                'password' => md5($this->input->post('inputNik')),
                 'role' => 'dosen',
                 'id_pegawai' => $this->input->post('inputNoPegawai')
             );
@@ -504,7 +504,7 @@ class Dosen extends CI_Controller
                 'required' => 'Wajib mengisi %s.',
             )
         );
-        
+
         $this->form_validation->set_rules(
             'inputStatusKerja',
             'status_kerja',
